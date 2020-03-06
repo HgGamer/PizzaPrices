@@ -18,7 +18,7 @@ use Goutte\Client as GoutteClient;
  */
 class Scraper
 {
-    protected $client;
+    public $client;
  
     public $results = [];
  
@@ -37,9 +37,14 @@ class Scraper
         try {
             //Log::debug("trybe");
             $crawler = $this->client->request('GET', $linkObj->url);
- 
+
+            if ($linkObj->url == "http://www.pizzaguru.hu/etlap") {
+                $crawler = $this->client->click($crawler->selectLink('Hungarian')->link());
+            }
+            
             $translateExpre = $this->translateCSSExpression($linkObj->itemSchema->css_expression);
-            //Log::debug($translateExpre);
+
+
             if (isset($translateExpre['title'])) {
                 //Log::debug("issetbe");
                 $data = [];
