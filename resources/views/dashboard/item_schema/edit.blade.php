@@ -3,7 +3,7 @@
 @section('content')
  
 
-        <div class="col-md-8">
+        <div class="col-md-12">
             <h2>Update Item Schema #{{$itemSchema->id}}</h2>
  
             @if(session('error')!='')
@@ -41,6 +41,17 @@
                             <strong>Title:</strong>
  
                             <input type="text" name="title" value="{{ $itemSchema->title }}" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+ 
+                            <strong>Size:</strong>
+ 
+                            <input type="text" name="pizzaSize" value="{{ $itemSchema->pizza_size }}" class="form-control" />
                         </div>
                     </div>
                 </div>

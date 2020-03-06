@@ -99,8 +99,8 @@ class Scraper
                     //$data['size'][] = isset($data['size'][]) ? : $linkObj->itemSchema->pizza_size;
 
                 });
+
                 //Log::debug($data);
-                //dd($data);
                 $this->save($data);
  
                 $this->results = $data;

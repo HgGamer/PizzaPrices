@@ -18,6 +18,7 @@
                 <table class="table table-bordered">
                     <tr>
                         <td>Title</td>
+                        <td>Size</td>
                         <td>CSS Expression</td>
                         <td>Is Full Url To Pizza</td>
                         <td>Full content selector</td>
@@ -26,6 +27,7 @@
                     @foreach($itemSchemas as $item)
                         <tr>
                             <td>{{ $item->title }}</td>
+                            <td>{{ $item->pizza_size }}</td>
                             <td>{{ $item->css_expression }}</td>
                             <td>{{ $item->is_full_url==1?"Yes":"No" }}</td>
                             <td>{{ $item->full_content_selector }}</td>

@@ -47,7 +47,11 @@ class ItemSchemaController extends Controller
         $itemSchema = new ItemSchema;
  
         $itemSchema->title = $request->input('title');
- 
+
+        if($request->input('pizzaSize') != null) {
+            $itemSchema->pizza_size = $request->input('pizzaSize');
+        }
+        
         if($request->input('is_full_url') != null) {
  
             $itemSchema->is_full_url = 1;
@@ -104,6 +108,10 @@ class ItemSchemaController extends Controller
         $itemSchema = ItemSchema::find($id);
  
         $itemSchema->title = $request->input('title');
+
+        if($request->input('pizzaSize') != null) {
+            $itemSchema->pizza_size = $request->input('pizzaSize');
+        }
  
         if($request->input('is_full_url') != null) {
  
