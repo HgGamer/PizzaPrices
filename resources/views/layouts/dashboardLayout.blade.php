@@ -39,6 +39,9 @@
         <a class="nav-link" href="{{ url('dashboard/links') }}">Scraper</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="{{ url('dashboard/process') }}">Process</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard/item-schema') }}">Item schemas</a>
       </li>
       <li class="nav-item dropdown">
