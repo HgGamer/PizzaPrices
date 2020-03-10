@@ -72,7 +72,7 @@
                     <div class="col-xs-12 col-sm-12 col-md-12">
                         <div class="form-group">
  
-                            <strong>Is Full Url To Pizza/Partial Url:</strong>
+                            <strong>Is Full Url To Pizza Details?:</strong>
  
                             <input type="checkbox" name="is_full_url" value="1" {{ $itemSchema->is_full_url?"checked":"" }} />
                         </div>

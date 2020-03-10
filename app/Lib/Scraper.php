@@ -78,7 +78,7 @@ class Scraper
 
                                     }else{
                                         //itt megy át a detail page-re
-                                        //Sleep valamennyit
+                                        //TODO: - Sleep valamennyit
                                         $data['content'][] = $this->fetchFullContent($item_link, $linkObj->itemSchema->full_content_selector);
                                     }
                                 } else {
@@ -96,12 +96,10 @@ class Scraper
                         $data['sizeObj'] = isset($linkObj->itemSchema->pizza_size) ? $linkObj->itemSchema->pizza_size : "";
                     }
 
-                    //$data['size'][] = isset($data['size'][]) ? : $linkObj->itemSchema->pizza_size;
-
                 });
 
-                //Log::debug($data);
-                $this->save($data);
+                Log::debug($data);
+                //$this->save($data);
  
                 $this->results = $data;
             }
