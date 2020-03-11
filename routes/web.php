@@ -16,8 +16,16 @@ Route::get('/home', 'HomeController@index');
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
 
- 
+
 Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
+    Route::get('/api/process','ProcessRawController@processRaw');
+    Route::post('/api/process/newMaterial','ProcessRawController@newMaterial');
+    Route::post('/api/process/newMaterialAlias','ProcessRawController@newMaterialAlias');
+    Route::get('/process',function(){
+        return view('dashboard.pizza_process.index');
+    });
+    Route::get('/api/process/getmaterials','ProcessRawController@getmaterials');
+
 	Route::get('/', 'AdminController@index');
     Route::resource('/websites', 'WebsitesController');
     Route::resource('/categories', 'CategoriesController');

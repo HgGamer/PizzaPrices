@@ -3,17 +3,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
- 
+
     <title>Web Scraper</title>
- 
+
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    
+
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
 
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
- 
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
@@ -34,6 +34,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard/links') }}">Scraper</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url('dashboard/process') }}">Process</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard/item-schema') }}">Item schemas</a>
@@ -62,7 +65,7 @@
             </div>
         </div>
     </div>
- 
+
     @yield('script')
 </body>
 </html>
