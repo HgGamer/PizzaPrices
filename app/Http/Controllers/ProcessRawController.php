@@ -14,10 +14,10 @@ class ProcessRawController extends Controller
     protected $returnData = [];
     public function __construct()
     {
-       
+
         $this->middleware('auth');
     }
-    
+
     private function sliceContent($content){
         return array_map('trim',preg_split("/[,]+/", $content));
     }
@@ -29,7 +29,7 @@ class ProcessRawController extends Controller
             //dd($recept);
             if($recept != null){
                 //nem történt hiba, megvan a recept aliasok alapján és most megkeressük a pizzát a receptek táblában
-                
+
                 //nem találtunk olyan receptet ami telesen megegyezik ezzel,
                     //hiba, új pizzát találtunk, felvegyük ezt a listába?
                 // megtaláltuk, összehasonlítjuk a neveket
@@ -39,25 +39,19 @@ class ProcessRawController extends Controller
                 return;
             }
         }
-       
+
     }
 
     private function processMaterial($material){
-        
-       
         if(MaterialAlias::all()->where("name",$material)->count()== 0){
-
             $dat = (array("message" => "unknown material","data" => $material));
             array_push($this->returnData,$dat);
             // nem ismerjük a materialt
            return -1;
         }else{
-            //ismerjük a materialt
+            //ismerjük a materialtasdas sadasd
             return (MaterialAlias::all()->where("name",$material)->first()->material_id);
         }
-        
-        
-        
 
     }
     /**
@@ -89,11 +83,11 @@ class ProcessRawController extends Controller
         $sitedata = RawPizza::all()->where('website_id',$id);
         $this->processContent($sitedata);
         return $this->returnData;
-    
+
     }
 
     public function processPost(Request $request){
-        
+
 
     }
     public function getmaterials(Request $request){
@@ -119,7 +113,7 @@ class ProcessRawController extends Controller
         $alias->material_id = $newalias;
         $alias->name = $errordata;
         $alias->save();
-        
+
         return redirect('/dashboard/process');
     }
 }

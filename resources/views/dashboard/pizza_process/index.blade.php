@@ -1,35 +1,25 @@
 @extends('layouts.dashboardLayout')
- 
+
 @section('content')
- 
 
-        
+<div id="test"></div>
 
-        <div class="col-md-12">
-            <h2>Raw Data Process</h2>
-            <button class="btn btn-danger" onclick="importstuff()">Import</button>
+<div class="col-md-12">
 
-        </div>
-        
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel"></h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body" id="modalbody">
-                  
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-            </div>
-          </div>
+
+    <h2>Raw Data Process</h2>
+    <button class="btn btn-danger" onclick="importstuff()">Import</button>
+
+</div>
+
+
+
 <script>
+window.onload = function () {
+    new Vue({
+        el: '#test'
+    })
+}
 
 function unknownMaterial(data){
     let template = `
@@ -46,13 +36,13 @@ function unknownMaterial(data){
             {{ csrf_field() }}
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="submit" value="Hozzáadás új alapnyagnak">
-        </form> 
+        </form>
     `;
     document.getElementById('modalbody').innerHTML = template;
 
     axios.get('/dashboard/api/process/getmaterials')
     .then(function (response) {
-        
+
         response.data.forEach(element => {
             let option = document.createElement("option");
             option.text = element.name;
@@ -60,7 +50,7 @@ function unknownMaterial(data){
             document.getElementById('newalias').add(option);
         });
     })
-   
+
 }
 
 function showDialog(data){
@@ -68,7 +58,7 @@ function showDialog(data){
         unknownMaterial(data);
     }
     console.log(data);
-    $('#myModal').modal()  
+    $('#myModal').modal()
 }
 
 function importstuff(){
