@@ -7,14 +7,14 @@
 
 import "./bootstrap"
 import Vue from "vue"
-import ExampleComponent from "./components/ExampleComponent.vue"
+import ProcessComponent from "./components/ProcessComponent.vue"
 import router from "./router"
 import store from "./store"
 import axios from "axios"
 
 window.Vue = Vue;
 
-Vue.component('example', ExampleComponent)
+Vue.component('Process', ProcessComponent)
 window.onload = function () {
     new Vue({
         router,

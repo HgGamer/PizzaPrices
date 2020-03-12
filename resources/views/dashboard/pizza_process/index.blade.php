@@ -2,24 +2,24 @@
 
 @section('content')
 
-<div id="test"></div>
+
 
 <div class="col-md-12">
 
+    <div id="app">
+        <process></process>
 
-    <h2>Raw Data Process</h2>
-    <button class="btn btn-danger" onclick="importstuff()">Import</button>
+
+    </div>
+
+
 
 </div>
 
 
 
 <script>
-window.onload = function () {
-    new Vue({
-        el: '#test'
-    })
-}
+
 
 function unknownMaterial(data){
     let template = `
@@ -67,12 +67,6 @@ axios.get('/dashboard/api/process')
     showDialog(response.data[0]);
   })
 }
-
-
-
-
-
-
 </script>
 
 
