@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,13 +20,17 @@ Route::get('/category/{id}', 'HomeController@getCategory');
 
 Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::get('/api/process','ProcessRawController@processRaw');
+
     Route::post('/api/process/newMaterial','ProcessRawController@newMaterial');
     Route::post('/api/process/newMaterialAlias','ProcessRawController@newMaterialAlias');
+    Route::get('/api/process/getmaterials','ProcessRawController@getmaterials');
+    Route::get('/api/process/getpizzas', 'ProcessRawController@getpizzas');
+    Route::post('/api/process/newPizza', 'ProcessRawController@newPizza');
+
+
     Route::get('/process',function(){
         return view('dashboard.pizza_process.index');
     });
-    Route::get('/api/process/getmaterials','ProcessRawController@getmaterials');
-
 	Route::get('/', 'AdminController@index');
     Route::resource('/websites', 'WebsitesController');
     Route::resource('/categories', 'CategoriesController');

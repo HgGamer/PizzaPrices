@@ -1,7 +1,18 @@
 <template>
     <div>
-        <h2>Raw Data Process</h2>
-        <button class="btn btn-danger" onclick="importstuff()">Import</button>
+        <br>
+
+        <h2>New Material</h2>
+
+        <div>
+            <form v-on:submit.prevent="postNewMaterial">
+            <input type="text" id="AliasMakerinput">
+            <button @click="postNewMaterial" class="btn btn-danger">Add</button>
+            </form>
+        </div>
+
+
+
     </div>
 </template>
 
@@ -16,6 +27,19 @@ export default class Process extends Vue {
     return {
       msg: 'Hello'
     }
+  }
+  public postNewMaterial(): void {
+    let data = (<HTMLInputElement>document.getElementById('AliasMakerinput')!).value;
+    (<HTMLInputElement>document.getElementById('AliasMakerinput')!).value = "";
+
+    axios.post('api/process/newMaterial', {
+        errordata: data,
+    })
+    .then(function (response) {
+
+        console.log(response);
+    })
+
   }
 }
 </script>
