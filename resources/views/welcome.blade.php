@@ -67,6 +67,7 @@
     <body>
         <div class="flex-center position-ref full-height">
             <div class="content">
+                <div id="app"></div>
                 <div class="title m-b-md">
                     PizzaPrices demo
                 </div>
