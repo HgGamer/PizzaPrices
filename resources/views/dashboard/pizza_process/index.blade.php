@@ -110,6 +110,9 @@ function unknownMaterial(data){
 }
 
 function showDialog(data){
+    if(data == undefined){
+        alert("we are done");
+    }
     if(data.message == "unknown material"){
         unknownMaterial(data);
     }

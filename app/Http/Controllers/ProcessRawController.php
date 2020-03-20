@@ -9,8 +9,10 @@ use App\Pizza;
 use App\PizzaAlias;
 use App\PizzaType;
 use App\RawPizza;
+use App\Log;
+use App\StoreData;
 use Illuminate\Http\Request;
-
+use Exception;
 class ProcessRawController extends Controller
 {
 
@@ -23,19 +25,21 @@ class ProcessRawController extends Controller
     private function sliceContent($content){
 
         if( $this->regexp == null){
+            dd('NO REGEXP');
             return null;
+
         }
         return array_map('trim',preg_split( $this->regexp, $content));
     }
 
-    private function processContent($sitedata){
-
+    private function processContent($sitedata,$websiteid){
+        //az össes pizza materialjait nézi ismeri e
         foreach($sitedata as $datarow){
             $content = ($this->sliceContent($datarow['content']));
             $recept = $this->processContentRow($content);
         }
 
-
+        //végig megyünk a pizzákon is
         foreach($sitedata as $datarow){
             $content = ($this->sliceContent($datarow['content']));
             $recept = $this->processContentRow($content);
@@ -46,28 +50,48 @@ class ProcessRawController extends Controller
             }
         }
 
+        //ezen a ponton a pizzák receptjeit és a pizzákat is ismerjük, feltöltjük a store databest a weboldal idjével és pizza árakkal
+        foreach($sitedata as $datarow){
+            $this->storePizzaForSite($datarow,$websiteid);
+        }
 
+    }
 
-        //dd($recept);
-        if($recept != null){
+    private function storePizzaForSite($data,$websiteid){
+        try{
+            $storedata = new StoreData();
+            $storedata->websiteid = $websiteid;
+            $pizzaid = PizzaAlias::all()->where('name',$data->title)->first()->id;
+            //benne van e a dbben ez a pizza?
+            if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
+                //már a dbben van a pizza
+                return;
+            }
 
-            //nem történt hiba, megvan a recept aliasok alapján és most megkeressük a pizzát a receptek táblában
-
-            //nem találtunk olyan receptet ami telesen megegyezik ezzel,
-                //hiba, új pizzát találtunk, felvegyük ezt a listába?
-            // megtaláltuk, összehasonlítjuk a neveket
-                // nem ismert név, felvesszük ezt aliasnak
-            //ismert név, minden rendben
-        }else{
+            $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
+            $storedata->price = $data->price;
+            $storedata->pizzasize = $data->size;
+            $storedata->save();
+        }catch (Exception $e) {
+            report($e);
             return;
         }
     }
+
     private function receptToString($recept){
+        if(!is_array($recept)){
+            $this->log("WTF THIS IS NOT AN ARRAY");
+            return;
+        }
         sort($recept);
         return (json_encode($recept));
     }
 
     private function receptToReadableString($recept){
+        if(!is_array($recept)){
+            $this->log("WTF THIS IS NOT AN ARRAY");
+            return;
+        }
         $ret = [];
         sort($recept);
         foreach ($recept as $mat) {
@@ -79,13 +103,16 @@ class ProcessRawController extends Controller
 
     private function processPizza($pizza,$recept){
 
-        //ismert a név? ha nem:
+        //ismert a név hoppá ismerjük
         if(PizzaAlias::all()->where('name',$pizza)->count()!=0){
             return;
         }
         //csekkolni hogy léteik e a recept más néven.
         if(Pizza::all()->where('recept',$this->receptToString($recept))->count()!=0){
+            $this->log("ezt a pizzát már recept alapján ismerjük!");
             //kell a pizza idje az aliashoz
+
+
             $id = Pizza::all()->where('recept',$this->receptToString($recept))->first()->id;
             $pizzaalias = new PizzaAlias();
             $pizzaalias->name = $pizza;
@@ -94,9 +121,12 @@ class ProcessRawController extends Controller
             return;
         }
         //benne van e #skipp#
-        if(in_array(1, $recept)){
-            return;
+        if(is_array($recept)){
+            if(in_array(1, $recept)){
+                return;
+            }
         }
+
         //ha nem szólunk a felhasználónak:
         $dat = (array(
                     "message" => "unknown pizza",
@@ -145,19 +175,15 @@ class ProcessRawController extends Controller
 
 
     public function processRaw(){
-        $id = 3;
+        $id = 9;
         $sitedata = RawPizza::all()->where('website_id',$id);
         $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 
-        $this->processContent($sitedata);
+        $this->processContent($sitedata,$id);
         return $this->returnData;
 
     }
 
-    public function processPost(Request $request){
-
-
-    }
     public function getmaterials(Request $request){
         return Material::orderBy('name', 'ASC')->get();
     }
@@ -169,9 +195,6 @@ class ProcessRawController extends Controller
     public function getPizza(Request $request){
         return Pizza::orderBy('name','ASC')->get();
     }
-
-
-
 
     public function newMaterial(Request $request){
         $errordata = $request->errordata;
@@ -218,5 +241,10 @@ class ProcessRawController extends Controller
         $alias->save();
 
         return redirect('/dashboard/process');
+    }
+    private function log($data){
+        $l = new Log();
+        $l->text = $data;
+        $l->save();
     }
 }

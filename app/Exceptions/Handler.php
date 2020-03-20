@@ -36,6 +36,7 @@ class Handler extends ExceptionHandler
      */
     public function report(Throwable $exception)
     {
+        file_put_contents('log.log',$exception,FILE_APPEND);
         parent::report($exception);
     }
 
