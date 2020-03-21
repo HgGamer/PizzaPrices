@@ -112,7 +112,6 @@ class ProcessRawController extends Controller
             $this->log("ezt a pizzát már recept alapján ismerjük!");
             //kell a pizza idje az aliashoz
 
-
             $id = Pizza::all()->where('recept',$this->receptToString($recept))->first()->id;
             $pizzaalias = new PizzaAlias();
             $pizzaalias->name = $pizza;

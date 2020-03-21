@@ -16,5 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryTableSeeder::class);
         $this->call(ItemSchemaTableSeeder::class);
         $this->call(LinksTableSeeder::class);
+        $this->call(PizzaTablesSeeder::class);
     }
 }
