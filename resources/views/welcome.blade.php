@@ -1,80 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <title>{{ config('app.name', 'Laravel') }}</title>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+</head>
 
-            .full-height {
-                height: 100vh;
-            }
+<body>
+<div class="bg-img">
+    <div class="menudiv">
+        <li><a href="">Szeged</a></li>
+        <li><a href="">Budapest</a></li>
+        <li><a href="">Debrecen</a></li>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center d-flex map align-items-center">
+                <img class="mx-auto d-block" src="{{ asset('img/mo.png') }}">
+                <div class="city-select">
+                    <a href="" class="restaurant szeged">
+                        <span>Szeged</span>
+                    </a>
+                    <a href="" class="restaurant bp">
+                        <span>Budapest HAMAROSAN</span>
+                    </a>
+                    <a href="" class="restaurant debrecen">
+                        <span>Debrecen HAMAROSAN</span>
+                    </a>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            <div class="content">
-                <div id="app"></div>
-                <div class="title m-b-md">
-                    PizzaPrices demo
-                </div>
-                <div>
-                    <p style="color: black!important;">Az oldal egy demo oldal, ami különböző szegedi pizzéiák árainak összehasonlítására készül. Csak olyan pizzériák árait használja amelyek ezt nem tiltják(robots.txt-ben, ÁSZF-ben, stb..).</p>
                 </div>
             </div>
         </div>
-    </body>
+    </div>
+</div>
+<script src="{{ asset('js/app.js') }}"></script>
+</body>
 </html>
+
+

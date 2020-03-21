@@ -1,4 +1,123 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);.bg-img{
+    background: url("/img/pizza3.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+
+}
+.map{
+    height: 100vh;
+}
+
+.map img{
+    width: 100%;
+}
+.city-select .restaurant {
+    background-image: url("/img/pizzapoi.png");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 77px;
+    height: 84px;
+    display: block;
+    position: absolute;
+    transition: 250ms;
+}
+.city-select .restaurant span {
+    position: absolute;
+    left: 76px;
+    top: 28px;
+    font-size: 16px;
+    background-color: rgba(0, 0, 0, 0.51);
+    color: #fff;
+    padding: 2px 5px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 250ms;
+}
+
+.city-select .restaurant:hover {
+    margin-top: -6px;
+    height: 80px;
+}
+
+.city-select .restaurant:hover span {
+    visibility: visible;
+    opacity: 1;
+}
+.szeged{
+    left: 56%;
+    top: 64%;
+}
+.bp{
+    left: 42%;
+    top: 33%;
+}
+.debrecen {
+    left: 77%;
+    top: 35%;
+}
+.menudiv{
+    display: none;
+}
+@media (max-width: 1199px) {
+
+    .szeged {
+        top: 62%;
+        left: 56%;
+    }
+    .bp {
+        left: 42%;
+        top: 35%;
+    }
+
+}
+@media (max-width: 991px) {
+    .szeged {
+        top: 56%;
+        left: 54%;
+    }
+    .debrecen {
+        left: 75%;
+    }
+    .bp {
+        left: 40%;
+    }
+
+}
+@media (max-width: 767px) {
+    .city-select .restaurant {
+        background: none;
+    }
+    .map img{
+        display: none !important;
+    }
+    .city-select .restaurant span{
+        display: none !important;
+    }
+
+    .menudiv li{
+        width: 100%;
+        font-size: 40px;
+        display: block;
+        text-align: center;
+        background: #FF9900;
+        margin-bottom: 10px;
+    }
+
+    .menudiv li:nth-child(2) {
+        background: #DE1E27;
+    }
+    .menudiv li a{
+        color: white;
+    }
+    .menudiv{
+        display: block;
+        position: relative;
+        top: 50%;
+    }
+
+}
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
