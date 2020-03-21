@@ -48,7 +48,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="{{ url('dashboard/websites') }}">Websites</a>
           <a class="dropdown-item" href="{{ url('dashboard/categories') }}">Categories</a>
-          <a class="dropdown-item" href="{{ url('dashboard/pizza-types') }}">Pizza types</a>
+          <a class="dropdown-item" href="{{ url('dashboard/logs') }}">Logs</a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url('dashboard/pizzas') }}">Pizzas</a>
         </div>

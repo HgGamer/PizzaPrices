@@ -1,12 +1,12 @@
 @extends('layouts.dashboardLayout')
- 
+
 @section('content')
- 
+
         <div class="col-md-12">
             <h2>Item Schema</h2>
- 
-            <a href="{{ route('item-schema.create') }}" class="btn btn-warning pull-right">Add new</a>
- 
+
+            <a href="{{ route('item-schema.create') }}" class="btn btn-warning float-right">Add new</a>
+
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
@@ -14,7 +14,7 @@
             @endif
 
             @if(count($itemSchemas) > 0)
- 
+
                 <table class="table table-bordered">
                     <tr>
                         <td>Title</td>
@@ -42,17 +42,17 @@
                         </tr>
                     @endforeach
                 </table>
- 
+
                 @if(count($itemSchemas) > 0)
                     <div class="pagination">
                         <?php echo $itemSchemas->render();  ?>
                     </div>
                 @endif
- 
+
             @else
                 <i>No items found</i>
- 
+
             @endif
         </div>
- 
+
 @endsection
