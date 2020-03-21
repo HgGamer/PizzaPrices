@@ -1,24 +1,28 @@
 @extends('layouts.dashboardLayout')
- 
+
 @section('content')
- 
+
 
         <div class="col-md-12">
             <h2>Links</h2>
- 
-            <div class="alert alert-success" style="display: none"></div>
- 
-            <a href="{{ route('links.create') }}" class="btn btn-warning pull-right">Add new</a>
- 
+
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
                 <p>{{ $message }}</p>
             </div>
             @endif
 
+            <a href="{{ route('links.create') }}" class="btn btn-warning float-right mx-1">Add new</a>
+            <form action="/dashboard/raw_pizzas/delete_all" method="POST">
+                {{ csrf_field() }}
+                {{method_field('DELETE')}}
+                <button onclick="return confirm('Are you sure you want to delete ALL raw pizzas?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL raw pizzas</button>
+            </form>
+
             @if(count($links) > 0)
- 
+
                 <table class="table table-bordered">
+
                     <tr>
                         <td>Url</td>
                         <td>Main Filter Selector</td>
@@ -32,7 +36,7 @@
                         <tr data-id="{{ $link->id }}">
                             <td>{{ $link->url }}</td>
                             <td>{{ $link->main_filter_selector }}</td>
-                            <td>{{ $link->website->title }} </td>
+                            <td>{{ $link->website->title }}#{{ $link->website->id }}</td>
                             <td><strong><span class="label label-info">{{ $link->category->title }}</span></strong> </td>
                             <td>
                                 <select class="item_schema" data-id="{{ $link->id }}" data-original-schema="{{$link->item_schema_id}}">
@@ -52,31 +56,36 @@
                             </td>
                             <td>
                                 <a href="{{ url('dashboard/links/' . $link->id . '/edit') }}"><button class="btn btn-primary" >Update</button></a>
-                                <form action="{{ route('links.destroy',$link->id) }}" method="POST">
+                                <form action="{{ route('links.destroy',$link->id) }}" method="POST" class="mb-0">
                                     {{ csrf_field() }}
                                     {{method_field('DELETE')}}
                                     <button onclick="return confirm('Are you sure you want to delete this item?');" type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                                <form action="/dashboard/raw_pizzas/{{$link->website_id}}/delete_pizzas" method="POST" class="mb-0">
+                                    {{ csrf_field() }}
+                                    {{method_field('DELETE')}}
+                                    <button onclick="return confirm('Are you sure you want to delete raw pizzas for website: {{$link->website->title}} ?');" type="submit" class="btn btn-danger">Delete&nbspraw&nbsppizzas</button>
                                 </form>
                             </td>
                         </tr>
                     @endforeach
                 </table>
- 
+
                 @if(count($links) > 0)
                     <div class="pagination">
                         <?php echo $links->render();  ?>
                     </div>
                 @endif
- 
+
             @else
                 <i>No links found</i>
- 
+
             @endif
         </div>
 
- 
+
 @endsection
- 
+
 @section('script')
     <script>
         $(function () {
@@ -85,20 +94,20 @@
                   $(this).siblings('.btn-apply').show();
               }
            });
-           
+
            $('.btn-apply').click(function () {
- 
+
                var btn = $(this);
- 
+
                var tRowId = $(this).parents("tr").attr("data-id");
                var schema_id = $(this).siblings('select').val();
- 
+
                $.ajaxSetup({
                    headers: {
                        'X-XSRF-TOKEN': "{{ csrf_token() }}"
                    }
                });
- 
+
                $.ajax({
                   url: "{{ url('dashboard/links/set-item-schema') }}",
                   data: {link_id: tRowId, item_schema_id: schema_id, _token: "{{ csrf_token() }}", _method: "patch"},
@@ -106,21 +115,21 @@
                   dataType: "json",
                   success: function (response) {
                       alert(response.msg);
- 
+
                       btn.hide();
                   }
                });
            });
-           
+
            $(".btn-scrape").click(function () {
                var btn = $(this);
- 
+
                btn.find(".fa-spin").show();
- 
+
                btn.prop("disabled", true);
- 
+
                var tRowId = $(this).parents("tr").attr("data-id");
-                
+
                $.ajaxSetup({
                    headers: {
                        'X-XSRF-TOKEN': "{{ csrf_token() }}"
@@ -133,13 +142,13 @@
                    method: "post",
                    dataType: "json",
                    success: function (response) {
- 
+
                        if(response.status == 1) {
                            $(".alert").removeClass("alert-danger").addClass("alert-success").text(response.msg).show();
                        } else {
                            $(".alert").removeClass("alert-success").addClass("alert-danger").text(response.msg).show();
                        }
- 
+
                        btn.find(".fa-spin").hide();
                    }
                });

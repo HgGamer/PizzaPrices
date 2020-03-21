@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\RawPizza;
+use App\Websites;
 use Illuminate\Http\Request;
 
 class RawPizzaController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
     }
-    
+
     public function index()
     {
         //
@@ -83,4 +84,26 @@ class RawPizzaController extends Controller
     {
         //
     }
+
+    public function deleteAll()
+    {
+
+        RawPizza::truncate();
+
+        return redirect()->route('links.index')
+                        ->with('success','All raw pizza deleted successfully');
+    }
+
+    public function deletePizzas(String $websiteId)
+    {
+
+        RawPizza::where('website_id', $websiteId)->delete();
+
+        $msg = 'All raw pizza for website id: ' .  $websiteId  . ' deleted successfully';
+
+        return redirect()->route('links.index')
+                        ->with('success', $msg);
+    }
+
+
 }

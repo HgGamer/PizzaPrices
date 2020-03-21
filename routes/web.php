@@ -13,7 +13,7 @@
 */
 
 Route::get('/', 'HomeController@index');
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'HomeController@home');
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
 
@@ -40,7 +40,10 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::resource('/item-schema', 'ItemSchemaController');
     Route::resource('/pizzas', 'PizzasController');
     Route::resource('/links/{id}/edit', 'LinksController@edit');
-    Route::resource('/pizza-types', 'PizzaTypesController');
+    Route::resource('/logs', 'LogsController');
+    Route::delete('/raw_pizzas/delete_all', 'RawPizzaController@deleteAll');
+    Route::delete('/raw_pizzas/{websiteId}/delete_pizzas', 'RawPizzaController@deletePizzas');
+
 });
 
 Auth::routes();

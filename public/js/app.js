@@ -54384,8 +54384,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\js\app.ts */"./resources/assets/js/app.ts");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pizzaprice\resources\assets\js\app.ts */"./resources/assets/js/app.ts");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizzaprice\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })
