@@ -26,7 +26,7 @@
             <div class="col-12 text-center d-flex map align-items-center">
                 <img class="mx-auto d-block" src="{{ asset('img/mo.png') }}">
                 <div class="city-select">
-                    <a href="" class="restaurant szeged">
+                    <a href="/home" class="restaurant szeged">
                         <span>Szeged</span>
                     </a>
                     <a href="" class="restaurant bp">
