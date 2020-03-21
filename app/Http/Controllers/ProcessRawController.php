@@ -248,4 +248,12 @@ class ProcessRawController extends Controller
         $l->text = $data;
         $l->save();
     }
+    public function refreshPizzaAliasRecept(){
+       $data = PizzaAlias::all()->where('recept',null);
+       foreach ($data as $pizza) {
+
+
+       }
+    }
+
 }
