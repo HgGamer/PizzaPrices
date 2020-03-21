@@ -11,6 +11,7 @@ use App\PizzaType;
 use App\RawPizza;
 use App\Log;
 use App\StoreData;
+use App\Http\Controllers\ContentProcess\ContentProcess;
 use Illuminate\Http\Request;
 use Exception;
 class ProcessRawController extends Controller
@@ -22,26 +23,26 @@ class ProcessRawController extends Controller
         $this->middleware('auth');
     }
 
-    private function sliceContent($content){
+    private function sliceContent($id,$content){
 
-        if( $this->regexp == null){
-            dd('NO REGEXP');
-            return null;
 
-        }
-        return array_map('trim',preg_split( $this->regexp, $content));
+        $proc = new ContentProcess();
+        //dd($proc->sliceContent($id, $content));
+
+
+        return $proc->sliceContent($id, $content);
     }
 
     private function processContent($sitedata,$websiteid){
         //az össes pizza materialjait nézi ismeri e
         foreach($sitedata as $datarow){
-            $content = ($this->sliceContent($datarow['content']));
+            $content = ($this->sliceContent($websiteid,$datarow['content']));
             $recept = $this->processContentRow($content);
         }
 
         //végig megyünk a pizzákon is
         foreach($sitedata as $datarow){
-            $content = ($this->sliceContent($datarow['content']));
+            $content = ($this->sliceContent($websiteid,$datarow['content']));
             $recept = $this->processContentRow($content);
             $processedPizza = $this->processPizza($datarow['title'],$recept);
             if($processedPizza==-1){
@@ -174,7 +175,8 @@ class ProcessRawController extends Controller
 
 
     public function processRaw(){
-        $id = 9;
+        //9 retard
+        $id = 28;
         $sitedata = RawPizza::all()->where('website_id',$id);
         $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 

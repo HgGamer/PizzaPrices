@@ -50,7 +50,7 @@ function unknownPizza(data){
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="text" name="recept" value="${data.recept}" style="display:none">
 
-            <input type="submit" value="Hozzáadás új pizzának">
+            <input type="submit" class="btn btn-secondary" value="Hozzáadás új pizzának">
         </form>
     <form action="api/process/newPizzaAlias" method="POST">
             {{ csrf_field() }}
@@ -58,7 +58,7 @@ function unknownPizza(data){
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <select id="newalias" name="newalias" >
             </select><br>
-            <input type="submit" value="Kiválasztottal egyezik">
+            <input type="submit" class="btn btn-secondary" value="Kiválasztottal egyezik">
         </form><br>
 
     `;
@@ -85,13 +85,13 @@ function unknownMaterial(data){
             <label for="newalias">Már létező alapanyag</label><br>
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <select id="newalias" name="newalias" >
-            </select><br>
-            <input type="submit" value="Kiválasztottal egyezik">
+            </select><br><br>
+            <input type="submit" class="btn btn-secondary" value="Kiválasztottal egyezik">
         </form><br>
         <form action="api/process/newMaterial" method="POST">
             {{ csrf_field() }}
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
-            <input type="submit" value="Hozzáadás új alapnyagnak">
+            <input type="submit" class="btn btn-secondary" value="Hozzáadás új alapnyagnak">
         </form>
     `;
     document.getElementById('modalbody').innerHTML = template;
