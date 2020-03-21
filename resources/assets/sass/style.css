@@ -119,3 +119,49 @@
     }
 
 }
+.popularpizza{
+    padding-top: 30px;
+
+}
+
+.popularpizza h2{
+    text-align: center;
+}
+.popularpizza img{
+    border-radius: 25px;
+}
+
+/*Banner area */
+
+.banner_area{
+    background-position: center;
+    text-align: center;
+    position: relative;
+    padding-bottom: 70px;
+    height: 680px;
+}
+.banner_area h2 {
+    color: #c69963;
+    font: 5.5rem "Niconne", cursive;
+    padding-top: 85px;
+}
+.banner_area .breadcrumb {
+    background-color: transparent;
+    padding-top: 15px;
+}
+.banner_area .breadcrumb li a {
+    font: 400 30px "Teko", sans-serif;
+    color: #fefefe;
+}
+.banner_area .breadcrumb li a.active {
+    color: #FF8000;
+}
+.breadcrumb-item.active {
+    font: 400 30px "Teko", sans-serif;
+}
+.banner_area .bg-dark{
+    background: transparent!important;
+}
+.banner_area .bg-dark.scrolled{
+    background: #2a9055!important;
+}
