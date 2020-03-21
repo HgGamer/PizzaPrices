@@ -11,6 +11,12 @@
     </div>
     @endif
 
+    <form action="/dashboard/logs/delete_all" method="POST">
+        {{ csrf_field() }}
+        {{method_field('DELETE')}}
+        <button onclick="return confirm('Are you sure you want to delete ALL logs?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL log</button>
+    </form>
+
     @if(count($logs) > 0)
 
         <table class="table table-bordered">

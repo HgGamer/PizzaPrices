@@ -49,6 +49,7 @@
           <a class="dropdown-item" href="{{ url('dashboard/websites') }}">Websites</a>
           <a class="dropdown-item" href="{{ url('dashboard/categories') }}">Categories</a>
           <a class="dropdown-item" href="{{ url('dashboard/logs') }}">Logs</a>
+          <a class="dropdown-item" href="{{ url('dashboard/materials') }}">Materials</a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url('dashboard/pizzas') }}">Pizzas</a>
         </div>
