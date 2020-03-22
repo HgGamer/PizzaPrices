@@ -106,6 +106,26 @@ class ProcessRawController extends Controller
 
         //ismert a név hoppá ismerjük
         if(PizzaAlias::all()->where('name',$pizza)->count()!=0){
+            if(PizzaAlias::all()->where('name',$pizza)->first()->recept == $this->receptToString($recept)){
+                return;
+            }
+            if(PizzaAlias::all()->where('recept',$this->receptToString($recept))->count()!=0){
+                //ezt ismerjük valamelyik alias receptje alapján
+                $originalaias = PizzaAlias::all()->where('recept',$this->receptToString($recept))->first();
+                $pizzaalias = new PizzaAlias();
+                $pizzaalias->name = $pizza;
+                $pizzaalias->pizzaid = $originalaias->pizzaid;
+                $pizzaalias->recept = $this->receptToString($recept);
+                $pizzaalias->save();
+                return;
+            }
+            $id = PizzaAlias::all()->where('name',$pizza)->first()->pizzaid;
+            $pizzaalias = new PizzaAlias();
+            $pizzaalias->name = $pizza;
+            $pizzaalias->pizzaid = $id;
+            $pizzaalias->recept = $this->receptToString($recept);
+            $pizzaalias->save();
+            $this->log("név stimmel de a recept nem.");
             return;
         }
         //csekkolni hogy léteik e a recept más néven.
@@ -117,6 +137,7 @@ class ProcessRawController extends Controller
             $pizzaalias = new PizzaAlias();
             $pizzaalias->name = $pizza;
             $pizzaalias->pizzaid = $id;
+            $pizzaalias->recept = $this->receptToString($recept);
             $pizzaalias->save();
             return;
         }
@@ -176,7 +197,7 @@ class ProcessRawController extends Controller
 
     public function processRaw(){
         //9 retard
-        $id = 28;
+        $id = 25;
         $sitedata = RawPizza::all()->where('website_id',$id);
         $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 
@@ -239,20 +260,32 @@ class ProcessRawController extends Controller
         $alias = new PizzaAlias();
         $alias->pizzaid = $pizza->id;
         $alias->name = $errordata;
+        $alias->recept = $request->recept;
         $alias->save();
 
         return redirect('/dashboard/process');
     }
+
+    public function newPizzaAlias(Request $request){
+        $pizzaalias = new PizzaAlias();
+        $pizzaalias->recept= $request->recept;
+        $pizzaalias->name = $request->errordata;
+        $pizzaalias->pizzaid = $request->newalias;
+        $pizzaalias->save();
+        return redirect('/dashboard/process');
+    }
+
     private function log($data){
         $l = new Log();
         $l->text = $data;
         $l->save();
     }
+
     public function refreshPizzaAliasRecept(){
        $data = PizzaAlias::all()->where('recept',null);
-       foreach ($data as $pizza) {
-
-
+       foreach ($data as $dat) {
+         $dat->recept = Pizza::all()->where('id',$dat->pizzaid)->first()->recept;
+         $dat->save();
        }
     }
 

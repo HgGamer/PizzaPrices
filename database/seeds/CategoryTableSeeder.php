@@ -11,9 +11,9 @@ class CategoryTableSeeder extends Seeder
      */
     public function run()
     {
-        
-    	$sql = file_get_contents(database_path() . '\seeds\CategoryData.sql');
-    
+
+    	$sql = file_get_contents(database_path() . '/seeds/CategoryData.sql');
+
          DB::statement($sql);
 
     }
