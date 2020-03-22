@@ -1,6 +1,37 @@
 @extends('layouts.app')
 @section('content')
 
+    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ asset('img/pizzapop.png') }}"  alt="">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Kezdőlap
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pizzakategóriák</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pizza Builder</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Kapcsolatok</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
 
     <div class="container">
         <div class="row mb-5">
@@ -98,16 +129,212 @@
                 </div>
             </div>
         </div>
-<br>
-        <br>
-        <br>
 
-        <div class="row justify-content-center">
-                <div class="col-8 ">
-                    <img class="img-fluid" src="{{ asset('img/pizza2.jpg') }}">
+
+
+        <div class="row pizzafeed">
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footer"><a href="#">Részletek</a></footer>
+                    </div>
                 </div>
+            </div>
+
+
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Son-Go-Ku</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footer"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footer"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 mb-5">
+                <div class="ft-recipe">
+                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                    </div>
+                    <div class="ft-recipe__content">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
+                                <div class="user-rating"></div>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
+                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
+                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                            </ul>
+                        </header>
+                        <p class="description">
+                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <footer class="content__footer"><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+            </div>
+
+
+
 
         </div>
     </div>
-
+    <script>
+        $(window).scroll(function () {
+            $('nav').toggleClass('scrolled',$(this).scrollTop()>660)
+        });
+    </script>
 @endsection
