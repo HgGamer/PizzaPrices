@@ -19,23 +19,17 @@
 
     @if(count($logs) > 0)
 
-        <table class="table table-bordered">
+        <table class="table table-sm table-striped">
             <tr>
                 <td>id</td>
                 <td>Log</td>
-                <td>actions</td>
+
             </tr>
             @foreach($logs as $log)
                 <tr>
                     <td>{{ $log->id }}</td>
                     <td>{{ $log->text }}</td>
-                    <td>
-                        <form action="{{ route('logs.destroy',$log->id) }}" method="POST">
-                            {{ csrf_field() }}
-                            {{method_field('DELETE')}}
-                            <button onclick="return confirm('Are you sure you want to delete this item?');" type="submit" class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
+
                 </tr>
             @endforeach
         </table>
