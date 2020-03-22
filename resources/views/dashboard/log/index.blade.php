@@ -21,7 +21,7 @@
 
         <table class="table table-sm table-striped">
             <tr>
-                <td>id</td>
+                <td>#id</td>
                 <td>Log</td>
 
             </tr>
