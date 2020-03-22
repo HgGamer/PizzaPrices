@@ -16,7 +16,7 @@ class MaterialController extends Controller
 
     public function index()
     {
-        $material = Material::orderBy('id', 'DESC')->paginate(50);
+        $material = Material::orderBy('name', 'ASC')->paginate(50);
 
         return view('dashboard.material.index')->withMaterials($material);
     }

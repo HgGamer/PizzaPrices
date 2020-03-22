@@ -105,5 +105,29 @@ class RawPizzaController extends Controller
                         ->with('success', $msg);
     }
 
+    public function banyaiPizzaFeltetLoad(){
+
+        $count = RawPizza::where('website_id', '=', 26)->count();
+
+        if ($count < 1) {
+            return redirect()->route('links.index')
+            ->with('danger','Sikertelen, mert a Bányai cukrászdához nincsenek jelenleg pizzák.');
+        }
+
+        \Artisan::call('db:seed',['--class' => 'BanyaiCukraszdaFeltetUpdater']);
+
+        return redirect()->route('links.index')
+            ->with('success','Banyai Cukraszda toppings added.');
+    }
+
+    public function forzaitaliaPizzaLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'ForzaitaliaPizzaLoader']);
+
+
+         return redirect()->route('links.index')
+         ->with('success','Forza Italia pizzas added.');
+}
+
 
 }
