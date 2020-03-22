@@ -517,10 +517,10 @@
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item {
     -webkit-box-flex: 1;
-    flex: 1;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item i {
     font-size: 30px;
+    color: #FFA600;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item .value {
     color: #FFA600;
