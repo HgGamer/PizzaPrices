@@ -26,12 +26,14 @@
                             <td>{{ $material->id }}</td>
                             <td>{{ $material->name }}</td>
                             <td>
-                                <a href="{{ url('dashboard/materials/' . $material->id . '/edit') }}"><button class="btn btn-primary" >Update</button></a>
-                                <form action="{{ route('materials.destroy',$material->id) }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{method_field('DELETE')}}
-                                    <button onclick="return confirm('Are you sure you want to delete this material: {{ $material->title }} ?');" type="submit" class="btn btn-danger">Delete</button>
-                                </form>
+                                <div class="row pl-1">
+                                    <a href="{{ url('dashboard/materials/' . $material->id . '/edit') }}"><button class="btn btn-primary" >Update</button></a>
+                                    <form action="{{ route('materials.destroy',$material->id) }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{method_field('DELETE')}}
+                                        <button onclick="return confirm('Are you sure you want to delete this material: {{ $material->title }} ?');" type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
