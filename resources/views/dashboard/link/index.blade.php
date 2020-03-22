@@ -3,11 +3,17 @@
 @section('content')
 
 
-        <div class="col-md-12">
+        <div class="col-12">
             <h2>Links</h2>
 
             @if ($message = Session::get('success'))
             <div class="alert alert-success">
+                <p>{{ $message }}</p>
+            </div>
+            @endif
+
+            @if ($message = Session::get('danger'))
+            <div class="alert alert-danger">
                 <p>{{ $message }}</p>
             </div>
             @endif
@@ -83,6 +89,51 @@
             @endif
         </div>
 
+        <div class="col-md-12">
+
+            <table class="table table-bordered">
+                <h2>Static data</h2>
+                <tr>
+                    <td>Url</td>
+                    <td>Leiras</td>
+                    <td>Website</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Actions</td>
+                </tr>
+                    <tr >
+                        <td>http://banyaicukraszda.hu/</td>
+                        <td>A feltétek megadása a banyai pizzéria pizzáihoz</td>
+                        <td>Bányai cukrászda#26</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <form action="/dashboard/raw_pizzas/banyai_load" method="POST" class="mb-0">
+                                {{ csrf_field() }}
+                                <button  type="submit" class="btn btn-info">Banyai toppings load</button>
+                             </form>
+                    </td>
+                    </tr>
+                </tr>
+                <tr >
+                    <td>https://forzaitalia.hu/</td>
+                    <td>A forza Italia Pizzak feltöltése</td>
+                    <td>Forza Italia#29</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <form action="/dashboard/raw_pizzas/forzaitalia_load" method="POST" class="mb-0">
+                            {{ csrf_field() }}
+                            <button  type="submit" class="btn btn-info">ForzaItalia pizzas load</button>
+                         </form>
+                </td>
+                </tr>
+            </table>
+
+          </div>
 
 @endsection
 
