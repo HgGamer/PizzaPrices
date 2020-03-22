@@ -15,7 +15,7 @@ class LogsController extends Controller
 
     public function index()
     {
-        $logs = Log::orderBy('id', 'DESC')->paginate(10);
+        $logs = Log::orderBy('id', 'DESC')->paginate(50);
 
         return view('dashboard.log.index')->withLogs($logs);
     }
