@@ -145,13 +145,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -171,13 +171,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -195,13 +195,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -219,13 +219,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -243,13 +243,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -267,13 +267,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -291,13 +291,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -315,13 +315,13 @@
                                 <div class="user-rating"></div>
                             </div>
                             <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="ion ion-ios-clock-outline"></i><span class="value">20</span><span class="title">Minutes</span></li>
-                                <li class="recipe-details-item ingredients"><i class="ion ion-ios-book-outline"></i><span class="value">5</span><span class="title">Ingredients</span></li>
-                                <li class="recipe-details-item servings"><i class="ion ion-ios-person-outline"></i><span class="value">4-6</span><span class="title">Serving</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
-                        <p class="description">
-                            There’s no better way to celebrate May being National Strawberry Month than by sharing a sweet treat with your pup!!! Strawberries...</p>
+                        <h4>Feltétek:</h4>
+                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
