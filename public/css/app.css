@@ -117,6 +117,117 @@
     }
 
 }
+.popularpizza{
+    padding-top: 50px;
+
+}
+
+.popularpizza h2{
+    text-align: center;
+    padding-top: 10px;
+}
+.popularpizza img{
+    border-radius: 25px;
+}
+
+/*Banner area */
+
+.banner_area{
+    background-position: center;
+    text-align: center;
+    position: relative;
+    padding-bottom: 70px;
+    height: 680px;
+}
+.banner_area h2 {
+    color: #c69963;
+    font: 5.5rem "Niconne", cursive;
+    padding-top: 85px;
+}
+.banner_area .breadcrumb {
+    background-color: transparent;
+    padding-top: 15px;
+}
+.banner_area .breadcrumb li a {
+    font: 400 30px "Teko", sans-serif;
+    color: #fefefe;
+}
+.banner_area .breadcrumb li a.active {
+    color: #FF8000;
+}
+.breadcrumb-item.active {
+    font: 400 30px "Teko", sans-serif;
+}
+.banner_area .bg-dark{
+    background: transparent!important;
+    transition: 750ms ease;
+}
+.banner_area .bg-dark.scrolled{
+    background: #FF8000!important;
+}
+
+
+
+
+.middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.carda{
+    cursor: pointer;
+    width: 520px;
+    height: 350px;
+}
+.front,.back{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    position: absolute;
+    transition: transform .6s linear;
+}
+.front img{
+    background-size: cover;
+}
+.front{
+    transform: perspective(600px) rotateY(0deg);
+}
+.back{
+    background: #f1f1f1;
+    transform: perspective(600px) rotateY(180deg);
+}
+.back-content{
+    color: #2c3e50;
+    text-align: center;
+    width: 100%;
+}
+.sm{
+    margin: 20px 0;
+}
+.sm a{
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    color: #2c3e50;
+    font-size: 18px;
+    transition: 0.4s;
+    border-radius: 50%
+}
+.sm a:hover{
+    background: #2c3e50;
+    color: white;
+}
+.carda:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+}
+.carda:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+}
 @charset "UTF-8";
 
 /*!

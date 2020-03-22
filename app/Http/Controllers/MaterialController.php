@@ -1,0 +1,64 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+use App\Material;
+
+class MaterialController extends Controller
+{
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function index()
+    {
+        $material = Material::orderBy('id', 'DESC')->paginate(50);
+
+        return view('dashboard.material.index')->withMaterials($material);
+    }
+
+    public function create()
+    {
+        return view('dashboard.material.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $material = new Material;
+
+        $material->name = $request->input('name');
+
+        $material->save();
+
+        return redirect()->route('materials.index');
+    }
+
+    public function edit($id)
+    {
+        return view('dashboard.material.edit')->withMaterial(Material::find($id));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name' => 'required',
+        ]);
+
+        $material = Material::find($id);
+
+        $material->name = $request->input('name');
+
+        $material->save();
+
+        return redirect()->route('materials.index');
+    }
+
+}

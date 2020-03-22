@@ -19,4 +19,23 @@ class LogsController extends Controller
 
         return view('dashboard.log.index')->withLogs($logs);
     }
+
+    public function destroy($id)
+    {
+        $log = Log::find($id);
+        $log->delete();
+
+        return redirect()->route('logs.index')
+                        ->with('success','Log deleted successfully');
+    }
+
+    public function deleteAll()
+    {
+
+        Log::truncate();
+
+        return redirect()->route('logs.index')
+                        ->with('success','All logs deleted successfully');
+    }
+
 }
