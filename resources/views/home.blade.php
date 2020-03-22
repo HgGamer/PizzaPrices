@@ -24,22 +24,42 @@
 
         <div class="row justify-content-around mb-5">
             <div class="col-6">
-                <div class="business-card middle">
+                <div class="card carda middle">
                     <div class="front">
-                        <h2>Húsimádó</h2>
-                        <span>Kerekerdő Pizzéria</span>
-                        <ul class="contact-info">
-                           <p>feltétek feltétek infok minden is</p>
-                        </ul>
+                        <img src="{{ asset('img/poppizza.jpg') }}" alt="">
                     </div>
                     <div class="back">
-                        <span>Baszó Pizza</span>
+                        <div class="back-content middle">
+                            <h2>Pizzzzzzzaaa</h2>
+                            <span>asdasd</span>
+                            <div class="sm">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-6">
-                <img class="img-fluid" src="{{ asset('img/pizza2.jpg') }}">
+                <div class="card carda middle">
+                    <div class="front">
+                        <img src="{{ asset('img/poppizza.jpg') }}" alt="">
+                    </div>
+                    <div class="back">
+                        <div class="back-content middle">
+                            <h2>Pizzzzzzzaaa</h2>
+                            <span>asdasd</span>
+                            <div class="sm">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

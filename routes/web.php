@@ -14,6 +14,7 @@
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@home');
+Route::get('/kapcsolatok', 'HomeController@contacts');
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
 
