@@ -8,6 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>PizzaPrices</title>
+    <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.png') }}"/>
 
     <!-- Styles -->
     <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">

@@ -5,25 +5,25 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
-                <img class="img-fluid" src="{{ asset('img/1.jpg') }}">
+                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
                 <h2>Hawai Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <img class="img-fluid" src="{{ asset('img/2.jpg') }}">
+                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
                 <h2>Son-Go-Ku Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <img class="img-fluid" src="{{ asset('img/3.jpg') }}">
+                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
                 <h2>Bolognai Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <img class="img-fluid" src="{{ asset('img/poppizza.jpg') }}">
+                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
                 <h2>Húsimádó Pizzák</h2>
             </div>
         </div>
 
         <div class="row justify-content-around mb-5">
-            <div class="col-lg-6 col-md-12 ">
+            <div class="col-lg-6 col-md-12 picimeret ">
                 <div class="pizzacim text-center">
                     <h2>
                         A hét Pizzája
@@ -66,11 +66,11 @@
                         A hónap Pizzája
                     </h2>
                     <div class="divider-custom">
-                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-linee"></div>
                         <div class="divider-custom-icon">
                             <i class="fas fa-pizza-slice"></i>
                         </div>
-                        <div class="divider-custom-line"></div>
+                        <div class="divider-custom-linee"></div>
                     </div>
                 </div>
                 <div class="card carda middle">

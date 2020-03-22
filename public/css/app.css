@@ -178,6 +178,7 @@
 
 
 
+
 .middle{
     position: absolute;
     top: 50%;
@@ -290,7 +291,10 @@
     height: 100%;
     top: 0;
 
-}
+}.pizzacim{
+    margin-bottom: -50px;
+    position: relative;
+ }
 .pizzacim h2{
     font-size: 3rem;
 }
@@ -319,7 +323,83 @@
 .divider-custom .divider-custom-line:last-child {
     margin-left: 1rem;
 }
-
+.divider-custom .divider-custom-linee {
+    width: 100%;
+    max-width: 9rem;
+    height: .25rem;
+    background-color: #2c3e50;
+    border-radius: 1rem;
+    border-color: #2c3e50!important;
+}
+.divider-custom .divider-custom-linee:first-child {
+    margin-right: 1rem;
+}
+.divider-custom .divider-custom-linee:last-child {
+    margin-left: 1rem;
+}
+@media (max-width: 1199px){
+    .carda{
+        width: 420px;
+        height: 320px;
+    }
+    .back::before{
+        bottom: 20%;
+    }
+}
+@media (max-width: 991px){
+    .carda{
+        width: 520px;
+        height: 350px;
+    }
+    .back::before{
+        bottom: 20%;
+    }
+    .back::before{
+        bottom: 30%;
+    }
+    .picimeret{
+        padding-bottom: 80px;
+    }
+}
+@media (max-width: 540px){
+    .carda{
+        width: 420px;
+        height: 320px;
+    }
+    .back::before{
+        bottom: 20%;
+    }
+}
+@media (max-width: 375px){
+    .carda{
+        width: 345px;
+        height: 258px;
+    }
+    .back::before{
+        bottom: 6%;
+    }
+    .back{
+        padding: 10px;
+    }
+    .cardinfo h2{
+        font-size: 1.5rem;
+    }
+    .cardinfohozzavalo{
+        padding-top: 0;
+    }
+    .banner_area{
+        height: 300px;
+    }
+}
+@media (max-width: 320px){
+    .carda{
+        width: 290px;
+        height: 217px;
+    }
+    .back::before{
+        bottom: 6%;
+    }
+}
 @charset "UTF-8";
 
 /*!
