@@ -13,11 +13,11 @@ class CreatePizzaRecipes extends Migration
      */
     public function up()
     {
-        Schema::create('pizza_pizzaAlias', function (Blueprint $table) {
+        Schema::create('pizza_pizzaalias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('pizzaid');
-            
+
             $table->timestamps();
         });
     }

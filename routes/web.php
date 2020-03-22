@@ -12,6 +12,7 @@
 |
 */
 
+
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@home');
 Route::get('/kapcsolatok', 'HomeController@contacts');
@@ -27,8 +28,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::get('/api/process/getmaterials','ProcessRawController@getmaterials');
     Route::get('/api/process/getpizzas', 'ProcessRawController@getpizzas');
     Route::post('/api/process/newPizza', 'ProcessRawController@newPizza');
-
-
+    Route::get('/api/process/refresh', 'ProcessRawController@refreshPizzaAliasRecept');
+    Route::post('/api/process/newPizzaAlias','ProcessRawController@newPizzaAlias');
     Route::get('/process',function(){
         return view('dashboard.pizza_process.index');
     });

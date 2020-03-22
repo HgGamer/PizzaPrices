@@ -11,8 +11,8 @@ class ItemSchemaTableSeeder extends Seeder
      */
     public function run()
     {
-         $sql = file_get_contents(database_path() . '\seeds\ItemSchemaData.sql');
-    
+         $sql = file_get_contents(database_path() . '/seeds/ItemSchemaData.sql');
+
          DB::statement($sql);
     }
 }

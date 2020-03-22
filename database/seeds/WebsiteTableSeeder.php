@@ -16,9 +16,9 @@ class WebsiteTableSeeder extends Seeder
     public function run()
     {
 
-    	 $sql = file_get_contents(database_path() . '\seeds\WebsiteData.sql');
-    
+    	 $sql = file_get_contents(database_path() . '/seeds/WebsiteData.sql');
+
          DB::statement($sql);
-    
+
     }
 }

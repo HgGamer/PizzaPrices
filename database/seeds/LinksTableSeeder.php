@@ -11,8 +11,8 @@ class LinksTableSeeder extends Seeder
      */
     public function run()
     {
-        $sql = file_get_contents(database_path() . '\seeds\LinksData.sql');
-    
+        $sql = file_get_contents(database_path() . '/seeds/LinksData.sql');
+
         DB::statement($sql);
     }
 }

@@ -13,7 +13,7 @@ class CreatePizzaMaterialAlias extends Migration
      */
     public function up()
     {
-        Schema::create('pizza_materialAlias', function (Blueprint $table) {
+        Schema::create('pizza_materialalias', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('material_id');
             $table->string('name');
