@@ -17,7 +17,7 @@
 <body>
 <div class="bg-img">
     <div class="menudiv">
-        <li><a href="">Szeged</a></li>
+        <li><a href="/home">Szeged</a></li>
         <li><a href="">Budapest</a></li>
         <li><a href="">Debrecen</a></li>
     </div>
