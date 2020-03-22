@@ -1,36 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="{{ asset('img/pizzapop.png') }}"  alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Kezdőlap
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pizzakategóriák</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pizza Builder</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kapcsolatok</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
+
 
 
     <div class="container">
