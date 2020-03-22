@@ -62,7 +62,8 @@ class ProcessRawController extends Controller
         try{
             $storedata = new StoreData();
             $storedata->websiteid = $websiteid;
-            $pizzaid = PizzaAlias::all()->where('name',$data->title)->first()->id;
+            $alias = PizzaAlias::all()->where('name',$data->title)->first();
+            $pizzaid =$alias->id;
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
@@ -72,6 +73,7 @@ class ProcessRawController extends Controller
             $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
             $storedata->price = $data->price;
             $storedata->pizzasize = $data->size;
+            $this->log("Új pizza storehoz adva: ".$alias->name);
             $storedata->save();
         }catch (Exception $e) {
             report($e);
@@ -81,7 +83,7 @@ class ProcessRawController extends Controller
 
     private function receptToString($recept){
         if(!is_array($recept)){
-            $this->log("WTF THIS IS NOT AN ARRAY");
+            $this->log("recept is not an array");
             return;
         }
         sort($recept);
@@ -90,7 +92,7 @@ class ProcessRawController extends Controller
 
     private function receptToReadableString($recept){
         if(!is_array($recept)){
-            $this->log("WTF THIS IS NOT AN ARRAY");
+            $this->log("recept is not an array");
             return;
         }
         $ret = [];
@@ -117,6 +119,7 @@ class ProcessRawController extends Controller
                 $pizzaalias->pizzaid = $originalaias->pizzaid;
                 $pizzaalias->recept = $this->receptToString($recept);
                 $pizzaalias->save();
+                $this->log("Új pizza alias : ". $pizzaalias->name);
                 return;
             }
             $id = PizzaAlias::all()->where('name',$pizza)->first()->pizzaid;
@@ -125,12 +128,12 @@ class ProcessRawController extends Controller
             $pizzaalias->pizzaid = $id;
             $pizzaalias->recept = $this->receptToString($recept);
             $pizzaalias->save();
-            $this->log("név stimmel de a recept nem.");
+            $this->log("Új pizza alias (új recepttel) : ". $pizzaalias->name);
             return;
         }
         //csekkolni hogy léteik e a recept más néven.
         if(Pizza::all()->where('recept',$this->receptToString($recept))->count()!=0){
-            $this->log("ezt a pizzát már recept alapján ismerjük!");
+            $this->log("Ezt a pizzát már recept alapján ismerjük, ".$pizza);
             //kell a pizza idje az aliashoz
 
             $id = Pizza::all()->where('recept',$this->receptToString($recept))->first()->id;
@@ -167,7 +170,7 @@ class ProcessRawController extends Controller
             // nem ismerjük a materialt
            return -1;
         }else{
-            //ismerjük a materialtasdas sadasd
+            //ismerjük a materialt
             return (MaterialAlias::all()->where("name",$material)->first()->material_id);
         }
 
@@ -231,7 +234,7 @@ class ProcessRawController extends Controller
         $alias->material_id = $material->id;
         $alias->name = $errordata;
         $alias->save();
-
+        $this->log("Új material hozzáadva: ". $material->name);
         return redirect('/dashboard/process');
     }
 
@@ -242,7 +245,7 @@ class ProcessRawController extends Controller
         $alias->material_id = $newalias;
         $alias->name = $errordata;
         $alias->save();
-
+        $this->log("Új material alias: ". $alias->name);
         return redirect('/dashboard/process');
     }
     public function newPizza(Request $request){
@@ -262,7 +265,7 @@ class ProcessRawController extends Controller
         $alias->name = $errordata;
         $alias->recept = $request->recept;
         $alias->save();
-
+        $this->log("Új pizza: ". $alias->name);
         return redirect('/dashboard/process');
     }
 
@@ -272,6 +275,7 @@ class ProcessRawController extends Controller
         $pizzaalias->name = $request->errordata;
         $pizzaalias->pizzaid = $request->newalias;
         $pizzaalias->save();
+        $this->log("Új pizza alias: ". $pizzaalias->name);
         return redirect('/dashboard/process');
     }
 
