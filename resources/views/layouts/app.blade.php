@@ -27,7 +27,7 @@
     <script src="{{ asset('js/site.js') }}" ></script>
     <script src="{{ asset('js/app.js') }}"></script>
 </head>
-<body>
+<body class="home">
 
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">

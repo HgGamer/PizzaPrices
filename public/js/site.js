@@ -49372,9 +49372,8 @@ else {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
 __webpack_require__(/*! ./bootstrap */ "./resources/assets/js/bootstrap.ts");
-=======
+
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
@@ -49423,7 +49422,6 @@ setCookiePolicyCookie = function setCookiePolicyCookie() {
 document.addEventListener("DOMContentLoaded", function (event) {
   checkCookie();
 });
->>>>>>> 5bcb7b5cfe57c3bbfea288cbde49346d4c7c2e6d
 
 /***/ }),
 
