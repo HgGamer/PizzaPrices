@@ -1,4 +1,4 @@
-require('./bootstrap');
+require('./bootstrap.js');
 
 
 function setCookie(cname, cvalue, exdays) {
