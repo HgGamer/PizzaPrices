@@ -75,7 +75,7 @@
                 </div>
                 <div class="card carda middle">
                     <div class="front d-flex">
-                        <div class="pizzacardname text-center align-self-end p-2">
+                        <div class="pizzacardname text-center align-self-end p-1">
                             <h2>
                                 Húsimádó Pizza
                             </h2>
