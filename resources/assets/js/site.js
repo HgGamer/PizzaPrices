@@ -27,9 +27,10 @@ function getCookie(cname) {
     if (accepted != "") {
         //él a cookie
         document.getElementById('cookie-footer').style.display = 'none';
-        console.log('él a cookie')
+        gtag('js', new Date());
+         gtag('config', 'UA-161580640-1');
     } else {
-        console.log('nem él')
+
     }
   }
 
@@ -37,9 +38,10 @@ setCookiePolicyCookie = function(){
     setCookie('accepted_cookies','true',400)
     document.getElementById('cookie-footer').style.display = 'none';
 
-}
+    gtag('js', new Date());
+    gtag('config', 'UA-161580640-1');
 
-//
+}
 
 document.addEventListener("DOMContentLoaded", function(event) {
 

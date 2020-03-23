@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161580640-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+     </script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -58,8 +66,17 @@
 
 
         @yield('content')
+
+        <div id="cookie-footer" class="footer">
+            <div class="container">
+                <p class="h6 p-2">
+                    Sütiket alkalmazunk, hogy megértsük, hogyan használod az oldalt és javítsuk a felhasználói élményt.
+                    <a href="#" class="btn btn-success btn-sm"  onclick="setCookiePolicyCookie()">Elfogadás</a>
+                    <a href="#"  class="btn btn-primary btn-sm">Részletek</a>
+                </p>
+            </div>
+        </div>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
 
     <script>
         $(window).scroll(function () {
