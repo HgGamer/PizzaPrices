@@ -1,7 +1,9 @@
 @extends('layouts.app')
 @section('content')
 
-contacts
+
+asd
+
 
 
 @endsection

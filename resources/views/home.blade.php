@@ -1,38 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">
-            <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="{{ asset('img/pizzapop.png') }}"  alt="">
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Kezdőlap
-                                <span class="sr-only">(current)</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pizzakategóriák</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Pizza Builder</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Kapcsolatok</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </section>
-
-
+    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
@@ -135,7 +104,7 @@
         <div class="row pizzafeed">
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -152,6 +121,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -161,7 +131,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -178,6 +148,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -185,7 +156,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -202,6 +173,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -209,7 +181,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -226,6 +198,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -233,7 +206,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -250,6 +223,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -257,7 +231,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -274,6 +248,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -281,7 +256,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -298,6 +273,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -305,7 +281,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -322,6 +298,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>

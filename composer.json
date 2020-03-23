@@ -15,6 +15,7 @@
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
+        "spatie/laravel-analytics": "^3.9",
         "weidner/goutte": "^1.4"
     },
     "require-dev": {
