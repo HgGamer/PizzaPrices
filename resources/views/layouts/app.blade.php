@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-linkk" href="#">Pizzakategóriák</a>
+                    <a class="nav-link nav-linkk" href="/kategoriak">Pizzakategóriák</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-linkk" href="#">Pizza Builder</a>

@@ -17,7 +17,9 @@ body.home{
 .map{
     height: 100vh;
 }
-
+.logincard{
+    margin-top: 200px;
+}
 .map img{
     width: 100%;
 }
@@ -75,6 +77,8 @@ body.home{
 }
 .popularpizza h2{
     text-align: center;
+    font-family: panpizza;
+    font-size: 45px;
     padding-top: 10px;
 }
 .popularpizza img{
@@ -90,6 +94,7 @@ body.home{
     padding-bottom: 70px;
     height: 680px;
 }
+
 
 header .bg-dark{
     background: transparent!important;
@@ -142,6 +147,10 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     width: 100%;
+}
+.pizzacardname h2{
+    font-family: panpizza;
+    font-size: 40px;
 }
 .front,.back{
     width: 100%;
@@ -361,7 +370,9 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     border-bottom: 1px solid #d8d8d8;
 }
 .ft-recipe .ft-recipe__content .content__header .row-wrapper .recipe-title {
-    font-weight: 600;
+    font-weight: 300;
+    font-family: panpizza;
+    font-size: 40px;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details {
     display: flex;
@@ -505,16 +516,17 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     }
 
     .menudiv li{
+        font-family: panpizza;
         width: 100%;
-        font-size: 40px;
+        font-size: 50px;
         display: block;
         text-align: center;
-        background: #FF9900;
+        background: #FFA600;
         margin-bottom: 10px;
     }
 
     .menudiv li:nth-child(2) {
-        background: #DE1E27;
+        background: #a33327;
     }
     .menudiv li a{
         color: white;
@@ -524,6 +536,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
         position: relative;
         top: 50%;
         z-index: 400;
+    }
+    .map{
+        height: -webkit-max-content;
+        height: -moz-max-content;
+        height: max-content;
     }
 
 }

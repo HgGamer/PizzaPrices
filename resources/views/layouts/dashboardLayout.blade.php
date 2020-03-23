@@ -53,7 +53,6 @@
       </li>
     </ul>
     <div class="float-right"><p>Logged in: {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</p></div>
-
   </div>
 </nav>
 

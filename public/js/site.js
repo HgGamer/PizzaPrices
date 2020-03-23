@@ -37161,8 +37161,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\js\site.js */"./resources/assets/js/site.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pizzaprice\resources\assets\js\site.js */"./resources/assets/js/site.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizzaprice\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

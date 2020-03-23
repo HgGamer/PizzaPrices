@@ -35,4 +35,9 @@ class HomeController extends Controller
 
         return view('contacts');
     }
+
+    public function pizzacategories(){
+
+        return view('pizzacategories');
+    }
 }
