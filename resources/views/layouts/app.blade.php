@@ -25,7 +25,6 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="{{ asset('js/site.js') }}" ></script>
-    <script src="{{ asset('js/app.js') }}"></script>
 </head>
 <body class="home">
 
