@@ -17,7 +17,9 @@ body.home{
 .map{
     height: 100vh;
 }
-
+.logincard{
+    margin-top: 200px;
+}
 .map img{
     width: 100%;
 }
