@@ -1,1 +1,1 @@
-alert("WORKS");
+require('./bootstrap');
