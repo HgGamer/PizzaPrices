@@ -1,9 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-
-
-
+    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
@@ -106,7 +104,7 @@
         <div class="row pizzafeed">
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -133,7 +131,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -158,7 +156,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -183,7 +181,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -208,7 +206,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -233,7 +231,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -258,7 +256,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
@@ -283,7 +281,7 @@
 
             <div class="col-lg-6 col-md-12 mb-5">
                 <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex map align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                     </div>
                     <div class="ft-recipe__content">
