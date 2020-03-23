@@ -123,6 +123,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -149,6 +150,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -173,6 +175,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -197,6 +200,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -221,6 +225,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -245,6 +250,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -269,6 +275,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footerm"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
@@ -293,6 +300,7 @@
                         </header>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
+                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
                         <footer class="content__footer"><a href="#">Részletek</a></footer>
                     </div>
                 </div>
