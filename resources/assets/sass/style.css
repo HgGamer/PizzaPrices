@@ -139,7 +139,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 520px;
     height: 350px;
     border: none !important;
-    background-color:#FFEFD3 !important;
+    background-color: #FFEFD3 !important;
 }
 .pizzacardname{
     position: relative;
@@ -294,13 +294,19 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 .pizzafeed{
     padding-top: 80px;
+    padding-left: 0px!important;
+}
+.feed-tile{
+    display: flex;
+    align-items: stretch;
 }
 .ft-recipe {
     width: 460px;
-    height: 680px;
+
     background: var(--white);
     display: -webkit-box;
     display: flex;
+    align-items: stretch;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
@@ -365,6 +371,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 60%;
 }
 .ft-recipe .ft-recipe__content {
+    display: grid;
     -webkit-box-flex: 1;
     flex: 1;
     padding: 0 2em 1em;
@@ -465,7 +472,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 
 .image-gallery{
     position: relative;
-    padding-top: 100px;
+    padding-top: 80px;
     padding-bottom: 100px ;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -589,6 +596,16 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .tojasos{
     grid-area: img-19;
     background-image: url("/img/glry/tojasos.webp");
+}
+.kategorialeiras h1{
+    font-family: panpizza;
+    font-size: 60px;
+    padding-top: 40px;
+}
+@media (max-width: 1281px){
+    .banner_area{
+        height: 580px;
+    }
 }
 @media (max-width: 1199px){
     .szeged {

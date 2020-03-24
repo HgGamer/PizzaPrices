@@ -3,8 +3,10 @@
     <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
 
     <div class="container">
+        <div class="kategorialeiras text-center">
+            <h1>Ha a kategóriák között nem találod kedvenc pizzáidat akkor csekkold a Pizza Buildert és állítsd össze te!</h1>
+        </div>
         <div class="image-gallery">
-
             <a href="" class="margareta">
                 <div class="kategoraibox align-self-end d-flex text-center">
                     <h2 class="align-self-end">

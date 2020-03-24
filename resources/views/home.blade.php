@@ -99,7 +99,7 @@
             </div>
         </div>
 
-        <div class="pizzacim text-center mt-5">
+        <div class="pizzacim text-center mt-5 mb-3">
             <h2>
                 Pizza Feed
             </h2>
@@ -126,7 +126,7 @@
                         <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center">
                             <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                         </div>
-                        <div class="ft-recipe__content">
+                        <div class="ft-recipe__content ">
                             <header class="content__header">
                                 <div class="row-wrapper text-center">
                                     <h2 class="recipe-title feed-tile-name">{{$pizza['pizza']['name']}}</h2>
@@ -145,8 +145,8 @@
                                     {{ $recept }},
                                 @endforeach
                             </p>
-                            <p class="description">Méret: {{ $pizza['pizzasize'] }}</p>
-                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} "><a href="#">Részletek</a></footer>
+                            <p class="description">Méret: {{ $pizza['pizzasize'] }} Cm</p>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="#">Részletek</a></footer>
                         </div>
                     </div>
                 </div>
