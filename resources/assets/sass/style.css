@@ -468,11 +468,17 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     padding-top: 100px;
     padding-bottom: 100px ;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
-    grid-gap: 1.5rem;
+    grid-gap: 2rem;
     grid-template-areas:
-        'img-1 img-2 img-3 img-4';
+        'img-1 img-2 img-4'
+        'img-5 img-3 img-13'
+        'img-18 img-17 img-10'
+        'img-12 img-11 img-15'
+        'img-6 img-14 img-7'
+        'img-16 img-8 img-9'
+        'img-19 img-20 img-21';
 }
 .image-gallery a{
     width: 100%;
@@ -485,65 +491,105 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     align-items: center;
     justify-content: center;
     text-decoration: none!important;
+    border-radius: 25px;
 }
-.image-gallery a i{
-    font-size: 3rem;
+.kategoraibox{
     position: relative;
-    z-index: 100;
-    padding: 1rem 3rem;
-    border: 2px solid white;
-    border-radius: .4rem;
-    opacity: 0;
-    transition: opacity .5s;
-    color: white;
-}
-.image-gallery a::before{
-    content: '';
-    position: absolute;
     width: 100%;
     height: 100%;
-    top: 0;
-    left: 0;
-    background-color: rgba(16,29,44,.8);
-    opacity: 0;
-    transition: opacity .5s;
+    background-color: rgb(163, 51, 39, 0.8);
+    clip-path: polygon(0 80%, 100% 58%, 100% 100%, 0% 100%);
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    text-align: center;
 }
-.image-gallery a:hover i,
-.image-gallery a:hover::before{
-    opacity: 1;
+.kategoraibox h2{
+    position: relative;
+    color: white;
+    font-family: panpizza;
+    font-size: 50px;
+    width: 100%;
 }
-.img-1{
+.kategoraibox h2:hover{
+    color: #FFA600;
+}
+
+.margareta{
     grid-area: img-1;
-    background-image: url("/img/glry/img-1.jpg");
+    background-image: url("/img/glry/margareta.webp");
 }
-.img-2{
+.szalamis{
     grid-area: img-2;
-    background-image: url("/img/glry/img-2.jpg");
+    background-image: url("/img/glry/szalamis.webp");
 }
-.img-3{
+.hawaii{
     grid-area: img-3;
-    background-image: url("/img/glry/img-3.jpg");
+    background-image: url("/img/glry/hawaii.webp");
 }
-.img-4{
+.sonkas{
     grid-area: img-4;
-    background-image: url("/img/glry/img-2.jpg");
+    background-image: url("/img/glry/sonkas.webp");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.gombas{
+    grid-area: img-5;
+    background-image: url("/img/glry/gombas.webp");
+}
+.gorog{
+    grid-area: img-6;
+    background-image: url("/img/glry/gorog.webp");
+}
+.gyrosos{
+    grid-area: img-7;
+    background-image: url("/img/glry/gyrosos.webp");
+}
+.tonhalas{
+    grid-area: img-8;
+    background-image: url("/img/glry/tonhalas.webp");
+}
+.tengergyumolcse{
+    grid-area: img-9;
+    background-image: url("/img/glry/tengergyumolcse.webp");
+}
+.pepperonis{
+    grid-area: img-10;
+    background-image: url("/img/glry/pepperonis.webp");
+}
+.magyaros{
+    grid-area: img-11;
+    background-image: url("/img/glry/magyaros.webp");
+}
+.bolognai{
+    grid-area: img-12;
+    background-image: url("/img/glry/bolognai.webp");
+}
+.kukoricas{
+    grid-area: img-13;
+    background-image: url("/img/glry/kukoricas.webp");
+}
+.vegan{
+    grid-area: img-14;
+    background-image: url("/img/glry/vegan.webp");
+}
+.negyevszak{
+    grid-area: img-15;
+    background-image: url("/img/glry/negyevszak.webp");
+}
+.bbq{
+    grid-area: img-16;
+    background-image: url("/img/glry/bbq.webp");
+}
+.husimado{
+    grid-area: img-17;
+    background-image: url("/img/glry/husimado.webp");
+}
+.baconos{
+    grid-area: img-18;
+    background-image: url("/img/glry/baconos.webp");
+}
+.tojasos{
+    grid-area: img-19;
+    background-image: url("/img/glry/tojasos.webp");
+}
 
 
 
@@ -607,6 +653,20 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
         display: flex;
         margin-top: -90px!important;
     }
+    .image-gallery{
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            'img-1 img-1 img-2 img-2'
+            'img-3 img-3 img-4 img-4'
+            'img-5 img-5 img-6 img-6'
+            'img-7 img-7 img-8 img-8'
+            'img-9 img-9 img-10 img-10'
+            'img-11 img-11 img-12 img-12'
+            'img-13 img-13 img-14 img-14'
+            'img-15 img-15 img-16 img-16'
+            'img-17 img-17 img-18 img-18'
+            'img-19 img-19 img-20 img-20';
+    }
 }
 @media (max-width: 767px) {
     .city-select .restaurant {
@@ -645,6 +705,31 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
         height: max-content;
     }
 
+}
+@media (max-width: 575px){
+    .image-gallery{
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            'img-1 img-1'
+            'img-2 img-2'
+            'img-3 img-3'
+            'img-4 img-4'
+            'img-5 img-5'
+            'img-6 img-6'
+            'img-7 img-7'
+            'img-8 img-8'
+            'img-9 img-9'
+            'img-10 img-10'
+            'img-11 img-11'
+            'img-12 img-12'
+            'img-13 img-13'
+            'img-14 img-14'
+            'img-15 img-15'
+            'img-16 img-16'
+            'img-17 img-17'
+            'img-18 img-18'
+            'img-19 img-19';
+    }
 }
 @media (max-width: 540px){
     .carda{
