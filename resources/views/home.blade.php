@@ -116,12 +116,14 @@
         <ul class="row pizzafeed  feed-list mt-5">
             @php
             $i=0;
+            $isYellow = true;
+            $counter = 1;
             @endphp
             
                 @foreach ($pizzas as $pizza)
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
-                        <div class="ft-recipe__thumb{{ ($i % 4 != 0) ? "m" : ""}} text-center d-flex  align-items-center">
+                        <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center">
                             <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                         </div>
                         <div class="ft-recipe__content">
@@ -144,13 +146,18 @@
                                 @endforeach
                             </p>
                             <p class="description">Méret: {{ $pizza['pizzasize'] }}</p>
-                            <footer class="content__footer{{ ($i % 4 != 0) ? "m" : ""}} "><a href="#">Részletek</a></footer>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} "><a href="#">Részletek</a></footer>
                         </div>
                     </div>
                 </div>
 
              @php
                 $i++;
+                $counter++;
+                if ($counter == 2) {
+                    $isYellow = !$isYellow;
+                    $counter = 0;
+                }
             @endphp
             @endforeach
         </ul>
