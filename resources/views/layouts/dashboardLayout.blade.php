@@ -52,7 +52,24 @@
         </div>
       </li>
     </ul>
-    <div class="float-right"><p>Logged in: {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}</p></div>
+    <ul class="navbar-nav float-right">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Logged in: {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="">Menu1</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            {{ __('Logout') }}
+           </a>
+
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+          </form>
+        </div>
+      </li>
+    </ul>
   </div>
 </nav>
 
