@@ -119,6 +119,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -146,6 +147,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -168,9 +170,10 @@
                             <ul class="recipe-details">
                                 <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
                                 <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
+                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/∞</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -196,6 +199,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -221,6 +225,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -246,6 +251,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -271,6 +277,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
@@ -296,6 +303,7 @@
                                 <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
                             </ul>
                         </header>
+                        <h4>Kerekerdő Pizzéria</h4>
                         <h4>Feltétek:</h4>
                         <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
                         <p class="description">Méretek: 28cm, 32cm, 50cm</p>
