@@ -23,7 +23,7 @@
         </div>
 
         <div class="row justify-content-around mb-5">
-            <div class="col-lg-6 col-md-12 picimeret ">
+            <div class="col-lg-6 col-md-12 mb-5 picimeret ">
                 <div class="pizzacim text-center">
                     <h2>
                         A hét Pizzája
@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-6 col-md-12 mb-5">
                 <div class="pizzacim text-center">
                     <h2>
                         A hónap Pizzája
@@ -117,7 +117,7 @@
             @php
             $i=0;
             @endphp
-            
+
                 @foreach ($pizzas as $pizza)
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
@@ -140,7 +140,7 @@
                             <h4>Feltétek:</h4>
                             <p class="description">
                                 @foreach ($pizza['pizza']['recept'] as $recept)
-                                    {{ $recept }}, 
+                                    {{ $recept }},
                                 @endforeach
                             </p>
                             <p class="description">Méret: {{ $pizza['pizzasize'] }}</p>
@@ -154,7 +154,7 @@
             @endphp
             @endforeach
         </ul>
- 
+
 
     </div>
     <script>
