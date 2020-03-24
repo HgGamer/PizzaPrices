@@ -99,223 +99,63 @@
             </div>
         </div>
 
-
-
-        <div class="row pizzafeed">
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footer"><a href="#">Részletek</a></footer>
-                    </div>
+        <div class="pizzacim text-center mt-5">
+            <h2>
+                Pizza Feed
+            </h2>
+            <div class="divider-custom">
+                <div class="divider-custom-linee"></div>
+                <div class="divider-custom-icon">
+                    <i class="fas fa-pizza-slice"></i>
                 </div>
+                <div class="divider-custom-linee"></div>
             </div>
-
-
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Son-Go-Ku</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/∞</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footer"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footer"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumbm text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footerm"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-6 col-md-12 mb-5">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title">Tengergyümölcse Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">5</span><span class="title">Ár</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">5/5</span><span class="title">Pontszám</span></li>
-                            </ul>
-                        </header>
-                        <h4>Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">Paradicsomosalap, Sajt, Sonka, Kukorica, Kolbász</p>
-                        <p class="description">Méretek: 28cm, 32cm, 50cm</p>
-                        <footer class="content__footer"><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-
-
-
-
         </div>
+
+
+        <ul class="row pizzafeed  feed-list mt-5">
+            @php
+            $i=0;
+            @endphp
+            
+                @foreach ($pizzas as $pizza)
+                 <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
+                    <div class="ft-recipe">
+                        <div class="ft-recipe__thumb{{ ($i % 4 != 0) ? "m" : ""}} text-center d-flex  align-items-center">
+                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                        </div>
+                        <div class="ft-recipe__content">
+                            <header class="content__header">
+                                <div class="row-wrapper text-center">
+                                    <h2 class="recipe-title feed-tile-name">{{$pizza['pizza']['name']}}</h2>
+                                    <div class="user-rating"></div>
+                                </div>
+                                <ul class="recipe-details">
+                                    <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                    <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár</span></li>
+                                    <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span><span class="title">Pontszám</span></li>
+                                </ul>
+                            </header>
+                            <h4>Kerekerdő Pizzéria</h4>
+                            <h4>Feltétek:</h4>
+                            <p class="description">
+                                @foreach ($pizza['pizza']['recept'] as $recept)
+                                    {{ $recept }}, 
+                                @endforeach
+                            </p>
+                            <p class="description">Méret: {{ $pizza['pizzasize'] }}</p>
+                            <footer class="content__footer{{ ($i % 4 != 0) ? "m" : ""}} "><a href="#">Részletek</a></footer>
+                        </div>
+                    </div>
+                </div>
+
+             @php
+                $i++;
+            @endphp
+            @endforeach
+        </ul>
+ 
+
     </div>
     <script>
         $(window).scroll(function () {

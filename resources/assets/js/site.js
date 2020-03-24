@@ -49,5 +49,170 @@ setCookiePolicyCookie = function(){
 document.addEventListener("DOMContentLoaded", function(event) {
 
     checkCookie();
-
+  start()
 });
+
+const _getCatImg = () => {
+  const randomNum = () => {
+    return Math.floor(Math.random() * 100000);
+  };
+  const url = "https://source.unsplash.com/collection/139386/500x500/?sig=";
+  return url + randomNum();
+};
+
+let topSentinelPreviousY = 0;
+let topSentinelPreviousRatio = 0;
+let bottomSentinelPreviousY = 0;
+let bottomSentinelPreviousRatio = 0;
+
+let listSize = 10;
+let DBSize = 200;
+
+const initDB = num => {
+	const db = [];
+  for (let i = 0; i < num; i++) {
+  	db.push({
+    	catCounter: i,
+      title: `image number ${i}`,
+      imgSrc: _getCatImg()
+    })
+  }
+  return db;
+}
+
+let DB = [];
+
+let currentIndex = 0;
+
+const getSlidingWindow = isScrollDown => {
+	const increment = listSize / 2;
+	let firstIndex;
+  
+  if (isScrollDown) {
+  	firstIndex = currentIndex + increment;
+  } else {
+    firstIndex = currentIndex - increment - listSize;
+  }
+  
+  if (firstIndex < 0) {
+  	firstIndex = 0;
+  }
+  
+  return firstIndex;
+}
+
+const recycleDOM = firstIndex => {
+	for (let i = 0; i < listSize; i++) {
+  	const tile = document.querySelector("#feed-tile-" + i);
+     tile.getElementsByClassName("feed-tile-name")[0].innerText = DB[i + firstIndex].title;
+    tile.getElementsByClassName("feed-tile-img")[0].setAttribute("src", DB[i + firstIndex].imgSrc);
+  }
+}
+
+const getNumFromStyle = numStr => Number(numStr.substring(0, numStr.length - 2));
+
+const adjustPaddings = isScrollDown => {
+	const container = document.querySelector(".feed-list");
+  const currentPaddingTop = getNumFromStyle(container.style.paddingTop);
+  const currentPaddingBottom = getNumFromStyle(container.style.paddingBottom);
+  const remPaddingsVal = 170 * (listSize / 2);
+	if (isScrollDown) {
+  	container.style.paddingTop = currentPaddingTop + remPaddingsVal + "px";
+    container.style.paddingBottom = currentPaddingBottom === 0 ? "0px" : currentPaddingBottom - remPaddingsVal + "px";
+  } else {
+  	container.style.paddingBottom = currentPaddingBottom + remPaddingsVal + "px";
+    container.style.paddingTop = currentPaddingTop === 0 ? "0px" : currentPaddingTop - remPaddingsVal + "px";
+    
+  }
+}
+
+const topSentCallback = entry => {
+	if (currentIndex === 0) {
+		const container = document.querySelector(".feed-list");
+  	container.style.paddingTop = "0px";
+  	container.style.paddingBottom = "0px";
+  }
+
+  const currentY = entry.boundingClientRect.top;
+  const currentRatio = entry.intersectionRatio;
+  const isIntersecting = entry.isIntersecting;
+
+  // conditional check for Scrolling up
+  if (
+    currentY > topSentinelPreviousY &&
+    isIntersecting &&
+    currentRatio >= topSentinelPreviousRatio &&
+    currentIndex !== 0
+  ) {
+    const firstIndex = getSlidingWindow(false);
+    adjustPaddings(false);
+    recycleDOM(firstIndex);
+    currentIndex = firstIndex;
+  }
+
+  topSentinelPreviousY = currentY;
+  topSentinelPreviousRatio = currentRatio;
+}
+
+const botSentCallback = entry => {
+	if (currentIndex === DBSize - listSize) {
+  	return;
+  }
+  const currentY = entry.boundingClientRect.top;
+  const currentRatio = entry.intersectionRatio;
+  const isIntersecting = entry.isIntersecting;
+
+  // conditional check for Scrolling down
+  if (
+    currentY < bottomSentinelPreviousY &&
+    currentRatio > bottomSentinelPreviousRatio &&
+    isIntersecting
+  ) {
+    const firstIndex = getSlidingWindow(true);
+    adjustPaddings(true);
+    recycleDOM(firstIndex);
+    currentIndex = firstIndex;
+  }
+
+  bottomSentinelPreviousY = currentY;
+  bottomSentinelPreviousRatio = currentRatio;
+}
+
+const initIntersectionObserver = () => {
+  const options = {
+  	/* root: document.querySelector(".cat-list") */
+  }
+
+  const callback = entries => {
+    entries.forEach(entry => {
+      if (entry.target.id === 'feed-tile-0') {
+        topSentCallback(entry);
+      } else if (entry.target.id === `feed-tile-${listSize - 1}`) {
+        botSentCallback(entry);
+      }
+    });
+  }
+
+  var observer = new IntersectionObserver(callback, options);
+  observer.observe(document.querySelector("#feed-tile-0"));
+  observer.observe(document.querySelector(`#feed-tile-${listSize - 1}`));
+}
+
+start = function(){
+console.log("asd");
+  
+	const input1 = 200;
+  const input2 = 30;
+  if (!input1.value) {
+  	DBSize = 200;
+    input1.value = DBSize;
+  } else {
+  	DBSize = input1.value;
+  }
+  
+
+  listSize = 20;
+
+  DB = initDB(DBSize);
+	initIntersectionObserver();
+}

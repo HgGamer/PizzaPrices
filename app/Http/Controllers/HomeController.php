@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\StoreData;
+use App\Material;
+use App\Traits\PizzaQueryTrait;
 
 class HomeController extends Controller
 {
+    use PizzaQueryTrait ;
     /**
      * Create a new controller instance.
      *
@@ -27,8 +31,9 @@ class HomeController extends Controller
     }
 
     public function home(){
-
-        return view('home');
+        
+        $paginatedData = $this->getInfinitPizzas();
+        return view('home')->withPizzas($paginatedData->getCollection());
     }
 
     public function contacts(){

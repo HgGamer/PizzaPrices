@@ -21,6 +21,11 @@ Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
 
 
+Route::prefix('api')->group(function () {
+    Route::get('/infite_pizzas', 'PizzasController@getInfinitPizzas');
+});
+
+
 Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::get('/api/process','ProcessRawController@processRaw');
 
@@ -50,10 +55,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/raw_pizzas/banyai_load', 'RawPizzaController@banyaiPizzaFeltetLoad');
     Route::post('/raw_pizzas/forzaitalia_load', 'RawPizzaController@forzaitaliaPizzaLoad');
     Route::resource('/materials', 'MaterialController');
-
-
-
 });
+
 
 Auth::routes();
 
