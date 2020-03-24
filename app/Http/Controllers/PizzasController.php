@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\StoreData;
+use App\Material;
+use Illuminate\Support\Facades\Log;
 class PizzasController extends Controller
 {
 
@@ -12,74 +14,37 @@ class PizzasController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
-    {
-        //
+    public function getInfinitPizzas(){
+
+        //return $request->page;
+        $paginatedData = StoreData::paginate(10);
+
+        $storeDatas =  $paginatedData->getCollection();
+
+        $pizzas = collect();
+        foreach ($storeDatas as $storeData) {
+            $receptekString = $storeData->pizza->recept;
+
+            $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
+    
+             $receptekString = explode(",",$receptekString); //tömbé konvertálás
+    
+            $receptekNeve = array();
+    
+            foreach ($receptekString as $receptString) {
+               $receptekNeve[] =  Material::find($receptString)['name'];
+            }
+    
+            $storeData->pizza->recept = $receptekNeve;
+
+            $pizzas[] = $storeData;
+        }
+
+        $paginatedData->setCollection($pizzas);
+
+        return $paginatedData;
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
