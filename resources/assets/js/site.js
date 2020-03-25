@@ -112,7 +112,7 @@ const adjustPaddings = isScrollDown => {
 	const container = document.querySelector(".feed-list");
   const currentPaddingTop = getNumFromStyle(container.style.paddingTop);
   const currentPaddingBottom = getNumFromStyle(container.style.paddingBottom);
-  const remPaddingsVal = 365* (listSize / 2);
+  const remPaddingsVal = 384* (listSize / 2);
 	if (isScrollDown) {
   	container.style.paddingTop = currentPaddingTop + remPaddingsVal + "px";
     container.style.paddingBottom = currentPaddingBottom === 0 ? "0px" : currentPaddingBottom - remPaddingsVal + "px";
