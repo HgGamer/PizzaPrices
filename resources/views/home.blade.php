@@ -134,7 +134,7 @@
                                 </div>
                                 <ul class="recipe-details">
                                     <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
-                                    <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár</span></li>
+                                    <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár(HUF)</span></li>
                                     <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span><span class="title">Pontszám</span></li>
                                 </ul>
                             </header>
@@ -145,7 +145,7 @@
                                     {{ $recept }},
                                 @endforeach
                             </p>
-                            <p class="description">Méret: {{ $pizza['pizzasize'] }} Cm</p>
+                            <p class="descriptions">Méret: {{ $pizza['pizzasize'] }} Cm</p>
                             <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="#">Részletek</a></footer>
                         </div>
                     </div>

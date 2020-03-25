@@ -296,17 +296,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     padding-top: 80px;
     padding-left: 0px!important;
 }
-.feed-tile{
-    display: flex;
-    align-items: stretch;
-}
 .ft-recipe {
     width: 460px;
-
     background: var(--white);
     display: -webkit-box;
     display: flex;
-    align-items: stretch;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     flex-direction: column;
@@ -371,7 +365,6 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 60%;
 }
 .ft-recipe .ft-recipe__content {
-    display: grid;
     -webkit-box-flex: 1;
     flex: 1;
     padding: 0 2em 1em;
@@ -417,6 +410,10 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     font-weight: 300;
 }
 .ft-recipe .ft-recipe__content .description {
+    margin: .3em 0 1.8em;
+    min-height: 70px;
+}
+.ft-recipe .ft-recipe__content .descriptions {
     margin: .3em 0 1.8em;
 }
 .ft-recipe .ft-recipe__content .content__footer {
