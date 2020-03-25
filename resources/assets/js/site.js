@@ -74,6 +74,8 @@ initDB = function(initPizzas){
   DB = DB.concat(initPizzas)
    console.log('db doubled')
    console.log(DB.length)
+   console.log("DB data:")
+   console.log(DB)
 }
 
 
@@ -112,7 +114,7 @@ const adjustPaddings = isScrollDown => {
 	const container = document.querySelector(".feed-list");
   const currentPaddingTop = getNumFromStyle(container.style.paddingTop);
   const currentPaddingBottom = getNumFromStyle(container.style.paddingBottom);
-  const remPaddingsVal = 384* (listSize / 2);
+  const remPaddingsVal = 384* (listSize / 2); //384
 	if (isScrollDown) {
   	container.style.paddingTop = currentPaddingTop + remPaddingsVal + "px";
     container.style.paddingBottom = currentPaddingBottom === 0 ? "0px" : currentPaddingBottom - remPaddingsVal + "px";
