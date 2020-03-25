@@ -129,7 +129,7 @@
                         <div class="ft-recipe__content ">
                             <header class="content__header">
                                 <div class="row-wrapper text-center">
-                                    <h2 class="recipe-title feed-tile-name">{{$pizza['pizza']['name']}}</h2>
+                                    <h2 class="recipe-title feed-tile-name">{{$pizza['id']}}</h2>
                                     <div class="user-rating"></div>
                                 </div>
                                 <ul class="recipe-details">
@@ -154,10 +154,10 @@
              @php
                 $i++;
                 $counter++;
-                if ($counter == 2) {
+                /*if ($counter == 2) {
                     $isYellow = !$isYellow;
                     $counter = 0;
-                }
+                }*/
             @endphp
             @endforeach
         </ul>
@@ -168,5 +168,13 @@
         $(window).scroll(function () {
             $('nav').toggleClass('scrolled',$(this).scrollTop()>660)
         });
+        document.addEventListener("DOMContentLoaded", function(event) {
+            initDB(pizzas);
+            start();
+        });
+
+        var pizzas = @json($pizzas);
+
+
     </script>
 @endsection
