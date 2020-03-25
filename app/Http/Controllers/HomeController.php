@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\StoreData;
 use App\Material;
+use App\PizzaCategory;
 use App\Traits\PizzaQueryTrait;
 
 class HomeController extends Controller
@@ -45,6 +46,8 @@ class HomeController extends Controller
 
     public function pizzacategories(){
 
-        return view('pizzacategories');
+        $Category = PizzaCategory::orderBy('sorrend','ASC')->get();
+
+        return view('pizzacategories', compact('Category'));
     }
 }
