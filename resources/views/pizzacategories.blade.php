@@ -9,7 +9,7 @@
         <div class="row">
             @foreach($Category as $category)
             <div class="col-lg-4 col-md-6 col-sm-12 image-gallery">
-                <a href="" style="background-image: url('{{ asset('/img/glry')}}/{{$category->url}}');">
+                <a href="/pizzakategoriak" style="background-image: url('{{ asset('/img/glry')}}/{{$category->url}}');">
                     <div class="kategoraibox align-self-end d-flex text-center">
                         <h2 class="align-self-end">
                             {{$category->name}}

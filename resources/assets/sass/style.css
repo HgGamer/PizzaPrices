@@ -504,88 +504,18 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .kategoraibox h2:hover{
     color: #FFA600;
 }
-
-.margareta{
-    grid-area: img-1;
-    background-image: url("/img/glry/margareta.webp");
-}
-.szalamis{
-    grid-area: img-2;
-    background-image: url("/img/glry/szalamis.webp");
-}
-.hawaii{
-    grid-area: img-3;
-    background-image: url("/img/glry/hawaii.webp");
-}
-.sonkas{
-    grid-area: img-4;
-    background-image: url("/img/glry/sonkas.webp");
-}
-.gombas{
-    grid-area: img-5;
-    background-image: url("/img/glry/gombas.webp");
-}
-.gorog{
-    grid-area: img-6;
-    background-image: url("/img/glry/gorog.webp");
-}
-.gyrosos{
-    grid-area: img-7;
-    background-image: url("/img/glry/gyrosos.webp");
-}
-.tonhalas{
-    grid-area: img-8;
-    background-image: url("/img/glry/tonhalas.webp");
-}
-.tengergyumolcse{
-    grid-area: img-9;
-    background-image: url("/img/glry/tengergyumolcse.webp");
-}
-.pepperonis{
-    grid-area: img-10;
-    background-image: url("/img/glry/pepperonis.webp");
-}
-.magyaros{
-    grid-area: img-11;
-    background-image: url("/img/glry/magyaros.webp");
-}
-.bolognai{
-    grid-area: img-12;
-    background-image: url("/img/glry/bolognai.webp");
-}
-.kukoricas{
-    grid-area: img-13;
-    background-image: url("/img/glry/kukoricas.webp");
-}
-.vegan{
-    grid-area: img-14;
-    background-image: url("/img/glry/vegan.webp");
-}
-.negyevszak{
-    grid-area: img-15;
-    background-image: url("/img/glry/negyevszak.webp");
-}
-.bbq{
-    grid-area: img-16;
-    background-image: url("/img/glry/bbq.webp");
-}
-.husimado{
-    grid-area: img-17;
-    background-image: url("/img/glry/husimado.webp");
-}
-.baconos{
-    grid-area: img-18;
-    background-image: url("/img/glry/baconos.webp");
-}
-.tojasos{
-    grid-area: img-19;
-    background-image: url("/img/glry/tojasos.webp");
-}
 .kategorialeiras h1{
     font-family: panpizza;
     font-size: 60px;
     padding-top: 40px;
 }
+
+
+
+
+
+
+
 @media (max-width: 1281px){
     .banner_area{
         height: 580px;
