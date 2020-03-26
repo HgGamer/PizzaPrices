@@ -112,14 +112,13 @@
             </div>
         </div>
 
-
-        <ul class="row pizzafeed  feed-list mt-5">
+        <ul id="feed-wrap">
+        <ul class="row pizzafeed  feed-list mt-5" id="feed-list">
             @php
             $i=0;
             $isYellow = true;
             $counter = 1;
             @endphp
-
                 @foreach ($pizzas as $pizza)
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
@@ -133,12 +132,12 @@
                                     <div class="user-rating"></div>
                                 </div>
                                 <ul class="recipe-details">
-                                    <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span><span class="title">Kiszállítás</span></li>
+                                    <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">{{$pizza['pizzasize']}}</span><span class="title">Méret(cm)</span></li>
                                     <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár(HUF)</span></li>
                                     <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span><span class="title">Pontszám</span></li>
                                 </ul>
                             </header>
-                            <h4>Kerekerdő Pizzéria</h4>
+                            <h4 class="text-center font-weight-bold"> <a href="">Kerekerdő Pizzéria</a> </h4>
                             <h4>Feltétek:</h4>
                             <p class="description">
                                 @foreach ($pizza['pizza']['recept'] as $recept)
@@ -161,7 +160,8 @@
             @endphp
             @endforeach
         </ul>
-
+        </ul>
+        <h1 id="feed-loader" class="text-center" style="font-size: 100px;"><div class="spinner-border"></div></i></h1>
 
     </div>
     <script>
@@ -169,11 +169,12 @@
             $('nav').toggleClass('scrolled',$(this).scrollTop()>660)
         });
         document.addEventListener("DOMContentLoaded", function(event) {
-            initDB(pizzas);
-            start();
+            getUrl("{{ url("/") }}")
+            start({{ $maxLoad }}, {{ $paginatedBy }} , @json($pizzas));
         });
 
-        var pizzas = @json($pizzas);
+
+
 
 
     </script>

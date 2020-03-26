@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="hu">
 <head>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->

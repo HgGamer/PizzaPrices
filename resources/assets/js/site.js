@@ -52,156 +52,141 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 /*****  INFINITE SCROLL   *****/
-/*
-const _getCatImg = () => {
-  const randomNum = () => {
-    return Math.floor(Math.random() * 100000);
-  };
-  const url = "https://source.unsplash.com/collection/139386/500x500/?sig=";
-  return url + randomNum();
-};
-*/
-
-let topSentinelPreviousY = 0;
-let topSentinelPreviousRatio = 0;
-let bottomSentinelPreviousY = 0;
-let bottomSentinelPreviousRatio = 0;
-
-initDB = function(initPizzas){
-   DB = initPizzas;
-   console.log('db initialized')
-
-  DB = DB.concat(initPizzas)
-   console.log('db doubled')
-   console.log(DB.length)
-   console.log("DB data:")
-   console.log(DB)
-}
-
-
+//https://medium.com/walmartlabs/infinite-scrolling-the-right-way-11b098a08815
 let DB = [];
+var maxLoad
+var paginatedBy
+var URL
+getUrl = function(siteUrl){
+    URL = siteUrl
+}
+var loadCount = 2
+var observer
 
-let currentIndex = 0;
+start = function(max, paginateNum,initData){
+    maxLoad = max
+    DB = initData
+    paginatedBy = paginateNum
+    console.log(DB.length)
+    console.log(maxLoad)
+    console.log(paginatedBy)
+    getData(2)
 
-const getSlidingWindow = isScrollDown => {
-	const increment = listSize / 2;
-	let firstIndex;
-
-  if (isScrollDown) {
-  	firstIndex = currentIndex + increment;
-  } else {
-    firstIndex = currentIndex - increment - listSize;
-  }
-
-  if (firstIndex < 0) {
-  	firstIndex = 0;
-  }
-
-  return firstIndex;
+    initIntersectionObserver();
 }
 
-const recycleDOM = firstIndex => {
-	for (let i = 0; i < listSize; i++) {
-  	const tile = document.querySelector("#feed-tile-" + i);
-    tile.getElementsByClassName("feed-tile-name")[0].innerText = DB[i + firstIndex]['id'];
-    tile.getElementsByClassName("feed-tile-img")[0].setAttribute("src", "http://127.0.0.1:8000/img/pizzapop.png");
-  }
-}
+function initIntersectionObserver() {
+    let options = {
+     root: null,
+     rootMargins: "0px",
+     threshold: 0
+    }
 
-const getNumFromStyle = numStr => Number(numStr.substring(0, numStr.length - 2));
+    const callback = entries => {
+      entries.forEach(entry => {
+       /* if (entry.target.id === 'feed-start') {
+          topSentCallback(entry);
+        } else*/
+       // if (entry.target.id === `feed-end`) {
+        //if (entry.target.class=== 'feed-list') {
+          botSentCallback(entry);
+        //}
+      });
+    }
 
-const adjustPaddings = isScrollDown => {
-	const container = document.querySelector(".feed-list");
-  const currentPaddingTop = getNumFromStyle(container.style.paddingTop);
-  const currentPaddingBottom = getNumFromStyle(container.style.paddingBottom);
-  const remPaddingsVal = 384* (listSize / 2); //384
-	if (isScrollDown) {
-  	container.style.paddingTop = currentPaddingTop + remPaddingsVal + "px";
-    container.style.paddingBottom = currentPaddingBottom === 0 ? "0px" : currentPaddingBottom - remPaddingsVal + "px";
-  } else {
-  	container.style.paddingBottom = currentPaddingBottom + remPaddingsVal + "px";
-    container.style.paddingTop = currentPaddingTop === 0 ? "0px" : currentPaddingTop - remPaddingsVal + "px";
+    observer = new IntersectionObserver(callback, options);
 
-  }
-}
-
-const topSentCallback = entry => {
-	if (currentIndex === 0) {
-		const container = document.querySelector(".feed-list");
-  	container.style.paddingTop = "0px";
-  	container.style.paddingBottom = "0px";
+   lastId = '#feed-tile-' + (((loadCount-1) *  paginatedBy) -1)
+    observer.observe(document.querySelector(lastId));
+    console.log("sub:" + lastId)
   }
 
-  const currentY = entry.boundingClientRect.top;
-  const currentRatio = entry.intersectionRatio;
-  const isIntersecting = entry.isIntersecting;
+function botSentCallback(entry) {
 
-  // conditional check for Scrolling up
-  if (
-    currentY > topSentinelPreviousY &&
-    isIntersecting &&
-    currentRatio >= topSentinelPreviousRatio &&
-    currentIndex !== 0
-  ) {
-    const firstIndex = getSlidingWindow(false);
-    adjustPaddings(false);
-    recycleDOM(firstIndex);
-    currentIndex = firstIndex;
-  }
+    const isIntersecting = entry.isIntersecting;
 
-  topSentinelPreviousY = currentY;
-  topSentinelPreviousRatio = currentRatio;
-}
-
-const botSentCallback = entry => {
-	if (currentIndex === DBSize - listSize) {
-  	return;
-  }
-  const currentY = entry.boundingClientRect.top;
-  const currentRatio = entry.intersectionRatio;
-  const isIntersecting = entry.isIntersecting;
-
-  // conditional check for Scrolling down
-  if (
-    currentY < bottomSentinelPreviousY &&
-    currentRatio > bottomSentinelPreviousRatio &&
-    isIntersecting
-  ) {
-    const firstIndex = getSlidingWindow(true);
-    adjustPaddings(true);
-    recycleDOM(firstIndex);
-    currentIndex = firstIndex;
-  }
-
-  bottomSentinelPreviousY = currentY;
-  bottomSentinelPreviousRatio = currentRatio;
-}
-
-const initIntersectionObserver = () => {
-  const options = {
-  	/* root: document.querySelector(".cat-list") */
-  }
-
-  const callback = entries => {
-    entries.forEach(entry => {
-      if (entry.target.id === 'feed-tile-0') {
-        topSentCallback(entry);
-      } else if (entry.target.id === `feed-tile-${listSize - 1}`) {
-        botSentCallback(entry);
+    if (
+        isIntersecting
+      ) {
+        getData(loadCount)
       }
-    });
-  }
-
-  var observer = new IntersectionObserver(callback, options);
-  observer.observe(document.querySelector("#feed-tile-0"));
-  observer.observe(document.querySelector(`#feed-tile-${listSize - 1}`));
 }
 
-start = function(){
-console.log("start()");
+function addNextItems(items){
+    var feedNode = document.querySelector("#feed-wrap")
+    var feedList = document.createElement("ul");
+    feedList.setAttribute('class', 'row pizzafeed  feed-list mt-5')
 
-    DBSize = 200;
-    listSize = 20;
+    for (let i = 0; i < items.length; i++) {
+        var item = document.createElement("div");
+        item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile')
+        specificId = 'feed-tile-' + (((loadCount-1) *  paginatedBy) + i)
+        item.setAttribute('id', specificId)
+        item.innerHTML = `
+        <div class="ft-recipe">
+        <div class="ft-recipe__thumb text-center d-flex  align-items-center">
+            <img class="mx-auto d-block feed-tile-img" src="http://127.0.0.1:8000/img/pizzapop.png" alt=""/>
+        </div>
+        <div class="ft-recipe__content ">
+            <header class="content__header">
+                <div class="row-wrapper text-center">
+                    <h2 class="recipe-title feed-tile-name">${ items[i]['id']}</h2>
+                    <div class="user-rating"></div>
+                </div>
+                <ul class="recipe-details">
+                    <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize'] }</span><span class="title">Méret(CM)</span></li>
+                    <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
+                    <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span><span class="title">Pontszám</span></li>
+                </ul>
+            </header>
+            <h4>Kerekerdő Pizzéria</h4>
+            <h4>Feltétek:</h4>
+            <p class="description">
+            ${items[i]['pizza']['recept']}
+            </p>
+            <p class="descriptions">Méret:  Cm</p>
+            <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
+        </div>
+    </div>
+        `;
 
-	initIntersectionObserver();
+        feedList.appendChild(item)
+    }
+
+    feedNode.appendChild(feedList)
+    console.log('items Added')
+
+    prevItemslastID = '#feed-tile-' + (((loadCount-2) *  paginatedBy) -1)
+    actualItemsLastId = '#feed-tile-' + (((loadCount-1) *  paginatedBy) -1)
+
+    //Első körben nem kell fel/leiratkozni
+    if (!(loadCount == 2)) {
+        observer.unobserve(document.querySelector(prevItemslastID));
+        observer.observe(document.querySelector(actualItemsLastId));
+        console.log("UNsub: " + prevItemslastID)
+        console.log("sub:" + actualItemsLastId)
+    }
+
 }
+
+function getData(num){
+    if (num == maxLoad ) {
+        console.log("feed end")
+        return
+    }
+
+    document.getElementById('feed-loader').style.display = 'inline';
+    console.log('request start')
+   fetch(URL + "/api/infinite_pizzas?page=" + loadCount)
+        .then(response=>response.json())
+        .then( data =>{
+            addNextItems(data['data'])
+            loadCount++
+
+            document.getElementById('feed-loader').style.display = 'none';
+        }).catch(function(error) {
+            //console.log(error);
+          });
+}
+
+
