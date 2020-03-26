@@ -64,7 +64,6 @@ class PizzaCategoryController extends Controller
         $this->validate($request, [
             'name' => 'required',
             'link' => 'required',
-            'url' => 'required',
             'sorrend' => 'required|numeric'
         ]);
 
