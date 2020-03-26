@@ -5,19 +5,19 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');"></a>
+                <a href="/pizzakategoriak" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');"></a>
                 <h2>Hawai Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza ">
-                <a href="" style="background-image: url('{{ asset('/img/glry/kukoricas.webp')}}');"></a>
+                <a href="/pizzakategoriak" style="background-image: url('{{ asset('/img/glry/kukoricas.webp')}}');"></a>
                 <h2>Son-Go-Ku Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href="" style="background-image: url('{{ asset('/img/glry/bolognai.webp')}}');"></a>
+                <a href="/pizzakategoriak" style="background-image: url('{{ asset('/img/glry/bolognai.webp')}}');"></a>
                 <h2>Bolognai Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href="" style="background-image: url('{{ asset('/img/glry/husimado.webp')}}');"></a>
+                <a href="/pizzakategoriak" style="background-image: url('{{ asset('/img/glry/husimado.webp')}}');"></a>
                 <h2>Húsimádó Pizzák</h2>
             </div>
         </div>

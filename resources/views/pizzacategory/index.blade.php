@@ -34,15 +34,15 @@
                             <div class="ft-recipe__contento">
                                 <header class="content__header">
                                     <div class="row-wrapper text-center">
-                                        <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
+                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
                                         <div class="user-rating"></div>
                                     </div>
                                     <ul class="recipe-details">
-                                        <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                        <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
+                                        <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
+                                        <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
                                     </ul>
                                 </header>
-                                <h4 class="text-center font-weight-bold">Kerekerdő Pizzéria</h4>
+                                <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
                                 <h4>Feltétek:</h4>
                                 <p class="description">
                                     asd asd asd asd asd
@@ -61,5 +61,6 @@
         $(window).scroll(function () {
             $('nav').toggleClass('scrolled',$(this).scrollTop()>660)
         });
+
     </script>
 @endsection

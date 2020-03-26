@@ -93,6 +93,10 @@
         e.preventDefault();
         $('html, body').animate({scrollTop:0}, '300');
     });
+
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
 </script>
 
 
