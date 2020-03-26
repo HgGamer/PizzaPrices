@@ -112,7 +112,7 @@
             </div>
         </div>
 
-        <ul id="feed-wrap">
+        <ul id="feed-wrap" class="pizzafeed">
         <ul class="row pizzafeed  feed-list mt-5" id="feed-list">
             @php
             $i=0;
