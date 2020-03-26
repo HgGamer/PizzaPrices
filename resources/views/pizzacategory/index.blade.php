@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <head>
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
-    </head>
+
 
     <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
 
@@ -28,11 +26,12 @@
                     <div class="row justify-content-between">
                 @endif
                     <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
-                        <div class="ft-recipe">
+
+                        <div class="ft-recipe-kicsi">
                             <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                                 <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                             </div>
-                            <div class="ft-recipe__content ">
+                            <div class="ft-recipe__contento">
                                 <header class="content__header">
                                     <div class="row-wrapper text-center">
                                         <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
@@ -51,8 +50,8 @@
                                 <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
                             </div>
                         </div>
-                    </div>
 
+                    </div>
             @endfor
         </div>
     </div>
