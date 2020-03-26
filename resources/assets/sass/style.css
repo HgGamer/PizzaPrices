@@ -83,6 +83,19 @@ body.home{
 .popularpizza img{
     border-radius: 25px;
 }
+.popularpizza a{
+    width: 100%;
+    height: 14rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none!important;
+    border-radius: 25px;
+}
 
 /*Banner area */
 
@@ -293,7 +306,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     margin-left: 1rem;
 }
 .pizzafeed{
-    padding-top: 80px;
+
     padding-left: 0px!important;
 }
 .ft-recipe {
@@ -364,6 +377,9 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .ft-recipe .ft-recipe__thumbm img {
     width: 60%;
 }
+.ft-recipe .ft-recipe__content h4 a {
+    color: black;
+}
 .ft-recipe .ft-recipe__content {
     -webkit-box-flex: 1;
     flex: 1;
@@ -375,10 +391,14 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     padding: .55em 0 .3em;
     border-bottom: 1px solid #d8d8d8;
 }
+.ft-recipe .ft-recipe__content .content__header .row-wrapper h2 {
+    width: 100%;
+}
+
 .ft-recipe .ft-recipe__content .content__header .row-wrapper .recipe-title {
     font-weight: 300;
     font-family: panpizza;
-    font-size: 40px;
+    font-size: 45px;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details {
     display: -webkit-box;
@@ -509,13 +529,47 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     font-size: 60px;
     padding-top: 40px;
 }
-
-
-
-
-
-
-
+#fel {
+    display: inline-block;
+    background-color: #FFA600;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s,
+    opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+#fel::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f077" !important;
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+#fel:hover {
+    cursor: pointer;
+    background-color:#a33327;
+}
+#fel:active {
+    background-color: #a33327;
+}
+#fel.show {
+    opacity: 1;
+    visibility: visible;
+}
+.bg{
+    background: url("/img/menu.jpg") no-repeat center center fixed;
+    background-size: cover;
+    height: 100vh;
+}
 @media (max-width: 1281px){
     .banner_area{
         height: 580px;
@@ -577,19 +631,8 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
         display: flex;
         margin-top: -90px!important;
     }
-    .image-gallery{
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-template-areas:
-            'img-1 img-1 img-2 img-2'
-            'img-3 img-3 img-4 img-4'
-            'img-5 img-5 img-6 img-6'
-            'img-7 img-7 img-8 img-8'
-            'img-9 img-9 img-10 img-10'
-            'img-11 img-11 img-12 img-12'
-            'img-13 img-13 img-14 img-14'
-            'img-15 img-15 img-16 img-16'
-            'img-17 img-17 img-18 img-18'
-            'img-19 img-19 img-20 img-20';
+    header .bg-dark{
+        background: #a33327 !important;
     }
 }
 @media (max-width: 767px) {
@@ -631,29 +674,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 
 }
 @media (max-width: 575px){
-    .image-gallery{
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-            'img-1 img-1'
-            'img-2 img-2'
-            'img-3 img-3'
-            'img-4 img-4'
-            'img-5 img-5'
-            'img-6 img-6'
-            'img-7 img-7'
-            'img-8 img-8'
-            'img-9 img-9'
-            'img-10 img-10'
-            'img-11 img-11'
-            'img-12 img-12'
-            'img-13 img-13'
-            'img-14 img-14'
-            'img-15 img-15'
-            'img-16 img-16'
-            'img-17 img-17'
-            'img-18 img-18'
-            'img-19 img-19';
-    }
+
 }
 @media (max-width: 540px){
     .carda{
@@ -665,6 +686,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     }
     .ft-recipe{
         width: 400px;
+    }
+}
+@media (min-width: 500px) {
+    #fel {
+        margin: 30px;
     }
 }
 @media (max-width: 425px) {

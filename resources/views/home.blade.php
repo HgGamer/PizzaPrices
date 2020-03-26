@@ -5,19 +5,19 @@
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
+                <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');"></a>
                 <h2>Hawai Pizzák</h2>
             </div>
-            <div class="col-lg-3 col-md-6 popularpizza">
-                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
+            <div class="col-lg-3 col-md-6 popularpizza ">
+                <a href="" style="background-image: url('{{ asset('/img/glry/kukoricas.webp')}}');"></a>
                 <h2>Son-Go-Ku Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
+                <a href="" style="background-image: url('{{ asset('/img/glry/bolognai.webp')}}');"></a>
                 <h2>Bolognai Pizzák</h2>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href=""><img class="img-fluid" src="{{ asset('img/1.jpg') }}"></a>
+                <a href="" style="background-image: url('{{ asset('/img/glry/husimado.webp')}}');"></a>
                 <h2>Húsimádó Pizzák</h2>
             </div>
         </div>
@@ -99,7 +99,7 @@
             </div>
         </div>
 
-        <div class="pizzacim text-center mt-5 mb-3">
+        <div class="pizzacim text-center mt-5 mb-5">
             <h2>
                 Pizza Feed
             </h2>
@@ -113,7 +113,7 @@
         </div>
 
         <ul id="feed-wrap" class="pizzafeed">
-        <ul class="row pizzafeed  feed-list mt-5" id="feed-list">
+        <ul class="row feed-list pizzafeed" id="feed-list">
             @php
             $i=0;
             $isYellow = true;
@@ -128,13 +128,11 @@
                         <div class="ft-recipe__content ">
                             <header class="content__header">
                                 <div class="row-wrapper text-center">
-                                    <h2 class="recipe-title feed-tile-name">{{$pizza['id']}}</h2>
-                                    <div class="user-rating"></div>
+                                    <h2 class="recipe-title feed-tile-name text-center">{{$pizza['pizza']['name']}}</h2>
                                 </div>
                                 <ul class="recipe-details">
-                                    <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">{{$pizza['pizzasize']}}</span><span class="title">Méret(cm)</span></li>
                                     <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár(HUF)</span></li>
-                                    <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span><span class="title">Pontszám</span></li>
+                                    <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">{{$pizza['pizzasize']}}</span><span class="title">Méret(cm)</span></li>
                                 </ul>
                             </header>
                             <h4 class="text-center font-weight-bold"> <a href="">Kerekerdő Pizzéria</a> </h4>
@@ -144,7 +142,6 @@
                                     {{ $recept }},
                                 @endforeach
                             </p>
-                            <p class="descriptions">Méret: {{ $pizza['pizzasize'] }} Cm</p>
                             <footer class="content__footer{{ ($counter%2 == 0) ? "m" : ""}} align-self-end "><a href="#">Részletek</a></footer>
                         </div>
                     </div>

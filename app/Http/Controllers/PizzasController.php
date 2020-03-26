@@ -22,5 +22,10 @@ class PizzasController extends Controller
         return $paginatedData;
     }
 
+    public function show(){
+
+        return view('pizza.show');
+    }
+
 
 }

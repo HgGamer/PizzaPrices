@@ -115,7 +115,7 @@ function botSentCallback(entry) {
 function addNextItems(items){
     var feedNode = document.querySelector("#feed-wrap")
     var feedList = document.createElement("ul");
-    feedList.setAttribute('class', 'row pizzafeed  feed-list mt-5')
+    feedList.setAttribute('class', 'row feed-list')
 
     for (let i = 0; i < items.length; i++) {
         var item = document.createElement("div");
@@ -123,31 +123,28 @@ function addNextItems(items){
         specificId = 'feed-tile-' + (((loadCount-1) *  paginatedBy) + i)
         item.setAttribute('id', specificId)
         item.innerHTML = `
-        <div class="ft-recipe">
-        <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-            <img class="mx-auto d-block feed-tile-img" src="http://127.0.0.1:8000/img/pizzapop.png" alt=""/>
+       <div class="ft-recipe">
+            <div class="ft-recipe__thumb text-center d-flex  align-items-center">
+                <img class="mx-auto d-block feed-tile-img" src="http://127.0.0.1:8000/img/pizzapop.png" alt=""/>
+            </div>
+            <div class="ft-recipe__content ">
+                <header class="content__header">
+                    <div class="row-wrapper text-center">
+                        <h2 class="recipe-title feed-tile-name text-center">${items[i]['pizza']['name']}</h2>
+                    </div>
+                    <ul class="recipe-details">
+                        <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
+                        <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
+                    </ul>
+                </header>
+                <h4 class="text-center font-weight-bold"> <a href="">Kerekerdő Pizzéria</a> </h4>
+                <h4>Feltétek:</h4>
+                <p class="description">
+                   ${items[i]['pizza']['recept']}
+                </p>
+                <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
+            </div>
         </div>
-        <div class="ft-recipe__content ">
-            <header class="content__header">
-                <div class="row-wrapper text-center">
-                    <h2 class="recipe-title feed-tile-name">${ items[i]['id']}</h2>
-                    <div class="user-rating"></div>
-                </div>
-                <ul class="recipe-details">
-                    <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize'] }</span><span class="title">Méret(CM)</span></li>
-                    <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
-                    <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span><span class="title">Pontszám</span></li>
-                </ul>
-            </header>
-            <h4>Kerekerdő Pizzéria</h4>
-            <h4>Feltétek:</h4>
-            <p class="description">
-            ${items[i]['pizza']['recept']}
-            </p>
-            <p class="descriptions">Méret:  Cm</p>
-            <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-        </div>
-    </div>
         `;
 
         feedList.appendChild(item)

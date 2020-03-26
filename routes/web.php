@@ -18,6 +18,7 @@ Route::get('/home', 'HomeController@home');
 Route::get('/kategoriak', 'HomeController@pizzacategories');
 Route::get('/kapcsolatok', 'HomeController@contacts');
 Route::get('/pizzakategoriak', 'PizzaCategoryController@index');
+Route::get('/pizza', 'PizzasController@show');
 
 
 

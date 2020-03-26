@@ -19,171 +19,41 @@
                 <div class="divider-custom-linee"></div>
             </div>
         </div>
-        <div class="row justify-content-between mb-5">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                    <div class="ft-recipe">
-                        <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+        <div class="row justify-content-between">
+            @for($i=0; $i<22; $i++)
+                @if(($i%3==0) && ($i !=0 ))
+                    </div>
+                @endif
+                @if(($i%3==0) && ($i !=0 ))
+                    <div class="row justify-content-between">
+                @endif
+                    <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
+                        <div class="ft-recipe">
+                            <div class="ft-recipe__thumb text-center d-flex  align-items-center">
+                                <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                            </div>
+                            <div class="ft-recipe__content ">
+                                <header class="content__header">
+                                    <div class="row-wrapper text-center">
+                                        <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
+                                        <div class="user-rating"></div>
+                                    </div>
+                                    <ul class="recipe-details">
+                                        <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
+                                        <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
+                                    </ul>
+                                </header>
+                                <h4 class="text-center font-weight-bold">Kerekerdő Pizzéria</h4>
+                                <h4>Feltétek:</h4>
+                                <p class="description">
+                                    asd asd asd asd asd
+                                </p>
+                                <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
+                            </div>
                         </div>
-                        <div class="ft-recipe__content ">
-                            <header class="content__header">
-                                <div class="row-wrapper text-center">
-                                    <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
-                                    <div class="user-rating"></div>
-                                </div>
-                                <ul class="recipe-details">
-                                    <li class="recipe-details-item time"><i class="fas fa-clock"></i><span class="value">20</span></li>
-                                    <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                    <li class="recipe-details-item servings"><i class="fas fa-heart"></i><span class="value">&#8734;</span></li>
-                                </ul>
-                            </header>
-                            <h4 class="text-center font-weight-bold">Kerekerdő Pizzéria</h4>
-                            <h4>Feltétek:</h4>
-                            <p class="description">
-                                asd asd asd asd asd
-                            </p>
-                            <p class="descriptions">Méret: 20 Cm</p>
-                            <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-                        </div>
                     </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content ">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span></li>
-                            </ul>
-                        </header>
-                        <h4 class="text-center">Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">
-                            asd asd asd asd asd
-                        </p>
-                        <p class="descriptions">Méret: 20 Cm</p>
-                        <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content ">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span></li>
-                            </ul>
-                        </header>
-                        <h4 class="text-center">Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">
-                            asd asd asd asd asd
-                        </p>
-                        <p class="descriptions">Méret: 20 Cm</p>
-                        <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <div class="row justify-content-between">
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content ">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span></li>
-                            </ul>
-                        </header>
-                        <h4 class="text-center">Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">
-                            asd asd asd asd asd
-                        </p>
-                        <p class="descriptions">Méret: 20 Cm</p>
-                        <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content ">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span></li>
-                            </ul>
-                        </header>
-                        <h4 class="text-center">Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">
-                            asd asd asd asd asd
-                        </p>
-                        <p class="descriptions">Méret: 20 Cm</p>
-                        <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-12">
-                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
-                    </div>
-                    <div class="ft-recipe__content ">
-                        <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">Lófasz ízű Pizza</h2>
-                                <div class="user-rating"></div>
-                            </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time"><i class="fas fa-clock"></i></i><span class="value">20</span></li>
-                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                <li class="recipe-details-item servings"><i class="fas fa-heart"></i></i><span class="value">&#8734;</span></li>
-                            </ul>
-                        </header>
-                        <h4 class="text-center">Kerekerdő Pizzéria</h4>
-                        <h4>Feltétek:</h4>
-                        <p class="description">
-                            asd asd asd asd asd
-                        </p>
-                        <p class="descriptions">Méret: 20 Cm</p>
-                        <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
-                    </div>
-                </div>
-            </div>
+
+            @endfor
         </div>
     </div>
 
