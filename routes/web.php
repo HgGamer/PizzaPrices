@@ -46,21 +46,23 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
         return view('dashboard.pizza_process.index');
     });
 	Route::get('/', 'AdminController@index');
-    Route::resource('/websites', 'WebsitesController');
-    Route::resource('/categories', 'CategoriesController');
-    Route::patch('/links/set-item-schema', 'LinksController@setItemSchema');
-    Route::post('/links/scrape', 'LinksController@scrape');
-    Route::resource('/links', 'LinksController');
-    Route::resource('/item-schema', 'ItemSchemaController');
+    Route::resource('/websites', 'Admin\WebsitesController');
+    Route::resource('/categories', 'Admin\CategoriesController');
+    Route::patch('/links/set-item-schema', 'Admin\LinksController@setItemSchema');
+    Route::post('/links/scrape', 'Admin\LinksController@scrape');
+    Route::resource('/links', 'Admin\LinksController');
+    Route::resource('/item-schema', 'Admin\ItemSchemaController');
     Route::resource('/pizzas', 'PizzasController');
-    Route::resource('/links/{id}/edit', 'LinksController@edit');
-    Route::delete('/logs/delete_all', 'LogsController@deleteAll');
-    Route::resource('/logs', 'LogsController');
-    Route::delete('/raw_pizzas/delete_all', 'RawPizzaController@deleteAll');
-    Route::delete('/raw_pizzas/{websiteId}/delete_pizzas', 'RawPizzaController@deletePizzas');
-    Route::post('/raw_pizzas/banyai_load', 'RawPizzaController@banyaiPizzaFeltetLoad');
-    Route::post('/raw_pizzas/forzaitalia_load', 'RawPizzaController@forzaitaliaPizzaLoad');
-    Route::resource('/materials', 'MaterialController');
+    Route::resource('/links/{id}/edit', 'Admin\LinksController@edit');
+    Route::delete('/logs/delete_all', 'Admin\LogsController@deleteAll');
+    Route::resource('/logs', 'Admin\LogsController');
+    Route::delete('/raw_pizzas/delete_all', 'Admin\RawPizzaController@deleteAll');
+    Route::delete('/raw_pizzas/{websiteId}/delete_pizzas', 'Admin\RawPizzaController@deletePizzas');
+    Route::post('/raw_pizzas/banyai_load', 'Admin\RawPizzaController@banyaiPizzaFeltetLoad');
+    Route::post('/raw_pizzas/forzaitalia_load', 'Admin\RawPizzaController@forzaitaliaPizzaLoad');
+    Route::resource('/materials', 'Admin\MaterialController');
+    Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
+
 });
 
 

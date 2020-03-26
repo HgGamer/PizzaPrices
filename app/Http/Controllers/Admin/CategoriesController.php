@@ -1,25 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Category;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
- 
+
     public function __construct()
     {
         $this->middleware('auth');
     }
- 
+
     public function index()
     {
         $cats = Category::orderBy('id', 'DESC')->paginate(10);
- 
+
         return view('dashboard.category.index')->withCategories($cats);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +30,7 @@ class CategoriesController extends Controller
     {
         return view('dashboard.category.create');
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -41,16 +42,16 @@ class CategoriesController extends Controller
         $this->validate($request, [
             'title' => 'required'
         ]);
- 
+
         $cat = new Category;
- 
+
         $cat->title = $request->input('title');
- 
+
         $cat->save();
- 
+
         return redirect()->route('categories.index');
     }
- 
+
     /**
      * Display the specified resource.
      *
@@ -61,7 +62,7 @@ class CategoriesController extends Controller
     {
         //
     }
- 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -69,11 +70,11 @@ class CategoriesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {   
+    {
         //return Category::find($id);
         return view('dashboard.category.edit')->with('category', Category::find($id));
-    }   
- 
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -86,16 +87,16 @@ class CategoriesController extends Controller
         $this->validate($request, [
             'title' => 'required'
         ]);
- 
+
         $cat = Category::find($id);
- 
+
         $cat->title = $request->input('title');
- 
+
         $cat->save();
- 
+
         return redirect()->route('categories.index');
     }
- 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -106,7 +107,7 @@ class CategoriesController extends Controller
     {
         $category = Category::find($id);
         $category->delete();
-  
+
         return redirect()->route('categories.index')
                         ->with('success','Category deleted successfully');
     }

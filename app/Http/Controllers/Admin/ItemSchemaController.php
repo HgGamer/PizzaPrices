@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\ItemSchema;
 use Illuminate\Http\Request;
 
@@ -16,10 +17,10 @@ class ItemSchemaController extends Controller
     public function index()
     {
         $itemSchema = ItemSchema::orderBy('id', 'DESC')->paginate(10);
- 
+
         return view('dashboard.item_schema.index')->withItemSchemas($itemSchema);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -29,7 +30,7 @@ class ItemSchemaController extends Controller
     {
         return view('dashboard.item_schema.create');
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -43,31 +44,31 @@ class ItemSchemaController extends Controller
             'css_expression' => 'required',
             'full_content_selector' => 'required'
         ]);
- 
+
         $itemSchema = new ItemSchema;
- 
+
         $itemSchema->title = $request->input('title');
 
         if($request->input('pizzaSize') != null) {
             $itemSchema->pizza_size = $request->input('pizzaSize');
         }
-        
+
         if($request->input('is_full_url') != null) {
- 
+
             $itemSchema->is_full_url = 1;
         } else {
             $itemSchema->is_full_url = 0;
         }
- 
+
         $itemSchema->css_expression = $request->input('css_expression');
- 
+
         $itemSchema->full_content_selector = $request->input('full_content_selector');
- 
+
         $itemSchema->save();
- 
+
         return redirect()->route('item-schema.index');
     }
- 
+
     /**
      * Display the specified resource.
      *
@@ -78,7 +79,7 @@ class ItemSchemaController extends Controller
     {
         //
     }
- 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -89,7 +90,7 @@ class ItemSchemaController extends Controller
     {
         return view('dashboard.item_schema.edit')->withItemSchema(ItemSchema::find($id));
     }
- 
+
     /**
      * Update the specified resource in storage.
      *
@@ -104,31 +105,31 @@ class ItemSchemaController extends Controller
             'css_expression' => 'required',
             'full_content_selector' => 'required'
         ]);
- 
+
         $itemSchema = ItemSchema::find($id);
- 
+
         $itemSchema->title = $request->input('title');
 
         if($request->input('pizzaSize') != null) {
             $itemSchema->pizza_size = $request->input('pizzaSize');
         }
- 
+
         if($request->input('is_full_url') != null) {
- 
+
             $itemSchema->is_full_url = 1;
         } else {
             $itemSchema->is_full_url = 0;
         }
- 
+
         $itemSchema->css_expression = $request->input('css_expression');
- 
+
         $itemSchema->full_content_selector = $request->input('full_content_selector');
- 
+
         $itemSchema->save();
- 
+
         return redirect()->route('item-schema.index');
     }
- 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -139,7 +140,7 @@ class ItemSchemaController extends Controller
     {
         $itemSchema = ItemSchema::find($id);
         $itemSchema->delete();
-  
+
         return redirect()->route('item-schema.index')
                         ->with('success','Item schema deleted successfully');
     }

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Category;
 use App\ItemSchema;
 use App\Lib\Scraper;
@@ -20,12 +21,12 @@ class LinksController extends Controller
     public function index()
     {
         $links = Link::orderBy('id', 'DESC')->paginate(10);
- 
+
         $itemSchemas = ItemSchema::all();
- 
+
         return view('dashboard.link.index')->withLinks($links)->withItemSchemas($itemSchemas);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,10 +36,10 @@ class LinksController extends Controller
     {
         $categories = Category::all();
         $websites = Website::all();
- 
+
         return view('dashboard.link.create')->withCategories($categories)->withWebsites($websites);
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -53,22 +54,22 @@ class LinksController extends Controller
             'website_id' => 'required',
             'category_id' => 'required'
         ]);
- 
+
         $link = new Link;
- 
+
         $link->url = $request->input('url');
- 
+
         $link->main_filter_selector = $request->input('main_filter_selector');
- 
+
         $link->website_id = $request->input('website_id');
- 
+
         $link->category_id = $request->input('category_id');
- 
+
         $link->save();
- 
+
         return redirect()->route('links.index');
     }
- 
+
     /**
      * Display the specified resource.
      *
@@ -79,7 +80,7 @@ class LinksController extends Controller
     {
         //
     }
- 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -91,10 +92,10 @@ class LinksController extends Controller
 
         $categories = Category::all();
         $websites = Website::all();
- 
+
         return view('dashboard.link.edit')->withLink(Link::find($id))->withCategories($categories)->withWebsites($websites);
     }
- 
+
     /**
      * Update the specified resource in storage.
      *
@@ -110,22 +111,22 @@ class LinksController extends Controller
             'website_id' => 'required',
             'category_id' => 'required'
         ]);
- 
+
         $link = Link::find($id);
- 
+
         $link->url = $request->input('url');
- 
+
         $link->main_filter_selector = $request->input('main_filter_selector');
- 
+
         $link->website_id = $request->input('website_id');
- 
+
         $link->category_id = $request->input('category_id');
- 
+
         $link->save();
- 
+
         return redirect()->route('links.index');
     }
- 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -136,12 +137,12 @@ class LinksController extends Controller
     {
         $link = Link::find($id);
         $link->delete();
-  
+
         return redirect()->route('links.index')
                         ->with('success','Link deleted successfully');
     }
- 
- 
+
+
     /**
      * @param Request $request
      */
@@ -149,17 +150,17 @@ class LinksController extends Controller
     {
         if(!$request->item_schema_id && !$request->link_id)
             return;
- 
+
         $link = Link::find($request->link_id);
- 
+
         $link->item_schema_id = $request->item_schema_id;
- 
+
         $link->save();
- 
+
         return response()->json(['msg' => 'Link updated!']);
     }
- 
- 
+
+
     /**
      * scrape specific link
      *
@@ -169,17 +170,17 @@ class LinksController extends Controller
     {
         if(!$request->link_id)
             return;
- 
+
         $link = Link::find($request->link_id);
- 
+
         if(empty($link->main_filter_selector) && (empty($link->item_schema_id) || $link->item_schema_id == 0)) {
             return;
         }
- 
+
         $scraper = new Scraper(new Client());
- 
+
         $scraper->handle($link);
- 
+
         if($scraper->status == 1) {
             return response()->json(['status' => 1, 'msg' => 'Scraping done']);
         } else {

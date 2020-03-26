@@ -1,26 +1,27 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Website;
 use Illuminate\Http\Request;
 
 class WebsitesController extends Controller
 {
-     
+
 
     public function __construct()
     {
         $this->middleware('auth');
     }
-     
+
     public function index()
     {
         $websites = Website::orderBy('id', 'DESC')->paginate(10);
- 
+
         return view('dashboard.website.index')->withWebsites($websites);
     }
- 
+
     /**
      * Show the form for creating a new resource.
      *
@@ -30,7 +31,7 @@ class WebsitesController extends Controller
     {
         return view('dashboard.website.create');
     }
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -44,13 +45,13 @@ class WebsitesController extends Controller
             'url' => 'required',
             'logo' => 'required'
         ]);
- 
+
         $website = new Website;
- 
+
         $website->title = $request->input('title');
 
         $website->url = $request->input('url');
- 
+
         if($request->input('delivery_prices') != null) {
             $website->delivery_prices = $request->input('delivery_prices');
         }
@@ -58,14 +59,14 @@ class WebsitesController extends Controller
         if($request->input('other_infos') != null) {
             $website->other_infos = $request->input('other_infos');
         }
- 
+
         $website->logo = $this->uploadFile('logo', public_path('uploads/'), $request)["filename"];
- 
+
         $website->save();
- 
+
         return redirect()->route('websites.index');
     }
- 
+
     /**
      * Display the specified resource.
      *
@@ -76,7 +77,7 @@ class WebsitesController extends Controller
     {
         //
     }
- 
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -87,7 +88,7 @@ class WebsitesController extends Controller
     {
         return view('dashboard.website.edit')->withWebsite(Website::find($id));
     }
- 
+
     /**
      * Update the specified resource in storage.
      *
@@ -101,11 +102,11 @@ class WebsitesController extends Controller
             'title' => 'required',
             'url' => 'required'
         ]);
- 
+
         $website = Website::find($id);
- 
+
         $website->title = $request->input('title');
- 
+
         $website->url = $request->input('url');
 
         if($request->input('delivery_prices') != null) {
@@ -117,15 +118,15 @@ class WebsitesController extends Controller
         }
 
         if($request->file('logo') != null) {
- 
+
             $website->logo = $this->uploadFile('logo', public_path('uploads/'), $request)["filename"];
         }
- 
+
         $website->save();
- 
+
         return redirect()->route('websites.index');
     }
- 
+
     /**
      * Remove the specified resource from storage.
      *
@@ -136,7 +137,7 @@ class WebsitesController extends Controller
     {
         $website = Website::find($id);
         $website->delete();
-  
+
         return redirect()->route('websites.index')
                         ->with('success','Website deleted successfully');
     }
