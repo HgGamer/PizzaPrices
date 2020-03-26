@@ -38,6 +38,9 @@
       <li class="nav-item">
         <a class="nav-link" href="{{ url('dashboard/item-schema') }}">Item schemas</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://analytics.google.com/analytics/web" target="_blank">Analytics</a>
+      </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Others
@@ -49,6 +52,7 @@
           <a class="dropdown-item" href="{{ url('dashboard/materials') }}">Materials</a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url('dashboard/pizzas') }}">Pizzas</a>
+            <a class="dropdown-item" href="{{ url('dashboard/pizza_categories') }}">Pizza Categories</a>
         </div>
       </li>
     </ul>
