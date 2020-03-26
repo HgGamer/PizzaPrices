@@ -8,7 +8,7 @@ use App\Traits\PizzaQueryTrait;
 
 class PizzasController extends Controller
 {
-    
+
     use PizzaQueryTrait;
 
     public function __construct()
@@ -16,6 +16,11 @@ class PizzasController extends Controller
         $this->middleware('auth');
     }
 
+    public function infinitePizzas(){
+        $paginatedData = $this->getInfinitPizzas();
+
+        return $paginatedData;
+    }
 
 
 }

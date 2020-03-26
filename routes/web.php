@@ -27,7 +27,7 @@ Route::get('/category/{id}', 'HomeController@getCategory');
 
 
 Route::prefix('api')->group(function () {
-    Route::get('/infinite_pizzas', 'PizzasController@getInfinitPizzas');
+    Route::get('/infinite_pizzas', 'PizzasController@infinitePizzas');
 });
 
 

@@ -8,7 +8,7 @@ trait PizzaQueryTrait {
 
     public function getInfinitPizzas(){
 
-        $paginatedData = StoreData::paginate(20);
+        $paginatedData = StoreData::paginate(10);
 
         $storeDatas =  $paginatedData->getCollection();
 
