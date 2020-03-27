@@ -77,8 +77,8 @@
   </div>
 </nav>
 
-    <div class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row mx-5">
                 @yield('content')
             </div>
         </div>
