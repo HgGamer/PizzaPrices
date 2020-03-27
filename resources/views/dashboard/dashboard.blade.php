@@ -89,17 +89,45 @@
 
     <div class="container-fluid">
 
-        <div class="col-4">
-            <div class="card  shadow h-100 ">
-                <div class="card-header text-center">
-                    <H3 class="font-weight-bold">Last 5 feedback</H3>
-                </div>
-                <div class="card-body">
-                  <div class="row align-items-center">
+        <div class="row justify-content-around" style="max-height: 1000px;">
 
-                </div>
-              </div>
+            <div class="col-12 col-xl-5">
+                <div class="card  shadow h-100 ">
+                    <div class="card-header text-center">
+                        <H3 class="font-weight-bold">Last 5 feedback</H3>
+                    </div>
+                    <div class="card-body">
+                      <div class="row">
+                        <table class="col-12">
+                            @foreach ($feedbacks as $feedback)
+                            <tr><td>
+                                {{  $feedback->created_at}}: <br>
+                                {{  $feedback->body}}
+                                <hr>
+                            </td></tr>
+                            @endforeach
+                        </table>
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+            <div class="col-12 col-xl-5">
+                <div class="card  shadow h-100 ">
+                    <div class="card-header text-center">
+                        <H3 class="font-weight-bold">Sumething</H3>
+                    </div>
+                    <div class="card-body">
+                      <div class="row align-items-center">
+
+                        </div>
+                    </div>
+                  </div>
+            </div>
+
+
         </div>
+
 
     </div>
 

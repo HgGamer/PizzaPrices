@@ -26,6 +26,7 @@ Route::get('/pizza', 'PizzasController@show');
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
 
+Route::post('/feedback', 'HomeController@storeFeedback');
 
 Route::prefix('api')->group(function () {
     Route::get('/infinite_pizzas', 'PizzasController@infinitePizzas');
@@ -61,8 +62,9 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/raw_pizzas/banyai_load', 'Admin\RawPizzaController@banyaiPizzaFeltetLoad');
     Route::post('/raw_pizzas/forzaitalia_load', 'Admin\RawPizzaController@forzaitaliaPizzaLoad');
     Route::resource('/materials', 'Admin\MaterialController');
+    Route::delete('/feedbacks/delete_all', 'Admin\FeedbackController@deleteAll');
+    Route::resource('/feedbacks', 'Admin\FeedbackController');
     Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
-
 });
 
 

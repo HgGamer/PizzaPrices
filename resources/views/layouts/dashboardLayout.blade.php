@@ -50,6 +50,7 @@
           <a class="dropdown-item" href="{{ url('dashboard/categories') }}">Categories</a>
           <a class="dropdown-item" href="{{ url('dashboard/logs') }}">Logs</a>
           <a class="dropdown-item" href="{{ url('dashboard/materials') }}">Materials</a>
+          <a class="dropdown-item" href="{{ url('dashboard/feedbacks') }}">Feedbacks</a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url('dashboard/pizzas') }}">Pizzas</a>
             <a class="dropdown-item" href="{{ url('dashboard/pizza_categories') }}">Pizza Categories</a>
@@ -77,12 +78,12 @@
   </div>
 </nav>
 
-    <div class="container-fluid">
-        <div class="row mx-5">
-                @yield('content')
-            </div>
+<div class="container-fluid my-5">
+    <div class="row mx-5">
+            @yield('content')
         </div>
     </div>
+</div>
 
     @yield('script')
 </body>

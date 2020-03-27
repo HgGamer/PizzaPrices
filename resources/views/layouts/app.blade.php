@@ -70,60 +70,70 @@
 
 
 <div class="modal fade bd-example-modal-md" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Küldj visszajelzést!</h5>
+                <h5 class="modal-title">Nagyra értékeljük a véleményed az oldalról! </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="feedback-modal-body">
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Visszajelzés</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <label for="exampleFormControlTextarea1">A visszajelzés teljesen névtelen, semmilyen módon nem tudjuk visszakövetni az küldőt.</label>
+                    <textarea class="form-control" id="feedbackTextArea" rows="4"></textarea>
                 </div>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary">Küldés</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Bezár</button>
+                <button type="button" onclick="saveFeedback();" class="btn btn-primary" id="feedback-button">Küldés</button>
             </div>
         </div>
     </div>
 </div>
 
-        <div id="cookie-footer" class="footer">
-            <div class="container">
-                <p class="h6 p-2">
-                    Sütiket alkalmazunk, hogy megértsük, hogyan használod az oldalt és javítsuk a felhasználói élményt.
-                    <a  class="btn btn-success btn-sm"  onclick="setCookiePolicyCookie()">Elfogadás</a>
-                    <a href="#"  class="btn btn-primary btn-sm">Részletek</a>
-                </p>
-            </div>
-        </div>
+<div id="cookie-footer" class="footer">
+    <div class="container">
+        <p class="h6 p-2">
+            Sütiket alkalmazunk, hogy megértsük, hogyan használod az oldalt és javítsuk a felhasználói élményt.
+            <a  class="btn btn-success btn-sm"  onclick="setCookiePolicyCookie()">Elfogadás</a>
+            <a href="#"  class="btn btn-primary btn-sm">Részletek</a>
+        </p>
+    </div>
+</div>
 
 <script>
-    var btn = $('#fel');
 
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > 300) {
-            btn.addClass('show');
-        } else {
-            btn.removeClass('show');
+var btn = $('#fel');
+
+btn.on('click', function(e) {
+    e.preventDefault();
+    $('html, body').animate({scrollTop:0}, '300');
+});
+
+$(window).scroll(function() {
+    if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+    } else {
+        btn.removeClass('show');
+    }
+});
+
+saveFeedback = function(){
+    text = document.getElementById("feedbackTextArea").value;
+    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    $.ajax({
+        url: '/feedback',
+        type: 'POST',
+        data: {_token: CSRF_TOKEN, body: text},
+        dataType: 'JSON',
+        success: function (data) {
+            document.getElementById("feedback-modal-body").innerHTML = "<h1>Köszönjük a visszajelzésed!</h1>";
+            document.getElementById("feedback-button").style.display = "none";
         }
     });
+}
 
-    btn.on('click', function(e) {
-        e.preventDefault();
-        $('html, body').animate({scrollTop:0}, '300');
-    });
-
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-
-    $('#myModal').modal(options)
 </script>
 
 

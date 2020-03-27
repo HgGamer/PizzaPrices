@@ -7,6 +7,7 @@ use App\StoreData;
 use App\Material;
 use App\PizzaCategory;
 use App\Traits\PizzaQueryTrait;
+use App\Feedback;
 
 class HomeController extends Controller
 {
@@ -48,6 +49,26 @@ class HomeController extends Controller
         $Category = PizzaCategory::orderBy('sorrend','ASC')->get();
 
         return view('pizzacategories', compact('Category'));
+    }
+
+    public function storeFeedback(Request $request){
+            $this->validate($request, [
+                'body' => 'required|max:512'
+            ]);
+
+
+            $feedback = new Feedback();
+
+            $feedback->body = $request->input('body');
+
+            $feedback->save();
+
+            $response = array(
+                'status' => 'success',
+                'msg' => "Siker",
+            );
+            return response()->json($response);
+
     }
 
 }

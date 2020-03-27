@@ -1,5 +1,8 @@
 require('./bootstrap.js');
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+})
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
@@ -185,5 +188,11 @@ function getData(num){
             //console.log(error);
           });
 }
+
+/******  INFINITE SCROLL END ******/
+
+
+
+
 
 
