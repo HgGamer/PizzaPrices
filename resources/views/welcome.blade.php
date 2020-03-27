@@ -17,11 +17,18 @@
 
 <body>
 <div class="bg-img">
-    <div class="menudiv">
-        <li><a href="/home">Szeged</a></li>
-        <li><a href="">Budapest</a></li>
-        <li><a href="">Debrecen</a></li>
+    <div class="kezdologo">
+        <img class="mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="">
+        <h1 class="mx-auto d-block">Pizza Prices</h1>
     </div>
+    <div class="kezdumenu align-items-center">
+        <div class="menudiv mx-auto d-block ">
+            <li><a href="/home">Szeged</a></li>
+            <li><a href="">Budapest</a></li>
+            <li><a href="">Debrecen</a></li>
+        </div>
+    </div>
+
     <div class="container">
         <div class="row">
             <div class="col-12 text-center d-flex map align-items-center">
@@ -36,12 +43,12 @@
                     <a href="" class="restaurant debrecen">
                         <span>Debrecen HAMAROSAN</span>
                     </a>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
