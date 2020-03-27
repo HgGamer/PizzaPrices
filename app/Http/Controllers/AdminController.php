@@ -7,7 +7,9 @@ use Illuminate\Support\Collection;
 use Illuminate\Support\Carbon;
 use Analytics;
 use Spatie\Analytics\Period;
+use App\StoreData;
 use App\Log;
+use App\RawPizza;
 
 class AdminController extends Controller
 {
@@ -24,10 +26,19 @@ class AdminController extends Controller
     public function index()
     {
 
-        $visitorsAndPageViews = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        $visitorsAndPageViews7 = Analytics::fetchVisitorsAndPageViews(Period::days(7));
+        $visitorsAndPageViews30 = Analytics::fetchVisitorsAndPageViews(Period::days(30));
         $logsCount = Log::all()->count();
 
-        return view('dashboard.dashboard')->withVisitorsAndPageViews($visitorsAndPageViews[0])->withLogsCount($logsCount);
+       $pizzasCount = StoreData::all()->count();
+       $rawPizzasCount = RawPizza::all()->count();
+
+        return view('dashboard.dashboard')
+                    ->withVisitorsAndPageViews7($visitorsAndPageViews7[0])
+                    ->withVisitorsAndPageViews30($visitorsAndPageViews30[0])
+                    ->withLogsCount($logsCount)
+                    ->withPizzasCount($pizzasCount)
+                    ->withRawPizzasCount($rawPizzasCount);
     }
 
     public function customGoogleQuery(){
