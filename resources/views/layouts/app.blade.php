@@ -97,7 +97,7 @@
         <p class="h6 p-2">
             Sütiket alkalmazunk, hogy megértsük, hogyan használod az oldalt és javítsuk a felhasználói élményt.
             <a  class="btn btn-success btn-sm"  onclick="setCookiePolicyCookie()">Elfogadás</a>
-            <a href="#"  class="btn btn-primary btn-sm">Részletek</a>
+            <a href="/kapcsolatok#adatvedelmi"  class="btn btn-primary btn-sm">Részletek</a>
         </p>
     </div>
 </div>

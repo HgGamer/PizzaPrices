@@ -12,7 +12,7 @@
 
                 <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
                     <div class="justify-content-center d-flex align-items-center tabla">
-                        <img class="img-fluid" src="{{ asset('img/tabla.png') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/table.png') }}" alt="">
                         <ul class="feltetek position-absolute">
                             <li>PARADICSOMOSALAP</li>
                             <li>KOLBÁSZ</li>

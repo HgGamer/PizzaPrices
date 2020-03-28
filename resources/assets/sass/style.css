@@ -8,7 +8,9 @@
 }
 body.home{
     background-color: #FFEFD3 !important;
-
+}
+.text-black{
+    color: #000;
 }
 .bg-img{
     background: url("/img/pizza3.jpg") no-repeat center center fixed;
@@ -793,28 +795,6 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .kezdumenu{
     display: none!important;
 }
-
-.bg{
-    background: url("/img/bg.jpg") no-repeat;
-    background-size: cover;
-    overflow: hidden;
-}
-.tabla{
-    margin-top: 150px;
-}
-.feltetek{
-    list-style-type: none;
-    padding-left: 0;
-    margin-top: 60px;
-    z-index: 4000;
-}
-.feltetek li{
-    color: white;
-    font-size: 4.375rem;
-    font-family: kreta;
-}
-
-
 nav > .nav.nav-tabs{
 
     border: none;
@@ -861,12 +841,40 @@ nav > div a.nav-item.nav-link:focus
 .szoveg{
     padding: 30px;
 }
-
-
-
-
-
-
+.bg{
+    background: url("/img/bg.jpg") no-repeat;
+    background-size: cover;
+    overflow: hidden;
+}
+.tabla{
+    margin-top: 150px;
+}
+.feltetek{
+    list-style-type: none;
+    padding-left: 0;
+    margin-top: 10px;
+}
+.feltetek li{
+    color: white;
+    font-size: 3.2rem;
+    font-family: kreta;
+}
+@media (max-width: 1437px){
+    .feltetek{
+        margin-top: 40px;
+    }
+}
+@media (max-width: 1300px){
+    .feltetek{
+        margin-top: 60px;
+    }
+    .feltetek li {
+        font-size: 2.8rem;
+    }
+    .tabla{
+        margin-top: 180px;
+    }
+}
 @media (max-width: 1281px){
     .banner_area{
         height: 580px;
@@ -887,6 +895,26 @@ nav > div a.nav-item.nav-link:focus
     }
     .back::before{
         bottom: 20%;
+    }
+    .feltetek{
+        margin-top: 20px;
+    }
+    .feltetek li {
+        font-size: 2.5rem;
+    }
+    .tabla{
+        margin-top: 130px;
+    }
+}
+@media (max-width: 1100px){
+    .feltetek{
+        margin-top: 40px;
+    }
+    .feltetek li {
+        font-size: 2rem;
+    }
+    .tabla{
+        margin-top: 130px;
     }
 }
 @media (max-width: 991px){
@@ -930,6 +958,12 @@ nav > div a.nav-item.nav-link:focus
     }
     header .bg-dark{
         background: #a33327 !important;
+    }
+    .feltetek li {
+        font-size: 3rem;
+    }
+    .feltetek{
+        margin-top: 10px;
     }
 }
 @media (max-width: 767px) {
@@ -988,6 +1022,19 @@ nav > div a.nav-item.nav-link:focus
     }
 
 }
+@media (max-width: 700px) {
+    .feltetek{
+        margin-top: 30px;
+    }
+}
+@media (max-width: 590px) {
+    .feltetek{
+        margin-top: 50px;
+    }
+    .feltetek li {
+        font-size: 2.5rem;
+    }
+}
 @media (max-width: 575px){
 
 }
@@ -1003,6 +1050,14 @@ nav > div a.nav-item.nav-link:focus
         width: 400px;
     }
 }
+@media (max-width: 530px) {
+    .feltetek{
+        margin-top: 20px;
+    }
+    .feltetek li {
+        font-size: 2rem;
+    }
+}
 @media (min-width: 500px) {
     #fel {
         margin: 30px;
@@ -1015,7 +1070,15 @@ nav > div a.nav-item.nav-link:focus
     .carda{
         width: 400px;
     }
-
+    .feltetek{
+        margin-top: 20px;
+    }
+    .feltetek li {
+        font-size: 1.5rem;
+    }
+    .kezdologo img{
+        width: 50%;
+    }
 }
 @media (max-width: 375px){
     .carda{
@@ -1059,8 +1122,8 @@ nav > div a.nav-item.nav-link:focus
     .ft-recipe{
         width: 290px;
     }
+    .menudiv li{
+        font-size: 30px;
+    }
 }
 
-.text-black{
-    color: #000;
-}
