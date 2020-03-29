@@ -10,6 +10,7 @@ use Spatie\Analytics\Period;
 use App\StoreData;
 use App\Log;
 use App\RawPizza;
+use App\Feedback;
 
 class AdminController extends Controller
 {
@@ -32,13 +33,15 @@ class AdminController extends Controller
 
        $pizzasCount = StoreData::all()->count();
        $rawPizzasCount = RawPizza::all()->count();
+       $feedBacks= Feedback::latest('created_at')->take(5)->get();
 
         return view('dashboard.dashboard')
                     ->withVisitorsAndPageViews7($visitorsAndPageViews7[0])
                     ->withVisitorsAndPageViews30($visitorsAndPageViews30[0])
                     ->withLogsCount($logsCount)
                     ->withPizzasCount($pizzasCount)
-                    ->withRawPizzasCount($rawPizzasCount);
+                    ->withRawPizzasCount($rawPizzasCount)
+                    ->withFeedbacks($feedBacks);
     }
 
     public function customGoogleQuery(){
