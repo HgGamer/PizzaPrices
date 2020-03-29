@@ -70,9 +70,6 @@ start = function(max, paginateNum,initData){
     maxLoad = max
     DB = initData
     paginatedBy = paginateNum
-    console.log(DB.length)
-    console.log(maxLoad)
-    console.log(paginatedBy)
     getData(2)
 
     initIntersectionObserver();
@@ -163,8 +160,6 @@ function addNextItems(items){
     if (!(loadCount == 2)) {
         observer.unobserve(document.querySelector(prevItemslastID));
         observer.observe(document.querySelector(actualItemsLastId));
-        console.log("UNsub: " + prevItemslastID)
-        console.log("sub:" + actualItemsLastId)
     }
 
 }

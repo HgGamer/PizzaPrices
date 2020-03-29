@@ -8,25 +8,17 @@ use App\Material;
 use App\PizzaCategory;
 use App\Traits\PizzaQueryTrait;
 use App\Feedback;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
     use PizzaQueryTrait ;
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+
     public function __construct()
     {
         //$this->middleware('auth');
     }
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
     public function index()
     {
         return view('welcome');
@@ -56,6 +48,32 @@ class HomeController extends Controller
                 'body' => 'required|max:512'
             ]);
 
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $data = [
+                    'secret' => env('G_RECAPTCHA_SECRET_KEY'),
+                    'response' => $request->get('recaptcha'),
+                ];
+
+            $options = [
+                    'http' => [
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => http_build_query($data)
+                    ]
+                ];
+
+            $context = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);
+            $resultJson = json_decode($result);
+
+            //Csak a legalább 2 ponttal rendelkező userek feedbackjét menti el
+            if ($resultJson->success != true || $resultJson->score <= 0.2) {
+                $response = array(
+                    'status' => 'error',
+                    'msg' => ['captcha' => 'ReCaptcha Error'],
+                );
+                return response()->json($response);
+            }
 
             $feedback = new Feedback();
 
@@ -70,5 +88,6 @@ class HomeController extends Controller
             return response()->json($response);
 
     }
+
 
 }

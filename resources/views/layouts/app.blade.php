@@ -83,6 +83,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">A visszajelzés teljesen névtelen, semmilyen módon nem tudjuk visszakövetni az küldőt.</label>
                     <textarea class="form-control" id="feedbackTextArea" rows="4"></textarea>
+                    <input type="hidden" name="recaptcha" id="recaptcha">
                 </div>
 
             </div>
@@ -121,12 +122,14 @@ $(window).scroll(function() {
 });
 
 saveFeedback = function(){
+    document.getElementById("feedback-button").disabled = true;
     text = document.getElementById("feedbackTextArea").value;
     var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+    var recaptchaData = document.getElementById('recaptcha').value;
     $.ajax({
         url: '/feedback',
         type: 'POST',
-        data: {_token: CSRF_TOKEN, body: text},
+        data: {_token: CSRF_TOKEN, body: text, recaptcha: recaptchaData},
         dataType: 'JSON',
         success: function (data) {
             document.getElementById("feedback-modal-body").innerHTML = "<h1>Köszönjük a visszajelzésed!</h1>";
@@ -136,7 +139,18 @@ saveFeedback = function(){
 }
 
 </script>
+<script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render={{env('G_RECAPTCHA_SITE_KEY')}}" async defer></script>
+<script>
+    recaptchaCallback = function(){
+        grecaptcha.execute('{{env('G_RECAPTCHA_SITE_KEY')}}', {action: 'feedback'}).then(function(token) {
+           if (token) {
+             document.getElementById('recaptcha').value = token;
+           }
+        });
 
+    }
+
+</script>
 
 </body>
 </html>
