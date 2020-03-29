@@ -198,7 +198,6 @@ class ProcessRawController extends Controller
     private function processContentRow($content){
         $recept = [];
         $failed = false;
-        dd($content);
         foreach($content as $material){
             $processedMaterial = $this->processMaterial($material);
             if($processedMaterial==-1){
