@@ -115,7 +115,7 @@ body.home{
 
 
 header .bg-dark{
-    background: transparent!important;
+    background:#a33327!important;
     transition: 750ms ease;
 }
 header .bg-dark.scrolled{
@@ -263,8 +263,8 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 100px;
     height: 100%;
     top: 0;
-
-}.pizzacim{
+}
+.pizzacim{
     margin-bottom: -50px;
     position: relative;
  }
@@ -395,17 +395,8 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     opacity: 1;
     visibility: visible;
 }
-.pizzakep{
-    position: relative;
-    left: 10%;
-    height: 100vh;
-}
-.pizzakep img{
-    width: 60%;
-}
 .ft-recipe {
     width: 460px;
-    background: var(--white);
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
@@ -441,7 +432,6 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 36px;
     height: 36px;
     background: #000;
-    color: var(--white);
     text-align: center;
     line-height: 36px;
     font-size: 22px;
@@ -458,7 +448,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     position: absolute;
     margin: 0;
     width: 100%;
-    color: var(--white);
+
     font-size: 25px;
     height: 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(transparent));
@@ -582,7 +572,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 .ft-recipe-kicsi{
     width: 350px;
-    background: var(--white);
+
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
@@ -618,7 +608,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 36px;
     height: 36px;
     background: #000;
-    color: var(--white);
+
     text-align: center;
     line-height: 36px;
     font-size: 22px;
@@ -635,7 +625,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     position: absolute;
     margin: 0;
     width: 100%;
-    color: var(--white);
+
     font-size: 25px;
     height: 100%;
     background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(transparent));
@@ -847,7 +837,10 @@ nav > div a.nav-item.nav-link:focus
     overflow: hidden;
 }
 .tabla{
-    margin-top: 150px;
+    margin-top: 120px;
+}
+.tabla img{
+    width: 90%;
 }
 .feltetek{
     list-style-type: none;
@@ -859,6 +852,65 @@ nav > div a.nav-item.nav-link:focus
     font-size: 3.2rem;
     font-family: kreta;
 }
+.pizzakep{
+    position: relative;
+}
+.pizzakep img{
+    width: 70%;
+}
+.pizzanev{
+    position: relative;
+}
+.pizzanev h1{
+    width: 100%;
+    font-family: panpizza;
+    color: #FFA600;
+    font-size: 5.5rem;
+}
+.pizzaszoveg{
+    color: white;
+}
+.paradicsom{
+    position: absolute;
+    left: 20%;
+    top: -15%;
+    overflow: hidden;
+}
+.paradicsom img{
+    transform: rotate(90deg);
+    width: 70%;
+}
+.szelet{
+    position: absolute;
+    left: -45%;
+    top: -50%;
+    overflow: hidden;
+}
+.szelet img{
+    transform: rotate(200deg);
+}
+.salata{
+    position: absolute;
+    left: -18%;
+    top: 40%;
+    overflow: hidden;
+}
+.salata img{
+    width: 100%;
+    transform: rotate(90deg);
+}
+.salami{
+    position: absolute;
+    left: 1%;
+    top: -20%;
+    overflow: hidden;
+}
+.salami img{
+    width: 40%;
+    transform: rotate(0deg);
+}
+
+
 @media (max-width: 1437px){
     .feltetek{
         margin-top: 40px;
