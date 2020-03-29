@@ -1,66 +1,74 @@
-# Auto DevOps
-# This CI/CD configuration provides a standard pipeline for
-# * building a Docker image (using a buildpack if necessary),
-# * storing the image in the container registry,
-# * running tests from a buildpack,
-# * running code quality analysis,
-# * creating a review app for each topic branch,
-# * and continuous deployment to production
-#
-# Test jobs may be disabled by setting environment variables:
-# * test: TEST_DISABLED
-# * code_quality: CODE_QUALITY_DISABLED
-# * license_management: LICENSE_MANAGEMENT_DISABLED
-# * performance: PERFORMANCE_DISABLED
-# * sast: SAST_DISABLED
-# * dependency_scanning: DEPENDENCY_SCANNING_DISABLED
-# * container_scanning: CONTAINER_SCANNING_DISABLED
-# * dast: DAST_DISABLED
-# * review: REVIEW_DISABLED
-# * stop_review: REVIEW_DISABLED
-#
-# In order to deploy, you must have a Kubernetes cluster configured either
-# via a project integration, or via group/project variables.
-# KUBE_INGRESS_BASE_DOMAIN must also be set on the cluster settings,
-# as a variable at the group or project level, or manually added below.
-#
-# Continuous deployment to production is enabled by default.
-# If you want to deploy to staging first, set STAGING_ENABLED environment variable.
-# If you want to enable incremental rollout, either manual or time based,
-# set INCREMENTAL_ROLLOUT_MODE environment variable to "manual" or "timed".
-# If you want to use canary deployments, set CANARY_ENABLED environment variable.
-#
-# If Auto DevOps fails to detect the proper buildpack, or if you want to
-# specify a custom buildpack, set a project variable `BUILDPACK_URL` to the
-# repository URL of the buildpack.
-# e.g. BUILDPACK_URL=https://github.com/heroku/heroku-buildpack-ruby.git#v142
-# If you need multiple buildpacks, add a file to your project called
-# `.buildpacks` that contains the URLs, one on each line, in order.
-# Note: Auto CI does not work with multiple buildpacks yet
+# Official framework image. Look for the different tagged releases at:
+# https://hub.docker.com/r/library/php
+image: php:latest
 
-image: alpine:latest
+# Pick zero or more services to be used on all builds.
+# Only needed when using a docker container to run your tests in.
+# Check out: http://docs.gitlab.com/ce/ci/docker/using_docker_images.html#what-is-a-service
+services:
+  - mysql:latest
 
 variables:
-  # KUBE_INGRESS_BASE_DOMAIN is the application deployment domain and should be set as a variable at the group or project level.
-  # KUBE_INGRESS_BASE_DOMAIN: domain.example.com
+  MYSQL_DATABASE: project_name
+  MYSQL_ROOT_PASSWORD: secret
 
-  POSTGRES_USER: user
-  POSTGRES_PASSWORD: testing-password
-  POSTGRES_ENABLED: "true"
-  POSTGRES_DB: $CI_ENVIRONMENT_SLUG
-  POSTGRES_VERSION: 9.6.2
+# This folder is cached between builds
+# http://docs.gitlab.com/ce/ci/yaml/README.html#cache
+cache:
+  paths:
+    - vendor/
+    - node_modules/
 
-  DOCKER_DRIVER: overlay2
+# This is a basic example for a gem or script which doesn't use
+# services such as redis or postgres
+before_script:
+  # Update packages
+  - apt-get update -yqq
+  # Prep for Node
+  - apt-get install gnupg -yqq
+  # Upgrade to Node 8
+  - curl -sL https://deb.nodesource.com/setup_8.x | bash -
+  # Install dependencies
+  - apt-get install git nodejs libcurl4-gnutls-dev libicu-dev libmcrypt-dev libvpx-dev libjpeg-dev libpng-dev libxpm-dev zlib1g-dev libfreetype6-dev libxml2-dev libexpat1-dev libbz2-dev libgmp3-dev libldap2-dev unixodbc-dev libpq-dev libsqlite3-dev libaspell-dev libsnmp-dev libpcre3-dev libtidy-dev -yqq
+  # Install php extensions
+  - docker-php-ext-install mbstring pdo_mysql curl json intl gd xml zip bz2 opcache
+  # Install & enable Xdebug for code coverage reports
+  - pecl install xdebug
+  - docker-php-ext-enable xdebug
+  # Install Composer and project dependencies.
+  - curl -sS https://getcomposer.org/installer | php
+  - php composer.phar install
+  # Install Node dependencies.
+  # comment this out if you don't have a node dependency
+  - npm install
+  # Copy over testing configuration.
+  # Don't forget to set the database config in .env.testing correctly
+  # DB_HOST=mysql
+  # DB_DATABASE=project_name
+  # DB_USERNAME=root
+  # DB_PASSWORD=secret
+  - cp .env.testing .env
+  # Run npm build
+  # comment this out if you don't have a frontend build
+  # you can change this to to your frontend building script like
+  # npm run build
+  - npm run dev
+  # Generate an application key. Re-cache.
+  - php artisan key:generate
+  - php artisan config:cache
+  # Run database migrations.
+  - php artisan migrate
+  # Run database seed
+  - php artisan db:seed
 
-  ROLLOUT_RESOURCE_TYPE: deployment
-
-  DOCKER_TLS_CERTDIR: ""  # https://gitlab.com/gitlab-org/gitlab-runner/issues/4501
-
-stages:
-  - build
-  - test
-
-
-include:
-  - template: Jobs/Build.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab-foss/blob/master/lib/gitlab/ci/templates/Jobs/Build.gitlab-ci.yml
-  - template: Jobs/Test.gitlab-ci.yml  # https://gitlab.com/gitlab-org/gitlab-foss/blob/master/lib/gitlab/ci/templates/Jobs/Test.gitlab-ci.yml
+test:
+  stage: test
+  script:
+    - php vendor/bin/phpunit
+    - npm test
+  only:
+    - branches
+    - tags
+  except:
+    variables:
+      - $TEST_DISABLED
