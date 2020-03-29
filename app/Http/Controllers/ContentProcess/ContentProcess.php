@@ -17,6 +17,10 @@ class ContentProcess
                 $content = $content[1];
                 $processor = new ContentProcessDefault();
                 break;
+            case '8': //american chicken
+                $content = str_replace("<br>",",",$content);
+                $processor = new ContentProcessDefault();
+                break;
             case '23':
                 $content = str_replace("<li>",",",$content);
                 $processor = new ContentProcessDefault();
