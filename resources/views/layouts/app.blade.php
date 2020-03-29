@@ -66,7 +66,8 @@
     </div>
 </nav>
 </header>
-        @yield('content')
+
+    @yield('content')
 
 
 <div class="modal fade bd-example-modal-md" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">

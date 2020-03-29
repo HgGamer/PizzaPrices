@@ -15,7 +15,7 @@
             <form action="/dashboard/feedbacks/delete_all" method="POST">
                 {{ csrf_field() }}
                 {{method_field('DELETE')}}
-                <button onclick="return confirm('Are you sure you want to delete ALL feedbacks?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL log</button>
+                <button onclick="return confirm('Are you sure you want to delete ALL feedbacks?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL feedbacks</button>
             </form>
 
                 <table class="table table-bordered">
