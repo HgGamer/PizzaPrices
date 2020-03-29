@@ -65,6 +65,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::delete('/feedbacks/delete_all', 'Admin\FeedbackController@deleteAll');
     Route::resource('/feedbacks', 'Admin\FeedbackController');
     Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
+    Route::resource('/fusion', 'Admin\FusionController');
+
 });
 
 

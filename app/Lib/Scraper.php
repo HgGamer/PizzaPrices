@@ -59,7 +59,12 @@ class Scraper
 
                             if ($val['is_attribute'] == false) {
 
-                                $data[$key][] = preg_replace("#\n|'|\"#",'', $node->filter($val['selector'])->text());
+                                if ($linkObj->website_id== 8) {
+                                    $data[$key][] = preg_replace("#\n|'|\"#",'', $node->filter($val['selector'])->html());
+                                }else{
+                                    $data[$key][] = preg_replace("#\n|'|\"#",'', $node->filter($val['selector'])->text());
+                                }
+
                             } else {
                                 if ($key == 'source_link') {
 
@@ -98,7 +103,7 @@ class Scraper
 
                 });
 
-                Log::debug($data);
+                //Log::debug($data);
                 $this->save($data);
 
                 $this->results = $data;

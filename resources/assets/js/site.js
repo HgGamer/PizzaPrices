@@ -70,9 +70,6 @@ start = function(max, paginateNum,initData){
     maxLoad = max
     DB = initData
     paginatedBy = paginateNum
-    console.log(DB.length)
-    console.log(maxLoad)
-    console.log(paginatedBy)
     getData(2)
 
     initIntersectionObserver();
@@ -118,7 +115,7 @@ function botSentCallback(entry) {
 function addNextItems(items){
     var feedNode = document.querySelector("#feed-wrap")
     var feedList = document.createElement("ul");
-    feedList.setAttribute('class', 'row feed-list')
+    feedList.setAttribute('class', 'row feed-list pizzafeed')
 
     for (let i = 0; i < items.length; i++) {
         var item = document.createElement("div");
@@ -128,7 +125,7 @@ function addNextItems(items){
         item.innerHTML = `
        <div class="ft-recipe">
             <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                <img class="mx-auto d-block feed-tile-img" src="http://127.0.0.1:8000/img/pizzapop.png" alt=""/>
+                <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
             </div>
             <div class="ft-recipe__content ">
                 <header class="content__header">
@@ -163,8 +160,6 @@ function addNextItems(items){
     if (!(loadCount == 2)) {
         observer.unobserve(document.querySelector(prevItemslastID));
         observer.observe(document.querySelector(actualItemsLastId));
-        console.log("UNsub: " + prevItemslastID)
-        console.log("sub:" + actualItemsLastId)
     }
 
 }
