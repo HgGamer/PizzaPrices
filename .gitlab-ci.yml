@@ -14,7 +14,7 @@ stages:
 
 variables:
   MYSQL_DATABASE: pizzapricesdemo
-  MYSQL_ROOT_PASSWORD: my-secret-pw
+  MYSQL_ROOT_PASSWORD: mysql
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -44,7 +44,7 @@ build:
     - node --version
     # Install php extensions
     - docker-php-ext-install mbstring pdo_mysql curl json intl gd xml zip bz2 opcache
-    - mysql -uroot --pmy-secret-pw -e "CREATE DATABASE pizzapricesdemo"
+      - echo "SELECT 'OK';" | mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" --host=mysql "${MYSQL_DATABASE}"
 
     # Install & enable Xdebug for code coverage reports
     - pecl install xdebug
