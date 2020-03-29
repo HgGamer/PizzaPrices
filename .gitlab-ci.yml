@@ -13,8 +13,7 @@ stages:
   - test
 
 variables:
-  MYSQL_DATABASE: project_name
-  MYSQL_ROOT_PASSWORD: secret
+  MYSQL_DATABASE: pizzapricesdemo
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
