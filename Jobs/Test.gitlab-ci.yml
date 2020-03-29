@@ -1,12 +1,8 @@
 test:
-  services:
-    - "postgres:${POSTGRES_VERSION}"
-  variables:
-    POSTGRES_DB: test
   stage: test
-  image: gliderlabs/herokuish:latest
   script:
-    - vendor/bin/phpunit
+    - php vendor/bin/phpunit
+    - npm test
   only:
     - branches
     - tags
