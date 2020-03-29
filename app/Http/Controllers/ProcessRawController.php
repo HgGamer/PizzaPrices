@@ -36,6 +36,10 @@ class ProcessRawController extends Controller
     private function processContent($sitedata,$websiteid){
         //az össes pizza materialjait nézi ismeri e
         foreach($sitedata as $datarow){
+            if($datarow['content'] == ""){
+                RawPizza::all()->where('id',$datarow['id'])->first()->delete();
+                $this->log("Recept törlése, content üres");
+            }
             $content = ($this->sliceContent($websiteid,$datarow['content']));
             $recept = $this->processContentRow($content);
         }
@@ -43,6 +47,7 @@ class ProcessRawController extends Controller
         //végig megyünk a pizzákon is
         foreach($sitedata as $datarow){
             $content = ($this->sliceContent($websiteid,$datarow['content']));
+
             $recept = $this->processContentRow($content);
             $processedPizza = $this->processPizza($datarow['title'],$recept);
             if($processedPizza==-1){
@@ -83,7 +88,7 @@ class ProcessRawController extends Controller
 
     private function receptToString($recept){
         if(!is_array($recept)){
-            $this->log("recept is not an array");
+            $this->log("Recept is not an array");
             return;
         }
         sort($recept);
@@ -92,7 +97,7 @@ class ProcessRawController extends Controller
 
     private function receptToReadableString($recept){
         if(!is_array($recept)){
-            $this->log("recept is not an array");
+            $this->log("Recept is not an array");
             return;
         }
         $ret = [];
@@ -103,9 +108,20 @@ class ProcessRawController extends Controller
         return $ret;
     }
 
+    private function escapePizzaName($pizzaname){
+        $pizzaname = mb_strtolower($pizzaname);
+        $esapables  = ["32cm", "32 cm", "26 cm" , "pizza", "()",];
+        foreach ($esapables as $escape) {
+            $pizzaname = str_replace($escape,"",$pizzaname);
+        }
+        $pizzaname =  preg_replace('/(\d*\.)/', "", $pizzaname);
+        $pizzaname = trim($pizzaname);
+        return $pizzaname;
+    }
 
     private function processPizza($pizza,$recept){
 
+        $pizza = $this->escapePizzaName($pizza);
         //ismert a név hoppá ismerjük
         if(PizzaAlias::all()->where('name',$pizza)->count()!=0){
             if(PizzaAlias::all()->where('name',$pizza)->first()->recept == $this->receptToString($recept)){
@@ -182,6 +198,7 @@ class ProcessRawController extends Controller
     private function processContentRow($content){
         $recept = [];
         $failed = false;
+        dd($content);
         foreach($content as $material){
             $processedMaterial = $this->processMaterial($material);
             if($processedMaterial==-1){
@@ -200,7 +217,7 @@ class ProcessRawController extends Controller
 
     public function processRaw(){
         //9 retard
-        $id = 25;
+        $id = 23;
         $sitedata = RawPizza::all()->where('website_id',$id);
         $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 
