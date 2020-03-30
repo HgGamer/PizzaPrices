@@ -10,6 +10,7 @@ services:
 
 stages:
   - build
+  - connect
   - test
 
 variables:
@@ -41,7 +42,7 @@ build:
     - node --version
     # Install php extensions
     - docker-php-ext-install mbstring pdo_mysql curl json intl gd xml zip bz2 opcache
-    - mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" --host=mysql "${MYSQL_DATABASE}"
+    #- mysql --user=root --password="${MYSQL_ROOT_PASSWORD}" --host=mysql "${MYSQL_DATABASE}"
     # Install & enable Xdebug for code coverage reports
     - pecl install xdebug
     - docker-php-ext-enable xdebug
@@ -71,8 +72,14 @@ build:
     - php artisan migrate
     # Run database seed
     - php artisan db:seed
+connect:
+  stage: connect
+  image: mysql
+  script:
+  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
 
 test:
+
   stage: test
   script:
     - php vendor/bin/phpunit
