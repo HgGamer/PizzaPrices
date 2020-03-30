@@ -10,7 +10,8 @@ services:
 
 stages:
   - build
-  - connect
+  - mysql
+  - laravel
   - test
 
 variables:
@@ -49,37 +50,29 @@ build:
     # Install Composer and project dependencies.
     - curl -sS https://getcomposer.org/installer | php
     - php composer.phar install
-    # Install Node dependencies.
-    # comment this out if you don't have a node dependency
 
     - npm install
-    # Copy over testing configuration.
-    # Don't forget to set the database config in .env.testing correctly
-    # DB_HOST=mysql
-    # DB_DATABASE=project_name
-    # DB_USERNAME=root
-    # DB_PASSWORD=secret
     - cp .env.testing .env
-    # Run npm build
-    # comment this out if you don't have a frontend build
-    # you can change this to to your frontend building script like
-    # npm run build
     - npm run dev
-    # Generate an application key. Re-cache.
+
+mysql:
+  stage: mysql
+  image: mysql
+  script:
+  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
+
+
+laravel:
+  stage: laravel
+  script:
     - php artisan key:generate
     - php artisan config:cache
     # Run database migrations.
     - php artisan migrate
     # Run database seed
     - php artisan db:seed
-connect:
-  stage: connect
-  image: mysql
-  script:
-  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
 
 test:
-
   stage: test
   script:
     - php vendor/bin/phpunit
