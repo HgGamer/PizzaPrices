@@ -65,6 +65,7 @@ mysql:
 laravel:
   stage: laravel
   script:
+    - cp .env.testing .env
     - php artisan key:generate
     - php artisan config:cache
     # Run database migrations.
