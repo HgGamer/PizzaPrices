@@ -18,6 +18,7 @@ variables:
   MYSQL_DATABASE: pizzapricesdemo
   MYSQL_ROOT_PASSWORD: mysecretpassword
 
+
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
 cache:
@@ -54,17 +55,7 @@ build:
     - npm install
     - cp .env.testing .env
     - npm run dev
-
-mysql:
-  stage: mysql
-  image: mysql
-  script:
-  - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
-
-
-laravel:
-  stage: laravel
-  script:
+    - echo "SELECT 'OK';" | mysql --user=root --password="$MYSQL_ROOT_PASSWORD" --host=mysql "$MYSQL_DATABASE"
     - cp .env.testing .env
     - php artisan key:generate
     - php artisan config:cache
@@ -72,15 +63,8 @@ laravel:
     - php artisan migrate
     # Run database seed
     - php artisan db:seed
-
-test:
-  stage: test
-  script:
     - php vendor/bin/phpunit
     - npm test
-  only:
-    - branches
-    - tags
-  except:
-    variables:
-      - $TEST_DISABLED
+  cache:
+    key: "$CI_BUILD_REF"
+    untracked: true
