@@ -14,7 +14,7 @@ stages:
 
 variables:
   MYSQL_DATABASE: pizzapricesdemo
-  MYSQL_ALLOW_EMPTY_PASSWORD: yes
+  MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
 
 # This folder is cached between builds
 # http://docs.gitlab.com/ce/ci/yaml/README.html#cache
@@ -22,10 +22,6 @@ cache:
   paths:
     - vendor/
     - node_modules/
-
-# This is a basic example for a gem or script which doesn't use
-# services such as redis or postgres
-before_script:
 
 build:
   stage: build
