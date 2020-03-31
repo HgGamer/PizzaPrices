@@ -61,6 +61,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::delete('/raw_pizzas/{websiteId}/delete_pizzas', 'Admin\RawPizzaController@deletePizzas');
     Route::post('/raw_pizzas/banyai_load', 'Admin\RawPizzaController@banyaiPizzaFeltetLoad');
     Route::post('/raw_pizzas/forzaitalia_load', 'Admin\RawPizzaController@forzaitaliaPizzaLoad');
+    Route::post('/raw_pizzas/happyhot_load', 'Admin\RawPizzaController@happyhotPizzaLoad');
+    Route::post('/raw_pizzas/pizzafalo_load', 'Admin\RawPizzaController@pizzafaloPizzaLoad');
     Route::resource('/materials', 'Admin\MaterialController');
     Route::delete('/feedbacks/delete_all', 'Admin\FeedbackController@deleteAll');
     Route::resource('/feedbacks', 'Admin\FeedbackController');

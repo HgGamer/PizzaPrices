@@ -130,5 +130,22 @@ class RawPizzaController extends Controller
          ->with('success','Forza Italia pizzas added.');
 }
 
+    public function happyhotPizzaLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'HappyHotPizzaLoader']);
+
+
+        return redirect()->route('links.index')
+        ->with('success','Happy Hot pizzas added.');
+    }
+
+    public function pizzafaloPizzaLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'PizzaFaloPizzaLoader']);
+
+
+        return redirect()->route('links.index')
+        ->with('success','Pizza Falo pizzas added.');
+    }
 
 }

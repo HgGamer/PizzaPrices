@@ -131,6 +131,34 @@
                          </form>
                 </td>
                 </tr>
+                <tr >
+                    <td>https://www.happyhotpizza.hu/szeged/etlap</td>
+                    <td>A Happy Hot Pizzak feltöltése</td>
+                    <td>Happy Hot#30</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <form action="/dashboard/raw_pizzas/happyhot_load" method="POST" class="mb-0">
+                            {{ csrf_field() }}
+                            <button  type="submit" class="btn btn-info">Happyhot pizzas load</button>
+                        </form>
+                </td>
+                </tr>
+                <tr >
+                    <td>http://pizzafaloszeged.hu/pizzak/</td>
+                    <td>A Pizza Falo Pizzak feltöltése</td>
+                    <td>Pizza Falo#31</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <form action="/dashboard/raw_pizzas/pizzafalo_load" method="POST" class="mb-0">
+                            {{ csrf_field() }}
+                            <button  type="submit" class="btn btn-info">Pizzafalo pizzas load</button>
+                        </form>
+                </td>
+                </tr>
             </table>
 
           </div>
