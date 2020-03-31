@@ -278,34 +278,7 @@
                             </a>
                         </div>
                     </div>
-                    <h5 class="mt-2">Advances one slide at a time</h5>
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </section>

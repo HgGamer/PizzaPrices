@@ -105,15 +105,50 @@ body.home{
 
 /*Banner area */
 
-.banner_area{
+.bannerr_area{
     background-position: center;
     text-align: center;
     position: relative;
     padding-bottom: 70px;
     height: 680px;
 }
-
-
+.banner_area{
+    background-position: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 70px;
+    height: 350px;
+}
+.banner_area:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    z-index: -1;
+}
+.banner_area h2 {
+    color: #fff;
+   font-family: panpizza;
+    font-size: 5rem;
+    text-transform: uppercase;
+    padding-top: 150px;
+}
+.banner_area .breadcrumb {
+    background-color: transparent;
+    padding-top: 15px;
+}
+.banner_area .breadcrumb li a {
+    font: 400 14px "Roboto", sans-serif;
+    color: #fefefe;
+}
+.banner_area .breadcrumb li a.active {
+    color: #FF8000;
+}
 header .bg-dark{
     background:#a33327!important;
     transition: 750ms ease;
@@ -1008,8 +1043,9 @@ nav > div a.nav-item.nav-link:focus
     padding: 30px;
 }
 .bg{
-    background: url("/img/bg.jpg") no-repeat;
-    background-size: cover;
+    background: url("/img/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     overflow: hidden;
 }
 .tabla{
