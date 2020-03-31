@@ -746,6 +746,182 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
 }
+.ft-recipe-kicsii{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137);
+    overflow: hidden;
+    top: 50%;
+    right: 50%;
+    bottom: 50%;
+    left: 50%;
+    position: relative;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.ft-recipe-kicsii .ft-recipe__thumb {
+    position: relative;
+    height: 281px;
+    box-shadow: 0px 0px 130px 0 rgba(0, 0, 0, 0.38);
+    background-color: #a33327;
+}
+.ft-recipe-kicsii .ft-recipe__thumbm {
+    position: relative;
+    height: 281px;
+    box-shadow: 0px 0px 130px 0 rgba(0, 0, 0, 0.38);
+    background-color: #FFA600;
+}
+
+.ft-recipe-kicsii .ft-recipe__thumb #close-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: #000;
+    text-align: center;
+    line-height: 36px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
+}
+.ft-recipe-kicsii .ft-recipe__thumb #close-modal:hover {
+    background: transparent;
+}
+.ft-recipe-kicsii .ft-recipe__thumb h3 {
+    text-align: center;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+
+    font-size: 25px;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.25)), to(transparent));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.25), transparent);
+    padding: 2.4rem 0 0;
+}
+.ft-recipe-kicsii .ft-recipe__thumb img {
+    width: 80%;
+}
+.ft-recipe-kicsii .ft-recipe__thumbm img {
+    width: 80%;
+}
+.ft-recipe-kicsii .ft-recipe__contento {
+    -webkit-box-flex: 1;
+    flex: 1;
+    padding: 0 2em 1em;
+}
+.ft-recipe-kicsii .ft-recipe__contento h2 {
+    width: 100%;
+}
+.ft-recipe-kicsii .ft-recipe__contento h4 a{
+    color: black!important;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper {
+    display: -webkit-box;
+    display: flex;
+    padding: .55em 0 .3em;
+    border-bottom: 1px solid #d8d8d8;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title {
+    font-weight: 300;
+    font-family: panpizza;
+    font-size: 40px;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .recipe-details {
+    display: -webkit-box;
+    display: flex;
+    list-style: none;
+    padding: 1.4em 0 1em;
+    margin: 0;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .recipe-details .recipe-details-item {
+    -webkit-box-flex: 1;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .recipe-details .recipe-details-item i {
+    font-size: 30px;
+    color: #FFA600;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .recipe-details .recipe-details-item .value {
+    color: #FFA600;
+    margin-left: .35em;
+    vertical-align: bottom;
+    font-size: 24px;
+    font-weight: 600;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__header .recipe-details .recipe-details-item .title {
+    display: block;
+    margin-top: -4px;
+    font-size: 21px;
+    font-weight: 300;
+}
+.ft-recipe-kicsii .ft-recipe__contento .description {
+    margin: .3em 0 1.8em;
+
+}
+.ft-recipe-kicsii .ft-recipe__contento .descriptions {
+    margin: .3em 0 1.8em;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__footer {
+    text-align: center;
+    margin: 0 3rem;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__footer a {
+    display: inline-block;
+    background: #FFA600;
+    padding: .45em 1em;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: .2px;
+    font-size: 17px;
+    -webkit-transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+    transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__footerm {
+    text-align: center;
+    margin: 0 3rem;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__footerm a {
+    display: inline-block;
+    background: #a33327;
+    padding: .45em 1em;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: .2px;
+    font-size: 17px;
+    -webkit-transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+    transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease;
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__footerm a:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+}
+.ft-recipe-kicsii .ft-recipe__contento .content__footer a:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+}
+.hatter{
+    background-color: #a33327;
+}
 .tooltip{
     font-size: 20px!important;
 
@@ -882,8 +1058,8 @@ nav > div a.nav-item.nav-link:focus
 }
 .szelet{
     position: absolute;
-    left: -45%;
-    top: -50%;
+    left: -55%;
+    top: -60%;
     overflow: hidden;
 }
 .szelet img{
@@ -901,7 +1077,7 @@ nav > div a.nav-item.nav-link:focus
 }
 .salami{
     position: absolute;
-    left: 1%;
+    left: -5%;
     top: -20%;
     overflow: hidden;
 }
@@ -909,8 +1085,87 @@ nav > div a.nav-item.nav-link:focus
     width: 40%;
     transform: rotate(0deg);
 }
+.datatable h2{
+    color: #FFA600;
+}
+.datatable .divider-custom .divider-custom-linee{
+    background-color: #FFA600;
+}
+.datatable  ul{
+    padding-left: 0!important;
+}
+ .datatable .responsive-table li {
+    border-radius: 3px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+ .datatable .responsive-table .table-header {
+    background-color: #FFA600;
+    font-family: panpizza;
+    font-size: 35px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+ .datatable .responsive-table .table-row {
+     background-color: #FFEFD3;
+     font-family: panpizza;
+     font-size: 30px;
+     box-shadow: 0px 0px 9px 0px rgba(0, 0, 0, 0.1);
+}
+ .datatable .responsive-table .col-1 {
+    flex-basis: 10%;
+}
+ .datatable .responsive-table .col-2 {
+    flex-basis: 40%;
+}
+ .datatable .responsive-table .col-3 {
+    flex-basis: 25%;
+}
+ .datatable .responsive-table .col-4 {
+    flex-basis: 25%;
+}
+ .datatable .content__footer a {
+     display: inline-block;
+     background: #FFA600;
+     text-decoration: none;
+     padding: .25em 0.5em;
+     width: 100%;
+     text-align: center;
+     border-radius: 5px;
+     color: black;
+     font-weight: 500;
+     letter-spacing: .2px;
+     font-size: 27px;
+     -webkit-transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+     transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+     transition: transform 250ms ease, box-shadow 250ms ease;
+     transition: transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease;
+ }
+ .datatable .content__footerm a:hover {
+     -webkit-transform: translateY(-3px);
+     transform: translateY(-3px);
+     box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+ }
 
 
+@media (max-width: 1440px){
+    .feltetek{
+        margin-top: 40px;
+    }
+    .szelet{
+        left: -75%;
+        top: -70%;
+    }
+    .salata{
+        left: -29%;
+    }
+    .salami{
+        left: -2%;
+        top: -15%;
+    }
+}
 @media (max-width: 1437px){
     .feltetek{
         margin-top: 40px;
@@ -930,6 +1185,17 @@ nav > div a.nav-item.nav-link:focus
 @media (max-width: 1281px){
     .banner_area{
         height: 580px;
+    }
+    .szelet{
+        left: -85%;
+        top: -80%;
+    }
+    .salata{
+        left: -34%;
+    }
+    .salami{
+        left: -2%;
+        top: -15%;
     }
 }
 @media (max-width: 1199px){
@@ -1017,8 +1283,67 @@ nav > div a.nav-item.nav-link:focus
     .feltetek{
         margin-top: 10px;
     }
+    .ft-recipe-kicsii .ft-recipe__contento .content__footer {
+        text-align: center;
+        margin: 0;
+    }
 }
 @media (max-width: 767px) {
+    .carousel-inner .carousel-item > div {
+        display: none;
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+}
+
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
+
+/* display 3 */
+@media (min-width: 767px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(33.333%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-33.333%);
+    }
+}
+
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{
+    transform: translateX(0);
+}
+@media all and (max-width: 767px) {
+    .datatable .responsive-table .table-header {
+        display: none;
+    }
+    .datatable .responsive-table li {
+        display: block;
+    }
+    .datatable .responsive-table .col {
+        flex-basis: 100%;
+    }
+    .datatable .responsive-table .col {
+        display: flex;
+        padding: 10px 0;
+    }
+    .datatable .responsive-table .col:before {
+        color: #6C7A89;
+        padding-right: 10px;
+        content: attr(data-label);
+        flex-basis: 50%;
+        text-align: right;
+    }
+}
+@media (max-width: 768px) {
     .city-select .restaurant {
         background: none;
     }
@@ -1071,6 +1396,27 @@ nav > div a.nav-item.nav-link:focus
         font-family: panpizza;
         font-size: 150px;
         text-align: center;
+    }
+    .paradicsom{
+        display: none;
+    }
+    .szelet{
+        display: none;
+    }
+    .salata{
+        display: none;
+    }
+    .salami{
+        display: none;
+    }
+    .kicsimeretlogo img{
+        width: 80px;
+    }
+    .navbar-togglerr{
+        margin-top: -90px!important;
+    }
+    .pizzanev {
+        padding-top: 120px;
     }
 
 }
@@ -1131,6 +1477,36 @@ nav > div a.nav-item.nav-link:focus
     .kezdologo img{
         width: 50%;
     }
+    .paradicsom{
+        display: none;
+    }
+    .szelet{
+        display: none;
+    }
+    .salata{
+        display: none;
+    }
+    .salami{
+        display: none;
+    }
+    .kicsimeretlogo img{
+        width: 50px;
+    }
+    .navbar-togglerr{
+        margin-top: -60px!important;
+    }
+    .pizzanev {
+        padding-top: 100px;
+    }
+    .tabla {
+        margin-top: 30px;
+    }
+    .feltetek{
+        margin-top: 10px;
+    }
+    .feltetek li {
+        font-size: 1.5rem;
+    }
 }
 @media (max-width: 375px){
     .carda{
@@ -1160,7 +1536,36 @@ nav > div a.nav-item.nav-link:focus
     }
     .kezdologo h1{
         font-size: 100px;
-
+    }
+    .paradicsom{
+        display: none;
+    }
+    .szelet{
+        display: none;
+    }
+    .salata{
+        display: none;
+    }
+    .salami{
+        display: none;
+    }
+    .kicsimeretlogo img{
+        width: 50px;
+    }
+    .navbar-togglerr{
+        margin-top: -60px!important;
+    }
+    .pizzanev {
+        padding-top: 100px;
+    }
+    .tabla {
+        margin-top: 30px;
+    }
+    .feltetek{
+        margin-top: 10px;
+    }
+    .feltetek li {
+        font-size: 1.5rem;
     }
 }
 @media (max-width: 320px){
@@ -1176,6 +1581,36 @@ nav > div a.nav-item.nav-link:focus
     }
     .menudiv li{
         font-size: 30px;
+    }
+    .paradicsom{
+        display: none;
+    }
+    .szelet{
+        display: none;
+    }
+    .salata{
+        display: none;
+    }
+    .salami{
+        display: none;
+    }
+    .kicsimeretlogo img{
+        width: 50px;
+    }
+    .navbar-togglerr{
+        margin-top: -60px!important;
+    }
+    .pizzanev {
+        padding-top: 100px;
+    }
+    .tabla {
+        margin-top: 30px;
+    }
+    .feltetek{
+        margin-top: 10px;
+    }
+    .feltetek li {
+        font-size: 1.1rem;
     }
 }
 
