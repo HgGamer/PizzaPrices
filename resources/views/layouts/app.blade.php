@@ -58,7 +58,7 @@
                     <a class="nav-link nav-linkk" href="#">Pizza Builder</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-linkk" href="/kapcsolatok">Kapcsolatok</a>
+                    <a class="nav-link nav-linkk" href="/kapcsolatok#kapcsolatok">Kapcsolatok</a>
                 </li>
             </ul>
         </div>

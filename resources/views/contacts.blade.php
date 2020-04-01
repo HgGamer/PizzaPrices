@@ -54,7 +54,7 @@
                         A www.pizzaprices.hu weboldal cookie-kat (sütiket) használ. A cookie-k olyan adatok, amiket a honlap az Ön böngészőjének küld el azzal a céllal, hogy elmentse bizonyos beállításait, megkönnyítse a honlap használatát, és közreműködik abban, hogy néhány statisztikai információt gyűjtsön a látogatóról. Ezek önmagukban nem használhatók fel a látogató azonosítására. Ezek segítségével pontosabban feltudjuk mérni a honlap használatát pl.: a felhasználó melyik oldalakat látogatja, a leggyakrabban vagy hol kap hiba üzenetet. Az így kapott adatokat a felhasználói élmény javítására használjuk fel.
                         A honlap a Google Analytics-et használja az adatok gyűjtésére.
                         Az adatokat a Google dolgozza fel és az kész statisztikákat bocsájt a honlap készítői számára.
-                        Google adatvédelmi irányelvek: https://policies.google.com/privacy?hl=hu
+                        Google adatvédelmi irányelvek: <a href="https://policies.google.com/privacy?hl=hu">  https://policies.google.com/privacy?hl=hu </a>
                         </p>
                         <h2>Milyen adatok kerülnek kezelésre?</h2>
                         <p>
@@ -74,9 +74,9 @@
                         <h2>Meddig tart a személyes adatai kezelése?</h2>
                         <p>Az adatok 14 hónapig tarolódnak a Google-nél, ezért a mi statisztikáinkban is addig szerepelnek.</p>
                         <h2>Cookie-k törlése:</h2>
-                        <p>Google chrome böngésző: https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=hu<br>
-                        Mozilla Firefox: https://support.mozilla.org/hu/kb/weboldalak-altal-elhelyezett-sutik-torlese-szamito<br>
-                        Internet explorer: https://support.microsoft.com/hu-hu/help/17442/windows-internet-explorer-delete-manage-cookies</p>
+                        <p>Google chrome böngésző: <a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=hu"> Itt </a> <br>
+                        Mozilla Firefox: <a href="https://support.mozilla.org/hu/kb/weboldalak-altal-elhelyezett-sutik-torlese-szamito"> Itt </a><br>
+                        Internet explorer: <a href="https://support.microsoft.com/hu-hu/help/17442/windows-internet-explorer-delete-manage-cookies"> Itt </a></p>
                     </div>
                 </div>
 
