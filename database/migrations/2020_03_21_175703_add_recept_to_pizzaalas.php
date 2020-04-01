@@ -13,7 +13,7 @@ class AddReceptToPizzaalas extends Migration
      */
     public function up()
     {
-        Schema::table('pizza_pizzaAlias', function (Blueprint $table) {
+        Schema::table('pizza_pizzaalias', function (Blueprint $table) {
             $table->text('recept')->nullable();
         });
     }
