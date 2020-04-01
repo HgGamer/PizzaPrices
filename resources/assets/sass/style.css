@@ -406,7 +406,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     border-radius: 4px;
     position: fixed;
     bottom: 30px;
-    right: 30px;
+    right: 25px;
     transition: background-color .3s,
     opacity .5s, visibility .5s;
     opacity: 0;
@@ -967,9 +967,9 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .feedbackform {
     position: fixed;
     bottom: 30px;
-    left: 30px;
+    left: 25px;
     margin-bottom: 50px;
-    width: 115px;
+    width: 100px;
     text-align:right;
     z-index:9999;
 }
@@ -1338,7 +1338,8 @@ nav > div a.nav-item.nav-link:focus
         display: none;
     }
     .feedbackBTN{
-        width: 3rem;
+        height: 50px;
+        width: 50px;
     }
 
 }
