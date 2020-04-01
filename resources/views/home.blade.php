@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
+    <section class="bannerr_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
@@ -50,7 +50,7 @@
                                 <h2>Húsimádó Pizza</h2>
                                 <br><br>
                                 <span>Kerekerdő Pizzéria</span>
-                                <h3 style="text-decoration: underline">kerekerdopizzeria.hu</h3>
+                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
                                     <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
@@ -87,7 +87,7 @@
                                 <h2>Húsimádó Pizza</h2>
                                 <br><br>
                                 <span>Kerekerdő Pizzéria</span>
-                                <h3>kerekerdopizzeria.hu</h3>
+                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
                                     <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
@@ -122,7 +122,7 @@
                 @foreach ($pizzas as $pizza)
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
-                        <div class="ft-recipe__thumb{{ ($counter%2 == 0) ? "m" : ""}} text-center d-flex  align-items-center">
+                        <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center">
                             <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
                         </div>
                         <div class="ft-recipe__content ">
@@ -142,7 +142,7 @@
                                     {{ $recept }},
                                 @endforeach
                             </p>
-                            <footer class="content__footer{{ ($counter%2 == 0) ? "m" : ""}} align-self-end "><a href="#">Részletek</a></footer>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="#">Részletek</a></footer>
                         </div>
                     </div>
                 </div>
@@ -150,10 +150,10 @@
              @php
                 $i++;
                 $counter++;
-                /*if ($counter == 2) {
+                if ($counter == 2) {
                     $isYellow = !$isYellow;
                     $counter = 0;
-                }*/
+                }
             @endphp
             @endforeach
         </ul>

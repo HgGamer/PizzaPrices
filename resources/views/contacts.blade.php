@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
-    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
+    <section class="banner_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5">
+        <h2>Kapcsolatok</h2>
+        <ol class="breadcrumb justify-content-center">
+            <li class="breadcrumb-item"><a href="/home">Kezdőlap</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Kapcsolatok</li>
+        </ol>
+    </section>
 
     <div class="container">
 
@@ -22,8 +28,6 @@
                         Honlap: <br>
                         Üzemeltető neve : <br>
                         Üzemeltető székhelye: <br>
-                        Cégjegyzékszám: <br>
-                        Adószáma: <br>
                         </p>
                         <br>
                         <h2>Az üzemeltető elérhetőségeit:(hétfőtől péntekig 9:00-18:00)</h2>
@@ -50,7 +54,7 @@
                         A www.pizzaprices.hu weboldal cookie-kat (sütiket) használ. A cookie-k olyan adatok, amiket a honlap az Ön böngészőjének küld el azzal a céllal, hogy elmentse bizonyos beállításait, megkönnyítse a honlap használatát, és közreműködik abban, hogy néhány statisztikai információt gyűjtsön a látogatóról. Ezek önmagukban nem használhatók fel a látogató azonosítására. Ezek segítségével pontosabban feltudjuk mérni a honlap használatát pl.: a felhasználó melyik oldalakat látogatja, a leggyakrabban vagy hol kap hiba üzenetet. Az így kapott adatokat a felhasználói élmény javítására használjuk fel.
                         A honlap a Google Analytics-et használja az adatok gyűjtésére.
                         Az adatokat a Google dolgozza fel és az kész statisztikákat bocsájt a honlap készítői számára.
-                        Google adatvédelmi irányelvek: https://policies.google.com/privacy?hl=hu
+                        Google adatvédelmi irányelvek: <a href="https://policies.google.com/privacy?hl=hu">  https://policies.google.com/privacy?hl=hu </a>
                         </p>
                         <h2>Milyen adatok kerülnek kezelésre?</h2>
                         <p>
@@ -70,15 +74,23 @@
                         <h2>Meddig tart a személyes adatai kezelése?</h2>
                         <p>Az adatok 14 hónapig tarolódnak a Google-nél, ezért a mi statisztikáinkban is addig szerepelnek.</p>
                         <h2>Cookie-k törlése:</h2>
-                        <p>Google chrome böngésző: https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=hu<br>
-                        Mozilla Firefox: https://support.mozilla.org/hu/kb/weboldalak-altal-elhelyezett-sutik-torlese-szamito<br>
-                        Internet explorer: https://support.microsoft.com/hu-hu/help/17442/windows-internet-explorer-delete-manage-cookies</p>
+                        <p>Google chrome böngésző: <a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=hu"> Itt </a> <br>
+                        Mozilla Firefox: <a href="https://support.mozilla.org/hu/kb/weboldalak-altal-elhelyezett-sutik-torlese-szamito"> Itt </a><br>
+                        Internet explorer: <a href="https://support.microsoft.com/hu-hu/help/17442/windows-internet-explorer-delete-manage-cookies"> Itt </a></p>
                     </div>
                 </div>
 
                 <div class="tab-pane" id="nav-kapcs" role="tabpanel" aria-labelledby="nav-kapcs-tab">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center align-items-center kapcsolatok">
+                            <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="">
+                            <h1>Pizza Prices</h1>
 
-                    <p> 1234 314 135 536 658 65 97 ö8745754 </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+
+                        </div>
+                    </div>
 
                 </div>
             </div>
