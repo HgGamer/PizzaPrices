@@ -41,21 +41,38 @@
     <script>
 
 function getPizzas(){
-    $('#exampleModalLabel').html("Pizza fusion");
-    let spinner =  `<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>`;
-    $('#modalbody').html(spinner);
-    $('#myModal').modal();
+
 
 }
 
 function getMaterials(){
     $('#exampleModalLabel').html("Material fusion");
-    let spinner =  `<div class="spinner-border" style="width: 3rem; height: 3rem;" role="status">
-                                <span class="sr-only">Loading...</span>
-                            </div>`;
-    $('#modalbody').html(spinner);
+    let template = `
+        <form action="api/process/joinMaterials" method="POST">
+            {{ csrf_field() }}
+            To: <select id="toselect" name="toselect">
+            </select><br>
+            From: <select id="fromselect" name="fromselect"> (esztet fogja törőni)
+            </select><br><br>
+            <input type="submit" class="btn btn-secondary" value="Összevonás">
+        </form>
+    `;
+    document.getElementById('modalbody').innerHTML = template;
+
+    axios.get('/dashboard/api/process/getmaterials')
+    .then(function (response) {
+
+        response.data.forEach(element => {
+            let option = document.createElement("option");
+            option.text = element.name;
+            option.value = element.id;
+            document.getElementById('toselect').add(option);
+            let option2 = document.createElement("option");
+            option2.text = element.name;
+            option2.value = element.id;
+            document.getElementById('fromselect').add(option2);
+        });
+    })
     $('#myModal').modal();
 
 }

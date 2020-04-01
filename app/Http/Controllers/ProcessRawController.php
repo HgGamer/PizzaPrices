@@ -24,12 +24,7 @@ class ProcessRawController extends Controller
     }
 
     private function sliceContent($id,$content){
-
-
         $proc = new ContentProcess();
-        //dd($proc->sliceContent($id, $content));
-
-
         return $proc->sliceContent($id, $content);
     }
 
@@ -309,4 +304,39 @@ class ProcessRawController extends Controller
        }
     }
 
+    public function JoinMaterials(Request $request){
+
+        $main = $request->input('toselect');
+        $from = $request->input('fromselect');
+        if($main == $from){
+            return back();
+        }
+        $pizzasaliases = MaterialALias::all()->where('material_id',$from);
+        foreach($pizzasaliases as $pizzaalias){
+            $pizzaalias->material_id = $main;
+            $pizzaalias->save();
+        }
+        $deletable = Material::all()->where('id',$from)->first();
+        if($deletable != null){
+           $deletable->delete();
+        }
+        $upldateables = Pizza::where('recept', 'like', '%['.$from.',%')->get();
+
+        foreach($upldateables as $updateable){
+            $updateable->recept = str_replace("[".$from.",","[".$main.",",$updateable->recept);
+            $updateable->save();
+        }
+        $upldateables = Pizza::where('recept', 'like', '%,'.$from.',%')->get();
+
+        foreach($upldateables as $updateable){
+            $updateable->recept =  str_replace(",".$from.",",",".$main.",",$updateable->recept);
+            $updateable->save();
+        }
+        $upldateables = Pizza::where('recept', 'like', '%,'.$from.']%')->get();;
+        foreach($upldateables as $updateable){
+            $updateable->recept =  str_replace(",".$from."]",",".$main."]",$updateable->recept);
+            $updateable->save();
+        }
+        return back();
+    }
 }

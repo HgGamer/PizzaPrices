@@ -43,6 +43,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/api/process/newPizza', 'ProcessRawController@newPizza');
     Route::get('/api/process/refresh', 'ProcessRawController@refreshPizzaAliasRecept');
     Route::post('/api/process/newPizzaAlias','ProcessRawController@newPizzaAlias');
+    Route::post('/api/process/joinMaterials','ProcessRawController@JoinMaterials');
+
     Route::get('/process',function(){
         return view('dashboard.pizza_process.index');
     });
