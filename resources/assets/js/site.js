@@ -117,14 +117,18 @@ function addNextItems(items){
     var feedList = document.createElement("ul");
     feedList.setAttribute('class', 'row feed-list pizzafeed')
 
+    var isYellow = false;
+    var counter = 1;
+
     for (let i = 0; i < items.length; i++) {
         var item = document.createElement("div");
         item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile')
         specificId = 'feed-tile-' + (((loadCount-1) *  paginatedBy) + i)
         item.setAttribute('id', specificId)
+
         item.innerHTML = `
        <div class="ft-recipe">
-            <div class="ft-recipe__thumb text-center d-flex  align-items-center">
+            <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
                 <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
             </div>
             <div class="ft-recipe__content ">
@@ -142,10 +146,16 @@ function addNextItems(items){
                 <p class="description">
                    ${items[i]['pizza']['recept']}
                 </p>
-                <footer class="content__footer align-self-end "><a href="#">Részletek</a></footer>
+                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="#">Részletek</a></footer>
             </div>
         </div>
         `;
+
+        counter++;
+        if (counter == 2) {
+            isYellow = !isYellow
+            counter = 0;
+        }
 
         feedList.appendChild(item)
     }
