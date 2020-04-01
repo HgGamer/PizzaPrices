@@ -303,7 +303,27 @@ class ProcessRawController extends Controller
          $dat->save();
        }
     }
+    public function JoinPizzas(Request $request){
 
+        $main = $request->input('toselect');
+        $from = $request->input('fromselect');
+        if($main == $from){
+            return back();
+        }
+        if($from == 1){
+            return back();
+        }
+        $pizzaaliases = PizzaAlias::all()->where('pizzaid',$from);
+        foreach($pizzaaliases as $pizzaalias){
+            $pizzaalias->pizzaid = $main;
+            $pizzaalias->save();
+        }
+        $deletable = Pizza::all()->where('id',$from)->first();
+        if($deletable != null){
+           $deletable->delete();
+        }
+        return back();
+    }
     public function JoinMaterials(Request $request){
 
         $main = $request->input('toselect');
@@ -311,10 +331,13 @@ class ProcessRawController extends Controller
         if($main == $from){
             return back();
         }
-        $pizzasaliases = MaterialALias::all()->where('material_id',$from);
-        foreach($pizzasaliases as $pizzaalias){
-            $pizzaalias->material_id = $main;
-            $pizzaalias->save();
+        if($from == 1){
+            return back();
+        }
+        $materialaliases = MaterialAlias::all()->where('material_id',$from);
+        foreach($materialaliases as $materialalias){
+            $materialalias->material_id = $main;
+            $materialalias->save();
         }
         $deletable = Material::all()->where('id',$from)->first();
         if($deletable != null){

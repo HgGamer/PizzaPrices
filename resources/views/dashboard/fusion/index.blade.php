@@ -41,8 +41,34 @@
     <script>
 
 function getPizzas(){
+    $('#exampleModalLabel').html("Pizza fusion");
+    let template = `
+        <form action="api/process/joinPizzas" method="POST">
+            {{ csrf_field() }}
+            To: <select id="toselect" name="toselect">
+            </select><br>
+            From: <select id="fromselect" name="fromselect"> (esztet fogja törőni)
+            </select><br><br>
+            <input type="submit" class="btn btn-secondary" value="Összevonás">
+        </form>
+    `;
+    document.getElementById('modalbody').innerHTML = template;
 
+    axios.get('/dashboard/api/process/getpizzas')
+    .then(function (response) {
 
+        response.data.forEach(element => {
+            let option = document.createElement("option");
+            option.text = element.name;
+            option.value = element.id;
+            document.getElementById('toselect').add(option);
+            let option2 = document.createElement("option");
+            option2.text = element.name;
+            option2.value = element.id;
+            document.getElementById('fromselect').add(option2);
+        });
+    })
+    $('#myModal').modal();
 }
 
 function getMaterials(){
