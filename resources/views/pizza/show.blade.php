@@ -46,7 +46,7 @@
             </div>
         </div>
 
-        <div class="container">
+        <div class="container Elfluido">
             <section class="datatable">
                 <div class="pizzacim text-center mt-5 mb-3">
                     <h2>
@@ -60,6 +60,11 @@
                         <div class="divider-custom-linee"></div>
                     </div>
                 </div>
+
+
+                <div class="ElScrolllolloo">
+
+
                 <ul class="responsive-table">
                     <li class="table-header">
                         <div class="col col-3">Pizza Neve</div>
@@ -73,7 +78,7 @@
                         <div class="col col-3" data-label="Pizzéria Neve">Kerekerdő Pizéra</div>
                         <div class="col col-1" data-label="Méret">32 Cm</div>
                         <div class="col col-2" data-label="Ár">1500 Ft</div>
-                        <div class="col col-3" data-label="Ugrás a Pizzériához"><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
+                        <div class="col col-3" ><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
                     </li>
                     <li class="table-row">
                         <div class="col col-3" data-label="Pizza Neve">Hawaii Pizza</div>
@@ -97,6 +102,8 @@
                         <div class="col col-3" data-label="Ugrás a Pizzériához"><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
                     </li>
                 </ul>
+                </div>
+
             </section>
 
             <section class="datatable">

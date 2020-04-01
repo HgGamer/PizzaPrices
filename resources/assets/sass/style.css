@@ -1191,7 +1191,11 @@ nav > div a.nav-item.nav-link:focus
      font-size: 5rem;
      color: #FFA600;
  }
-
+.carousel-inner .carousel-item.active,
+.carousel-inner .carousel-item-next,
+.carousel-inner .carousel-item-prev {
+    display: flex;
+}
 
 
 @media (max-width: 1440px){
@@ -1341,22 +1345,6 @@ nav > div a.nav-item.nav-link:focus
     }
 
 }
-@media (max-width: 767px) {
-    .carousel-inner .carousel-item > div {
-        display: none;
-    }
-    .carousel-inner .carousel-item > div:first-child {
-        display: block;
-    }
-}
-
-.carousel-inner .carousel-item.active,
-.carousel-inner .carousel-item-next,
-.carousel-inner .carousel-item-prev {
-    display: flex;
-}
-
-/* display 3 */
 @media (min-width: 767px) {
 
     .carousel-inner .carousel-item-right.active,
@@ -1374,29 +1362,13 @@ nav > div a.nav-item.nav-link:focus
 .carousel-inner .carousel-item-left{
     transform: translateX(0);
 }
-@media all and (max-width: 767px) {
-    .datatable .responsive-table .table-header {
+@media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
         display: none;
     }
-    .datatable .responsive-table li {
+    .carousel-inner .carousel-item > div:first-child {
         display: block;
     }
-    .datatable .responsive-table .col {
-        flex-basis: 100%;
-    }
-    .datatable .responsive-table .col {
-        display: flex;
-        padding: 10px 0;
-    }
-    .datatable .responsive-table .col:before {
-        color: #6C7A89;
-        padding-right: 10px;
-        content: attr(data-label);
-        flex-basis: 50%;
-        text-align: right;
-    }
-}
-@media (max-width: 768px) {
     .city-select .restaurant {
         background: none;
     }
@@ -1472,6 +1444,17 @@ nav > div a.nav-item.nav-link:focus
         padding-top: 120px;
     }
 
+}
+@media (max-width: 767px) {
+    .Elfluido{
+        max-width: 100%!important;
+    }
+    .ElScrolllolloo{
+        overflow-x: scroll;
+    }
+    .datatable ul{
+        min-width: 700px;
+    }
 }
 @media (max-width: 700px) {
     .feltetek{
@@ -1619,6 +1602,12 @@ nav > div a.nav-item.nav-link:focus
     }
     .feltetek li {
         font-size: 1.5rem;
+    }
+    nav > div a.nav-item.nav-link, nav > div a.nav-item.nav-link.active {
+        min-width: 300px;
+    }
+    nav > div a.nav-item.nav-link.active:after{
+        display: none;
     }
 }
 @media screen and (max-width: 320px){
