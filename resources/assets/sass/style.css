@@ -272,7 +272,9 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     display: inline-block;
     margin-bottom: 20px;
     font-size: 14px;
-
+}
+.card h3 a{
+    color: black;
 }
 .cardinfohozzavalo{
     padding-top: 40px;
@@ -976,7 +978,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     border-radius: 4px;
     background-color: #FFA600;
     border: none;
-    color: #000000;
+    color: white;
     text-align: center;
     font-size: 1rem;
     height: 3.5rem;
@@ -1184,6 +1186,12 @@ nav > div a.nav-item.nav-link:focus
      transform: translateY(-3px);
      box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
  }
+ .kapcsolatok h1{
+     font-family: panpizza;
+     font-size: 5rem;
+     color: #FFA600;
+ }
+
 
 
 @media (max-width: 1440px){
@@ -1323,6 +1331,15 @@ nav > div a.nav-item.nav-link:focus
         text-align: center;
         margin: 0;
     }
+}
+@media (max-width: 768px) {
+    .feedbackBTN span{
+        display: none;
+    }
+    .feedbackBTN{
+        width: 3rem;
+    }
+
 }
 @media (max-width: 767px) {
     .carousel-inner .carousel-item > div {
@@ -1497,7 +1514,7 @@ nav > div a.nav-item.nav-link:focus
         margin: 30px;
     }
 }
-@media (max-width: 425px) {
+@media screen and (max-width: 425px) {
     .navbar-dark .navbar-togglerr{
         margin-left: 80%;
     }
@@ -1544,7 +1561,7 @@ nav > div a.nav-item.nav-link:focus
         font-size: 1.5rem;
     }
 }
-@media (max-width: 375px){
+@media screen and (max-width: 375px){
     .carda{
         width: 345px;
         height: 258px;
@@ -1604,7 +1621,7 @@ nav > div a.nav-item.nav-link:focus
         font-size: 1.5rem;
     }
 }
-@media (max-width: 320px){
+@media screen and (max-width: 320px){
     .carda{
         width: 290px;
         height: 217px;

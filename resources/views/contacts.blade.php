@@ -28,8 +28,6 @@
                         Honlap: <br>
                         Üzemeltető neve : <br>
                         Üzemeltető székhelye: <br>
-                        Cégjegyzékszám: <br>
-                        Adószáma: <br>
                         </p>
                         <br>
                         <h2>Az üzemeltető elérhetőségeit:(hétfőtől péntekig 9:00-18:00)</h2>
@@ -83,8 +81,16 @@
                 </div>
 
                 <div class="tab-pane" id="nav-kapcs" role="tabpanel" aria-labelledby="nav-kapcs-tab">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 text-center align-items-center kapcsolatok">
+                            <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="">
+                            <h1>Pizza Prices</h1>
 
-                    <p> 1234 314 135 536 658 65 97 ö8745754 </p>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-12">
+
+                        </div>
+                    </div>
 
                 </div>
             </div>

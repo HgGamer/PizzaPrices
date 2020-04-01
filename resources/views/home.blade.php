@@ -50,7 +50,7 @@
                                 <h2>Húsimádó Pizza</h2>
                                 <br><br>
                                 <span>Kerekerdő Pizzéria</span>
-                                <h3 style="text-decoration: underline">kerekerdopizzeria.hu</h3>
+                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
                                     <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
@@ -87,7 +87,7 @@
                                 <h2>Húsimádó Pizza</h2>
                                 <br><br>
                                 <span>Kerekerdő Pizzéria</span>
-                                <h3>kerekerdopizzeria.hu</h3>
+                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
                                     <p>paradicsomos alap, sajt, húshegyek, kukorica</p>

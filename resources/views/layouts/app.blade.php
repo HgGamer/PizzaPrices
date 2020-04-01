@@ -19,7 +19,6 @@
     <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.png') }}"/>
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css?family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script src="{{ asset('js/site.js') }}" ></script>
@@ -30,7 +29,7 @@
 <a id="fel"></a>
 
 <div class="feedbackform">
-    <button class="feedbackBTN" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope" aria-hidden="true"></i> Visszajelzés</button>
+    <button class="feedbackBTN" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope" aria-hidden="true"></i><span> Visszajelzés</span></button>
 </div>
 
 <header>
