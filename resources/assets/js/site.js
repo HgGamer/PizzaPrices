@@ -42,6 +42,13 @@ function getCookie(cname) {
   }
 
 setCookiePolicyCookie = function(){
+    if (!isProd) {
+        setFloatingButtonMargins()
+        setCookie('accepted_cookies','true',400)
+        document.getElementById('cookie-footer').style.display = 'none';
+        return
+    }
+
     setCookie('accepted_cookies','true',400)
     document.getElementById('cookie-footer').style.display = 'none';
 
@@ -56,8 +63,9 @@ function setFloatingButtonMargins(){
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-
-    checkCookie();
+    if (isProd) {
+        checkCookie();
+    }
 });
 
 /*****  INFINITE SCROLL   *****/
