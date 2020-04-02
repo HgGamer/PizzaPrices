@@ -34,7 +34,8 @@ function getCookie(cname) {
         //él a cookie
         document.getElementById('cookie-footer').style.display = 'none';
         gtag('js', new Date());
-         gtag('config', 'UA-161580640-1');
+        gtag('config', 'UA-161580640-1');
+        setFloatingButtonMargins();
     } else {
 
     }
@@ -46,7 +47,12 @@ setCookiePolicyCookie = function(){
 
     gtag('js', new Date());
     gtag('config', 'UA-161580640-1');
+    setFloatingButtonMargins();
+}
 
+function setFloatingButtonMargins(){
+    document.getElementById('fel').style.marginBottom = '40px';
+    document.getElementsByClassName('feedbackform')[0].style.marginBottom = '40px';
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {

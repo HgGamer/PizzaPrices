@@ -413,6 +413,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     visibility: hidden;
     z-index: 1000;
 }
+@media screen and (max-width: 425px) {
+    #fel{
+        margin-bottom: 90px;
+    }
+}
 #fel::after {
     font-family: "Font Awesome 5 Free";
     content: "\f077" !important;
@@ -972,6 +977,12 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 100px;
     text-align:right;
     z-index:9999;
+}
+
+@media screen and (max-width: 425px) {
+    .feedbackform {
+        margin-bottom: 90px;
+    }
 }
 
 .feedbackBTN {
@@ -1608,6 +1619,13 @@ nav > div a.nav-item.nav-link:focus
         display: none;
     }
 }
+
+@media screen and (max-width: 992px){
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+}
+
 @media screen and (max-width: 320px){
     .carda{
         width: 290px;
