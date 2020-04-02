@@ -6,6 +6,19 @@
 
 <div class="col-md-12">
     <h2>Raw Data Process</h2>
+    <h3>Processálandó kiválasztása</h3>
+
+    <form action="api/process/setProcessID" method="POST">
+        {{ csrf_field() }}
+        <select id="processID" name="processID">
+            @foreach ($sites as $site)
+                <option value="{{$site->id}}" {{ $site->id == $processid ? 'selected' : '' }}>{{$site->title}}</option>
+            @endforeach
+        </select>
+        <input type="submit" class="btn btn-secondary" value="Mentés">
+    </form>
+
+
     <button class="btn btn-danger" onclick="importstuff()">Import</button>
 
     <div id="app">

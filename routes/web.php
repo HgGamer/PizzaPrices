@@ -1,6 +1,6 @@
 <?php
-
-
+use App\Website;
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,12 +45,19 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/api/process/newPizzaAlias','ProcessRawController@newPizzaAlias');
     Route::post('/api/process/joinMaterials','ProcessRawController@JoinMaterials');
     Route::post('/api/process/joinPizzas','ProcessRawController@JoinPizzas');
+    Route::post('/api/process/setProcessID','ProcessRawController@setProcessID');
 
 
 
+    Route::get('/process',function(Request $request){
+        $sites = Website::all();
+        $processid = $request->session()->get('processID');
 
-    Route::get('/process',function(){
-        return view('dashboard.pizza_process.index');
+        if($processid == null){
+            $processid = 1;
+        }
+
+        return view('dashboard.pizza_process.index')->withsites($sites)->withprocessid($processid);
     });
 	Route::get('/', 'AdminController@index');
     Route::resource('/websites', 'Admin\WebsitesController');

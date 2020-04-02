@@ -44,7 +44,7 @@ class ProcessRawController extends Controller
             $content = ($this->sliceContent($websiteid,$datarow['content']));
 
             $recept = $this->processContentRow($content);
-            $processedPizza = $this->processPizza($datarow['title'],$recept);
+            $processedPizza = $this->processPizza($datarow,$recept);
             if($processedPizza==-1){
                 $failed = true;
                 return false;
@@ -62,20 +62,25 @@ class ProcessRawController extends Controller
         try{
             $storedata = new StoreData();
             $storedata->websiteid = $websiteid;
-            $alias = PizzaAlias::all()->where('name',$data->title)->first();
-            $pizzaid =$alias->id;
+            $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
+
+            $pizzaid =$alias->pizzaid;
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
+                RawPizza::all()->where('id',$data['id'])->first()->delete();
                 return;
             }
 
             $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
             $storedata->price = $data->price;
             $storedata->pizzasize = $data->size;
+            $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
             $this->log("Új pizza storehoz adva: ".$alias->name);
             $storedata->save();
+            RawPizza::all()->where('id',$data['id'])->first()->delete();
         }catch (Exception $e) {
+            $this->log($e);
             report($e);
             return;
         }
@@ -98,7 +103,13 @@ class ProcessRawController extends Controller
         $ret = [];
         sort($recept);
         foreach ($recept as $mat) {
-            array_push($ret, Material::all()->where('id',$mat)->first()->name);
+            $material = Material::all()->where('id',$mat)->first();
+            if($material != null){
+                array_push($ret, Material::all()->where('id',$mat)->first()->name);
+            }else{
+                $this->log("receptToReadableString, material null, ilyennek nem kéne előfordulnia");
+            }
+
         }
         return $ret;
     }
@@ -114,9 +125,8 @@ class ProcessRawController extends Controller
         return $pizzaname;
     }
 
-    private function processPizza($pizza,$recept){
-
-        $pizza = $this->escapePizzaName($pizza);
+    private function processPizza($data,$recept){
+        $pizza = $this->escapePizzaName($data['title']);
         //ismert a név hoppá ismerjük
         if(PizzaAlias::all()->where('name',$pizza)->count()!=0){
             if(PizzaAlias::all()->where('name',$pizza)->first()->recept == $this->receptToString($recept)){
@@ -125,6 +135,12 @@ class ProcessRawController extends Controller
             if(PizzaAlias::all()->where('recept',$this->receptToString($recept))->count()!=0){
                 //ezt ismerjük valamelyik alias receptje alapján
                 $originalaias = PizzaAlias::all()->where('recept',$this->receptToString($recept))->first();
+                if($originalaias->name == $pizza){
+                    if( $originalaias->pizzaid == 1){
+                        dd('skippen van');
+                    }
+                    return;
+                }
                 $pizzaalias = new PizzaAlias();
                 $pizzaalias->name = $pizza;
                 $pizzaalias->pizzaid = $originalaias->pizzaid;
@@ -207,11 +223,18 @@ class ProcessRawController extends Controller
         }
         return $recept;
     }
+    public function setProcessID(Request $request){
 
+        $request->session()->put('processID', $request->processID);
+        return back();
+    }
 
-    public function processRaw(){
-        //9 retard
-        $id = 8;
+    public function processRaw(Request $request){
+
+        $id = $request->session()->get('processID');
+        if($id == null){
+            return;
+        }
         $sitedata = RawPizza::all()->where('website_id',$id);
         $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 
@@ -236,7 +259,7 @@ class ProcessRawController extends Controller
         $errordata = $request->errordata;
         $req = Material::all()->where('name',$errordata)->first();
         if($req != null){
-            return "nono";
+            return back();
         };
         $material = new Material();
         $material->name = $errordata;
@@ -264,7 +287,7 @@ class ProcessRawController extends Controller
         $errordata = $request->errordata;
         $req = Pizza::all()->where('name',$errordata)->first();
         if($req != null){
-            return "nono";
+            return back();
         };
         $pizza = new Pizza();
         $pizza->name = $errordata;
