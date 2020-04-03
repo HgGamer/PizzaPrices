@@ -11,7 +11,7 @@ class ContentProcessTest extends TestCase
         $content = "<b>oregánó</b>";
         $processor = new ContentProcessDefault();
         $processor->sliceContent($content);
-        $this->assertEquals($processor->sliceContent($content), ['oregán ó']);
+        $this->assertEquals($processor->sliceContent($content), ['oregán']);
     }
 
 }
