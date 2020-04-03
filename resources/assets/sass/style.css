@@ -1212,8 +1212,18 @@ nav > div a.nav-item.nav-link:focus
 .carousel-inner .carousel-item-prev {
     display: flex;
 }
-
-
+@media (max-width: 1700px) {
+    .szelet {
+        position: absolute;
+        left: -65%;
+        top: -70%;
+        overflow: hidden;
+    }
+    .salata{
+        top: 30%;
+        left: -27%;
+    }
+}
 @media (max-width: 1440px){
     .feltetek{
         margin-top: 40px;
