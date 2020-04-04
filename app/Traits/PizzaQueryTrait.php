@@ -17,7 +17,7 @@ trait PizzaQueryTrait {
             if($storeData == null || $storeData->pizza == null)
             {
                 //TODO:: ezt kilogolni
-                return;
+                continue;
             }
             $receptekString = $storeData->pizza->recept;
 
