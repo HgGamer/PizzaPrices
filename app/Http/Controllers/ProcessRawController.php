@@ -116,7 +116,7 @@ class ProcessRawController extends Controller
 
     private function escapePizzaName($pizzaname){
         $pizzaname = mb_strtolower($pizzaname);
-        $esapables  = ["32cm", "32 cm", "26 cm" , "pizza", "()",];
+        $esapables  = ["32cm", "32 cm", "26 cm", "30 cm", "30cm" , "pizza", "()",];
         foreach ($esapables as $escape) {
             $pizzaname = str_replace($escape,"",$pizzaname);
         }
