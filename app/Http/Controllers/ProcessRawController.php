@@ -65,6 +65,9 @@ class ProcessRawController extends Controller
             $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
 
             $pizzaid =$alias->pizzaid;
+            if($pizzaid == 1){
+                return;
+            }
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
@@ -77,6 +80,7 @@ class ProcessRawController extends Controller
             $storedata->pizzasize = $data->size;
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
             $this->log("Új pizza storehoz adva: ".$alias->name);
+
             $storedata->save();
             RawPizza::all()->where('id',$data['id'])->first()->delete();
         }catch (Exception $e) {
