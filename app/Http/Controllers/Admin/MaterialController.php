@@ -62,4 +62,13 @@ class MaterialController extends Controller
         return redirect()->route('materials.index');
     }
 
+    public function destroy($id)
+    {
+        $material = Material::find($id);
+        $material->delete();
+
+        return redirect()->route('materials.index')
+                        ->with('success','Material deleted successfully');
+    }
+
 }
