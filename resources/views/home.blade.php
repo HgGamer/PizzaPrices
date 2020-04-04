@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="bannerr_area" style="background: url('{{ asset('/img/pizza2.jpg')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
+    <section class="bannerr_area" style="background: url('{{ asset('/img/pizza2.webp')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">

@@ -13,12 +13,15 @@ body.home{
     color: #000;
 }
 .bg-img{
-    background: url("/img/pizza3.jpg") no-repeat center center fixed;
+    background: url("/img/pizza3.webp") no-repeat center center fixed;
     background-size: cover;
     height: 100vh;
 }
 .map{
     height: 100vh;
+}
+h1{
+    display: none!important;
 }
 .logincard{
     margin-top: 200px;
@@ -27,7 +30,7 @@ body.home{
     width: 100%;
 }
 .city-select .restaurant {
-    background-image: url("/img/pizzapoi.png");
+    background-image: url("/img/pizzapoi.webp");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: top center;
@@ -217,7 +220,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     background-size: cover;
 }
 .front{
-    background-image: url("/img/poppizza.jpg");
+    background-image: url("/img/poppizza.webp");
     background-size: cover;
     transform: perspective(600px) rotateY(0deg);
     border: #FFA600 solid 10px;
@@ -286,7 +289,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 
 .back::before{
-    background: url("/img/pizzapop.png");
+    background: url("/img/pizzapop.webp");
     width: 100%;
     height: 120px;
     bottom: 30%;
@@ -296,7 +299,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 
 .back::after {
-    background: url("/img/pizzapop.png");
+    background: url("/img/pizzapop.webp");
     width: 100px;
     height: 100%;
     top: 0;
@@ -412,6 +415,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
+}
+@media screen and (max-width: 425px) {
+    #fel{
+        margin-bottom: 90px;
+    }
 }
 #fel::after {
     font-family: "Font Awesome 5 Free";
@@ -974,6 +982,12 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     z-index:9999;
 }
 
+@media screen and (max-width: 425px) {
+    .feedbackform {
+        margin-bottom: 90px;
+    }
+}
+
 .feedbackBTN {
     display: inline-block;
     border-radius: 4px;
@@ -1046,7 +1060,7 @@ nav > div a.nav-item.nav-link:focus
     padding: 30px;
 }
 .bg{
-    background: url("/img/bg.jpg");
+    background: url("/img/bg.webp");
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
@@ -1106,8 +1120,9 @@ nav > div a.nav-item.nav-link:focus
 }
 .salata{
     position: absolute;
-    left: -18%;
-    top: 40%;
+    top: 30%;
+    left: -23%;
+    height: 100%;
     overflow: hidden;
 }
 .salata img{
@@ -1197,8 +1212,18 @@ nav > div a.nav-item.nav-link:focus
 .carousel-inner .carousel-item-prev {
     display: flex;
 }
-
-
+@media (max-width: 1700px) {
+    .szelet {
+        position: absolute;
+        left: -65%;
+        top: -70%;
+        overflow: hidden;
+    }
+    .salata{
+        top: 30%;
+        left: -27%;
+    }
+}
 @media (max-width: 1440px){
     .feltetek{
         margin-top: 40px;
@@ -1608,6 +1633,13 @@ nav > div a.nav-item.nav-link:focus
         display: none;
     }
 }
+
+@media screen and (max-width: 992px){
+    .grecaptcha-badge {
+        visibility: hidden;
+    }
+}
+
 @media screen and (max-width: 320px){
     .carda{
         width: 290px;

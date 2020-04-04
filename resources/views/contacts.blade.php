@@ -53,8 +53,9 @@
                         <p>
                         A www.pizzaprices.hu weboldal cookie-kat (sütiket) használ. A cookie-k olyan adatok, amiket a honlap az Ön böngészőjének küld el azzal a céllal, hogy elmentse bizonyos beállításait, megkönnyítse a honlap használatát, és közreműködik abban, hogy néhány statisztikai információt gyűjtsön a látogatóról. Ezek önmagukban nem használhatók fel a látogató azonosítására. Ezek segítségével pontosabban feltudjuk mérni a honlap használatát pl.: a felhasználó melyik oldalakat látogatja, a leggyakrabban vagy hol kap hiba üzenetet. Az így kapott adatokat a felhasználói élmény javítására használjuk fel.
                         A honlap a Google Analytics-et használja az adatok gyűjtésére.
-                        Az adatokat a Google dolgozza fel és az kész statisztikákat bocsájt a honlap készítői számára.
-                        Google adatvédelmi irányelvek: <a href="https://policies.google.com/privacy?hl=hu">  https://policies.google.com/privacy?hl=hu </a>
+                        Az adatokat a Google dolgozza fel és az kész statisztikákat bocsájt a honlap készítői számára. <br>
+                        <a href="https://policies.google.com/privacy?hl=hu"> Google adatvédelmi irányelvek</a> <br>
+                        <a href="https://policies.google.com/terms?hl=hu"> Szolgáltatási feltételek</a>
                         </p>
                         <h2>Milyen adatok kerülnek kezelésre?</h2>
                         <p>
