@@ -14,6 +14,11 @@ trait PizzaQueryTrait {
 
         $pizzas = collect();
         foreach ($storeDatas as $storeData) {
+            if($storeData == null || $storeData->pizza == null)
+            {
+                //TODO:: ezt kilogolni
+                return;
+            }
             $receptekString = $storeData->pizza->recept;
 
             $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
