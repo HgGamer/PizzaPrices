@@ -28,7 +28,11 @@ trait PizzaQueryTrait {
             $receptekNeve = array();
 
             foreach ($receptekString as $receptString) {
-            $receptekNeve[] =  Material::find($receptString)['name'];
+                $name = Material::find($receptString);
+                if($name != null){
+                    $receptekNeve[] =  $name['name'];
+                }
+
             }
 
             $storeData->pizza->recept = $receptekNeve;
