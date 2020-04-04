@@ -240,7 +240,6 @@ class ProcessRawController extends Controller
             return;
         }
         $sitedata = RawPizza::all()->where('website_id',$id);
-        $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 
         $this->processContent($sitedata,$id);
         return $this->returnData;
