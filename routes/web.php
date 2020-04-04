@@ -81,7 +81,7 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::resource('/feedbacks', 'Admin\FeedbackController');
     Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
     Route::resource('/fusion', 'Admin\FusionController');
-
+    Route::resource('/pizzas', 'Admin\PizzasController');
 });
 
 
