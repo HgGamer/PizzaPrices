@@ -103,6 +103,8 @@
     </div>
 </div>
 
+@if (env('APP_DEBUG') == false)
+
 <div id="cookie-footer" class="footer">
     <div class="container">
         <p class="h6 p-2">
@@ -112,6 +114,8 @@
         </p>
     </div>
 </div>
+
+@endif
 
 <script>
 
