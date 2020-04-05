@@ -4,18 +4,19 @@ namespace App\Helper;
 
 class LogManager{
 
+    private static $shared;
+
     protected function __construct(){
         //kell h ne lehessen újat létrehozni
     }
 
     public static function shared()
     {
-        static $shared = null;
-        if (null === $shared) {
-            $shared = new LogManager();
+        if (null === static::$shared) {
+            static::$shared = new LogManager();
         }
 
-        return $shared;
+        return static::$shared;
     }
 
     public function addLog($data){
