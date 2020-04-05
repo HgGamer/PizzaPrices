@@ -79,9 +79,11 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::resource('/materials', 'Admin\MaterialController');
     Route::delete('/feedbacks/delete_all', 'Admin\FeedbackController@deleteAll');
     Route::resource('/feedbacks', 'Admin\FeedbackController');
+    Route::get('/asd', 'Admin\PizzaCategoryController@showPizzasForCategory');
     Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
     Route::resource('/fusion', 'Admin\FusionController');
     Route::resource('/pizzas', 'Admin\PizzasController');
+
 });
 
 

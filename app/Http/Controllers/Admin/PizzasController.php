@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Pizza;
+use App\Helper\LogManager;
 
 class PizzasController extends Controller
 {
@@ -16,9 +17,25 @@ class PizzasController extends Controller
 
     public function index()
     {
-        $pizzas = Pizza::orderBy('name', 'ASC')->paginate(50);
+        $paginatedData = Pizza::orderBy('name', 'ASC')->paginate(50);
 
-        return view('dashboard.pizza.index')->withPizzas($pizzas);
+        $pizzasData =  $paginatedData->getCollection();
+
+        $pizzas = collect();
+
+        foreach ($pizzasData as $pizza) {
+
+            if ($pizza->pizzaCategory == null){
+                $errorMSG =  "PizzasController, index() pizza(id: " . $pizza->id . ")->category is NULL";
+                LogManager::shared()->addLog($errorMSG);
+            }
+
+            $pizzas[] = $pizza;
+        }
+
+        $paginatedData->setCollection($pizzas);
+
+        return view('dashboard.pizza.index')->withPizzas($paginatedData);
     }
 
     public function create()

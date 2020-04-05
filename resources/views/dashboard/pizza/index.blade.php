@@ -19,12 +19,14 @@
                     <tr>
                         <td>Id</td>
                         <td>Title</td>
+                        <td>Pizza Category</td>
                         <td>Actions</td>
                     </tr>
                     @foreach($pizzas as $pizza)
                         <tr>
                             <td>{{ $pizza->id }}</td>
                             <td>{{ $pizza->name }}</td>
+                            <td>{{{ isset($pizza['pizzaCategory']) ? $pizza['pizzaCategory']['name'] : '-' }}}</td>
                             <td>
                                 <div class="row pl-1">
                                     <a href="{{ url('dashboard/pizzas/' . $pizza->id . '/edit') }}"><button class="btn btn-primary" >Update</button></a>
