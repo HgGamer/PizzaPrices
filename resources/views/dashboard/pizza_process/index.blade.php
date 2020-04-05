@@ -62,7 +62,7 @@ function unknownPizza(data){
             {{ csrf_field() }}
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="text" name="recept" value="${data.recept}" style="display:none">
-
+            <input type="text" id="rawid" name="rawid" value="${data.rawid}" style="display:none">
             <input type="submit" class="btn btn-secondary" value="Hozzáadás új pizzának">
         </form>
     <form action="api/process/newPizzaAlias" method="POST">
@@ -70,6 +70,7 @@ function unknownPizza(data){
             <label for="newalias">Már létező pizza</label><br>
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="text" id="recept" name="recept" value="${data.recept}" style="display:none">
+            <input type="text" id="rawid" name="rawid" value="${data.rawid}" style="display:none">
             <select id="newalias" name="newalias" >
             </select><br>
             <input type="submit" class="btn btn-secondary" value="Kiválasztottal egyezik">
