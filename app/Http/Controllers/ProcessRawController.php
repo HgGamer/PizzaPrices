@@ -87,7 +87,6 @@ class ProcessRawController extends Controller
             $storedata->price = $data->price;
             $storedata->pizzasize = $data->size;
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
-            dd('már benne van storedatába');
             LogManager::shared()->addLog("Új pizza storehoz adva: ".$alias->name);
 
             $storedata->save();
