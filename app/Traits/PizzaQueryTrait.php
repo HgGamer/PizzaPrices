@@ -4,7 +4,7 @@ namespace App\Traits;
 use App\StoreData;
 use App\Material;
 use Illuminate\Support\Facades\Log;
-use App\Helpers\AppHelper as Helper;
+use App\Helper\LogManager;
 
 trait PizzaQueryTrait {
 
@@ -19,7 +19,7 @@ trait PizzaQueryTrait {
 
             if ($storeData->pizza == null){
                 $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->pizza is NULL";
-                Helper::shared()->addLog($errorMSG);
+                LogManager::shared()->addLog($errorMSG);
                 continue;
             }
 
