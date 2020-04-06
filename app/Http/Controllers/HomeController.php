@@ -38,9 +38,9 @@ class HomeController extends Controller
 
     public function pizzacategories(){
 
-        $Category = PizzaCategory::orderBy('sorrend','ASC')->get();
+        $categories = PizzaCategory::orderBy('sorrend','ASC')->get();
 
-        return view('pizzacategories', compact('Category'));
+        return view('pizzacategories')->withCategories($categories);
     }
 
     public function storeFeedback(Request $request){

@@ -15,9 +15,9 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@home');
+Route::get('/kategoriak/{slug}', 'PizzaCategoryController@pizzasForCategory');
 Route::get('/kategoriak', 'HomeController@pizzacategories');
 Route::get('/kapcsolatok', 'HomeController@contacts');
-Route::get('/pizzakategoriak', 'PizzaCategoryController@index');
 Route::get('/pizza', 'PizzasController@show');
 Route::get('/pizzapicker', 'PizzaPickerController@index');
 
