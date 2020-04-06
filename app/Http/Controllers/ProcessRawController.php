@@ -139,6 +139,9 @@ class ProcessRawController extends Controller
 
     private function processPizza($data,$recept){
         $pizza = $this->escapePizzaName($data['title']);
+        if(trim($pizza) == ""){
+            return;
+        }
         //ismert a név hoppá ismerjük
         if(PizzaAlias::all()->where('name',$pizza)->count()!=0){
             if(PizzaAlias::all()->where('name',$pizza)->first()->recept == $this->receptToString($recept)){
@@ -301,6 +304,7 @@ class ProcessRawController extends Controller
     public function newPizza(Request $request){
 
         $errordata = $request->errordata;
+
         $rawid = $request->rawid;
         $this->websiteid= $request->session()->get('processID');
         $req = Pizza::all()->where('name',$errordata)->first();
