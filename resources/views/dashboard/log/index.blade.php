@@ -23,13 +23,13 @@
             <tr>
                 <td>#id</td>
                 <td>Log</td>
-
+                <td>Date</td>
             </tr>
             @foreach($logs as $log)
                 <tr>
                     <td>{{ $log->id }}</td>
                     <td>{{ $log->text }}</td>
-
+                    <td>{{ $log->created_at }}</td>
                 </tr>
             @endforeach
         </table>
