@@ -13,4 +13,8 @@ class Pizza extends Model
         return $this->hasMany('App\StoreData', 'pizzaid');
     }
 
+    public function pizzaCategory(){
+        return $this->belongsTo('App\PizzaCategory', 'category_id', 'id');
+    }
+
 }

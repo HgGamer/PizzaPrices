@@ -14,10 +14,13 @@ use App\StoreData;
 use App\Http\Controllers\ContentProcess\ContentProcess;
 use Illuminate\Http\Request;
 use Exception;
+use App\Helper\LogManager;
+
 class ProcessRawController extends Controller
 {
 
     protected $returnData = [];
+    protected $websiteid = 0;
     public function __construct()
     {
         $this->middleware('auth');
@@ -33,7 +36,7 @@ class ProcessRawController extends Controller
         foreach($sitedata as $datarow){
             if($datarow['content'] == ""){
                 RawPizza::all()->where('id',$datarow['id'])->first()->delete();
-                $this->log("Recept törlése, content üres");
+                LogManager::shared()->addLog("Recept törlése, content üres");
             }
             $content = ($this->sliceContent($websiteid,$datarow['content']));
             $recept = $this->processContentRow($content);
@@ -58,16 +61,24 @@ class ProcessRawController extends Controller
 
     }
 
-    private function storePizzaForSite($data,$websiteid){
+    private function storePizzaForSite($data,$websiteid, $alias = null, $rawid = null){
         try{
             $storedata = new StoreData();
             $storedata->websiteid = $websiteid;
-            $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
+            if($alias == null){
+                $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
+            }else{
+                $data = RawPizza::all()->where('id',$rawid)->first();
+            }
 
             $pizzaid =$alias->pizzaid;
+            if($pizzaid == 1){
+                return;
+            }
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
+                dd('már benne van storedatába');
                 RawPizza::all()->where('id',$data['id'])->first()->delete();
                 return;
             }
@@ -76,11 +87,12 @@ class ProcessRawController extends Controller
             $storedata->price = $data->price;
             $storedata->pizzasize = $data->size;
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
-            $this->log("Új pizza storehoz adva: ".$alias->name);
+            LogManager::shared()->addLog("Új pizza storehoz adva: ".$alias->name);
+
             $storedata->save();
             RawPizza::all()->where('id',$data['id'])->first()->delete();
         }catch (Exception $e) {
-            $this->log($e);
+            LogManager::shared()->addLog($e);
             report($e);
             return;
         }
@@ -88,7 +100,7 @@ class ProcessRawController extends Controller
 
     private function receptToString($recept){
         if(!is_array($recept)){
-            $this->log("Recept is not an array");
+            LogManager::shared()->addLog("Recept is not an array");
             return;
         }
         sort($recept);
@@ -97,7 +109,7 @@ class ProcessRawController extends Controller
 
     private function receptToReadableString($recept){
         if(!is_array($recept)){
-            $this->log("Recept is not an array");
+            LogManager::shared()->addLog("Recept is not an array");
             return;
         }
         $ret = [];
@@ -107,7 +119,7 @@ class ProcessRawController extends Controller
             if($material != null){
                 array_push($ret, Material::all()->where('id',$mat)->first()->name);
             }else{
-                $this->log("receptToReadableString, material null, ilyennek nem kéne előfordulnia");
+                LogManager::shared()->addLog("receptToReadableString, material null, ilyennek nem kéne előfordulnia");
             }
 
         }
@@ -116,7 +128,7 @@ class ProcessRawController extends Controller
 
     private function escapePizzaName($pizzaname){
         $pizzaname = mb_strtolower($pizzaname);
-        $esapables  = ["32cm", "32 cm", "26 cm" , "pizza", "()",];
+        $esapables  = ["32cm", "32 cm", "26 cm", "30 cm", "30cm" , "pizza", "()",];
         foreach ($esapables as $escape) {
             $pizzaname = str_replace($escape,"",$pizzaname);
         }
@@ -146,7 +158,8 @@ class ProcessRawController extends Controller
                 $pizzaalias->pizzaid = $originalaias->pizzaid;
                 $pizzaalias->recept = $this->receptToString($recept);
                 $pizzaalias->save();
-                $this->log("Új pizza alias : ". $pizzaalias->name);
+                $this->storePizzaForSite($data,$this->websiteid);
+                LogManager::shared()->addLog("Új pizza alias : ". $pizzaalias->name);
                 return;
             }
             $id = PizzaAlias::all()->where('name',$pizza)->first()->pizzaid;
@@ -155,12 +168,13 @@ class ProcessRawController extends Controller
             $pizzaalias->pizzaid = $id;
             $pizzaalias->recept = $this->receptToString($recept);
             $pizzaalias->save();
-            $this->log("Új pizza alias (új recepttel) : ". $pizzaalias->name);
+            $this->storePizzaForSite($data,$this->websiteid);
+            LogManager::shared()->addLog("Új pizza alias (új recepttel) : ". $pizzaalias->name);
             return;
         }
         //csekkolni hogy léteik e a recept más néven.
         if(Pizza::all()->where('recept',$this->receptToString($recept))->count()!=0){
-            $this->log("Ezt a pizzát már recept alapján ismerjük, ".$pizza);
+            LogManager::shared()->addLog("Ezt a pizzát már recept alapján ismerjük, ".$pizza);
             //kell a pizza idje az aliashoz
 
             $id = Pizza::all()->where('recept',$this->receptToString($recept))->first()->id;
@@ -169,6 +183,7 @@ class ProcessRawController extends Controller
             $pizzaalias->pizzaid = $id;
             $pizzaalias->recept = $this->receptToString($recept);
             $pizzaalias->save();
+            $this->storePizzaForSite($data,$this->websiteid);
             return;
         }
         //benne van e #skipp#
@@ -183,7 +198,8 @@ class ProcessRawController extends Controller
                     "message" => "unknown pizza",
                     "data" => $pizza,
                     "recept"=>$this->receptToString($recept),
-                    "receptreadable"=>$this->receptToReadableString($recept)
+                    "receptreadable"=>$this->receptToReadableString($recept),
+                    "rawid" => $data->id,
                 ));
         array_push($this->returnData,$dat);
         return -1;
@@ -232,11 +248,11 @@ class ProcessRawController extends Controller
     public function processRaw(Request $request){
 
         $id = $request->session()->get('processID');
+        $this->websiteid= $request->session()->get('processID');
         if($id == null){
             return;
         }
         $sitedata = RawPizza::all()->where('website_id',$id);
-        $this->regexp = ItemSchema::all()->where('id',$id)->first()->regexp;
 
         $this->processContent($sitedata,$id);
         return $this->returnData;
@@ -268,7 +284,7 @@ class ProcessRawController extends Controller
         $alias->material_id = $material->id;
         $alias->name = $errordata;
         $alias->save();
-        $this->log("Új material hozzáadva: ". $material->name);
+        LogManager::shared()->addLog("Új material hozzáadva: ". $material->name);
         return redirect('/dashboard/process');
     }
 
@@ -279,12 +295,14 @@ class ProcessRawController extends Controller
         $alias->material_id = $newalias;
         $alias->name = $errordata;
         $alias->save();
-        $this->log("Új material alias: ". $alias->name);
+        LogManager::shared()->addLog("Új material alias: ". $alias->name);
         return redirect('/dashboard/process');
     }
     public function newPizza(Request $request){
 
         $errordata = $request->errordata;
+        $rawid = $request->rawid;
+        $this->websiteid= $request->session()->get('processID');
         $req = Pizza::all()->where('name',$errordata)->first();
         if($req != null){
             return back();
@@ -299,24 +317,21 @@ class ProcessRawController extends Controller
         $alias->name = $errordata;
         $alias->recept = $request->recept;
         $alias->save();
-        $this->log("Új pizza: ". $alias->name);
+        $this->storePizzaForSite(null,$this->websiteid,$alias, $rawid);
+        LogManager::shared()->addLog("Új pizza: ". $alias->name);
         return redirect('/dashboard/process');
     }
 
     public function newPizzaAlias(Request $request){
+        $rawid = $request->rawid;
         $pizzaalias = new PizzaAlias();
         $pizzaalias->recept= $request->recept;
         $pizzaalias->name = $request->errordata;
         $pizzaalias->pizzaid = $request->newalias;
         $pizzaalias->save();
-        $this->log("Új pizza alias: ". $pizzaalias->name);
+        $this->storePizzaForSite(null,$this->websiteid,$pizzaalias, $rawid);
+        LogManager::shared()->addLog("Új pizza alias: ". $pizzaalias->name);
         return redirect('/dashboard/process');
-    }
-
-    private function log($data){
-        $l = new Log();
-        $l->text = $data;
-        $l->save();
     }
 
     public function refreshPizzaAliasRecept(){

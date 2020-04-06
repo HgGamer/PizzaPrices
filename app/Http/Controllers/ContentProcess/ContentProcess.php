@@ -13,7 +13,7 @@ class ContentProcess
 
         switch ($id) {
             case '5':
-                preg_match('/^\/(([^\/].)*)\//', $content, $content);
+                preg_match('/^\/(([^\/])*)\//', $content, $content);
                 $content = $content[1];
                 $processor = new ContentProcessDefault();
                 break;

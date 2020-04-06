@@ -10,6 +10,6 @@ class StoreData extends Model
 
     public function pizza()
     {
-        return $this->belongsTo('App\PizzaAlias', 'pizzaid');
+        return $this->belongsTo('App\PizzaAlias', 'pizzaid', 'pizzaid');
     }
 }

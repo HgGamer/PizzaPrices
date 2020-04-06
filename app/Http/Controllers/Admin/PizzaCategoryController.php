@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\PizzaCategory;
+use App\Pizza;
 
 class PizzaCategoryController extends Controller
 {
@@ -17,7 +18,9 @@ class PizzaCategoryController extends Controller
 
     public function index()
     {
+
         $pizzaCategories = PizzaCategory::orderBy('sorrend', 'ASC')->paginate(20);
+
 
         return view('dashboard.pizza_categories.index')->withPizzaCategories($pizzaCategories);
     }
@@ -63,7 +66,6 @@ class PizzaCategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'link' => 'required',
             'sorrend' => 'required|numeric'
         ]);
 
@@ -71,9 +73,9 @@ class PizzaCategoryController extends Controller
 
         $category->name = $request->input('name');
 
-        $category->link = $request->input('link');
-
-        $category->url = $request->input('url');
+        if($request->input('link') != null) {
+            $category->link = $request->input('link');
+        }
 
         $category->sorrend = $request->input('sorrend');
 
@@ -97,5 +99,12 @@ class PizzaCategoryController extends Controller
         return redirect()->route('pizza_categories.index')
                         ->with('success','Pizza Category deleted successfully');
     }
+
+    public function showPizzasForCategory(){
+        $pizza = Pizza::find(4);
+        $pizza->pizzaCategory;
+        return $pizza;
+    }
+
 
 }

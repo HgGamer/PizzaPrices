@@ -3,6 +3,8 @@
 namespace App\Traits;
 use App\StoreData;
 use App\Material;
+use Illuminate\Support\Facades\Log;
+use App\Helper\LogManager;
 
 trait PizzaQueryTrait {
 
@@ -14,6 +16,13 @@ trait PizzaQueryTrait {
 
         $pizzas = collect();
         foreach ($storeDatas as $storeData) {
+
+            if ($storeData->pizza == null){
+                $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->pizza is NULL";
+                LogManager::shared()->addLog($errorMSG);
+                continue;
+            }
+
             $receptekString = $storeData->pizza->recept;
 
             $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
@@ -23,7 +32,11 @@ trait PizzaQueryTrait {
             $receptekNeve = array();
 
             foreach ($receptekString as $receptString) {
-            $receptekNeve[] =  Material::find($receptString)['name'];
+                $name = Material::find($receptString);
+                if($name != null){
+                    $receptekNeve[] =  $name['name'];
+                }
+
             }
 
             $storeData->pizza->recept = $receptekNeve;

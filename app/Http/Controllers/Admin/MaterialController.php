@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Helper\LogManager;
 
 use App\Material;
 
@@ -60,6 +61,39 @@ class MaterialController extends Controller
         $material->save();
 
         return redirect()->route('materials.index');
+    }
+
+    public function destroy($id)
+    {
+        $material = Material::find($id);
+        $material->delete();
+
+        return redirect()->route('materials.index')
+                        ->with('success','Material deleted successfully');
+    }
+
+    public function materialsByIDs(Request $request){
+
+        $feltetek = json_decode($request->feltetek);
+
+        $feltetekResult = [];
+
+        foreach ($feltetek as $id) {
+            $material = Material::find($id);
+
+            if(!isset($material)){
+
+                LogManager::shared()->addLog("Material controller, materialsByIDs, feltetId: " . $id . " NOT DEFINED");
+                $feltetekResult[] = "UNDEFINED";
+                continue;
+
+            }
+
+            $feltetekResult[] = $material->name;
+        }
+
+        return response()->json(['feltetek' => $feltetekResult]);
+
     }
 
 }

@@ -50,10 +50,10 @@
           <a class="dropdown-item" href="{{ url('dashboard/categories') }}">Categories</a>
           <a class="dropdown-item" href="{{ url('dashboard/logs') }}">Logs</a>
           <a class="dropdown-item" href="{{ url('dashboard/materials') }}">Materials</a>
+          <a class="dropdown-item" href="{{ url('dashboard/pizzas') }}">Pizzas</a>
           <a class="dropdown-item" href="{{ url('dashboard/feedbacks') }}">Feedbacks</a>
           <a class="dropdown-item" href="{{ url('dashboard/fusion') }}">Fusion</a>
           <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="{{ url('dashboard/pizzas') }}">Pizzas</a>
             <a class="dropdown-item" href="{{ url('dashboard/pizza_categories') }}">Pizza Categories</a>
         </div>
       </li>
