@@ -149,7 +149,7 @@ class ProcessRawController extends Controller
                 $originalaias = PizzaAlias::all()->where('recept',$this->receptToString($recept))->first();
                 if($originalaias->name == $pizza){
                     if( $originalaias->pizzaid == 1){
-                        dd('skippen van');
+                        //dd('skippen van');
                     }
                     return;
                 }
