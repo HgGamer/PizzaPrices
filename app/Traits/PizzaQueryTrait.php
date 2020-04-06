@@ -35,11 +35,19 @@ trait PizzaQueryTrait {
                 $name = Material::find($receptString);
                 if($name != null){
                     $receptekNeve[] =  $name['name'];
+                }else{
+                    $errorMSG =  "PizzaQueryTrait, getInfinitPizzas Material(id: " . $receptString . ")->Material is NULL";
+                    LogManager::shared()->addLog($errorMSG);
+                    continue;
                 }
-
             }
 
             $storeData->pizza->recept = $receptekNeve;
+
+            if (!$storeData->website){
+                $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->website is NULL";
+                LogManager::shared()->addLog($errorMSG);
+            }
 
             $pizzas[] = $storeData;
         }
