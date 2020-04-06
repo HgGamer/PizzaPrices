@@ -64,7 +64,7 @@
                     <a class="nav-link nav-linkk" href="/kategoriak">Pizzakategóriák</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-linkk" href="#">Pizza Builder</a>
+                    <a class="nav-link nav-linkk" href="pizzapicker">Pizza Picker</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link nav-linkk" href="/kapcsolatok#kapcsolatok">Kapcsolatok</a>
