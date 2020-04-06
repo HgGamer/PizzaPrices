@@ -13,9 +13,9 @@
             <h1>Ha a kategóriák között nem találod kedvenc pizzáidat akkor csekkold a <span><a style="color: #FFA600" href="">Pizza Buildert</a></span> és állítsd össze te!</h1>
         </div>
         <div class="row">
-            @foreach($Category as $category)
+            @foreach($categories as $category)
             <div class="col-lg-4 col-md-6 col-sm-12 image-gallery">
-                <a href="/pizzakategoriak" style="background-image: url('{{ asset('/img/glry')}}/{{$category->url}}');">
+                <a href="/kategoriak/{{ $category->link }}" style="background-image: url('{{ asset('/img/glry')}}/{{$category->url}}');">
                     <div class="kategoraibox align-self-end d-flex text-center">
                         <h2 class="align-self-end">
                             {{$category->name}}

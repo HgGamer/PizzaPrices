@@ -155,10 +155,20 @@ function addNextItems(items){
                         <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
                     </ul>
                 </header>
-                <h4 class="text-center font-weight-bold"> <a href="">Kerekerdő Pizzéria</a> </h4>
+                <h4 class="text-center font-weight-bold"> <a href="${ (items[i]['url'] != "") ? items[i]['url'] : items[i]['website']['url'] }"> ${items[i]['website']['title']} </a> </h4>
                 <h4>Feltétek:</h4>
                 <p class="description">
-                   ${items[i]['pizza']['recept']}
+                 ${items[i]['pizza']['recept'].map(function (feltet, i, arr) {
+                     if (i !=arr.length-1) {
+                         return `${feltet}, `
+                     } else {
+                         return `${feltet}`
+                     }
+
+                     }).join("")
+                    }
+
+                   &#32;
                 </p>
                 <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="#">Részletek</a></footer>
             </div>

@@ -66,7 +66,6 @@ class PizzaCategoryController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'link' => 'required',
             'sorrend' => 'required|numeric'
         ]);
 
@@ -74,9 +73,9 @@ class PizzaCategoryController extends Controller
 
         $category->name = $request->input('name');
 
-        $category->link = $request->input('link');
-
-        $category->url = $request->input('url');
+        if($request->input('link') != null) {
+            $category->link = $request->input('link');
+        }
 
         $category->sorrend = $request->input('sorrend');
 

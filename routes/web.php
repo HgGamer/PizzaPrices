@@ -15,10 +15,11 @@ use Illuminate\Http\Request;
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@home');
+Route::get('/kategoriak/{slug}', 'PizzaCategoryController@pizzasForCategory');
 Route::get('/kategoriak', 'HomeController@pizzacategories');
 Route::get('/kapcsolatok', 'HomeController@contacts');
-Route::get('/pizzakategoriak', 'PizzaCategoryController@index');
-Route::get('/pizza', 'PizzasController@show');
+Route::get('/pizza/{id}', 'PizzasController@show');
+Route::get('/pizzapicker', 'PizzaPickerController@index');
 
 
 
@@ -66,7 +67,6 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/links/scrape', 'Admin\LinksController@scrape');
     Route::resource('/links', 'Admin\LinksController');
     Route::resource('/item-schema', 'Admin\ItemSchemaController');
-    Route::resource('/pizzas', 'PizzasController');
     Route::resource('/links/{id}/edit', 'Admin\LinksController@edit');
     Route::delete('/logs/delete_all', 'Admin\LogsController@deleteAll');
     Route::resource('/logs', 'Admin\LogsController');
@@ -76,12 +76,14 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/raw_pizzas/forzaitalia_load', 'Admin\RawPizzaController@forzaitaliaPizzaLoad');
     Route::post('/raw_pizzas/happyhot_load', 'Admin\RawPizzaController@happyhotPizzaLoad');
     Route::post('/raw_pizzas/pizzafalo_load', 'Admin\RawPizzaController@pizzafaloPizzaLoad');
+    Route::get('/materials/by_ids', 'Admin\MaterialController@materialsByIDs');
     Route::resource('/materials', 'Admin\MaterialController');
     Route::delete('/feedbacks/delete_all', 'Admin\FeedbackController@deleteAll');
     Route::resource('/feedbacks', 'Admin\FeedbackController');
     Route::get('/asd', 'Admin\PizzaCategoryController@showPizzasForCategory');
     Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
     Route::resource('/fusion', 'Admin\FusionController');
+    Route::patch('/pizzas/set-pizza-category', 'Admin\PizzasController@setPizzaCategory');
     Route::resource('/pizzas', 'Admin\PizzasController');
 
 });

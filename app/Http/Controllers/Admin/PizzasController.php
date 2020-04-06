@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Pizza;
 use App\Helper\LogManager;
+use App\PizzaCategory;
 
 class PizzasController extends Controller
 {
@@ -17,7 +18,9 @@ class PizzasController extends Controller
 
     public function index()
     {
-        $paginatedData = Pizza::orderBy('name', 'ASC')->paginate(50);
+        $paginatedData = Pizza::where('id', '!=', 1)
+                        ->orderBy('name', 'ASC')
+                        ->paginate(50);
 
         $pizzasData =  $paginatedData->getCollection();
 
@@ -27,7 +30,7 @@ class PizzasController extends Controller
 
             if ($pizza->pizzaCategory == null){
                 $errorMSG =  "PizzasController, index() pizza(id: " . $pizza->id . ")->category is NULL";
-                LogManager::shared()->addLog($errorMSG);
+                //LogManager::shared()->addLog($errorMSG);
             }
 
             $pizzas[] = $pizza;
@@ -35,7 +38,9 @@ class PizzasController extends Controller
 
         $paginatedData->setCollection($pizzas);
 
-        return view('dashboard.pizza.index')->withPizzas($paginatedData);
+        $pizzaCategories = PizzaCategory::orderBy('name')->get();
+
+        return view('dashboard.pizza.index')->withPizzas($paginatedData)->withPizzaCategories($pizzaCategories);
     }
 
     public function create()
@@ -87,5 +92,19 @@ class PizzasController extends Controller
         return redirect()->route('pizzas.index')
                         ->with('success','Pizza deleted successfully');
     }
+
+    public function setPizzaCategory(Request $request){
+        if(!$request->pizza_id && !$request->category_id && $request->category_id == 0)
+        return;
+
+        $pizza = Pizza::find($request->pizza_id);
+
+        $pizza->category_id= $request->category_id;
+
+        $pizza->save();
+
+        return response()->json(['msg' => 'Pizza Category updated!']);
+    }
+
 
 }

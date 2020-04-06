@@ -1,6 +1,6 @@
 <?php
 namespace App\Helper;
-
+use Illuminate\Support\Facades\Log;
 
 class LogManager{
 
@@ -20,6 +20,7 @@ class LogManager{
     }
 
     public function addLog($data){
+        Log::debug($data);
         $log = new \App\Log();
         $log->text = $data;
         $log->save();

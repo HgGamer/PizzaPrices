@@ -20,7 +20,7 @@ body.home{
 .map{
     height: 100vh;
 }
-h1{
+.nincshteg{
     display: none!important;
 }
 .logincard{
@@ -1211,6 +1211,34 @@ nav > div a.nav-item.nav-link:focus
 .carousel-inner .carousel-item-next,
 .carousel-inner .carousel-item-prev {
     display: flex;
+}
+.alap img{
+    border-radius: 25px;
+}
+.alap a{
+    width: 100%;
+    height: 7rem;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none!important;
+    border-radius: 25px;
+}
+.alapname{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    width: 100%;
+    border-radius: 25px;
+}
+.alapname h2{
+    font-family: panpizza;
+    font-size: 30px;
+    margin-bottom: 0px;
 }
 @media (max-width: 1700px) {
     .szelet {

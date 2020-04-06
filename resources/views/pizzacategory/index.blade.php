@@ -6,14 +6,15 @@
         <h2>Pizza Fajták</h2>
         <ol class="breadcrumb justify-content-center">
             <li class="breadcrumb-item"><a href="/home">Kezdőlap</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Pizza Fajták</li>
+            <li class="breadcrumb-item"><a href="/kategoriak">Kategoriak</a></li>
+            <li class="breadcrumb-item active" aria-current="page">{{$categoryName}}</li>
         </ol>
     </section>
 
     <div class="container">
         <div class="pizzacim text-center mt-5 mb-3">
             <h2>
-                XY Fajta Pizza
+                {{$categoryName}}
             </h2>
             <div class="divider-custom">
                 <div class="divider-custom-linee"></div>
@@ -24,7 +25,12 @@
             </div>
         </div>
         <div class="row justify-content-between">
-            @for($i=0; $i<22; $i++)
+            @if (count($pizzas) != 0)
+
+            @php
+                $i = 0;
+            @endphp
+            @foreach ($pizzas as $pizza)
                 @if(($i%3==0) && ($i !=0 ))
                     </div>
                 @endif
@@ -40,25 +46,32 @@
                             <div class="ft-recipe__contento">
                                 <header class="content__header">
                                     <div class="row-wrapper text-center">
-                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                    <h2 class="recipe-title feed-tile-name">{{ $pizza->name }}</h2>
                                         <div class="user-rating"></div>
                                     </div>
-                                    <ul class="recipe-details">
-                                        <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                        <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                    </ul>
                                 </header>
-                                <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
                                 <h4>Feltétek:</h4>
                                 <p class="description">
-                                    asd asd asd asd asd
+                                @foreach ($pizza['recept'] as $key => $recept)
+                                    {{ $recept }}@if ($key != count($pizza['recept'])-1), @endif
+                                @endforeach
                                 </p>
-                                <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
+                                <footer class="content__footer align-self-end "><a href="/pizza/{{ $pizza->id }}">Tovább</a></footer>
                             </div>
                         </div>
 
                     </div>
-            @endfor
+                    @php
+                        $i++;
+                    @endphp
+            @endforeach
+            @else
+            <div class="col-12 pizzacim text-center mt-5 mb-3">
+                <h2>
+                    Sajnos nem található ilyen pizza
+                </h2>
+            </div>
+            @endif
         </div>
     </div>
 
