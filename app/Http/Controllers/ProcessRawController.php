@@ -78,7 +78,7 @@ class ProcessRawController extends Controller
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
-                dd('már benne van storedatába');
+                //dd('már benne van storedatába');
                 RawPizza::all()->where('id',$data['id'])->first()->delete();
                 return;
             }
