@@ -22,7 +22,7 @@
                 <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
                     <div class="row">
                         <div class=" col-lg-12 justify-content-center d-flex align-items-center pizzanev">
-                            <h1 class="text-center">XYZ Pizza</h1>
+                            <h1 class="text-center">{{$pizza->name}}</h1>
                         </div>
                         <div class="col-lg-12 justify-content-center d-flex align-items-center pizzakep">
                             <img class=" img-fluid mx-auto d-block" src="{{ asset('img/pizzapop.webp') }}" alt=""/>
@@ -34,12 +34,10 @@
                     <div class="justify-content-center d-flex align-items-center tabla">
                         <img class="img-fluid" src="{{ asset('img/tablaa.webp') }}" alt="">
                         <ul class="feltetek position-absolute">
-                            <li>PARADICSOMOSALAP</li>
-                            <li>KOLBÁSZ</li>
-                            <li>SONKA</li>
-                            <li>KUKORICA</li>
-                            <li>SAJT</li>
-                            <li>UBORKA</li>
+                            @foreach ($pizza['recept'] as $recept)
+                             <li>{{ $recept }}</li>
+                            @endforeach
+
                         </ul>
                     </div>
                 </div>
@@ -73,34 +71,15 @@
                         <div class="col col-2">Ár</div>
                         <div class="col col-3">Ugrás a Pizzériához</div>
                     </li>
+                    @foreach ($datas as $data)
                     <li class="table-row">
-                        <div class="col col-3" data-label="Pizza Neve">Hawaii Pizza</div>
-                        <div class="col col-3" data-label="Pizzéria Neve">Kerekerdő Pizéra</div>
-                        <div class="col col-1" data-label="Méret">32 Cm</div>
-                        <div class="col col-2" data-label="Ár">1500 Ft</div>
+                        <div class="col col-3" data-label="Pizza Neve">-</div>
+                        <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
+                        <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
+                        <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>
                         <div class="col col-3" ><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
                     </li>
-                    <li class="table-row">
-                        <div class="col col-3" data-label="Pizza Neve">Hawaii Pizza</div>
-                        <div class="col col-3" data-label="Pizzéria Neve">Kerekerdő Pizéra</div>
-                        <div class="col col-1" data-label="Méret">32 Cm</div>
-                        <div class="col col-2" data-label="Ár">1500 Ft</div>
-                        <div class="col col-3" data-label="Ugrás a Pizzériához"><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-3" data-label="Pizza Neve">Hawaii Pizza</div>
-                        <div class="col col-3" data-label="Pizzéria Neve">Kerekerdő Pizéra</div>
-                        <div class="col col-1" data-label="Méret">32 Cm</div>
-                        <div class="col col-2" data-label="Ár">1500 Ft</div>
-                        <div class="col col-3" data-label="Ugrás a Pizzériához"><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
-                    </li>
-                    <li class="table-row">
-                        <div class="col col-3" data-label="Pizza Neve">Hawaii Pizza</div>
-                        <div class="col col-3" data-label="Pizzéria Neve">Kerekerdő Pizéra</div>
-                        <div class="col col-1" data-label="Méret">32 Cm</div>
-                        <div class="col col-2" data-label="Ár">1500 Ft</div>
-                        <div class="col col-3" data-label="Ugrás a Pizzériához"><footer class="content__footer align-self-end "><a href="/pizza">Ugrás a Pizzériához</a></footer></div>
-                    </li>
+                    @endforeach
                 </ul>
                 </div>
 

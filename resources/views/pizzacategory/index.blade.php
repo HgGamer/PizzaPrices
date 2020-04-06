@@ -56,7 +56,7 @@
                                     {{ $recept }}@if ($key != count($pizza['recept'])-1), @endif
                                 @endforeach
                                 </p>
-                                <footer class="content__footer align-self-end "><a href="/pizza">Tovább</a></footer>
+                                <footer class="content__footer align-self-end "><a href="/pizza/{{ $pizza->id }}">Tovább</a></footer>
                             </div>
                         </div>
 
