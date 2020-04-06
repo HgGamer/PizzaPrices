@@ -74,7 +74,7 @@
     </div>
 </nav>
 </header>
-<h1>Pizza Prices</h1>
+<h1 class="nincshteg">Pizza Prices</h1>
 
     @yield('content')
 
