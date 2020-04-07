@@ -45,7 +45,9 @@
         </div>
 
     </div>
-
+    <button class="btn btn-danger" onclick="getAllMaterials()">getAllMaterials</button>
+    <div id="allmaterials">
+    </div>
 
 
 </div>
@@ -144,8 +146,25 @@ axios.get('/dashboard/api/process')
     showDialog(response.data[0]);
   })
 }
-</script>
 
+
+function getAllMaterials(){
+    document.getElementById('allmaterials').innerHTML = "<h3>Loading..</h3>";
+    axios.get('/dashboard/api/process/getAllNewMaterial').then(function (response) {
+        template = "";
+        template = `<table class='table'><thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Acton</th></tr></thead><tbody>`;
+        for (let i = 0; i < response.data.length; i++) {
+            template += "<tr>";
+            template += `<th scope='row'>${i}</th>`;
+            template += `<td>${response.data[i]}</td>`;
+            template += `<td><button>add</button></td>`;
+            template += "<tr>";
+        }
+        template += "</tbody></table>";
+        document.getElementById('allmaterials').innerHTML = template;
+    })
+}
+</script>
 
 
 @endsection

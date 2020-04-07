@@ -38,7 +38,7 @@ class PizzasController extends Controller
 
         $paginatedData->setCollection($pizzas);
 
-        $pizzaCategories = PizzaCategory::All();
+        $pizzaCategories = PizzaCategory::orderBy('name')->get();
 
         return view('dashboard.pizza.index')->withPizzas($paginatedData)->withPizzaCategories($pizzaCategories);
     }
