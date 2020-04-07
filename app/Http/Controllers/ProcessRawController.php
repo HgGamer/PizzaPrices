@@ -38,7 +38,8 @@ class ProcessRawController extends Controller
 
         foreach($rawPizzas as $rawpizza){
             $proc = new ContentProcess();
-            $content = $proc->sliceContent($rawpizza->websiteid, $rawpizza->content);
+            $content = $proc->sliceContent($rawpizza->website_id, $rawpizza->content);
+
             foreach($content as $material){
                 if(!in_array($material, $newmaterials)){
                     if(!in_array($material, $materialAliases)){
@@ -309,7 +310,7 @@ class ProcessRawController extends Controller
         $alias->name = $errordata;
         $alias->save();
         LogManager::shared()->addLog("Új material hozzáadva: ". $material->name);
-        return redirect('/dashboard/process');
+        return "ok";
     }
 
     public function newMaterialAlias(Request $request){

@@ -18,9 +18,9 @@ window.axios = axios;
 window.bootstrap = bootstrap;
 window._ = lodash;
 window.$ = jquery;
-
+window.jquery = jquery;
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
+import 'bootstrap-notify';
 /**
  * Next we will register the CSRF Token as a common header with Axios so that
  * all outgoing HTTP requests automatically have it attached. This is just

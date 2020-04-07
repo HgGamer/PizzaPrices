@@ -13,6 +13,7 @@ class ContentProcessDefault extends ContentProcessBase
         foreach ($esapables as $escape) {
             $word = str_replace($escape,"",$word);
         }
+        $word = trim($word);
         return $word;
     }
     public function sliceContent($content){
@@ -41,7 +42,7 @@ class ContentProcessDefault extends ContentProcessBase
                 break;
             }
         }
-
+        $content = array_map('trim', $content);
         return $content;
     }
 
