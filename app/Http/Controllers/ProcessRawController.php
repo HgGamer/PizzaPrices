@@ -309,7 +309,7 @@ class ProcessRawController extends Controller
         $alias->name = $errordata;
         $alias->save();
         LogManager::shared()->addLog("Új material hozzáadva: ". $material->name);
-        return redirect('/dashboard/process');
+        return "ok";
     }
 
     public function newMaterialAlias(Request $request){

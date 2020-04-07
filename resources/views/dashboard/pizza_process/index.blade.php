@@ -128,7 +128,7 @@ function unknownMaterial(data){
 
 function showDialog(data){
     if(data == undefined){
-        alert("we are done");
+        $.notify("We are done", {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
     }
     if(data.message == "unknown material"){
         unknownMaterial(data);
@@ -152,18 +152,32 @@ function getAllMaterials(){
     document.getElementById('allmaterials').innerHTML = "<h3>Loading..</h3>";
     axios.get('/dashboard/api/process/getAllNewMaterial').then(function (response) {
         template = "";
-        template = `<table class='table'><thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Acton</th></tr></thead><tbody>`;
+        template = `<table class='table table-sm table-striped'><thead><tr><th scope="col">#</th><th scope="col">Name</th><th scope="col">Acton</th></tr></thead><tbody>`;
         for (let i = 0; i < response.data.length; i++) {
-            template += "<tr>";
+            template += "<tr id='materialtable"+i+"'>";
             template += `<th scope='row'>${i}</th>`;
+            template += `<td><button class='btn btn-primary btn-sm' onclick='addMaterial("${response.data[i]}",${i})'>add</button></td>`;
             template += `<td>${response.data[i]}</td>`;
-            template += `<td><button>add</button></td>`;
             template += "<tr>";
         }
         template += "</tbody></table>";
         document.getElementById('allmaterials').innerHTML = template;
     })
 }
+
+function addMaterial(mat,index){
+    let token = document.head.querySelector('meta[name="csrf-token"]');
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    document.getElementById("materialtable"+index).remove();
+    axios.post('/dashboard/api/process/newMaterial', {
+        errordata: mat,
+    })
+    .then(function (response) {
+        $.notify(mat+" hozzáadva.", {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
+
+    })
+}
+
 </script>
 
 

@@ -2,7 +2,16 @@
 
 @section('content')
 
+        <script>
+            function scrapeAll(){
+                $.notify("Scraping all, please wait.", {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
+                axios.get('/dashboard/links/scrapeAll')
+                .then(function (response) {
+                    $.notify("Scraping is done.", {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
+                })
+            }
 
+        </script>
         <div class="col-12">
             <h2>Links</h2>
 
@@ -25,10 +34,8 @@
                 <button onclick="return confirm('Are you sure you want to delete ALL raw pizzas?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL raw pizzas</button>
             </form>
 
-            <form action="/dashboard/links/scrapeAll" method="POST">
-                {{ csrf_field() }}
-                <button onclick="return confirm('Are you sure you want to scrape ALL raw pizzas?');" type="submit" class="btn btn-danger float-right mx-1">Scrape All</button>
-            </form>
+            <button onclick="scrapeAll()" type="submit" class="btn btn-danger float-right mx-1">Scrape All</button>
+
             @if(count($links) > 0)
 
                 <table class="table table-bordered">
