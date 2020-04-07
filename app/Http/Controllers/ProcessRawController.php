@@ -38,7 +38,8 @@ class ProcessRawController extends Controller
 
         foreach($rawPizzas as $rawpizza){
             $proc = new ContentProcess();
-            $content = $proc->sliceContent($rawpizza->websiteid, $rawpizza->content);
+            $content = $proc->sliceContent($rawpizza->website_id, $rawpizza->content);
+
             foreach($content as $material){
                 if(!in_array($material, $newmaterials)){
                     if(!in_array($material, $materialAliases)){
