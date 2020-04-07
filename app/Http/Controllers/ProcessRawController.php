@@ -78,8 +78,10 @@ class ProcessRawController extends Controller
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
-                dd('már benne van storedatába');
-                RawPizza::all()->where('id',$data['id'])->first()->delete();
+                //dd('már benne van storedatába');
+                if(RawPizza::all()->where('id',$data['id'])->first() != null){
+                    RawPizza::all()->where('id',$data['id'])->first()->delete();
+                }
                 return;
             }
 
@@ -139,6 +141,9 @@ class ProcessRawController extends Controller
 
     private function processPizza($data,$recept){
         $pizza = $this->escapePizzaName($data['title']);
+        if(trim($pizza) == ""){
+            return;
+        }
         //ismert a név hoppá ismerjük
         if(PizzaAlias::all()->where('name',$pizza)->count()!=0){
             if(PizzaAlias::all()->where('name',$pizza)->first()->recept == $this->receptToString($recept)){
@@ -149,7 +154,7 @@ class ProcessRawController extends Controller
                 $originalaias = PizzaAlias::all()->where('recept',$this->receptToString($recept))->first();
                 if($originalaias->name == $pizza){
                     if( $originalaias->pizzaid == 1){
-                        dd('skippen van');
+                        //dd('skippen van');
                     }
                     return;
                 }
@@ -301,6 +306,7 @@ class ProcessRawController extends Controller
     public function newPizza(Request $request){
 
         $errordata = $request->errordata;
+
         $rawid = $request->rawid;
         $this->websiteid= $request->session()->get('processID');
         $req = Pizza::all()->where('name',$errordata)->first();
