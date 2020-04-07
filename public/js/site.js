@@ -37131,18 +37131,34 @@ function checkCookie() {
     document.getElementById('cookie-footer').style.display = 'none';
     gtag('js', new Date());
     gtag('config', 'UA-161580640-1');
+    setFloatingButtonMargins();
   } else {}
 }
 
 setCookiePolicyCookie = function setCookiePolicyCookie() {
+  if (!isProd) {
+    setFloatingButtonMargins();
+    setCookie('accepted_cookies', 'true', 400);
+    document.getElementById('cookie-footer').style.display = 'none';
+    return;
+  }
+
   setCookie('accepted_cookies', 'true', 400);
   document.getElementById('cookie-footer').style.display = 'none';
   gtag('js', new Date());
   gtag('config', 'UA-161580640-1');
+  setFloatingButtonMargins();
 };
 
+function setFloatingButtonMargins() {
+  document.getElementById('fel').style.marginBottom = '40px';
+  document.getElementsByClassName('feedbackform')[0].style.marginBottom = '40px';
+}
+
 document.addEventListener("DOMContentLoaded", function (event) {
-  checkCookie();
+  if (isProd) {
+    checkCookie();
+  }
 });
 /*****  INFINITE SCROLL   *****/
 //https://medium.com/walmartlabs/infinite-scrolling-the-right-way-11b098a08815
@@ -37203,13 +37219,28 @@ function addNextItems(items) {
   var feedNode = document.querySelector("#feed-wrap");
   var feedList = document.createElement("ul");
   feedList.setAttribute('class', 'row feed-list pizzafeed');
+  var isYellow = false;
+  var counter = 1;
 
   for (var i = 0; i < items.length; i++) {
     var item = document.createElement("div");
     item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile');
     specificId = 'feed-tile-' + ((loadCount - 1) * paginatedBy + i);
     item.setAttribute('id', specificId);
-    item.innerHTML = "\n       <div class=\"ft-recipe\">\n            <div class=\"ft-recipe__thumb text-center d-flex  align-items-center\">\n                <img class=\"mx-auto d-block feed-tile-img\" src=\"".concat(URL, "/img/pizzapop.png\" alt=\"\"/>\n            </div>\n            <div class=\"ft-recipe__content \">\n                <header class=\"content__header\">\n                    <div class=\"row-wrapper text-center\">\n                        <h2 class=\"recipe-title feed-tile-name text-center\">").concat(items[i]['pizza']['name'], "</h2>\n                    </div>\n                    <ul class=\"recipe-details\">\n                        <li class=\"recipe-details-item ingredients\"><i class=\"fas fa-coins\"></i><span class=\"value\">").concat(items[i]['price'], "</span><span class=\"title\">\xC1r(HUF)</span></li>\n                        <li class=\"recipe-details-item time\"><i class=\"fas fa-ruler-horizontal\"></i></i><span class=\"value\">").concat(items[i]['pizzasize'], "</span><span class=\"title\">M\xE9ret(cm)</span></li>\n                    </ul>\n                </header>\n                <h4 class=\"text-center font-weight-bold\"> <a href=\"\">Kerekerd\u0151 Pizz\xE9ria</a> </h4>\n                <h4>Felt\xE9tek:</h4>\n                <p class=\"description\">\n                   ").concat(items[i]['pizza']['recept'], "\n                </p>\n                <footer class=\"content__footer align-self-end \"><a href=\"#\">R\xE9szletek</a></footer>\n            </div>\n        </div>\n        ");
+    item.innerHTML = "\n       <div class=\"ft-recipe\">\n            <div class=\"ft-recipe__thumb".concat(isYellow ? "m" : "", " text-center d-flex  align-items-center\">\n                <img class=\"mx-auto d-block feed-tile-img\" src=\"").concat(URL, "/img/pizzapop.png\" alt=\"\"/>\n            </div>\n            <div class=\"ft-recipe__content \">\n                <header class=\"content__header\">\n                    <div class=\"row-wrapper text-center\">\n                        <h2 class=\"recipe-title feed-tile-name text-center\">").concat(items[i]['pizza']['name'], "</h2>\n                    </div>\n                    <ul class=\"recipe-details\">\n                        <li class=\"recipe-details-item ingredients\"><i class=\"fas fa-coins\"></i><span class=\"value\">").concat(items[i]['price'], "</span><span class=\"title\">\xC1r(HUF)</span></li>\n                        <li class=\"recipe-details-item time\"><i class=\"fas fa-ruler-horizontal\"></i></i><span class=\"value\">").concat(items[i]['pizzasize'], "</span><span class=\"title\">M\xE9ret(cm)</span></li>\n                    </ul>\n                </header>\n                <h4 class=\"text-center font-weight-bold\"> <a href=\"").concat(items[i]['url'] != "" ? items[i]['url'] : items[i]['website']['url'], "\"> ").concat(items[i]['website']['title'], " </a> </h4>\n                <h4>Felt\xE9tek:</h4>\n                <p class=\"description\">\n                 ").concat(items[i]['pizza']['recept'].map(function (feltet, i, arr) {
+      if (i != arr.length - 1) {
+        return "".concat(feltet, ", ");
+      } else {
+        return "".concat(feltet);
+      }
+    }).join(""), "\n\n                   &#32;\n                </p>\n                <footer class=\"content__footer").concat(isYellow ? "m" : "", " align-self-end \"><a href=\"#\">R\xE9szletek</a></footer>\n            </div>\n        </div>\n        ");
+    counter++;
+
+    if (counter == 2) {
+      isYellow = !isYellow;
+      counter = 0;
+    }
+
     feedList.appendChild(item);
   }
 

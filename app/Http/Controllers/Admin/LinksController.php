@@ -159,7 +159,28 @@ class LinksController extends Controller
 
         return response()->json(['msg' => 'Link updated!']);
     }
+    /**
+     * scrape all link
+     *
+     * @param Request $request
+     */
+    public function scrapeAll(Request $request)
+    {
+        set_time_limit(3600);
 
+        $links = Link::all();
+
+        foreach($links as $link){
+            if(empty($link->main_filter_selector) && (empty($link->item_schema_id) || $link->item_schema_id == 0)) {
+                break;
+            }
+            $scraper = new Scraper(new Client());
+            $scraper->handle($link);
+        }
+
+        return response()->json(['status' => 1, 'msg' => 'Scraping done']);
+
+    }
 
     /**
      * scrape specific link

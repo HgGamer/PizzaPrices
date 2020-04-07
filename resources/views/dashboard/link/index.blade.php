@@ -25,6 +25,10 @@
                 <button onclick="return confirm('Are you sure you want to delete ALL raw pizzas?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL raw pizzas</button>
             </form>
 
+            <form action="/dashboard/links/scrapeAll" method="POST">
+                {{ csrf_field() }}
+                <button onclick="return confirm('Are you sure you want to scrape ALL raw pizzas?');" type="submit" class="btn btn-danger float-right mx-1">Scrape All</button>
+            </form>
             @if(count($links) > 0)
 
                 <table class="table table-bordered">

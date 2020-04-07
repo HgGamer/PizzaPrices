@@ -47,7 +47,7 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/api/process/joinMaterials','ProcessRawController@JoinMaterials');
     Route::post('/api/process/joinPizzas','ProcessRawController@JoinPizzas');
     Route::post('/api/process/setProcessID','ProcessRawController@setProcessID');
-
+    Route::get('/api/process/getAllNewMaterial','ProcessRawController@getAllNewMaterial');
 
 
     Route::get('/process',function(Request $request){
@@ -65,6 +65,7 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::resource('/categories', 'Admin\CategoriesController');
     Route::patch('/links/set-item-schema', 'Admin\LinksController@setItemSchema');
     Route::post('/links/scrape', 'Admin\LinksController@scrape');
+    Route::post('/links/scrapeAll', 'Admin\LinksController@scrapeAll');
     Route::resource('/links', 'Admin\LinksController');
     Route::resource('/item-schema', 'Admin\ItemSchemaController');
     Route::resource('/links/{id}/edit', 'Admin\LinksController@edit');

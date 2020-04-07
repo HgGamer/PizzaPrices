@@ -31,6 +31,25 @@ class ProcessRawController extends Controller
         return $proc->sliceContent($id, $content);
     }
 
+    public function getAllNewMaterial(){
+        $newmaterials = [];
+        $rawPizzas = RawPizza::all();
+        $materialAliases = MaterialAlias::all()->pluck('name')->toArray();
+
+        foreach($rawPizzas as $rawpizza){
+            $proc = new ContentProcess();
+            $content = $proc->sliceContent($rawpizza->websiteid, $rawpizza->content);
+            foreach($content as $material){
+                if(!in_array($material, $newmaterials)){
+                    if(!in_array($material, $materialAliases)){
+                        array_push($newmaterials,$material);
+                    }
+                }
+            }
+        }
+        return $newmaterials;
+    }
+
     private function processContent($sitedata,$websiteid){
         //az össes pizza materialjait nézi ismeri e
         foreach($sitedata as $datarow){
