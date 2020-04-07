@@ -78,11 +78,12 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/raw_pizzas/happyhot_load', 'Admin\RawPizzaController@happyhotPizzaLoad');
     Route::post('/raw_pizzas/pizzafalo_load', 'Admin\RawPizzaController@pizzafaloPizzaLoad');
     Route::get('/materials/by_ids', 'Admin\MaterialController@materialsByIDs');
+    Route::patch('/material/set-material-category', 'Admin\MaterialController@setMaterialsCategory');
     Route::resource('/materials', 'Admin\MaterialController');
     Route::delete('/feedbacks/delete_all', 'Admin\FeedbackController@deleteAll');
     Route::resource('/feedbacks', 'Admin\FeedbackController');
-    Route::get('/asd', 'Admin\PizzaCategoryController@showPizzasForCategory');
     Route::resource('/pizza_categories', 'Admin\PizzaCategoryController');
+    Route::resource('/materials_categories', 'Admin\MaterialsCategoryController');
     Route::resource('/fusion', 'Admin\FusionController');
     Route::patch('/pizzas/set-pizza-category', 'Admin\PizzasController@setPizzaCategory');
     Route::resource('/pizzas', 'Admin\PizzasController');

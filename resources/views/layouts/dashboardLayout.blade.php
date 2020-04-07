@@ -55,6 +55,7 @@
           <a class="dropdown-item" href="{{ url('dashboard/fusion') }}">Fusion</a>
           <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ url('dashboard/pizza_categories') }}">Pizza Categories</a>
+            <a class="dropdown-item" href="{{ url('dashboard/materials_categories') }}">Materials Categories</a>
         </div>
       </li>
     </ul>

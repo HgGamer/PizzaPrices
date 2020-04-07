@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class PizzaMaterialsCategory extends Migration
+class AddCategoryIdPizzaMaterials extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class PizzaMaterialsCategory extends Migration
      */
     public function up()
     {
-        Schema::create('pizza_materials_category', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->timestamps();
+        Schema::table('pizza_materials', function (Blueprint $table) {
+            $table->string('category_id')->nullable();
+            $table->string('img')->nullable();
         });
     }
 
@@ -27,6 +26,8 @@ class PizzaMaterialsCategory extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('pizza_materials', function (Blueprint $table) {
+            //
+        });
     }
 }

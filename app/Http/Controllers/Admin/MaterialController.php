@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Helper\LogManager;
 
 use App\Material;
+use App\MaterialsCategory;
 
 class MaterialController extends Controller
 {
@@ -20,7 +21,10 @@ class MaterialController extends Controller
     {
         $material = Material::orderBy('name', 'ASC')->paginate(50);
 
-        return view('dashboard.material.index')->withMaterials($material);
+        $materialsCategories = MaterialsCategory::all();
+
+
+        return view('dashboard.material.index')->withMaterials($material)->withMaterialsCategories($materialsCategories);
     }
 
     public function create()
@@ -94,6 +98,19 @@ class MaterialController extends Controller
 
         return response()->json(['feltetek' => $feltetekResult]);
 
+    }
+
+    public function setMaterialsCategory(Request $request){
+        if(!$request->materials_id && !$request->category_id && $request->category_id == 0)
+            return;
+
+        $material = Material::find($request->materials_id);
+
+        $material->category_id= $request->category_id;
+
+        $material->save();
+
+        return response()->json(['msg' => 'Material Category updated!']);
     }
 
 }

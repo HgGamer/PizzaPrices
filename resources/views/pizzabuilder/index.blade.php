@@ -14,159 +14,38 @@
 
         <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-alap-tab" data-toggle="tab" href="#nav-alap" role="tab" aria-controls="nav-alap" aria-selected="true">Pizza Alapok</a>
-                <a class="nav-item nav-link" id="nav-hus-tab" data-toggle="tab" href="#nav-hus" role="tab" aria-controls="nav-hus" aria-selected="false">Húsfeltétek</a>
-                <a class="nav-item nav-link" id="nav-zoldseg-tab" data-toggle="tab" href="#nav-zoldseg" role="tab" aria-controls="nav-zoldseg" aria-selected="false">Zöldség Feltétek</a>
-                <a class="nav-item nav-link" id="nav-fuszer-tab" data-toggle="tab" href="#nav-fuszer" role="tab" aria-controls="nav-fuszer" aria-selected="false">Fűszerek</a>
-                <a class="nav-item nav-link" id="nav-sajt-tab" data-toggle="tab" href="#nav-sajt" role="tab" aria-controls="nav-sajt" aria-selected="false">Sajtok</a>
+                @php $j=0 @endphp
+                @foreach($categories as $category)
+
+                    <a class="nav-item nav-link {{ ($j == 0) ? "active" : "" }}" id="nav-{{$j}}-tab" data-toggle="tab" href="#nav-{{$j}}" role="tab" aria-controls="nav-alap" aria-selected="true">{{$category->name}}</a>
+                    @php $j++; @endphp
+                @endforeach
             </div>
         </nav>
 
         <section>
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-                <div class="tab-pane  show active mr-3 ml-3" id="nav-alap" role="tabpanel" aria-labelledby="nav-alap-tab">
-                    <div class="row">
+                @php $j=0 @endphp
+                    @foreach($categories as $category)
+                        <div class="tab-pane  show {{ ($j == 0) ? "active" : "" }} mr-3 ml-3" id="nav-{{$j}}" role="tabpanel" aria-labelledby="nav-{{$j}}-tab">
+                            <div class="row">
+                                @foreach($category['materials'] as $material)
+                                    <div class="col-lg-2 alap d-flex mb-3">
+                                        <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
+                                            <div class="alapname text-center align-self-end p-1">
 
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Paradicsomos
-                                    </h2>
-                                </div>
-                            </a>
+                                                <h2>
+                                                    {{ $material ? $material->name : ""}}
+                                                </h2>
+                                            </div>
+                                        </a>
+                                    </div>
+                                @endforeach
+                            </div>
                         </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
+                    @php $j++; @endphp
+                @endforeach
 
-                                    <h2>
-                                        Csípős Paradicsomos
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                       Tejfölös
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Édes chillis
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Fokhagymás-tejfölös
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Mustáros
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Klasszikus BBQ
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Sajtkrémes
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Tzatzikis
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Bolognai ragu
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Bolognai ragu
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-2 alap d-flex mb-3">
-                            <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
-                                <div class="alapname text-center align-self-end p-1">
-
-                                    <h2>
-                                        Bolognai ragu
-                                    </h2>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="tab-pane  show" id="nav-hus" role="tabpanel" aria-labelledby="nav-hus-tab">
-
-                </div>
-
-                <div class="tab-pane  show" id="nav-zoldseg" role="tabpanel" aria-labelledby="nav-zoldseg-tab">
-
-                </div>
-
-                <div class="tab-pane  show" id="nav-fuszer" role="tabpanel" aria-labelledby="nav-fuszer-tab">
-
-                </div>
-
-                <div class="tab-pane  show" id="nav-sajt" role="tabpanel" aria-labelledby="nav-sajt-tab">
-
-                </div>
             </div>
         </section>
 
