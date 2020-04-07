@@ -142,7 +142,7 @@
                                     {{ $recept }}@if ($key != count($pizza['pizza']['recept'])-1), @endif
                                 @endforeach
                             </p>
-                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="#">Részletek</a></footer>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="/pizza/{{ $pizza->pizzaid }}">Részletek</a></footer>
                         </div>
                     </div>
                 </div>
