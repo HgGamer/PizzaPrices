@@ -65,6 +65,7 @@ function unknownPizza(data){
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="text" name="recept" value="${data.recept}" style="display:none">
             <input type="text" id="rawid" name="rawid" value="${data.rawid}" style="display:none">
+            <input type="text" id="additional" name="additional" value="${data.additional}" style="display:none">
             <input type="submit" class="btn btn-secondary" value="Hozzáadás új pizzának">
         </form>
     <form action="api/process/newPizzaAlias" method="POST">
@@ -73,6 +74,7 @@ function unknownPizza(data){
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="text" id="recept" name="recept" value="${data.recept}" style="display:none">
             <input type="text" id="rawid" name="rawid" value="${data.rawid}" style="display:none">
+            <input type="text" id="additional" name="additional" value="${data.additional}" style="display:none">
             <select id="newalias" name="newalias" >
             </select><br>
             <input type="submit" class="btn btn-secondary" value="Kiválasztottal egyezik">
@@ -109,6 +111,11 @@ function unknownMaterial(data){
             {{ csrf_field() }}
             <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
             <input type="submit" class="btn btn-secondary" value="Hozzáadás új alapnyagnak">
+        </form>
+        <form action="api/process/newAdditionalMaterial" method="POST">
+            {{ csrf_field() }}
+            <input type="text" id="errordata" name="errordata" value="${data.data}" style="display:none">
+            <input type="submit" class="btn btn-success" value="Hozzáadás új extra alapnyagnak">
         </form>
     `;
     document.getElementById('modalbody').innerHTML = template;
@@ -156,7 +163,7 @@ function getAllMaterials(){
         for (let i = 0; i < response.data.length; i++) {
             template += "<tr id='materialtable"+i+"'>";
             template += `<th scope='row'>${i}</th>`;
-            template += `<td><button class='btn btn-primary btn-sm' onclick='addMaterial("${response.data[i]}",${i})'>add</button></td>`;
+            template += `<td><button class='btn btn-primary btn-sm' onclick='addMaterial("${response.data[i]}",${i})'>Add Base</button></td>`;
             template += `<td>${response.data[i]}</td>`;
             template += "<tr>";
         }

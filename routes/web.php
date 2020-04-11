@@ -39,16 +39,16 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
 
     Route::post('/api/process/newMaterial','ProcessRawController@newMaterial');
     Route::post('/api/process/newMaterialAlias','ProcessRawController@newMaterialAlias');
-    Route::get('/api/process/getmaterials','ProcessRawController@getmaterials');
-    Route::get('/api/process/getpizzas', 'ProcessRawController@getpizzas');
+    Route::get( '/api/process/getmaterials','ProcessRawController@getmaterials');
+    Route::get( '/api/process/getpizzas', 'ProcessRawController@getpizzas');
     Route::post('/api/process/newPizza', 'ProcessRawController@newPizza');
-    Route::get('/api/process/refresh', 'ProcessRawController@refreshPizzaAliasRecept');
+    Route::get( '/api/process/refresh', 'ProcessRawController@refreshPizzaAliasRecept');
     Route::post('/api/process/newPizzaAlias','ProcessRawController@newPizzaAlias');
     Route::post('/api/process/joinMaterials','ProcessRawController@JoinMaterials');
     Route::post('/api/process/joinPizzas','ProcessRawController@JoinPizzas');
     Route::post('/api/process/setProcessID','ProcessRawController@setProcessID');
-    Route::get('/api/process/getAllNewMaterial','ProcessRawController@getAllNewMaterial');
-
+    Route::get( '/api/process/getAllNewMaterial','ProcessRawController@getAllNewMaterial');
+    Route::post('/api/process/newAdditionalMaterial','ProcessRawController@newAdditionalMaterial');
 
     Route::get('/process',function(Request $request){
         $sites = Website::all();
