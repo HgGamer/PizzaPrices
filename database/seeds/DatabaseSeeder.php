@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(LinksTableSeeder::class);
         $this->call(PizzaTablesSeeder::class);
         $this->call(PizzaCategorySeeder::class);
+        $this->call(MaterialsCategorySeeder::class);
     }
 }

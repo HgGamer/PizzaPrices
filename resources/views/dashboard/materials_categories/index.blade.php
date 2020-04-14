@@ -3,7 +3,7 @@
 @section('content')
 
         <div class="col-md-12">
-            <h2>Pizza categories</h2>
+            <h2>Materials categories</h2>
 
 
 
