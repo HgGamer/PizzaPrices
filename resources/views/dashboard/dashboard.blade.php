@@ -8,16 +8,16 @@
           <div class="row no-gutters align-items-center">
             <div class="col">
               <div class="text-center font-weight-bold  text-uppercase  text-primary mb-1">LAST 7 DAY:</div>
-              <div class="text-primary">Visitors: <span class="text-black font-weight-bold">{{ $visitorsAndPageViews7['visitors'] }}</span> </div>
-              <div class="text-primary">Page loads: <span class="text-black font-weight-bold">{{ $visitorsAndPageViews7['pageViews'] }}</span></div>
+              <div class="text-primary">Visitors: <span class="text-black font-weight-bold">{{ isset($visitorsAndPageViews7['visitors']) ? $visitorsAndPageViews7['visitors'] : "No Data" }}</span> </div>
+              <div class="text-primary">Page loads: <span class="text-black font-weight-bold">{{ isset($visitorsAndPageViews7['pageViews']) ? $visitorsAndPageViews7['pageViews'] : "No Data" }}</span></div>
             </div>
           </div>
           <hr>
           <div class="row no-gutters align-items-center">
             <div class="col">
               <div class="text-center font-weight-bold  text-uppercase  text-primary mb-1">LAST 30 DAY:</div>
-              <div class="text-primary">Visitors: <span class="text-black font-weight-bold">{{ $visitorsAndPageViews30['visitors'] }}</span> </div>
-              <div class="text-primary">Page loads: <span class="text-black font-weight-bold">{{ $visitorsAndPageViews30['pageViews'] }}</span></div>
+              <div class="text-primary">Visitors: <span class="text-black font-weight-bold">{{ isset($visitorsAndPageViews30['visitors']) ? $visitorsAndPageViews30['visitors'] : "No Data" }}</span> </div>
+              <div class="text-primary">Page loads: <span class="text-black font-weight-bold">{{ isset($visitorsAndPageViews30['pageViews']) ? $visitorsAndPageViews30['pageViews'] : "No Data" }}</span></div>
             </div>
           </div>
         </div>
