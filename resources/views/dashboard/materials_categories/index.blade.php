@@ -44,7 +44,7 @@
 
             @else
                 <i>No items found</i>
-
+                <a href="{{ route('materials_categories.create') }}" class="btn btn-warning float-right">Add new</a>
             @endif
         </div>
 
