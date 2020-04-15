@@ -398,6 +398,7 @@ class ProcessRawController extends Controller
 
     public function newPizzaAlias(Request $request){
         $rawid = $request->rawid;
+        $this->websiteid= $request->session()->get('processID');
         $additional = $request->additional;
         $pizzaalias = new PizzaAlias();
         $pizzaalias->recept= $request->recept;
