@@ -31,6 +31,10 @@ class MaterialsCategorySeeder extends Seeder
                 'id'         => 2,
                 'name'       => 'Sajtok',
             ],
+            4 => [
+                'id'         => 5,
+                'name'       => 'Halak',
+            ],
 
         ]);
     }
