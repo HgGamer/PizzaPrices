@@ -11,6 +11,7 @@ use App\StoreData;
 use App\Log;
 use App\RawPizza;
 use App\Feedback;
+use App\Helper\LogManager;
 
 class AdminController extends Controller
 {
@@ -29,7 +30,18 @@ class AdminController extends Controller
 
         $visitorsAndPageViews7 = Analytics::fetchVisitorsAndPageViews(Period::days(7));
         $visitorsAndPageViews30 = Analytics::fetchVisitorsAndPageViews(Period::days(30));
-        $logsCount = Log::all()->count();
+
+       if (!isset($visitorsAndPageViews7[0])){
+           $visitorsAndPageViews7[0] = 0;
+            LogManager::shared()->addLog("Google analytics last 7 day no data");
+       }
+
+       if (!isset($visitorsAndPageViews30[0])){
+        $visitorsAndPageViews30[0] = 0;
+         LogManager::shared()->addLog("Google analytics last 30 day no data");
+    }
+
+       $logsCount = Log::all()->count();
 
        $pizzasCount = StoreData::all()->count();
        $rawPizzasCount = RawPizza::all()->count();

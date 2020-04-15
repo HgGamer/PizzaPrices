@@ -3,7 +3,7 @@
 @section('content')
 
         <div class="col-md-12">
-            <h2>Pizza categories</h2>
+            <h2>Materials categories</h2>
 
 
 
@@ -44,7 +44,7 @@
 
             @else
                 <i>No items found</i>
-
+                <a href="{{ route('materials_categories.create') }}" class="btn btn-warning float-right">Add new</a>
             @endif
         </div>
 
