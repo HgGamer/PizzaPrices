@@ -45,11 +45,11 @@ class PizzaCategoryController extends Controller
 
         $category->link = $request->input('link');
 
-        $category->url = $request->input('url');
-
         $category->sorrend = $request->input('sorrend');
 
-        $category->url= $this->uploadFile('url', public_path('img/glry/'), $request)["filename"];
+        if($request->file('url') != null) {
+            $category->url= $this->uploadFile('url', public_path('img/glry/'), $request)["filename"];
+        }
 
         $category->save();
 
