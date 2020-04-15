@@ -85,9 +85,22 @@ function unknownPizza(data){
     console.log(data);
     axios.get('/dashboard/api/process/getpizzas')
     .then(function (response) {
-
+        let biggesvalue = 0;
+        let bestItem = {};
+        response.data.forEach(currentitem => {
+            let value = similarity(currentitem.name, data.data);
+            if (value > biggesvalue) {
+                biggesvalue = value;
+                bestItem = currentitem;
+            }
+        });
         response.data.forEach(element => {
             let option = document.createElement("option");
+            if(element.id == bestItem.id){
+                option.selected = true;
+                console.log(bestItem.name);
+                console.log(biggesvalue);
+            }
             option.text = element.name;
             option.value = element.id;
             document.getElementById('newalias').add(option);
@@ -135,7 +148,7 @@ function unknownMaterial(data){
             let option = document.createElement("option");
             if(element.id == bestItem.id){
                 option.selected = true;
-                console.log(bestItem);
+                console.log(bestItem.name);
                 console.log(biggesvalue);
             }
             option.text = element.name;
