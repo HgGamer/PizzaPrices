@@ -29,7 +29,7 @@
 
             @endif
 
-            <form method="post" action="{{ route('materials.store') }}" >
+            <form method="post" action="{{ route('materials.store') }} " enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
@@ -38,6 +38,17 @@
                             <strong>Title:</strong>
 
                             <input type="text" name="name" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+
+                            <strong>Img:</strong>
+
+                            <input type="file" name="img" class="form-control-file" />
                         </div>
                     </div>
                 </div>

@@ -42,6 +42,11 @@ class MaterialController extends Controller
 
         $material->name = $request->input('name');
 
+       if($request->file('img') != null) {
+
+            $material->img = $this->uploadFile('img', public_path('img/feltetek/'), $request)["filename"];
+       }
+
         $material->save();
 
         return redirect()->route('materials.index');
@@ -61,6 +66,10 @@ class MaterialController extends Controller
         $material = Material::find($id);
 
         $material->name = $request->input('name');
+
+        if($request->file('img') != null) {
+            $material->img = $this->uploadFile('img', public_path('img/feltetek/'), $request)["filename"];
+        }
 
         $material->save();
 

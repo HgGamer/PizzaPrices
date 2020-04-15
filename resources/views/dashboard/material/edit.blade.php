@@ -29,7 +29,7 @@
 
             @endif
 
-            <form method="post" action="{{ route('materials.update', $material->id) }}">
+            <form method="post" action="{{ route('materials.update', $material->id) }}" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 {{ method_field("PUT") }}
 
@@ -40,6 +40,20 @@
                             <strong>Title:</strong>
 
                             <input type="text" name="name" value="{{ $material->name }}" class="form-control" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    @if($material->img != "")
+                        <img src="{{ url('img/feltetek/' . $material->img) }}" width="150" />
+                    @endif
+                        <div class="form-group">
+
+                            <strong>Image:</strong>
+
+                            <input type="file" name="img" class="form-control-file" />
                         </div>
                     </div>
                 </div>
