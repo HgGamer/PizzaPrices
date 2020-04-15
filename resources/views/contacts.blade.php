@@ -84,7 +84,7 @@
                 <div class="tab-pane" id="nav-kapcs" role="tabpanel" aria-labelledby="nav-kapcs-tab">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 text-center align-items-center kapcsolatok">
-                            <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="">
+                            <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="logo">
                             <h1>Pizza Prices</h1>
 
                         </div>

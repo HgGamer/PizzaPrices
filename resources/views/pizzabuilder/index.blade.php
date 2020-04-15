@@ -61,7 +61,7 @@
 
                     <div class="ft-recipe-kicsi">
                         <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
                         </div>
                         <div class="ft-recipe__contento">
                             <header class="content__header">

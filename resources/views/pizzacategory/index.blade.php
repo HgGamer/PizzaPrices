@@ -37,11 +37,11 @@
                 @if(($i%3==0) && ($i !=0 ))
                     <div class="row justify-content-between">
                 @endif
-                    <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
+                    <div class="col-lg-3 col-md-6 col-sm-12 mt-5 mb-3">
 
                         <div class="ft-recipe-kicsi">
                             <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                                <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                                <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
                             </div>
                             <div class="ft-recipe__contento">
                                 <header class="content__header">

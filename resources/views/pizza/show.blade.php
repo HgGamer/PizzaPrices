@@ -4,19 +4,19 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="szelet">
-                    <img class=" img-fluid" src="{{ asset('img/szelet.webp') }}" alt=""/>
+                    <img class=" img-fluid" src="{{ asset('img/szelet.webp') }}" alt="pizzaszelet"/>
                 </div>
 
                 <div class="paradicsom">
-                    <img class=" img-fluid" src="{{ asset('img/paradicsom.webp') }}" alt=""/>
+                    <img class=" img-fluid" src="{{ asset('img/paradicsom.webp') }}" alt="paradicsom"/>
                 </div>
 
                 <div class="salata">
-                    <img class=" img-fluid" src="{{ asset('img/salata.webp') }}" alt=""/>
+                    <img class=" img-fluid" src="{{ asset('img/salata.webp') }}" alt="saláta"/>
                 </div>
 
                 <div class="salami">
-                    <img class=" img-fluid" src="{{ asset('img/salami.webp') }}" alt=""/>
+                    <img class=" img-fluid" src="{{ asset('img/salami.webp') }}" alt="salami"/>
                 </div>
 
                 <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
@@ -25,14 +25,14 @@
                             <h1 class="text-center">{{$pizza->name}}</h1>
                         </div>
                         <div class="col-lg-12 justify-content-center d-flex align-items-center pizzakep">
-                            <img class=" img-fluid mx-auto d-block" src="{{ asset('img/pizzapop.webp') }}" alt=""/>
+                            <img class=" img-fluid mx-auto d-block" src="{{ asset('img/pizzapop.webp') }}" alt="pizza"/>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
                     <div class="justify-content-center d-flex align-items-center tabla">
-                        <img class="img-fluid" src="{{ asset('img/tablaa.webp') }}" alt="">
+                        <img class="img-fluid" src="{{ asset('img/tablaa.webp') }}" alt="táble">
                         <ul class="feltetek position-absolute">
                             @foreach ($pizza['recept'] as $recept)
                              <li>{{ $recept }}</li>

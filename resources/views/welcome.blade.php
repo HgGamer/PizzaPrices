@@ -18,7 +18,7 @@
 <body>
 <div class="bg-img">
     <div class="kezdologo">
-        <img class="mx-auto d-block" src="{{ asset('img/2.webp') }}"  alt="">
+        <img class="mx-auto d-block" src="{{ asset('img/2.webp') }}"  alt="logo">
         <h1 class="mx-auto d-block">Pizza Prices</h1>
     </div>
     <div class="kezdumenu align-items-center">

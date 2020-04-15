@@ -45,10 +45,10 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">
     <div class="container">
         <a class="navbar-brand navbar-brandd" href="/home">
-            <img src="{{ asset('img/2.webp') }}"  alt="">
+            <img src="{{ asset('img/2.webp') }}"  alt="logo">
         </a>
         <a class="navbar-brand kicsimeretlogo" href="/home">
-            <img src="{{ asset('img/2.webp') }}"  alt="">
+            <img src="{{ asset('img/2.webp') }}"  alt="logo">
         </a>
         <button class="navbar-toggler navbar-togglerr" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

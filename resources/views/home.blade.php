@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 
-    <section class="bannerr_area" style="background: url('{{ asset('/img/pizza2.webp')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5"></section>
+    <section class="bannerr_area" data-stellar-background-ratio="0.5"></section>
     <div class="container">
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
@@ -123,7 +123,7 @@
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
                         <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center">
-                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt=""/>
+                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
                         </div>
                         <div class="ft-recipe__content ">
                             <header class="content__header">
