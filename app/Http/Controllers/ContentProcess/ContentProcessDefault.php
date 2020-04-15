@@ -19,7 +19,7 @@ class ContentProcessDefault extends ContentProcessBase
     public function sliceContent($content){
         $content = strip_tags($content);
         $content = parent::sliceContent($content);
-
+        $content = str_replace("+",",",$content);
 
         $content = explode(",", $content);
 
