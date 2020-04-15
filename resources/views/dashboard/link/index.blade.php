@@ -34,7 +34,7 @@
                 <button onclick="return confirm('Are you sure you want to delete ALL raw pizzas?');" type="submit" class="btn btn-danger float-right mx-1">Delete ALL raw pizzas</button>
             </form>
 
-            <button onclick="scrapeAll()" type="submit" class="btn btn-danger float-right mx-1">Scrape All</button>
+            <button onclick="scrapeAll()" type="submit" class="btn btn-info float-right mx-1">Scrape All</button>
 
             @if(count($links) > 0)
 
