@@ -37,6 +37,10 @@ class MaterialsCategorySeeder extends Seeder
             ],
             5 => [
                 'id'         => 6,
+                'name'       => 'Szószok',
+            ],
+            6 => [
+                'id'         => 7,
                 'name'       => 'Egyéb',
             ],
 
