@@ -112,7 +112,7 @@ class ProcessRawController extends Controller
             }
 
             $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
-            $storedata->price = $data->price;
+            $storedata->price =  intval($data->price);
             $storedata->pizzasize = $data->size;
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
             LogManager::shared()->addLog("Új pizza storehoz adva: ".$alias->name);
