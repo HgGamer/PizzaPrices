@@ -89,7 +89,7 @@ class ProcessRawController extends Controller
         try{
             $storedata = new StoreData();
             $storedata->websiteid = $websiteid;
-            $storedata->additonal = $additional;
+            $storedata->additonal = $this->receptToString($additional);
             if($alias == null){
                 $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
             }else{
@@ -115,9 +115,10 @@ class ProcessRawController extends Controller
             $storedata->price =  intval($data->price);
             $storedata->pizzasize = $data->size;
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
+            $storedata->save();
             LogManager::shared()->addLog("Új pizza storehoz adva: ".$alias->name);
 
-            $storedata->save();
+
             RawPizza::all()->where('id',$data['id'])->first()->delete();
         }catch (Exception $e) {
             LogManager::shared()->addLog($e);
