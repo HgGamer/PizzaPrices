@@ -20,15 +20,15 @@ class MaterialsCategorySeeder extends Seeder
                 'name'       => 'Pizza Alapok',
             ],
             1 => [
-                'id'         => 2,
+                'id'         => 3,
                 'name'       => 'Húsfeltétek',
             ],
             2 => [
-                'id'         => 3,
+                'id'         => 4,
                 'name'       => 'Zöldség Feltétek',
             ],
             3 => [
-                'id'         => 4,
+                'id'         => 2,
                 'name'       => 'Sajtok',
             ],
 
