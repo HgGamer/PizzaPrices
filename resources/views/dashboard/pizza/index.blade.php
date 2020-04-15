@@ -111,8 +111,7 @@
                   method: "post",
                   dataType: "json",
                   success: function (response) {
-                      alert(response.msg);
-
+                      $.notify(response.msg, {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
                       btn.hide();
                 },
                   error: function (request, status, error) {
