@@ -24,12 +24,24 @@ class MaterialsCategorySeeder extends Seeder
                 'name'       => 'Húsfeltétek',
             ],
             2 => [
-                'id'         => 4,
+                'id'         => 5,
                 'name'       => 'Zöldség Feltétek',
             ],
             3 => [
                 'id'         => 2,
                 'name'       => 'Sajtok',
+            ],
+            4 => [
+                'id'         => 4,
+                'name'       => 'Halak',
+            ],
+            5 => [
+                'id'         => 6,
+                'name'       => 'Szószok',
+            ],
+            6 => [
+                'id'         => 7,
+                'name'       => 'Egyéb',
             ],
 
         ]);
