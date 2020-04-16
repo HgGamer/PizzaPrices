@@ -30,12 +30,12 @@ function pizzasForCategory($slug){
 
         $receptekString = explode(",",$receptekString); //tömbé konvertálás
 
-        $receptekNeve = array();
+        $materialObjects = array();
 
         foreach ($receptekString as $receptString) {
-            $name = Material::find($receptString);
-            if($name != null){
-                $receptekNeve[] =  $name['name'];
+            $material = Material::find($receptString);
+            if($material != null){
+                $materialObjects[] =  $material;
             }else{
                 $errorMSG =  "User::PizzaCategoryController, pizzasForCategory, Material(id: " . $receptString . ")->Material is NULL";
                 LogManager::shared()->addLog($errorMSG);
@@ -43,10 +43,28 @@ function pizzasForCategory($slug){
             }
         }
 
-        $pizza->recept = $receptekNeve;
+        $pizza->recept = $this->orderMaterialObjects($materialObjects);
     }
 
     return view('pizzacategory.index')->withPizzas($pizzas)->withCategoryName($category->name);
     //return $pizzas;
     }
+
+
+    private function orderMaterialObjects($materialObjects){
+        $c = collect($materialObjects);
+
+        $materialObjects = $c->sortBy('category_id')->values();
+
+        $finalMaterialsArray = [];
+        foreach ($materialObjects as $material) {
+            if  (!isset($material->name)){
+                continue;
+            }
+            $finalMaterialsArray[] = $material->name;
+        }
+        //Csak a neveket adja vissza tömbként
+        return $finalMaterialsArray;
+    }
+
 }

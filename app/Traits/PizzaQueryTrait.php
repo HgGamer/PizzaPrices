@@ -29,12 +29,12 @@ trait PizzaQueryTrait {
 
             $receptekString = explode(",",$receptekString); //tömbé konvertálás
 
-            $receptekNeve = array();
+            $materialObjects = array();
 
             foreach ($receptekString as $receptString) {
-                $name = Material::find($receptString);
-                if($name != null){
-                    $receptekNeve[] =  $name['name'];
+                $material= Material::find($receptString);
+                if($material != null){
+                    $materialObjects[] =  $material;
                 }else{
                     $errorMSG =  "PizzaQueryTrait, getInfinitPizzas Material(id: " . $receptString . ")->Material is NULL";
                     LogManager::shared()->addLog($errorMSG);
@@ -42,7 +42,7 @@ trait PizzaQueryTrait {
                 }
             }
 
-            $storeData->pizza->recept = $receptekNeve;
+            $storeData->pizza->recept = $this->orderMaterialObjects($materialObjects);
 
             if (!$storeData->website){
                 $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->website is NULL";
@@ -57,4 +57,22 @@ trait PizzaQueryTrait {
         return $paginatedData;
 
     }
+
+    private function orderMaterialObjects($materialObjects){
+        $c = collect($materialObjects);
+
+        $materialObjects = $c->sortBy('category_id')->values();
+
+        $finalMaterialsArray = [];
+        foreach ($materialObjects as $material) {
+            if  (!isset($material->name)){
+                continue;
+            }
+            $finalMaterialsArray[] = $material->name;
+        }
+         //Csak a neveket adja vissza tömbként
+        return $finalMaterialsArray;
+    }
+
+
 }

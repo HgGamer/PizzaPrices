@@ -35,12 +35,12 @@ class PizzasController extends Controller
 
         $receptekString = explode(",",$receptekString); //tömbé konvertálás
 
-        $receptekNeve = array();
+        $materialObjects = array();
 
         foreach ($receptekString as $receptString) {
-            $name = Material::find($receptString);
-            if($name != null){
-                $receptekNeve[] =  $name['name'];
+            $material = Material::find($receptString);
+            if($material != null){
+                $materialObjects[] =  $material;
             }else{
                 $errorMSG =  "User::PizzasController, Show Material(id: " . $receptString . ")->Material is NULL";
                 LogManager::shared()->addLog($errorMSG);
@@ -48,7 +48,7 @@ class PizzasController extends Controller
             }
         }
 
-        $pizza->recept = $receptekNeve;
+        $pizza->recept = $this->orderMaterialObjects($materialObjects);
 
         $storeDatas = StoreData::where('pizzaid', $id)->orderBy('price', 'asc')->get();
 
@@ -66,5 +66,22 @@ class PizzasController extends Controller
         return view('pizza.show')->withDatas($storeDatas)->withPizza($pizza);
     }
 
+
+
+    private function orderMaterialObjects($materialObjects){
+        $c = collect($materialObjects);
+
+        $materialObjects = $c->sortBy('category_id')->values();
+
+        $finalMaterialsArray = [];
+        foreach ($materialObjects as $material) {
+            if  (!isset($material->name)){
+                continue;
+            }
+            $finalMaterialsArray[] = $material->name;
+        }
+        //Csak a neveket adja vissza tömbként
+        return $finalMaterialsArray;
+    }
 
 }
