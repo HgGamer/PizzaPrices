@@ -107,6 +107,8 @@ body.home{
 /*Banner area */
 
 .bannerr_area{
+    background: url("/img/pizza2.webp");
+    background-repeat: no-repeat;
     background-position: center;
     text-align: center;
     position: relative;
@@ -190,7 +192,6 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     transform: translate(-50%,-50%);
 }
 .carda{
-    cursor: pointer;
     width: 520px;
     height: 350px;
     border: none !important;
@@ -445,7 +446,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     width: 460px;
     display: flex;
     flex-direction: column;
-    box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.1607843137);
+    box-shadow: 0 0 88px 0 rgba(0, 0, 0, 0.2);
     overflow: hidden;
     top: 50%;
     right: 50%;
@@ -521,6 +522,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     font-weight: 300;
     font-family: panpizza;
     font-size: 45px;
+    text-transform: capitalize;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details {
     display: flex;
@@ -535,6 +537,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item i {
     font-size: 30px;
     color: #FFA600;
+    overflow-y: hidden;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item .value {
     color: #FFA600;
@@ -592,11 +595,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 .ft-recipe .ft-recipe__content .content__footerm a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
 }
 .ft-recipe .ft-recipe__content .content__footer a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
 }
 .ft-recipe-kicsi{
     width: 350px;
@@ -678,6 +681,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     font-weight: 300;
     font-family: panpizza;
     font-size: 40px;
+    text-transform: capitalize;
 }
 .ft-recipe-kicsi .ft-recipe__contento .content__header .recipe-details {
     display: flex;
@@ -708,6 +712,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 .ft-recipe-kicsi .ft-recipe__contento .description {
     margin: .3em 0 1.8em;
+    min-height: 50px;
 
 }
 .ft-recipe-kicsi .ft-recipe__contento .descriptions {
@@ -749,11 +754,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 .ft-recipe-kicsi .ft-recipe__contento .content__footerm a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
 }
 .ft-recipe-kicsi .ft-recipe__contento .content__footer a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
 }
 .ft-recipe-kicsii{
     display: flex;
@@ -904,11 +909,11 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 }
 .ft-recipe-kicsii .ft-recipe__contento .content__footerm a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
 }
 .ft-recipe-kicsii .ft-recipe__contento .content__footer a:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
 }
 .hatter{
     background-color: #a33327;
@@ -990,6 +995,7 @@ section .tab-content{
     line-height: 25px;
     border-top:7px solid #FFA600;
     padding:30px 25px;
+    background-color: #FFEFD3;
 }
 
 nav > div a.nav-item.nav-link:hover,
@@ -1040,6 +1046,7 @@ nav > div a.nav-item.nav-link:focus
     font-family: panpizza;
     color: #FFA600;
     font-size: 5.5rem;
+    text-transform: capitalize;
 }
 .pizzaszoveg{
     color: white;
@@ -1141,7 +1148,7 @@ nav > div a.nav-item.nav-link:focus
  }
  .datatable .content__footerm a:hover {
      transform: translateY(-3px);
-     box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+
  }
  .kapcsolatok h1{
      font-family: panpizza;
@@ -1174,13 +1181,32 @@ nav > div a.nav-item.nav-link:focus
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     width: 100%;
-    border-radius: 25px;
+    border-bottom-right-radius: 25px;
+    border-bottom-left-radius: 25px;
 }
 .alapname h2{
     font-family: panpizza;
     font-size: 30px;
     margin-bottom: 0px;
+    text-transform: capitalize;
 }
+.rounded-circle {
+    border-radius: 50% !important;
+    width: 30px !important;
+    height: 30px !important;
+}
+@media (min-width: 1921px){
+    .bannerr_area{
+        background: url("/img/nagypizza.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        position: relative;
+        padding-bottom: 70px;
+        height: 680px;
+    }
+}
+
 @media (max-width: 1700px) {
     .szelet {
         position: absolute;

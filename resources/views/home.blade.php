@@ -158,7 +158,7 @@
             @endforeach
         </ul>
         </ul>
-        <h1 id="feed-loader" class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h1>
+        <h3 id="feed-loader" class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
 
     </div>
     <script>
