@@ -1,8 +1,12 @@
 @extends('layouts.app')
+@section('title')
+PizzaPrices - Főoldal
+@endsection
 @section('content')
 
     <section class="bannerr_area" data-stellar-background-ratio="0.5"></section>
     <div class="container">
+        <h1 class="nincshteg">Pizza  Prices főoldal</h1>
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/hawaii" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');"></a>

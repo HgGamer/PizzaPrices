@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+PizzaPrices - Kategóriák
+@endsection
 @section('content')
     <section class="banner_area" style="background: url('{{ asset('/img/pizza2.webp')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5">
         <h2>Kategóriák</h2>
@@ -9,6 +12,7 @@
     </section>
 
     <div class="container">
+        <h1 class="nincshteg">Pizza  Kategóriák</h1>
         <div class="kategorialeiras text-center">
             <h3>Ha a kategóriák között nem találod kedvenc pizzáidat akkor csekkold a <span><a style="color: #FFA600" href="">Pizza Pickert</a></span> és állítsd össze te!</h3>
         </div>

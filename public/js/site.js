@@ -37460,7 +37460,6 @@ $(function () {
 });
 
 window.onload = function () {
-  console.log("loaded");
   console.log('%c ', 'font-size:500px; background:url(' + window.location.protocol + "//" + window.location.hostname + '/img/2.webp) no-repeat;');
 };
 
@@ -37595,7 +37594,7 @@ function addNextItems(items) {
     item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile');
     specificId = 'feed-tile-' + ((loadCount - 1) * paginatedBy + i);
     item.setAttribute('id', specificId);
-    item.innerHTML = "\n       <div class=\"ft-recipe\">\n            <div class=\"ft-recipe__thumb".concat(isYellow ? "m" : "", " text-center d-flex  align-items-center\">\n                <img class=\"mx-auto d-block feed-tile-img\" src=\"").concat(URL, "/img/pizzapop.png\" alt=\"\"/>\n            </div>\n            <div class=\"ft-recipe__content \">\n                <header class=\"content__header\">\n                    <div class=\"row-wrapper text-center\">\n                        <h2 class=\"recipe-title feed-tile-name text-center\">").concat(items[i]['pizza']['name'], "</h2>\n                    </div>\n                    <ul class=\"recipe-details\">\n                        <li class=\"recipe-details-item ingredients\"><i class=\"fas fa-coins\"></i><span class=\"value\">").concat(items[i]['price'], "</span><span class=\"title\">\xC1r(HUF)</span></li>\n                        <li class=\"recipe-details-item time\"><i class=\"fas fa-ruler-horizontal\"></i></i><span class=\"value\">").concat(items[i]['pizzasize'], "</span><span class=\"title\">M\xE9ret(cm)</span></li>\n                    </ul>\n                </header>\n                <h4 class=\"text-center font-weight-bold\"> <a href=\"").concat(items[i]['url'] != "" ? items[i]['url'] : items[i]['website']['url'], "\"> ").concat(items[i]['website']['title'], " </a> </h4>\n                <h4>Felt\xE9tek:</h4>\n                <p class=\"description\">\n                 ").concat(items[i]['pizza']['recept'].map(function (feltet, i, arr) {
+    item.innerHTML = "\n       <div class=\"ft-recipe\">\n            <div class=\"ft-recipe__thumb".concat(isYellow ? "m" : "", " text-center d-flex  align-items-center\">\n                <img class=\"mx-auto d-block feed-tile-img\" src=\"").concat(URL, "/img/pizzapop.png\" alt=\"\"/>\n            </div>\n            <div class=\"ft-recipe__content \">\n                <header class=\"content__header\">\n                    <div class=\"row-wrapper text-center\">\n                        <h3 class=\"recipe-title feed-tile-name text-center\">").concat(items[i]['pizza']['name'], "</h3>\n                    </div>\n                    <ul class=\"recipe-details\">\n                        <li class=\"recipe-details-item ingredients\"><i class=\"fas fa-coins\"></i><span class=\"value\">").concat(items[i]['price'], "</span><span class=\"title\">\xC1r(HUF)</span></li>\n                        <li class=\"recipe-details-item time\"><i class=\"fas fa-ruler-horizontal\"></i></i><span class=\"value\">").concat(items[i]['pizzasize'], "</span><span class=\"title\">M\xE9ret(cm)</span></li>\n                    </ul>\n                </header>\n                <h4 class=\"text-center font-weight-bold\"> <a href=\"").concat(items[i]['url'] != "" ? items[i]['url'] : items[i]['website']['url'], "\"> ").concat(items[i]['website']['title'], " </a> </h4>\n                <h4>Felt\xE9tek:</h4>\n                <p class=\"description\">\n                 ").concat(items[i]['pizza']['recept'].map(function (feltet, i, arr) {
       if (i != arr.length - 1) {
         return "".concat(feltet, ", ");
       } else {
@@ -37662,8 +37661,8 @@ function getData(num) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\js\site.js */"./resources/assets/js/site.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! D:\xampp\htdocs\pizza-prices\resources\assets\js\site.js */"./resources/assets/js/site.js");
+module.exports = __webpack_require__(/*! D:\xampp\htdocs\pizza-prices\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

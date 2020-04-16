@@ -1,6 +1,8 @@
 @extends('layouts.app')
+@section('title')
+PizzaPrices - Pizza Picker
+@endsection
 @section('content')
-
 
     <section class="banner_area" style="background: url('{{ asset('/img/pizza2.webp')}}') no-repeat fixed; background-position: center;" data-stellar-background-ratio="0.5">
         <h2>Pizza Picker</h2>
@@ -11,7 +13,7 @@
     </section>
 
     <div class="container">
-
+        <h1 class="nincshteg">Pizza Picker</h1>
         <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                 @php $j=0 @endphp

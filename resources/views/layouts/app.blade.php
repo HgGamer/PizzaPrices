@@ -15,7 +15,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>PizzaPrices</title>
+    <title>@yield('title')</title>
     <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.webp') }}"/>
 
     <!-- Styles -->

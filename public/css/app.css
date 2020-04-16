@@ -81,7 +81,7 @@ body.home{
     padding-top: 50px;
 
 }
-.popularpizza h2{
+.popularpizza h3{
     text-align: center;
     font-family: panpizza;
     font-size: 45px;
@@ -203,7 +203,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     color: white;
     width: 100%;
 }
-.pizzacardname h2{
+.pizzacardname h3{
     font-family: panpizza;
     font-size: 40px;
 }
@@ -263,7 +263,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
 .cardinfo{
     display: block !important;
 }
-.cardinfo h2{
+.cardinfo h3{
     float: left;
     text-transform: uppercase;
     display: block;
@@ -385,17 +385,17 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     border-bottom-right-radius: 25px;
     text-align: center;
 }
-.kategoraibox h2{
+.kategoraibox h3{
     position: relative;
     color: white;
     font-family: panpizza;
     font-size: 50px;
     width: 100%;
 }
-.kategoraibox h2:hover{
+.kategoraibox h3:hover{
     color: #FFA600;
 }
-.kategorialeiras h1{
+.kategorialeiras h3{
     font-family: panpizza;
     font-size: 60px;
     padding-top: 40px;
@@ -514,7 +514,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     padding: .55em 0 .3em;
     border-bottom: 1px solid #d8d8d8;
 }
-.ft-recipe .ft-recipe__content .content__header .row-wrapper h2 {
+.ft-recipe .ft-recipe__content .content__header .row-wrapper h3 {
     width: 100%;
 }
 
@@ -666,7 +666,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     flex: 1;
     padding: 0 2em 1em;
 }
-.ft-recipe-kicsi .ft-recipe__contento h2 {
+.ft-recipe-kicsi .ft-recipe__contento h3 {
     width: 100%;
 }
 .ft-recipe-kicsi .ft-recipe__contento h4 a{
@@ -823,7 +823,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     flex: 1;
     padding: 0 2em 1em;
 }
-.ft-recipe-kicsii .ft-recipe__contento h2 {
+.ft-recipe-kicsii .ft-recipe__contento h3 {
     width: 100%;
 }
 .ft-recipe-kicsii .ft-recipe__contento h4 a{
@@ -995,6 +995,8 @@ section .tab-content{
     line-height: 25px;
     border-top:7px solid #FFA600;
     padding:30px 25px;
+}
+.picker .tab-content{
     background-color: #FFEFD3;
 }
 
@@ -1184,7 +1186,7 @@ nav > div a.nav-item.nav-link:focus
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
 }
-.alapname h2{
+.alapname h3{
     font-family: panpizza;
     font-size: 30px;
     margin-bottom: 0px;
@@ -1575,7 +1577,7 @@ nav > div a.nav-item.nav-link:focus
     .back{
         padding: 10px;
     }
-    .cardinfo h2{
+    .cardinfo h3{
         font-size: 1.5rem;
     }
     .cardinfohozzavalo{

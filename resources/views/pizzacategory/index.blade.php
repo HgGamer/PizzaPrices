@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+PizzaPrices - {{$categoryName}}
+@endsection
 @section('content')
 
 
@@ -12,6 +15,7 @@
     </section>
 
     <div class="container">
+        <h1 class="nincshteg">{{$categoryName}}</h1>
         <div class="pizzacim text-center mt-5 mb-3">
             <h2>
                 {{$categoryName}}

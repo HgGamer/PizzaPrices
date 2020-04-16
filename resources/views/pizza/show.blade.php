@@ -1,4 +1,7 @@
 @extends('layouts.app')
+@section('title')
+PizzaPrices - {{ ucfirst ($pizza->name) }}
+@endsection
 @section('content')
     <div class="bg">
         <div class="container-fluid">
