@@ -23,7 +23,7 @@
             </div>
         </nav>
 
-        <section>
+        <section class="picker">
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
                 @php $j=0 @endphp
                     @foreach($categories as $category)
@@ -34,9 +34,9 @@
                                         <a href="" style="background-image: url('{{ asset('/img/feltetek')}}/{{$material->img}}');">
                                             <div class="alapname text-center align-self-end p-1">
 
-                                                <h2>
+                                                <h3>
                                                     {{ $material ? $material->name : ""}}
-                                                </h2>
+                                                </h3>
                                             </div>
                                         </a>
                                     </div>

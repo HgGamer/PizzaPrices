@@ -110,7 +110,7 @@
                                         <div class="card-body ft-recipe__contento">
                                             <header class="content__header">
                                                 <div class="row-wrapper text-center">
-                                                    <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                                    <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
                                                     <div class="user-rating"></div>
                                                 </div>
                                                 <ul class="recipe-details">
@@ -135,7 +135,7 @@
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
-                                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
                                                         <div class="user-rating"></div>
                                                     </div>
                                                     <ul class="recipe-details">
@@ -160,7 +160,7 @@
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
-                                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
                                                         <div class="user-rating"></div>
                                                     </div>
                                                     <ul class="recipe-details">
@@ -185,7 +185,7 @@
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
-                                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
                                                         <div class="user-rating"></div>
                                                     </div>
                                                     <ul class="recipe-details">
@@ -210,7 +210,7 @@
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
-                                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
                                                         <div class="user-rating"></div>
                                                     </div>
                                                     <ul class="recipe-details">
@@ -235,7 +235,7 @@
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
-                                                        <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
                                                         <div class="user-rating"></div>
                                                     </div>
                                                     <ul class="recipe-details">

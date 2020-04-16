@@ -6,19 +6,19 @@
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/hawaii" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');"></a>
-                <h2>Hawaii Pizzák</h2>
+                <h3>Hawaii Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza ">
                 <a href="/kategoriak/songoku" style="background-image: url('{{ asset('/img/glry/kukoricas.webp')}}');"></a>
-                <h2>Son-Go-Ku Pizzák</h2>
+                <h3>Son-Go-Ku Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/bolognai" style="background-image: url('{{ asset('/img/glry/bolognai.webp')}}');"></a>
-                <h2>Bolognai Pizzák</h2>
+                <h3>Bolognai Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/husimado" style="background-image: url('{{ asset('/img/glry/husimado.webp')}}');"></a>
-                <h2>Húsimádó Pizzák</h2>
+                <h3>Húsimádó Pizzák</h3>
             </div>
         </div>
 
@@ -39,15 +39,15 @@
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <div class="pizzacardname text-center align-self-end p-2">
-                            <h2>
+                            <h3>
                                 Húsimádó Pizza
-                            </h2>
+                            </h3>
                         </div>
                     </div>
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h2>Húsimádó Pizza</h2>
+                                <h3>Húsimádó Pizza</h3>
                                 <br><br>
                                 <span>Kerekerdő Pizzéria</span>
                                 <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
@@ -76,15 +76,15 @@
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <div class="pizzacardname text-center align-self-end p-1">
-                            <h2>
+                            <h3>
                                 Húsimádó Pizza
-                            </h2>
+                            </h3>
                         </div>
                     </div>
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h2>Húsimádó Pizza</h2>
+                                <h3>Húsimádó Pizza</h3>
                                 <br><br>
                                 <span>Kerekerdő Pizzéria</span>
                                 <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
@@ -128,7 +128,7 @@
                         <div class="ft-recipe__content ">
                             <header class="content__header">
                                 <div class="row-wrapper text-center">
-                                    <h2 class="recipe-title feed-tile-name text-center">{{$pizza['pizza']['name']}}</h2>
+                                    <h3 class="recipe-title feed-tile-name text-center">{{$pizza['pizza']['name']}}</h3>
                                 </div>
                                 <ul class="recipe-details">
                                     <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár(HUF)</span></li>

@@ -46,7 +46,7 @@
                             <div class="ft-recipe__contento">
                                 <header class="content__header">
                                     <div class="row-wrapper text-center">
-                                    <h2 class="recipe-title feed-tile-name">{{ $pizza->name }}</h2>
+                                    <h3 class="recipe-title feed-tile-name">{{ $pizza->name }}</h3>
                                         <div class="user-rating"></div>
                                     </div>
                                 </header>

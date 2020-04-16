@@ -148,7 +148,7 @@ function addNextItems(items){
             <div class="ft-recipe__content ">
                 <header class="content__header">
                     <div class="row-wrapper text-center">
-                        <h2 class="recipe-title feed-tile-name text-center">${items[i]['pizza']['name']}</h2>
+                        <h3 class="recipe-title feed-tile-name text-center">${items[i]['pizza']['name']}</h3>
                     </div>
                     <ul class="recipe-details">
                         <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
