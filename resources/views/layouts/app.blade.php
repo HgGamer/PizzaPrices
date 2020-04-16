@@ -145,7 +145,7 @@ saveFeedback = function(){
         data: {_token: CSRF_TOKEN, body: text, recaptcha: recaptchaData},
         dataType: 'JSON',
         success: function (data) {
-            document.getElementById("feedback-modal-body").innerHTML = "<h1>Köszönjük a visszajelzésed!</h1>";
+            document.getElementById("feedback-modal-body").innerHTML = "<h3>Köszönjük a visszajelzésed!</h3>";
             document.getElementById("feedback-button").style.display = "none";
         }
     });
