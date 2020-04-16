@@ -21,7 +21,10 @@ function pizzasForCategory($slug){
        return view('pizzacategory.index')->withPizzas($pizzas)->withCategoryName("");
     }
 
-    $pizzas = Pizza::where('category_id', $category->id)  ->get();
+    $pizzas = Pizza::where('category_id', $category->id)
+                ->orWhere('category_id2', $category->id )
+                ->orWhere('category_id3', $category->id )
+                ->get();
 
     foreach ($pizzas as $pizza) {
         $receptekString = $pizza->recept;

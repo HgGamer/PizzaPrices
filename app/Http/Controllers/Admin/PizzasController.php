@@ -103,7 +103,33 @@ class PizzasController extends Controller
 
         $pizza->save();
 
+        return response()->json(['msg' => 'Pizza Category 2 updated!']);
+    }
+
+    public function setPizzaCategory2(Request $request){
+        if(!$request->pizza_id && !$request->category_id2 && $request->category_id2 == 0)
+        return;
+
+        $pizza = Pizza::find($request->pizza_id);
+
+        $pizza->category_id2= $request->category_id2;
+
+        $pizza->save();
+
         return response()->json(['msg' => 'Pizza Category updated!']);
+    }
+
+    public function setPizzaCategory3(Request $request){
+        if(!$request->pizza_id && !$request->category_id3 && $request->category_id3 == 0)
+        return;
+
+        $pizza = Pizza::find($request->pizza_id);
+
+        $pizza->category_id3= $request->category_id3;
+
+        $pizza->save();
+
+        return response()->json(['msg' => 'Pizza Category 3 updated!']);
     }
 
 

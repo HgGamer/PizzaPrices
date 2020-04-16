@@ -20,6 +20,8 @@
                         <td>Id</td>
                         <td>Title</td>
                         <td>Pizza Category</td>
+                        <td>Pizza Category2</td>
+                        <td>Pizza Category3</td>
                         <td>Actions</td>
                     </tr>
                     @foreach($pizzas as $pizza)
@@ -34,6 +36,24 @@
                                     @endforeach
                                 </select>
                                 <button type="button" class="btn btn-info btn-sm btn-apply" style="display: none">Apply</button>
+                            </td>
+                            <td>
+                                <select class="pizza_category2" data-id="{{ $pizza->id }}" data-original-category="{{{ isset($pizza['pizzaCategory2']) ? $pizza['pizzaCategory2']['id'] : 0 }}}">
+                                    <option value="0" selected>NO CATEGORY YET</option>
+                                    @foreach($pizzaCategories as $category)
+                                        <option value="{{$category->id}}" {{ $category->id==(isset($pizza['pizzaCategory2']) ? $pizza['pizzaCategory2']['id'] : 0)  ? "selected" : "" }}>{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                <button type="button" class="btn btn-info btn-sm btn-apply2" style="display: none">Apply</button>
+                            </td>
+                            <td>
+                                <select class="pizza_category3" data-id="{{ $pizza->id }}" data-original-category="{{{ isset($pizza['pizzaCategory3']) ? $pizza['pizzaCategory3']['id'] : 0 }}}">
+                                    <option value="0" selected>NO CATEGORY YET</option>
+                                    @foreach($pizzaCategories as $category)
+                                        <option value="{{$category->id}}" {{ $category->id==(isset($pizza['pizzaCategory3']) ? $pizza['pizzaCategory3']['id'] : 0)  ? "selected" : "" }}>{{$category->name}}</option>
+                                    @endforeach
+                                </select>
+                                <button type="button" class="btn btn-info btn-sm btn-apply3" style="display: none">Apply</button>
                             </td>
                             <td>
                                 <div class="row pl-1">
@@ -92,6 +112,22 @@
               }
            });
 
+           $("select.pizza_category2").change(function () {
+              if(($(this).val() != $(this).attr("data-original-category")) && $(this).val() != 0 ){
+                  $(this).siblings('.btn-apply2').show();
+              }else if (($(this).val() == $(this).attr("data-original-category")) ||  $(this).val() == 0){
+                  $(this).siblings('.btn-apply2').hide();
+              }
+           });
+
+           $("select.pizza_category3").change(function () {
+              if(($(this).val() != $(this).attr("data-original-category")) && $(this).val() != 0 ){
+                  $(this).siblings('.btn-apply3').show();
+              }else if (($(this).val() == $(this).attr("data-original-category")) ||  $(this).val() == 0){
+                  $(this).siblings('.btn-apply3').hide();
+              }
+           });
+
            $('.btn-apply').click(function () {
 
                var btn = $(this);
@@ -113,12 +149,70 @@
                   success: function (response) {
                       $.notify(response.msg, {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
                       btn.hide();
-                },
-                  error: function (request, status, error) {
-                     alert(request.responseText);
-                }
+                    },
+                    error: function (request, status, error) {
+                    alert(request.responseText);
+                 }
                });
-           });
+             });
+
+             $('.btn-apply2').click(function () {
+
+                var btn = $(this);
+
+                var pizzaId = $(this).parents("tr").attr("data-id");
+                var category_id2 = $(this).siblings('select').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-XSRF-TOKEN': "{{ csrf_token() }}"
+                    }
+                });
+
+                $.ajax({
+                    url: "{{ url('dashboard/pizzas/set-pizza-category2') }}",
+                    data: {pizza_id: pizzaId, category_id2: category_id2, _token: "{{ csrf_token() }}", _method: "patch"},
+                    method: "post",
+                    dataType: "json",
+                    success: function (response) {
+                        $.notify(response.msg, {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
+                        btn.hide();
+                    },
+                        error: function (request, status, error) {
+                        alert(request.responseText);
+                    }
+                    });
+            });
+
+            $('.btn-apply3').click(function () {
+
+                var btn = $(this);
+
+                var pizzaId = $(this).parents("tr").attr("data-id");
+                var category_id3 = $(this).siblings('select').val();
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-XSRF-TOKEN': "{{ csrf_token() }}"
+                    }
+                });
+
+                $.ajax({
+                    url: "{{ url('dashboard/pizzas/set-pizza-category3') }}",
+                    data: {pizza_id: pizzaId, category_id3: category_id3, _token: "{{ csrf_token() }}", _method: "patch"},
+                    method: "post",
+                    dataType: "json",
+                    success: function (response) {
+                        $.notify(response.msg, {animate: {enter: 'animated fadeInRight',exit: 'animated fadeOutRight'}});
+                        btn.hide();
+                    },
+                        error: function (request, status, error) {
+                        alert(request.responseText);
+                    }
+                });
+            });
+
+
 
         });
 

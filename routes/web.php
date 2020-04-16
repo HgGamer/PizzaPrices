@@ -86,6 +86,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::resource('/materials_categories', 'Admin\MaterialsCategoryController');
     Route::resource('/fusion', 'Admin\FusionController');
     Route::patch('/pizzas/set-pizza-category', 'Admin\PizzasController@setPizzaCategory');
+    Route::patch('/pizzas/set-pizza-category2', 'Admin\PizzasController@setPizzaCategory2');
+    Route::patch('/pizzas/set-pizza-category3', 'Admin\PizzasController@setPizzaCategory3');
     Route::resource('/pizzas', 'Admin\PizzasController');
 
 });
