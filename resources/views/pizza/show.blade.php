@@ -76,7 +76,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                     </li>
                     @foreach ($datas as $data)
                     <li class="table-row">
-                        <div class="col col-3" data-label="Pizza Neve">-</div>
+                        <div class="col col-3 text-capitalize" data-label="Pizza Neve">{{$data['pizzaAlias']['name']}}</div>
                         <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
                         <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
                         <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>

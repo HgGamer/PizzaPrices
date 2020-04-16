@@ -112,6 +112,7 @@ class ProcessRawController extends Controller
             }
 
             $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
+            $storedata->pizzaAliasId = $alias->id;
             $storedata->price =  intval($data->price);
             $storedata->pizzasize = $data->size;
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;

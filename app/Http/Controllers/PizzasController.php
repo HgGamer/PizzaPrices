@@ -59,6 +59,11 @@ class PizzasController extends Controller
                 LogManager::shared()->addLog($errorMSG);
             }
 
+            if (!$storeData->pizzaAlias){
+                $errorMSG =  "User::PizzasController, Show StoreData(id: " . $storeData->id . ")->pizzaAlias is NULL";
+                LogManager::shared()->addLog($errorMSG);
+            }
+
         }
 
         //return $storeDatas;
