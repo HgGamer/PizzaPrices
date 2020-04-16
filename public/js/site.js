@@ -37459,6 +37459,11 @@ $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
+window.onload = function () {
+  console.log("loaded");
+  console.log('%c ', 'font-size:500px; background:url(' + window.location.protocol + "//" + window.location.hostname + '/img/2.webp) no-repeat;');
+};
+
 function setCookie(cname, cvalue, exdays) {
   var d = new Date();
   d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
