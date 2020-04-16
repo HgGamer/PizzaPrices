@@ -3,9 +3,11 @@ require('./bootstrap.js');
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
+/*
 window.onload = function(){
     console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
 }
+*/
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();
