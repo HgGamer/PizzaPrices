@@ -9,7 +9,7 @@
     </section>
 
     <div class="container">
-
+        <h1 class="nincshteg">Kapcsolatok</h1>
         <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                 <a class="nav-item nav-link active" id="nav-impressum-tab" data-toggle="tab" href="#nav-impressum" role="tab" aria-controls="nav-impressum" aria-selected="true">Impresszum</a>
@@ -30,14 +30,14 @@
                         Üzemeltető székhelye: <br>
                         </p>
                         <br>
-                        <h2>Az üzemeltető elérhetőségeit:(hétfőtől péntekig 9:00-18:00)</h2>
+                        <h3>Az üzemeltető elérhetőségeit:(hétfőtől péntekig 9:00-18:00)</h3>
                         <p>
                         Címhelye<br>
                         Telefonszám: <br>
                         Email: <br>
                         Felelős személy: <br>
                         </p>
-                        <h2>A weboldal tárhely szolgáltató adatait:</h2>
+                        <h3>A weboldal tárhely szolgáltató adatait:</h3>
                         <p>
                         A szolgáltató megnevezése:<br>
                         A szolgáltató levelezési címe: <br>
@@ -57,24 +57,24 @@
                         <a href="https://policies.google.com/privacy?hl=hu"> Google adatvédelmi irányelvek</a> <br>
                         <a href="https://policies.google.com/terms?hl=hu"> Szolgáltatási feltételek</a>
                         </p>
-                        <h2>Milyen adatok kerülnek kezelésre?</h2>
+                        <h3>Milyen adatok kerülnek kezelésre?</h3>
                         <p>
                         Hogy elfogadta-e a felhasználó a cookie policy-t.
                         TODO
                         </p>
-                        <h2>
+                        <h3>
                         Milyen célból történik az adatok kezelése?
-                        </h2>
+                        </h3>
                         <p>
                         Az sütikből kapott adatok célja a honlap látogatása során a szolgáltatások működésének ellenőrzése és statisztikák alapján a honlap felhasználói élményének javítása.
                         </p>
-                        <h2>Mi a jogalapja a személyes adatai kezelésének?</h2>
+                        <h3>Mi a jogalapja a személyes adatai kezelésének?</h3>
                         <p>Az adatkezelés jogalapja az Ön önkéntes hozzájárulása. A Cookie sávban való elfogadom gombbal való elfogadás.</p>
-                        <h2>Ki fér hozzá az adatokhoz?</h2>
+                        <h3>Ki fér hozzá az adatokhoz?</h3>
                         <p>Az Ön adataihoz a Google fér hozzá. Az ebből kinyert statisztikai adatokhoz pedig a honlap tulajdonosai.</p>
-                        <h2>Meddig tart a személyes adatai kezelése?</h2>
+                        <h3>Meddig tart a személyes adatai kezelése?</h3>
                         <p>Az adatok 14 hónapig tarolódnak a Google-nél, ezért a mi statisztikáinkban is addig szerepelnek.</p>
-                        <h2>Cookie-k törlése:</h2>
+                        <h3>Cookie-k törlése:</h3>
                         <p>Google chrome böngésző: <a href="https://support.google.com/chrome/answer/95647?co=GENIE.Platform%3DDesktop&hl=hu"> Itt </a> <br>
                         Mozilla Firefox: <a href="https://support.mozilla.org/hu/kb/weboldalak-altal-elhelyezett-sutik-torlese-szamito"> Itt </a><br>
                         Internet explorer: <a href="https://support.microsoft.com/hu-hu/help/17442/windows-internet-explorer-delete-manage-cookies"> Itt </a></p>
@@ -85,7 +85,6 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 text-center align-items-center kapcsolatok">
                             <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="logo">
-                            <h1>Pizza Prices</h1>
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
