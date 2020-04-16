@@ -24,7 +24,7 @@
                 <div class="divider-custom-linee"></div>
             </div>
         </div>
-        <div class="row justify-content-between">
+        <div class="row justify-content-around">
             @if (count($pizzas) != 0)
 
             @php
@@ -35,7 +35,7 @@
                     </div>
                 @endif
                 @if(($i%3==0) && ($i !=0 ))
-                    <div class="row justify-content-between">
+                    <div class="row justify-content-around">
                 @endif
                     <div class="col-lg-3 col-md-6 col-sm-12 mt-5 mb-3">
 

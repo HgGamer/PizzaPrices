@@ -31,7 +31,7 @@
                             <div class="row">
                                 @foreach($category['materials'] as $material)
                                     <div class="col-lg-2 alap d-flex mb-3">
-                                        <a href="" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');">
+                                        <a href="" style="background-image: url('{{ asset('/img/feltetek')}}/{{$material->img}}');">
                                             <div class="alapname text-center align-self-end p-1">
 
                                                 <h2>
