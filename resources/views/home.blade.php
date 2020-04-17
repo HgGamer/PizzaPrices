@@ -132,7 +132,7 @@ PizzaPrices - Főoldal
                         <div class="ft-recipe__content ">
                             <header class="content__header">
                                 <div class="row-wrapper text-center">
-                                    <h3 class="recipe-title feed-tile-name text-center">{{$pizza['pizza']['name']}}</h3>
+                                    <h3 class="recipe-title feed-tile-name text-center">{{$pizza['pizzaAlias']['name']}}</h3>
                                 </div>
                                 <ul class="recipe-details">
                                     <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">{{ $pizza['price'] }}</span><span class="title">Ár(HUF)</span></li>
@@ -142,8 +142,8 @@ PizzaPrices - Főoldal
                         <h4 class="text-center font-weight-bold"> <a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}">{{ $pizza['website']['title']  }}</a> </h4>
                             <h4>Feltétek:</h4>
                             <p class="description">
-                                @foreach ($pizza['pizza']['recept'] as $key => $recept)
-                                    {{ $recept }}@if ($key != count($pizza['pizza']['recept'])-1), @endif
+                                @foreach ($pizza['pizzaAlias']['recept'] as $key => $recept)
+                                    {{ $recept }}@if ($key != count($pizza['pizzaAlias']['recept'])-1), @endif
                                 @endforeach
                             </p>
                             <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="/pizza/{{ $pizza->pizzaid }}">Részletek</a></footer>

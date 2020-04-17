@@ -17,13 +17,13 @@ trait PizzaQueryTrait {
         $pizzas = collect();
         foreach ($storeDatas as $storeData) {
 
-            if ($storeData->pizza == null){
-                $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->pizza is NULL";
+            if ($storeData->pizzaAlias == null){
+                $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->pizzaAlias is NULL";
                 LogManager::shared()->addLog($errorMSG);
                 continue;
             }
 
-            $receptekString = $storeData->pizza->recept;
+            $receptekString = $storeData->pizzaAlias->recept;
 
             $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
 
@@ -42,7 +42,7 @@ trait PizzaQueryTrait {
                 }
             }
 
-            $storeData->pizza->recept = $this->orderMaterialObjects($materialObjects);
+            $storeData->pizzaAlias->recept = $this->orderMaterialObjects($materialObjects);
 
             if (!$storeData->website){
                 $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->website is NULL";
@@ -52,6 +52,7 @@ trait PizzaQueryTrait {
             $pizzas[] = $storeData;
         }
 
+       //return $pizzas;
         $paginatedData->setCollection($pizzas);
 
         return $paginatedData;
