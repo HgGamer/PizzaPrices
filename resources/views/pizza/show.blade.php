@@ -80,7 +80,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                         <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
                         <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
                         <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>
-                        <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}">Ugrás a Pizzériához</a></footer></div>
+                        <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" target="_blank">Ugrás a Pizzériához</a></footer></div>
                     </li>
                     @endforeach
                 </ul>
