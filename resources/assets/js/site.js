@@ -153,7 +153,7 @@ function addNextItems(items){
             <div class="ft-recipe__content ">
                 <header class="content__header">
                     <div class="row-wrapper text-center">
-                        <h3 class="recipe-title feed-tile-name text-center">${items[i]['pizza']['name']}</h3>
+                        <h3 class="recipe-title feed-tile-name text-center">${items[i]['pizzaAlias']['name']}</h3>
                     </div>
                     <ul class="recipe-details">
                         <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
@@ -163,7 +163,7 @@ function addNextItems(items){
                 <h4 class="text-center font-weight-bold"> <a href="${ (items[i]['url'] != "") ? items[i]['url'] : items[i]['website']['url'] }"> ${items[i]['website']['title']} </a> </h4>
                 <h4>Feltétek:</h4>
                 <p class="description">
-                 ${items[i]['pizza']['recept'].map(function (feltet, i, arr) {
+                 ${items[i]['pizzaAlias']['recept'].map(function (feltet, i, arr) {
                      if (i !=arr.length-1) {
                          return `${feltet}, `
                      } else {
