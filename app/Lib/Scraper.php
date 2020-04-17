@@ -73,9 +73,8 @@ class Scraper
                                     // append website url in case the pizza is not full url
                                     if ($linkObj->itemSchema->is_full_url == 0) {
                                         $url =  parse_url($linkObj->website->url);
-                                        $baseURL =  $url['host'];
+                                        $baseURL =  $url['scheme'] . "://" .$url['host'];
                                         $item_link = $baseURL . $node->filter($val['selector'])->attr($val['attr']);
-                                       
                                     }
 
                                     $data[$key][] = $item_link;
