@@ -170,6 +170,20 @@
                         </form>
                 </td>
                 </tr>
+                <tr >
+                    <td>https://pizzaforte.hu/hu/pizza/</td>
+                    <td>A Fore Pizzak feltöltése</td>
+                    <td>Pizza Fore#28</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <form action="/dashboard/raw_pizzas/forte_load" method="POST" class="mb-0">
+                            {{ csrf_field() }}
+                            <button  type="submit" class="btn btn-info">Forte pizzas load</button>
+                        </form>
+                </td>
+                </tr>
             </table>
 
           </div>

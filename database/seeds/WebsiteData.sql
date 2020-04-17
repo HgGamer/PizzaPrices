@@ -19,5 +19,5 @@ REPLACE INTO `website` (`id`, `title`, `logo`, `delivery_prices`, `other_infos`,
 (25, 'La Rose', '1583841184.png', '-', '-', 'http://www.la-rosa.hu/szeged/termekkategoria/pizzak/', NOW(), NOW()),
 (26, 'Bányai cukrászda', '1583843699.png', '-', '-', 'http://banyaicukraszda.hu/pizza/', NOW(), NOW()),
 (27, 'Troja', '1583847901.png', '-', '-', 'http://www.trojaszeged.hu/etlap/pizzak', NOW(), NOW()),
-(28, 'Forte', '1583850975.png', '-', '-', 'https://pizzaforte.hu/pizzak.php', NOW(), NOW()),
+(28, 'Forte', '1583850975.png', '-', '-', 'https://pizzaforte.hu/hu/pizza', NOW(), NOW()),
 (29, 'Forza Italia', '1583862425.png', '-', '-', 'https://forzaitalia.hu/', NOW(), NOW());

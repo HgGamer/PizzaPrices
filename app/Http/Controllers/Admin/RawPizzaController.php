@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\RawPizza;
 use App\Websites;
 use Illuminate\Http\Request;
+use GuzzleHttp\Client as GuzzleClient;
+use App\Helper\LogManager;
 
 class RawPizzaController extends Controller
 {
@@ -13,77 +15,6 @@ class RawPizzaController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-    }
-
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\RawPizza  $rawPizza
-     * @return \Illuminate\Http\Response
-     */
-    public function show(RawPizza $rawPizza)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\RawPizza  $rawPizza
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(RawPizza $rawPizza)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\RawPizza  $rawPizza
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, RawPizza $rawPizza)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\RawPizza  $rawPizza
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(RawPizza $rawPizza)
-    {
-        //
     }
 
     public function deleteAll()
@@ -146,6 +77,53 @@ class RawPizzaController extends Controller
 
         return redirect()->route('links.index')
         ->with('success','Pizza Falo pizzas added.');
+    }
+
+    public function fortePizzaLoad(){
+
+        try {
+            $client = new GuzzleClient();
+            $request = $client->get('https://ted.pizzaforte.hu/product/pizzak/32-cm?lang=hu');
+            $response = $request->getBody();
+        } catch (\Exception $e) {
+            LogManager::shared()->addLog("Forte Pizzák lekérés error: " . $e);
+            return redirect()->route('links.index')
+                ->with('success','Pizza Forte pizzas failed.');
+        }
+
+        $jsonData = json_decode($response);
+
+        foreach ($jsonData as $pizzaData) {
+            $rawPizza = new RawPizza;
+
+            $rawPizza->title = $pizzaData->name;
+
+            $rawPizza->size = $pizzaData->size;
+
+            $rawPizza->price = $pizzaData->price;
+
+            $i = 0;
+            $feltetek = "";
+            foreach ($pizzaData->ingredients as $material) {
+                $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
+                $i++;
+            }
+
+            $rawPizza->content = $feltetek;
+
+            $rawPizza->image = "";
+
+            $rawPizza->source_link = "";
+
+            $rawPizza->category_id = 3;
+
+            $rawPizza->website_id = 28;
+
+            $rawPizza->save();
+        }
+
+        return redirect()->route('links.index')
+        ->with('success','Pizza Forte pizzas added.');
     }
 
 }

@@ -18,5 +18,4 @@ REPLACE INTO `item_schema` (`id`, `title`, `pizza_size`, `is_full_url`, `css_exp
 (24, 'pizza király item schema', '32', 1, 'title[.caption .name a]||price[.product-option-wrap .col-sm-12 div div:nth-child(3) label div]||source_link[.caption .name a[href]]', '.tab-content .tab-pane ul', NOW(), NOW()),
 (25, 'La Rose item schema', '26', 1, 'title[a h3]||price[.price div span]||content[a div p]||source_link[a[href]]', 'false', NOW(), NOW()),
 (26, 'Bányai cukrászda item schema', '26', 1, 'title[td:nth-child(1)]||price[td:nth-child(3)]', 'false', NOW(), NOW()),
-(27, 'Troja item schema', '0', 1, 'title[td p strong]||content[td p span]||price[td h2]', 'false', NOW(), NOW()),
-(28, 'Forte item schema', '32', 1, 'title[h3]||content[p]||price[.pizza_size_button + div b]', 'false', NOW(), NOW());
+(27, 'Troja item schema', '0', 1, 'title[td p strong]||content[td p span]||price[td h2]', 'false', NOW(), NOW());

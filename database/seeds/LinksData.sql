@@ -25,5 +25,4 @@ REPLACE INTO `links` (`id`, `url`, `main_filter_selector`, `website_id`, `catego
 (35, 'http://pizzakiraly.hu/index.php?route=product/category&path=71', '#mfilter-content-container .product-layout .product-thumb', 23, 3, 24, NOW(), NOW()),
 (36, 'http://www.la-rosa.hu/szeged/termekkategoria/pizzak/', '.products li', 25, 3, 25, NOW(), NOW()),
 (37, 'http://banyaicukraszda.hu/pizza/', '.arlista tr:nth-child(odd)', 26, 3, 26, NOW(), NOW()),
-(38, 'http://www.trojaszeged.hu/etlap/pizzak', '.lista_elem tr', 27, 3, 27, NOW(), NOW()),
-(39, 'https://pizzaforte.hu/pizzak.php', '#pizzak_list_1 tr td .product_info_panel', 28, 3, 28, NOW(), NOW());
+(38, 'http://www.trojaszeged.hu/etlap/pizzak', '.lista_elem tr', 27, 3, 27, NOW(), NOW());
