@@ -85,53 +85,17 @@ PizzaPrices - Pizza Picker
 
     <div class="container">
 
+        <div class="row justify-content-between" id="resultContainer">
 
-
-
-        <div class="row justify-content-between">
-            @for($i=0; $i<22; $i++)
-                @if(($i%3==0) && ($i !=0 ))
         </div>
-        @endif
-        @if(($i%3==0) && ($i !=0 ))
-            <div class="row justify-content-between">
-                @endif
-                <div class="col-lg-3 col-md-6 col-sm-12 mt-5">
 
-                    <div class="ft-recipe-kicsi">
-                        <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                        </div>
-                        <div class="ft-recipe__contento">
-                            <header class="content__header">
-                                <div class="row-wrapper text-center">
-                                    <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
-                                    <div class="user-rating"></div>
-                                </div>
-                                <ul class="recipe-details">
-                                    <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                    <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                </ul>
-                            </header>
-                            <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                            <h4>Feltétek:</h4>
-                            <p class="description">
-                                asd asd asd asd asd
-                            </p>
-                            <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                        </div>
-                    </div>
-
-                </div>
-                @endfor
-            </div>
     </div>
-
 
     <script>
         var materials = [];
-
+        var URL = "{{ url("/") }}"
         function getPizzasByMaterials(materials) {
+            console.log('Keresett material tomb: ' +  materials)
             $.ajaxSetup({
                 headers: {
                     'X-XSRF-TOKEN': "{{ csrf_token() }}"
@@ -140,11 +104,12 @@ PizzaPrices - Pizza Picker
 
             $.ajax({
                 url: "{{ url('/api/pizzasByMaterials') }}",
-                data: {materials: materials, _token: "{{ csrf_token() }}", _method: "get"},
-                method: "get",
+                data: {materials: materials, _token: "{{ csrf_token() }}", _method: "post"},
+                method: "post",
                 dataType: "json",
                 success: function (response) {
-                    console.log(response);
+                    addResultPizzas(response)
+                    //console.log(response);
                 },
                 error: function (request, status, error) {
                     console.log(request.responseText);
@@ -168,11 +133,64 @@ PizzaPrices - Pizza Picker
                 materials.push(materialId);
             }
 
-            console.log(materials)
-
-
-
         }
+
+
+function addResultPizzas(items){
+    var resultContainer = document.querySelector("#resultContainer")
+
+    var pizzaList = document.createElement("div");
+    pizzaList.setAttribute('class', 'row justify-content-between')
+
+    var isYellow = true;
+    for (let i = 0; i < items.length; i++) {
+        var item = document.createElement("div");
+        item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile')
+        specificId = 'feed-tile-' + i;
+        item.setAttribute('id', specificId)
+
+        item.innerHTML = `
+       <div class="ft-recipe">
+            <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
+                <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+            </div>
+            <div class="ft-recipe__content ">
+                <header class="content__header">
+                    <div class="row-wrapper text-center">
+                        <h3 class="recipe-title feed-tile-name text-center">${items[i]['name']}</h3>
+                    </div>
+                    <ul class="recipe-details">
+                        <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
+                        <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
+                    </ul>
+                </header>
+                <h4 class="text-center font-weight-bold"> <a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }"> ${items[i]['title']} </a> </h4>
+                <h4>Feltétek:</h4>
+                <p class="description">
+                 ${items[i]['recept'].map(function (feltet, i, arr) {
+                     if (i !=arr.length-1) {
+                         return `${feltet}, `
+                     } else {
+                         return `${feltet}`
+                     }
+
+                     }).join("")
+                    }
+
+                   &#32;
+                </p>
+                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="#">Részletek</a></footer>
+            </div>
+        </div>
+        `;
+
+        pizzaList.appendChild(item)
+    }
+
+    resultContainer.appendChild(pizzaList)
+    console.log('items Added')
+
+}
 
 
 
