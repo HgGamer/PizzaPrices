@@ -112,6 +112,11 @@ PizzaPrices - Pizza Picker
                     //console.log(response);
                 },
                 error: function (request, status, error) {
+                    switch (request.status) {
+                        case 400:
+                            alert(request.responseText)
+                    }
+                    console.log(status)
                     console.log(request.responseText);
                 }
             });

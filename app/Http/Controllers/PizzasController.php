@@ -32,6 +32,10 @@ class PizzasController extends Controller
 
     public function pizzasByMaterials(Request $request){
 
+        if  (count($request->materials) < 3){
+            return response('Legalább 2 feltét kiválasztása szükséges', 400);
+        }
+
         $materials = $request->materials;
 
         $query = DB::table('store_data')
@@ -41,7 +45,6 @@ class PizzasController extends Controller
              'store_data.url as pizzaUrl', 'website.url as websiteUrl', 'store_data.additonal as additional', 'pizza_pizzaalias.name as name',
              'website.title as title', 'pizza_pizzaalias.recept as recept');
 
-       // $query = Pizza::select();
 
         foreach ($materials as $material) {
             $query->where('recept', 'like',  '%' . $material . '%');
