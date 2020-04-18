@@ -27,7 +27,12 @@ class PizzasController extends Controller
     }
     // [ kezdővel nem kell keresni mert az csak egy feltétesnél fordulhat elő, olyan meg nem lehetséges pizza pickernél(meg amugy se)
     //https://laravel.com/docs/7.x/queries       Or Statements ful alatt
-    public function pizzasByMaterials(){
+
+
+    public function pizzasByMaterials(Request $request){
+
+        return $request->materials;
+
         $materials = [221,228,318];
 
         $pizzas = Pizza::where('recept', 'like',  '%221,%')
@@ -35,6 +40,8 @@ class PizzasController extends Controller
 
         return $pizzas;
     }
+
+
 
     public function show($id){
         $pizza = Pizza::where('id', $id)->first();

@@ -1236,6 +1236,7 @@ nav > div a.nav-item.nav-link:focus
     justify-content: center;
     text-decoration: none!important;
     border-radius: 25px;
+    opacity: 0.5;
 }
 .alapname{
     position: relative;
@@ -1244,6 +1245,7 @@ nav > div a.nav-item.nav-link:focus
     width: 100%;
     border-bottom-right-radius: 25px;
     border-bottom-left-radius: 25px;
+    opacity: 1 !important;
 }
 .alapname h3{
     font-family: panpizza;
@@ -1251,6 +1253,12 @@ nav > div a.nav-item.nav-link:focus
     margin-bottom: 0px;
     text-transform: capitalize;
 }
+.kivanvalasztva a{
+    opacity: 1;
+    border: #FFA600 solid 2px;
+}
+
+
 .rounded-circle {
     border-radius: 50% !important;
     width: 30px !important;
