@@ -32,7 +32,7 @@ class PizzasController extends Controller
 
     public function pizzasByMaterials(Request $request){
 
-        if  (count($request->materials) < 3){
+        if  (count($request->materials) < 2){
             return response('Legalább 2 feltét kiválasztása szükséges', 400);
         }
 

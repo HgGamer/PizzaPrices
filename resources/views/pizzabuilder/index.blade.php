@@ -34,7 +34,7 @@ PizzaPrices - Pizza Picker
                                 <div class="tab-pane  show {{ ($j == 0) ? "active" : "" }} mr-3 ml-3" id="nav-{{$j}}" role="tabpanel" aria-labelledby="nav-{{$j}}-tab">
                                     <div class="row">
                                         @foreach($category['materials'] as $material)
-                                            <div class="col-lg-2 alap d-flex mb-3 " onclick="setMaterial({{$material->id}})" id="material-{{$material->id}}">
+                                            <div class="col-lg-2 alap d-flex mb-3 " onclick="setMaterial({{$material->id}},'{{$material->name}}')" id="material-{{$material->id}}">
                                                 <a  style="background-image: url('{{ asset('/img/feltetek')}}/{{$material->img}}');">
                                                     <div class="alapname text-center align-self-end p-1">
 
@@ -61,20 +61,17 @@ PizzaPrices - Pizza Picker
                     <div class="ft-recipe__contento">
                         <header class="content__header">
                             <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">XYZ Pizza</h2>
+                                <h2 class="recipe-title feed-tile-name">Kereset Feltétek</h2>
                                 <div class="user-rating"></div>
                             </div>
-                            <ul class="recipe-details">
-                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                            </ul>
                         </header>
-                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
                         <h4>Feltétek:</h4>
-                        <p class="description">
-                            asd asd asd asd asd
-                        </p>
-                        <button type="button" onclick="getPizzasByMaterials(materials)" class="btn btn-info">Info</button>
+                        <ul id="feltetList">
+
+                        </ul>
+
+                        <footer class="content__footer align-self-end "><button type="button" onclick="getPizzasByMaterials(materials)" class="btn btn-info">Info</button></footer>
+                        <footer class="content__footer align-self-end "><button type="button" onclick="unsetMaterials()" class="btn btn-info">törlés</button></footer>
                     </div>
                 </div>
             </div>
@@ -123,7 +120,7 @@ PizzaPrices - Pizza Picker
 
         }
 
-        function setMaterial(materialId) {
+        function setMaterial(materialId, materialName) {
             $("#material-"+materialId).toggleClass('kivanvalasztva');
 
 
@@ -134,68 +131,99 @@ PizzaPrices - Pizza Picker
                     materials.splice(index, 1);
                 }
 
+                var li = $('#active-material-' + materialId);
+                li.remove();
+
+
             }else {
                 materials.push(materialId);
+
+                var ul = document.getElementById("feltetList");
+                var li = document.createElement("li");
+
+                specificId = 'active-material-' + materialId;
+                li.setAttribute('id', specificId)
+
+                li.appendChild(document.createTextNode(materialName));
+                ul.appendChild(li);
+
+
             }
 
         }
 
+        function unsetMaterials() {
 
-function addResultPizzas(items){
-    var resultContainer = document.querySelector("#resultContainer")
 
-    var pizzaList = document.createElement("div");
-    pizzaList.setAttribute('class', 'row justify-content-between')
+            materials.forEach(materialId => {
+                $("#material-" + materialId).toggleClass('kivanvalasztva');
+                var li = document.getElementById('active-material-' + materialId);
+                li.remove();
 
-    var isYellow = true;
-    for (let i = 0; i < items.length; i++) {
-        var item = document.createElement("div");
-        item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile')
-        specificId = 'feed-tile-' + i;
-        item.setAttribute('id', specificId)
+            });
 
-        item.innerHTML = `
-       <div class="ft-recipe">
-            <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
-                <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
-            </div>
-            <div class="ft-recipe__content ">
-                <header class="content__header">
-                    <div class="row-wrapper text-center">
-                        <h3 class="recipe-title feed-tile-name text-center">${items[i]['name']}</h3>
+            materials = []
+
+
+
+        }
+
+
+        function addResultPizzas(items){
+            var resultContainer = document.querySelector("#resultContainer")
+
+            var pizzaList = document.createElement("div");
+            pizzaList.setAttribute('class', 'row justify-content-between')
+
+            var isYellow = true;
+            for (let i = 0; i < items.length; i++) {
+                var item = document.createElement("div");
+                item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile')
+                specificId = 'feed-tile-' + i;
+                item.setAttribute('id', specificId)
+
+                item.innerHTML = `
+               <div class="ft-recipe">
+                    <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
+                        <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
                     </div>
-                    <ul class="recipe-details">
-                        <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
-                        <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
-                    </ul>
-                </header>
-                <h4 class="text-center font-weight-bold"> <a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }"> ${items[i]['title']} </a> </h4>
-                <h4>Feltétek:</h4>
-                <p class="description">
-                 ${items[i]['recept'].map(function (feltet, i, arr) {
-                     if (i !=arr.length-1) {
-                         return `${feltet}, `
-                     } else {
-                         return `${feltet}`
-                     }
+                    <div class="ft-recipe__content ">
+                        <header class="content__header">
+                            <div class="row-wrapper text-center">
+                                <h3 class="recipe-title feed-tile-name text-center">${items[i]['name']}</h3>
+                            </div>
+                            <ul class="recipe-details">
+                                <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
+                                <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
+                            </ul>
+                        </header>
+                        <h4 class="text-center font-weight-bold"> <a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }"> ${items[i]['title']} </a> </h4>
+                        <h4>Feltétek:</h4>
+                        <p class="description">
+                         ${items[i]['recept'].map(function (feltet, i, arr) {
+                             if (i !=arr.length-1) {
+                                 return `${feltet}, `
+                             } else {
+                                 return `${feltet}`
+                             }
 
-                     }).join("")
-                    }
+                             }).join("")
+                            }
 
-                   &#32;
-                </p>
-                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="#">Részletek</a></footer>
-            </div>
-        </div>
-        `;
+                           &#32;
+                        </p>
+                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="#">Részletek</a></footer>
+                    </div>
+                </div>
+                `;
 
-        pizzaList.appendChild(item)
-    }
+                pizzaList.appendChild(item)
+            }
 
-    resultContainer.appendChild(pizzaList)
-    console.log('items Added')
+            resultContainer.appendChild(pizzaList)
+            console.log('items Added')
 
-}
+        }
 
 
 
