@@ -36,6 +36,11 @@ class PizzasController extends Controller
             return response('Legalább 2 feltét kiválasztása szükséges', 400);
         }
 
+        if  (count($request->materials) > 10){
+            return response('Legfeljebb 10 feltét kiválasztása lehetséges', 400);
+        }
+
+
         $materials = $request->materials;
 
         $query = DB::table('store_data')

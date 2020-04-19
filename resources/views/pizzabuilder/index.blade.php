@@ -14,6 +14,9 @@ PizzaPrices - Pizza Picker
 
     <div class="container-fluid">
         <h1 class="nincshteg">Pizza Picker</h1>
+        <h2 class="text-center m-5">
+            Válaszd ki a feltéteket, amiket a keresett pizzán szeretnél látni.
+        </h2>
             <div class="row">
                 <div class="col-8">
                 <nav>
@@ -60,29 +63,35 @@ PizzaPrices - Pizza Picker
                     </div>
                     <div class="ft-recipe__contento">
                         <header class="content__header">
-                            <div class="row-wrapper text-center">
-                                <h2 class="recipe-title feed-tile-name">Kereset Feltétek</h2>
-                                <div class="user-rating"></div>
+                            <div class="row-wrapper text-center justify-content-between">
+                                <h2 class="recipe-title feed-tile-name"> Kereset Feltétek <span class="h3">(min. 2)</span>   </h2>
+                                <h2 class="recipe-title feed-tile-name"> <span id="feltet-counter">0</span>/10 </h2>
+
                             </div>
+                            <h5 class="text-danger" id="error-tag" style="display: none;">Ide a hiba visszajelzés</h5>
                         </header>
-                        <h4>Feltétek:</h4>
+
                         <ul id="feltetList">
 
                         </ul>
 
-                        <footer class="content__footer align-self-end "><button type="button" onclick="getPizzasByMaterials(materials)" class="btn btn-info">Info</button></footer>
+                        <footer class="content__footer align-self-end "><button id="search-button" type="button" onclick="startRequestPizzas()" class="btn btn-info">Keresés</button></footer>
                         <footer class="content__footer align-self-end "><button type="button" onclick="unsetMaterials()" class="btn btn-info">törlés</button></footer>
                     </div>
                 </div>
             </div>
             </div>
 
-
     </div>
 
     <div class="container">
 
+        <div id="picker-loader" class="col-12" style="display: none">
+            <h3 class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
+        </div>
+
         <div class="row justify-content-between" id="resultContainer">
+
 
         </div>
 
@@ -91,8 +100,58 @@ PizzaPrices - Pizza Picker
     <script>
         var materials = [];
         var URL = "{{ url("/") }}"
-        function getPizzasByMaterials(materials) {
+
+        function startRequestPizzas(){
+            if (!isValid()) {
+                return;
+            }
+            document.getElementById("search-button").disabled = true;
+            document.getElementById('picker-loader').style.display = 'inline';
             console.log('Keresett material tomb: ' +  materials)
+            document.getElementById('resultContainer').innerHTML = '';
+            getPizzasByMaterials(materials)
+
+        }
+
+        function isValid(){
+            if (materials.length < 2) {
+                document.getElementById('error-tag').innerHTML = 'Legalább 2 feltét kiválasztása szükséges';
+                document.getElementById('error-tag').style.display = 'inline';
+                return false;
+            }
+
+            if (materials.length > 10) {
+                document.getElementById('error-tag').innerHTML = 'Legfeljebb 10 feltét kiválasztása lehetséges';
+                document.getElementById('error-tag').style.display = 'inline';
+                return false;
+            }
+
+            document.getElementById('error-tag').style.display = 'none';
+
+            return true;
+
+        }
+
+        function endRequestSuccess(response){
+            addResultPizzas(response)
+            document.getElementById("search-button").disabled = false;
+            document.getElementById('picker-loader').style.display = 'none';
+
+        }
+
+        function endRequestError(request, status, error){
+            switch (request.status) {
+                        case 400:
+                            alert(request.responseText)
+                    }
+                    document.getElementById("search-button").disabled = false;
+                    document.getElementById('picker-loader').style.display = 'none';
+                    console.log(status)
+                    console.log(request.responseText);
+        }
+
+
+        function getPizzasByMaterials(materials) {
             $.ajaxSetup({
                 headers: {
                     'X-XSRF-TOKEN': "{{ csrf_token() }}"
@@ -105,24 +164,18 @@ PizzaPrices - Pizza Picker
                 method: "post",
                 dataType: "json",
                 success: function (response) {
-                    addResultPizzas(response)
-                    //console.log(response);
+                    endRequestSuccess(response);
                 },
                 error: function (request, status, error) {
-                    switch (request.status) {
-                        case 400:
-                            alert(request.responseText)
-                    }
-                    console.log(status)
-                    console.log(request.responseText);
+                    endRequestError(request, status, error)
                 }
             });
 
         }
 
+        //Kiválaszt egy Materialt
         function setMaterial(materialId, materialName) {
             $("#material-"+materialId).toggleClass('kivanvalasztva');
-
 
             if(materials.includes(materialId)){
 
@@ -133,7 +186,6 @@ PizzaPrices - Pizza Picker
 
                 var li = $('#active-material-' + materialId);
                 li.remove();
-
 
             }else {
                 materials.push(materialId);
@@ -147,13 +199,14 @@ PizzaPrices - Pizza Picker
                 li.appendChild(document.createTextNode(materialName));
                 ul.appendChild(li);
 
-
             }
+
+            document.getElementById("feltet-counter").innerHTML = materials.length;
 
         }
 
+        //Kiválasztott materialok törlése, ez aíz ürités gomb methodusa
         function unsetMaterials() {
-
 
             materials.forEach(materialId => {
                 $("#material-" + materialId).toggleClass('kivanvalasztva');
@@ -161,10 +214,9 @@ PizzaPrices - Pizza Picker
                 li.remove();
 
             });
+            document.getElementById("feltet-counter").innerHTML = 0;
 
             materials = []
-
-
 
         }
 
@@ -220,8 +272,15 @@ PizzaPrices - Pizza Picker
                 pizzaList.appendChild(item)
             }
 
+            if (items.length == 0) {
+                var zeroPizzaFeedback = document.createElement("h2");
+                zeroPizzaFeedback.innerHTML = "Sajnos ilyen pizza nem található."
+                pizzaList.appendChild(zeroPizzaFeedback)
+            }
+
             resultContainer.appendChild(pizzaList)
-            console.log('items Added')
+
+            console.log(items.length + ' pizza added')
 
         }
 
