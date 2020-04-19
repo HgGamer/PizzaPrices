@@ -4,6 +4,10 @@ PizzaPrices - Főoldal
 @endsection
 @section('content')
 
+    <div class="feedbackform">
+        <button class="feedbackBTN" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope" aria-hidden="true"></i><span> Visszajelzés</span></button>
+    </div>
+
     <section class="bannerr_area" data-stellar-background-ratio="0.5"></section>
     <div class="container">
         <h1 class="nincshteg">Pizza  Prices főoldal</h1>

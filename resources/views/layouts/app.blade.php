@@ -37,10 +37,6 @@
 
 <a id="fel"></a>
 
-<div class="feedbackform">
-    <button class="feedbackBTN" data-toggle="modal" data-target="#myModal"><i class="fa fa-envelope" aria-hidden="true"></i><span> Visszajelzés</span></button>
-</div>
-
 <header>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">
     <div class="container">
