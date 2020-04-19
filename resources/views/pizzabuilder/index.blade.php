@@ -64,7 +64,7 @@ PizzaPrices - Pizza Picker
                     <div class="ft-recipe__contento">
                         <header class="content__header">
                             <div class="row-wrapper text-center justify-content-between">
-                                <h2 class="recipe-title feed-tile-name"> Kereset Feltétek <span class="h3">(min. 2)</span>   </h2>
+                                <h2 class="recipe-title feed-tile-name"> Keresett Feltétek <span class="h3">(min. 1)</span>   </h2>
                                 <h2 class="recipe-title feed-tile-name"> <span id="feltet-counter">0</span>/10 </h2>
 
                             </div>
@@ -114,8 +114,8 @@ PizzaPrices - Pizza Picker
         }
 
         function isValid(){
-            if (materials.length < 2) {
-                document.getElementById('error-tag').innerHTML = 'Legalább 2 feltét kiválasztása szükséges';
+            if (materials.length < 1) {
+                document.getElementById('error-tag').innerHTML = 'Legalább 1 feltét kiválasztása szükséges';
                 document.getElementById('error-tag').style.display = 'inline';
                 return false;
             }
