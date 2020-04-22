@@ -14,11 +14,9 @@ PizzaPrices - Pizza Picker
 
     <div class="container-fluid">
         <h1 class="nincshteg">Pizza Picker</h1>
-        <h2 class="text-center m-5">
-            Válaszd ki a feltéteket, amiket a keresett pizzán szeretnél látni.
-        </h2>
+
             <div class="row">
-                <div class="col-8">
+                <div class="col-lg-9 col-md-12 col-sm-12">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                         @php $j=0 @endphp
@@ -31,10 +29,10 @@ PizzaPrices - Pizza Picker
                 </nav>
 
                 <section class="picker">
-                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                    <div class="tab-content py-3 px-3 px-sm-0 bal" id="nav-tabContent">
                         @php $j=0 @endphp
                             @foreach($categories as $category)
-                                <div class="tab-pane  show {{ ($j == 0) ? "active" : "" }} mr-3 ml-3" id="nav-{{$j}}" role="tabpanel" aria-labelledby="nav-{{$j}}-tab">
+                                <div class="tab-pane  show {{ ($j == 0) ? "active" : "" }} mr-3 ml-3 pickerbal" id="nav-{{$j}}" role="tabpanel" aria-labelledby="nav-{{$j}}-tab">
                                     <div class="row">
                                         @foreach($category['materials'] as $material)
                                             <div class="col-lg-2 alap d-flex mb-3 " onclick="setMaterial({{$material->id}},'{{$material->name}}')" id="material-{{$material->id}}">
@@ -56,8 +54,13 @@ PizzaPrices - Pizza Picker
                     </div>
                 </section>
             </div>
-            <div class="col-4">
-                <div class="ft-recipe-kicsi">
+            <div class="col-lg-3 col-md-12 col-sm-12">
+                <nav class="jobbpicker">
+                    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link" id="" data-toggle="tab"  role="tab" aria-controls="" aria-selected="true">Keresett Pizza</a>
+                    </div>
+                </nav>
+                <div class="ft-recipe-picker pickerjobb">
                     <div class="ft-recipe__thumb text-center d-flex  align-items-center">
                         <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
                     </div>
@@ -71,12 +74,14 @@ PizzaPrices - Pizza Picker
                             <h5 class="text-danger" id="error-tag" style="display: none;">Ide a hiba visszajelzés</h5>
                         </header>
 
-                        <ul id="feltetList">
+                        <ul id="feltetList" class="felteteklista">
 
                         </ul>
 
-                        <footer class="content__footer align-self-end "><button id="search-button" type="button" onclick="startRequestPizzas()" class="btn btn-info">Keresés</button></footer>
-                        <footer class="content__footer align-self-end "><button type="button" onclick="unsetMaterials()" class="btn btn-info">törlés</button></footer>
+                        <footer class="content__footer align-self-end ">
+                            <a id="search-button" style="margin-right: 10px" type="button" onclick="startRequestPizzas()">Keresés</a>
+                            <a type="button" onclick="unsetMaterials()">Törlés</a>
+                        </footer>
                     </div>
                 </div>
             </div>
