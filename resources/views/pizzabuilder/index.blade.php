@@ -54,6 +54,7 @@ PizzaPrices - Pizza Picker
                     </div>
                 </section>
             </div>
+
             <div class="col-lg-3 col-md-12 col-sm-12">
                 <nav class="jobbpicker">
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
@@ -95,7 +96,7 @@ PizzaPrices - Pizza Picker
             <h3 class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
         </div>
 
-        <div class="row justify-content-between" id="resultContainer">
+        <div class="row justify-content-between nopizza" id="resultContainer">
 
 
         </div>

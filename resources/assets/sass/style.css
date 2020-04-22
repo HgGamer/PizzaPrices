@@ -1429,6 +1429,12 @@ nav > div a.nav-item.nav-link:focus
 .jobbpicker{
     border-bottom: 7px solid #FFA600;
 }
+.nopizza h2{
+    font-size: 80px;
+    font-family: panpizza;
+    text-align: center;
+    width: 100%;
+}
 
 
 
@@ -1446,6 +1452,21 @@ nav > div a.nav-item.nav-link:focus
         position: relative;
         padding-bottom: 70px;
         height: 680px;
+    }
+    .banner_area{
+        background: url("/img/nagypizza.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        position: relative;
+        padding-bottom: 70px;
+        height: 680px;
+    }
+    .bg {
+        background: url(/img/bg1.webp);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
     }
 }
 
