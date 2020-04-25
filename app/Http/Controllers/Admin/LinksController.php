@@ -10,6 +10,7 @@ use App\Link;
 use App\Website;
 use Illuminate\Http\Request;
 use Goutte\Client;
+use App\RawPizza;
 
 class LinksController extends Controller
 {
@@ -178,6 +179,10 @@ class LinksController extends Controller
             $scraper->handle($link);
         }
 
+        if($link->website_id == 27){
+            $this->sliceTrojaPizzaSizes();
+        }
+
         return response()->json(['status' => 1, 'msg' => 'Scraping done']);
 
     }
@@ -202,10 +207,49 @@ class LinksController extends Controller
 
         $scraper->handle($link);
 
+        if($link->website_id == 27){
+            $this->sliceTrojaPizzaSizes();
+        }
+
         if($scraper->status == 1) {
             return response()->json(['status' => 1, 'msg' => 'Scraping done']);
         } else {
             return response()->json(['status' => 2, 'msg' => $scraper->status]);
         }
     }
+
+    public function sliceTrojaPizzaSizes(){
+        $pizzas = RawPizza::where('website_id', 27)->get();
+
+        foreach ($pizzas as $pizza) {
+            $pizza->size = $this->findFirstTwoNumericFromBack($pizza->title);
+            $pizza->save();
+        }
+
+        //valami gecis lamakun nem pizza szoval purgálom
+        //de ezt akár átlehet huzni valami pre processbe ha létezik
+        $lamacunPizza = RawPizza::where('website_id', 27)
+                        ->where('title', "Lamacun")->first();
+        $lamacunPizza->delete();
+
+        return $pizzas;
+    }
+
+    private function findFirstTwoNumericFromBack($string){
+        $hitCounter = 0;
+        $reverseResult = "";
+        $stringArray = str_split($string);
+        for ($i=count($stringArray)-1; $i >= 0; $i--) {
+            if (is_numeric($stringArray[$i])) {
+                $hitCounter++;
+                $reverseResult = $reverseResult. $stringArray[$i];
+                if ($hitCounter > 1){
+                    return strrev($reverseResult);
+                }
+             }
+        }
+        return strrev($reverseResult);//implode("",$titleArray);
+    }
+
+
 }
