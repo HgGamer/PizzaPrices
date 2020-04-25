@@ -10,9 +10,7 @@ trait PizzaQueryTrait {
 
     public function getInfinitPizzas(){
 
-        $paginatedData = StoreData::paginate(10);
-
-        $storeDatas =  $paginatedData->getCollection();
+        $storeDatas = StoreData::all()->random(10);
 
         $pizzas = collect();
         foreach ($storeDatas as $storeData) {
@@ -52,11 +50,7 @@ trait PizzaQueryTrait {
             $pizzas[] = $storeData;
         }
 
-       //return $pizzas;
-        $paginatedData->setCollection($pizzas);
-
-        return $paginatedData;
-
+       return $pizzas;
     }
 
     private function orderMaterialObjects($materialObjects){

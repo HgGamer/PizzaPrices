@@ -26,9 +26,9 @@ class HomeController extends Controller
 
     public function home(){
 
-        $paginatedData = $this->getInfinitPizzas();
+        $pizzas = $this->getInfinitPizzas();
 
-        return view('home')->withPizzas($paginatedData->getCollection())->withMaxLoad($paginatedData->lastPage())->withPaginatedBy($paginatedData->perPage());
+        return view('home')->withPizzas($pizzas)->withPaginatedBy(10);
     }
 
     public function contacts(){

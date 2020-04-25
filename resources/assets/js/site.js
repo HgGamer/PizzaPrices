@@ -76,7 +76,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 /*****  INFINITE SCROLL   *****/
 //https://medium.com/walmartlabs/infinite-scrolling-the-right-way-11b098a08815
 let DB = [];
-var maxLoad
 var paginatedBy
 var URL
 getUrl = function(siteUrl){
@@ -85,11 +84,10 @@ getUrl = function(siteUrl){
 var loadCount = 2
 var observer
 
-start = function(max, paginateNum,initData){
-    maxLoad = max
+start = function(paginateNum,initData){
     DB = initData
     paginatedBy = paginateNum
-    getData(2)
+    getData()
 
     initIntersectionObserver();
 }
@@ -116,6 +114,7 @@ function initIntersectionObserver() {
     observer = new IntersectionObserver(callback, options);
 
    lastId = '#feed-tile-' + (((loadCount-1) *  paginatedBy) -1)
+   console.log(lastId)
     observer.observe(document.querySelector(lastId));
     console.log("sub:" + lastId)
   }
@@ -127,7 +126,7 @@ function botSentCallback(entry) {
     if (
         isIntersecting
       ) {
-        getData(loadCount)
+        getData()
       }
 }
 
@@ -203,18 +202,14 @@ function addNextItems(items){
 
 }
 
-function getData(num){
-    if (num == maxLoad ) {
-        console.log("feed end")
-        return
-    }
+function getData(){
 
-    document.getElementById('feed-loader').style.display = 'inline';
-    console.log('request start')
-   fetch(URL + "/api/infinite_pizzas?page=" + loadCount)
+   document.getElementById('feed-loader').style.display = 'inline';
+   console.log('request start')
+   fetch(URL + "/api/infinite_pizzas")
         .then(response=>response.json())
         .then( data =>{
-            addNextItems(data['data'])
+            addNextItems(data)
             loadCount++
 
             document.getElementById('feed-loader').style.display = 'none';

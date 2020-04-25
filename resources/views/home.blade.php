@@ -175,7 +175,7 @@ PizzaPrices - Főoldal
         });
         document.addEventListener("DOMContentLoaded", function(event) {
             getUrl("{{ url("/") }}")
-            start({{ $maxLoad }}, {{ $paginatedBy }} , @json($pizzas));
+            start({{ $paginatedBy }} , @json($pizzas));
         });
 
 
