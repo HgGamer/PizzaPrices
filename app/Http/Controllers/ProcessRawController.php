@@ -158,7 +158,7 @@ class ProcessRawController extends Controller
 
     private function escapePizzaName($pizzaname){
         $pizzaname = mb_strtolower($pizzaname);
-        $esapables  = ["\"", "32cm", "32 cm", "26 cm", "30 cm", "30cm" , , "30", "pizza", "()",];
+        $esapables  = ["\"", "32cm", "32 cm", "26 cm", "30 cm", "30cm" , "30", "pizza", "()",];
         foreach ($esapables as $escape) {
             $pizzaname = str_replace($escape,"",$pizzaname);
         }
@@ -410,6 +410,24 @@ class ProcessRawController extends Controller
         $this->storePizzaForSite(null,$this->websiteid,$additional,$pizzaalias, $rawid);
         LogManager::shared()->addLog("Új pizza alias: ". $pizzaalias->name);
         return redirect('/dashboard/process');
+    }
+
+    public function deleteBadAliases(){
+        $ids = [];
+        $materials = Material::all();
+        foreach ($materials as $material) {
+            array_push($ids,$material->id);
+        }
+        $pizzaAliases = PizzaAlias::all();
+        foreach ($pizzaAliases as $pizzalias) {
+            $p_ids = json_decode($pizzalias->recept);
+            foreach ($p_ids as $id) {
+                if (!in_array($id, $ids)) {
+                    LogManager::shared()->addLog("PizzaAlias törlése ismeretlen recept miatt.".$pizzalias->name . "material: ".$id);
+                    $pizzalias->delete();
+                }
+            }
+        }
     }
 
     public function refreshPizzaAliasRecept(){

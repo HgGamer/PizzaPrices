@@ -50,7 +50,9 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/api/process/setProcessID','ProcessRawController@setProcessID');
     Route::get( '/api/process/getAllNewMaterial','ProcessRawController@getAllNewMaterial');
     Route::post('/api/process/newAdditionalMaterial','ProcessRawController@newAdditionalMaterial');
-
+    Route::get( '/api/process/deleteBadAliases','ProcessRawController@deleteBadAliases');
+    
+    
     Route::get('/process',function(Request $request){
         $sites = Website::all();
         $processid = $request->session()->get('processID');
