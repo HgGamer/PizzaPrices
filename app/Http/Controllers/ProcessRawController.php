@@ -158,7 +158,7 @@ class ProcessRawController extends Controller
 
     private function escapePizzaName($pizzaname){
         $pizzaname = mb_strtolower($pizzaname);
-        $esapables  = ["\"", "32cm", "32 cm", "26 cm", "30 cm", "30cm" , "pizza", "()",];
+        $esapables  = ["\"", "32cm", "32 cm", "26 cm", "30 cm", "30cm" , , "30", "pizza", "()",];
         foreach ($esapables as $escape) {
             $pizzaname = str_replace($escape,"",$pizzaname);
         }
@@ -476,6 +476,26 @@ class ProcessRawController extends Controller
             $updateable->recept =  str_replace(",".$from."]",",".$main."]",$updateable->recept);
             $updateable->save();
         }
+
+        $upldateables = PizzaAlias::where('recept', 'like', '%['.$from.',%')->get();
+
+        foreach($upldateables as $updateable){
+            $updateable->recept = str_replace("[".$from.",","[".$main.",",$updateable->recept);
+            $updateable->save();
+        }
+        $upldateables = PizzaAlias::where('recept', 'like', '%,'.$from.',%')->get();
+
+        foreach($upldateables as $updateable){
+            $updateable->recept =  str_replace(",".$from.",",",".$main.",",$updateable->recept);
+            $updateable->save();
+        }
+        $upldateables = PizzaAlias::where('recept', 'like', '%,'.$from.']%')->get();;
+        foreach($upldateables as $updateable){
+            $updateable->recept =  str_replace(",".$from."]",",".$main."]",$updateable->recept);
+            $updateable->save();
+        }
+
+
         return back();
     }
 
