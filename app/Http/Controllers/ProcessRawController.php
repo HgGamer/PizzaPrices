@@ -412,6 +412,7 @@ class ProcessRawController extends Controller
         return redirect('/dashboard/process');
     }
 
+
     public function deleteBadAliases(){
         $ids = [];
         $materials = Material::all();
@@ -419,14 +420,20 @@ class ProcessRawController extends Controller
             array_push($ids,$material->id);
         }
         $pizzaAliases = PizzaAlias::all();
+        
         foreach ($pizzaAliases as $pizzalias) {
             $p_ids = json_decode($pizzalias->recept);
-            foreach ($p_ids as $id) {
-                if (!in_array($id, $ids)) {
-                    LogManager::shared()->addLog("PizzaAlias törlése ismeretlen recept miatt.".$pizzalias->name . "material: ".$id);
-                    $pizzalias->delete();
+            if($pizzalias->recept == '[]' || $pizzalias->recept == null){
+                LogManager::shared()->addLog("PizzaAlias fura recepttel".$pizzalias->name . "material: ".$id);
+            }else{
+                foreach ($p_ids as $id) {
+                    if (!in_array($id, $ids)) {
+                        LogManager::shared()->addLog("PizzaAlias törlése ismeretlen recept miatt.".$pizzalias->name . "material: ".$id);
+                        $pizzalias->delete();
+                    }
                 }
             }
+            
         }
     }
 
