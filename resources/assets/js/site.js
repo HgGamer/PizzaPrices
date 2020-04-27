@@ -1,14 +1,14 @@
 require('./bootstrap.js');
-require('./sw.js');
+
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
 window.onload = function(){
-    console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
+   // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('./js/sw.js', {
+            .register('./sw.js', {
                 scope: './'
             })
             .then(function (registration) {

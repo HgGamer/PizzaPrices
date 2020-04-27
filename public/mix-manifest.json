@@ -2,5 +2,5 @@
     "/js/app.js": "/js/app.js",
     "/js/site.js": "/js/site.js",
     "/css/app.css": "/css/app.css",
-    "/js/sw.js": "/js/sw.js"
+    "/sw.js": "/sw.js"
 }

@@ -37455,17 +37455,14 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 __webpack_require__(/*! ./bootstrap.js */ "./resources/assets/js/bootstrap.js");
 
-__webpack_require__(/*! ./sw.js */ "./resources/assets/js/sw.js");
-
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
 window.onload = function () {
-  console.log('%c ', 'font-size:500px; background:url(' + window.location.protocol + "//" + window.location.hostname + '/img/2.webp) no-repeat;');
-
+  // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./js/sw.js', {
+    navigator.serviceWorker.register('./sw.js', {
       scope: './'
     }).then(function (registration) {
       console.log("Service Worker Registered");
@@ -37647,131 +37644,6 @@ function getData() {
   });
 }
 /******  INFINITE SCROLL END ******/
-
-/***/ }),
-
-/***/ "./resources/assets/js/sw.js":
-/*!***********************************!*\
-  !*** ./resources/assets/js/sw.js ***!
-  \***********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// Set a name for the current cache
-var cacheName = 'v0.0.1'; // Default files to always cache
-
-var cacheFiles = ['/', '/css/plugins/bootstrap/bootstrap.min.css', '/js/plugins/bootstrap-notify.js', '/js/plugins/bootstrap/bootstrap.min.js', '/js/plugins/jquery/jquery-3.3.1.min.js', '/js/plugins/jquery/jquery-ui.js', '/js/plugins/popper/popper.min.js', '/js/notify.js']; //Cacheable folder
-
-var cache_if_loaded = ['app.js'];
-var tryLive = ['/API/', '/api/'];
-var cacheable_filetypes = ['.woff2', '.jpg', '.png', '.css', '.json', '.webp'];
-var cache_exclude = ['sw.js'];
-self.addEventListener('install', function (e) {
-  //console.log('%c [ServiceWorker] Installed',' color: #bada55');
-  // e.waitUntil Delays the event until the Promise is resolved
-  e.waitUntil( // Open the cache
-  caches.open(cacheName).then(function (cache) {
-    // Add all the default files to the cache
-    //console.log('[ServiceWorker] Caching cacheFiles');
-    return cache.addAll(cacheFiles);
-  })); // end e.waitUntil
-});
-self.addEventListener('activate', function (e) {
-  //console.log('[ServiceWorker] Activated');
-  e.waitUntil( // Get all the cache keys (cacheName)
-  caches.keys().then(function (cacheNames) {
-    return Promise.all(cacheNames.map(function (thisCacheName) {
-      // If a cached item is saved under a previous cacheName
-      if (thisCacheName !== cacheName) {
-        // Delete that cached file
-        //       //console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
-        return caches["delete"](thisCacheName);
-      }
-    }));
-  })); // end e.waitUntil
-});
-self.addEventListener('fetch', function (e) {
-  // //console.log('[ServiceWorker] Fetch', e.request.url);
-  // e.respondWidth Responds to the fetch event
-  e.respondWith( // Check in cache for the request being made
-  caches.match(e.request).then(function (response) {
-    // If the request is in the cache
-    if (response) {
-      //  //console.log("[ServiceWorker] Found in Cache", e.request.url, response);
-      // Return the cached version
-      var skipcache = false; //console.log(e.request.url);
-
-      tryLive.forEach(function (value) {
-        //console.log(value);
-        if (e.request.url.includes(value)) {
-          //console.log("benne van a live tömbben",e.request.url);
-          skipcache = true;
-        }
-      }); //console.log("SKIPCACHE" , skipcache);
-
-      if (!skipcache) {
-        return response;
-      }
-    }
-
-    return fetch(e.request).then(function (response) {
-      if (!response) {
-        //console.error("No response");
-        return response;
-      }
-
-      var skipcache = false;
-      tryLive.forEach(function (value) {
-        //console.log(value);
-        if (e.request.url.includes(value)) {
-          //console.log("benne van a live tömbben",e.request.url);
-          skipcache = true;
-        }
-      }); //console.log("SKIPCACHE22" , skipcache);
-
-      var clone = response.clone();
-      caches.open(cacheName).then(function (cache) {
-        if (skipcache) {
-          //console.log("benne van a live tömbben ezért újra belerakjuk",e.request.url);
-          cache.put(e.request, clone);
-          return response;
-        }
-
-        if (cacheFiles.includes(e.request.url.replace(e.request.referrer, '/'))) {
-          cache.put(e.request, clone);
-          return response;
-        }
-
-        var file = e.request.url.match(/[^\\/]+$/g); //cacheljük ha van betöltjük
-
-        if (file !== null && cache_if_loaded.includes(file[0])) {
-          cache.put(e.request, clone);
-          return response;
-        } //exclude lista
-
-
-        if (file === null || cache_exclude.includes(file[0])) {
-          //console.log("cache exclude", file);
-          return response;
-        }
-
-        var file_extension = e.request.url.match(/\.[0-9a-z]+$/g); //nincs benne a file a megengedett tipusokban.
-        //       //console.log(file_extension);
-
-        if (file_extension === null || !cacheable_filetypes.includes(file_extension[0])) {
-          // //console.log("nem rakjuk bele" ,e.request.url)
-          return response;
-        }
-
-        cache.put(e.request, clone);
-      });
-      return response;
-    })["catch"](function (e) {
-      return response;
-    }); // If the request is NOT in the cache, fetch and cache
-  }) // end caches.match(e.request)
-  ); // end e.respondWith
-});
 
 /***/ }),
 
