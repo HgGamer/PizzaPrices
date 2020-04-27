@@ -1237,6 +1237,7 @@ nav > div a.nav-item.nav-link:focus
     text-decoration: none!important;
     border-radius: 25px;
     opacity: 0.5;
+    cursor: pointer;
 }
 .alapname{
     position: relative;

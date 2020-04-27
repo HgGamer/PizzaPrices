@@ -24,8 +24,8 @@
     <div class="kezdumenu align-items-center">
         <div class="menudiv mx-auto d-block ">
             <li><a href="/home">Szeged</a></li>
-            <li><a href="">Budapest</a></li>
-            <li><a href="">Debrecen</a></li>
+            <li><a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!">Budapest</a></li>
+            <li><a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!">Debrecen</a></li>
         </div>
     </div>
 
@@ -50,6 +50,11 @@
 </div>
 
 <script src="{{ asset('js/app.js') }}"></script>
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 </body>
 </html>
 
