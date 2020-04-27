@@ -1,13 +1,25 @@
 require('./bootstrap.js');
-
+require('./sw.js');
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
-/*
+
 window.onload = function(){
     console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker
+            .register('./js/sw.js', {
+                scope: './'
+            })
+            .then(function (registration) {
+                console.log("Service Worker Registered");
+            })
+            .catch(function (err) {
+                 console.log("Service Worker Failed to Register", err);
+            })
+    }
 }
-*/
+
 
 function setCookie(cname, cvalue, exdays) {
     var d = new Date();

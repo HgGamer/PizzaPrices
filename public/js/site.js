@@ -37455,12 +37455,24 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 __webpack_require__(/*! ./bootstrap.js */ "./resources/assets/js/bootstrap.js");
 
+__webpack_require__(/*! ./sw.js */ "./resources/assets/js/sw.js");
+
 $(function () {
   $('[data-toggle="tooltip"]').tooltip();
 });
 
 window.onload = function () {
   console.log('%c ', 'font-size:500px; background:url(' + window.location.protocol + "//" + window.location.hostname + '/img/2.webp) no-repeat;');
+
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./js/sw.js', {
+      scope: './'
+    }).then(function (registration) {
+      console.log("Service Worker Registered");
+    })["catch"](function (err) {
+      console.log("Service Worker Failed to Register", err);
+    });
+  }
 };
 
 function setCookie(cname, cvalue, exdays) {
@@ -37531,7 +37543,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 //https://medium.com/walmartlabs/infinite-scrolling-the-right-way-11b098a08815
 
 var DB = [];
-var maxLoad;
 var paginatedBy;
 var URL;
 
@@ -37542,11 +37553,10 @@ getUrl = function getUrl(siteUrl) {
 var loadCount = 2;
 var observer;
 
-start = function start(max, paginateNum, initData) {
-  maxLoad = max;
+start = function start(paginateNum, initData) {
   DB = initData;
   paginatedBy = paginateNum;
-  getData(2);
+  getData();
   initIntersectionObserver();
 };
 
@@ -37570,6 +37580,7 @@ function initIntersectionObserver() {
 
   observer = new IntersectionObserver(callback, options);
   lastId = '#feed-tile-' + ((loadCount - 1) * paginatedBy - 1);
+  console.log(lastId);
   observer.observe(document.querySelector(lastId));
   console.log("sub:" + lastId);
 }
@@ -37578,7 +37589,7 @@ function botSentCallback(entry) {
   var isIntersecting = entry.isIntersecting;
 
   if (isIntersecting) {
-    getData(loadCount);
+    getData();
   }
 }
 
@@ -37594,7 +37605,7 @@ function addNextItems(items) {
     item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile');
     specificId = 'feed-tile-' + ((loadCount - 1) * paginatedBy + i);
     item.setAttribute('id', specificId);
-    item.innerHTML = "\n       <div class=\"ft-recipe\">\n            <div class=\"ft-recipe__thumb".concat(isYellow ? "m" : "", " text-center d-flex  align-items-center\">\n                <img class=\"mx-auto d-block feed-tile-img\" src=\"").concat(URL, "/img/pizzapop.png\" alt=\"\"/>\n            </div>\n            <div class=\"ft-recipe__content \">\n                <header class=\"content__header\">\n                    <div class=\"row-wrapper text-center\">\n                        <h3 class=\"recipe-title feed-tile-name text-center\">").concat(items[i]['pizza']['name'], "</h3>\n                    </div>\n                    <ul class=\"recipe-details\">\n                        <li class=\"recipe-details-item ingredients\"><i class=\"fas fa-coins\"></i><span class=\"value\">").concat(items[i]['price'], "</span><span class=\"title\">\xC1r(HUF)</span></li>\n                        <li class=\"recipe-details-item time\"><i class=\"fas fa-ruler-horizontal\"></i></i><span class=\"value\">").concat(items[i]['pizzasize'], "</span><span class=\"title\">M\xE9ret(cm)</span></li>\n                    </ul>\n                </header>\n                <h4 class=\"text-center font-weight-bold\"> <a href=\"").concat(items[i]['url'] != "" ? items[i]['url'] : items[i]['website']['url'], "\"> ").concat(items[i]['website']['title'], " </a> </h4>\n                <h4>Felt\xE9tek:</h4>\n                <p class=\"description\">\n                 ").concat(items[i]['pizza']['recept'].map(function (feltet, i, arr) {
+    item.innerHTML = "\n       <div class=\"ft-recipe\">\n            <div class=\"ft-recipe__thumb".concat(isYellow ? "m" : "", " text-center d-flex  align-items-center\">\n                <img class=\"mx-auto d-block feed-tile-img\" src=\"").concat(URL, "/img/pizzapop.png\" alt=\"\"/>\n            </div>\n            <div class=\"ft-recipe__content \">\n                <header class=\"content__header\">\n                    <div class=\"row-wrapper text-center\">\n                        <h3 class=\"recipe-title feed-tile-name text-center\">").concat(items[i]['pizza_alias']['name'], "</h3>\n                    </div>\n                    <ul class=\"recipe-details\">\n                        <li class=\"recipe-details-item ingredients\"><i class=\"fas fa-coins\"></i><span class=\"value\">").concat(items[i]['price'], "</span><span class=\"title\">\xC1r(HUF)</span></li>\n                        <li class=\"recipe-details-item time\"><i class=\"fas fa-ruler-horizontal\"></i></i><span class=\"value\">").concat(items[i]['pizzasize'], "</span><span class=\"title\">M\xE9ret(cm)</span></li>\n                    </ul>\n                </header>\n                <h4 class=\"text-center font-weight-bold\"> <a href=\"").concat(items[i]['url'] != "" ? items[i]['url'] : items[i]['website']['url'], "\"> ").concat(items[i]['website']['title'], " </a> </h4>\n                <h4>Felt\xE9tek:</h4>\n                <p class=\"description\">\n                 ").concat(items[i]['pizza_alias']['recept'].map(function (feltet, i, arr) {
       if (i != arr.length - 1) {
         return "".concat(feltet, ", ");
       } else {
@@ -37622,24 +37633,145 @@ function addNextItems(items) {
   }
 }
 
-function getData(num) {
-  if (num == maxLoad) {
-    console.log("feed end");
-    return;
-  }
-
+function getData() {
   document.getElementById('feed-loader').style.display = 'inline';
   console.log('request start');
-  fetch(URL + "/api/infinite_pizzas?page=" + loadCount).then(function (response) {
+  fetch(URL + "/api/infinite_pizzas").then(function (response) {
     return response.json();
   }).then(function (data) {
-    addNextItems(data['data']);
+    addNextItems(data);
     loadCount++;
     document.getElementById('feed-loader').style.display = 'none';
-  })["catch"](function (error) {//console.log(error);
+  })["catch"](function (error) {
+    console.log(error);
   });
 }
 /******  INFINITE SCROLL END ******/
+
+/***/ }),
+
+/***/ "./resources/assets/js/sw.js":
+/*!***********************************!*\
+  !*** ./resources/assets/js/sw.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// Set a name for the current cache
+var cacheName = 'v0.0.1'; // Default files to always cache
+
+var cacheFiles = ['/', '/css/plugins/bootstrap/bootstrap.min.css', '/js/plugins/bootstrap-notify.js', '/js/plugins/bootstrap/bootstrap.min.js', '/js/plugins/jquery/jquery-3.3.1.min.js', '/js/plugins/jquery/jquery-ui.js', '/js/plugins/popper/popper.min.js', '/js/notify.js']; //Cacheable folder
+
+var cache_if_loaded = ['app.js'];
+var tryLive = ['/API/', '/api/'];
+var cacheable_filetypes = ['.woff2', '.jpg', '.png', '.css', '.json', '.webp'];
+var cache_exclude = ['sw.js'];
+self.addEventListener('install', function (e) {
+  //console.log('%c [ServiceWorker] Installed',' color: #bada55');
+  // e.waitUntil Delays the event until the Promise is resolved
+  e.waitUntil( // Open the cache
+  caches.open(cacheName).then(function (cache) {
+    // Add all the default files to the cache
+    //console.log('[ServiceWorker] Caching cacheFiles');
+    return cache.addAll(cacheFiles);
+  })); // end e.waitUntil
+});
+self.addEventListener('activate', function (e) {
+  //console.log('[ServiceWorker] Activated');
+  e.waitUntil( // Get all the cache keys (cacheName)
+  caches.keys().then(function (cacheNames) {
+    return Promise.all(cacheNames.map(function (thisCacheName) {
+      // If a cached item is saved under a previous cacheName
+      if (thisCacheName !== cacheName) {
+        // Delete that cached file
+        //       //console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
+        return caches["delete"](thisCacheName);
+      }
+    }));
+  })); // end e.waitUntil
+});
+self.addEventListener('fetch', function (e) {
+  // //console.log('[ServiceWorker] Fetch', e.request.url);
+  // e.respondWidth Responds to the fetch event
+  e.respondWith( // Check in cache for the request being made
+  caches.match(e.request).then(function (response) {
+    // If the request is in the cache
+    if (response) {
+      //  //console.log("[ServiceWorker] Found in Cache", e.request.url, response);
+      // Return the cached version
+      var skipcache = false; //console.log(e.request.url);
+
+      tryLive.forEach(function (value) {
+        //console.log(value);
+        if (e.request.url.includes(value)) {
+          //console.log("benne van a live tömbben",e.request.url);
+          skipcache = true;
+        }
+      }); //console.log("SKIPCACHE" , skipcache);
+
+      if (!skipcache) {
+        return response;
+      }
+    }
+
+    return fetch(e.request).then(function (response) {
+      if (!response) {
+        //console.error("No response");
+        return response;
+      }
+
+      var skipcache = false;
+      tryLive.forEach(function (value) {
+        //console.log(value);
+        if (e.request.url.includes(value)) {
+          //console.log("benne van a live tömbben",e.request.url);
+          skipcache = true;
+        }
+      }); //console.log("SKIPCACHE22" , skipcache);
+
+      var clone = response.clone();
+      caches.open(cacheName).then(function (cache) {
+        if (skipcache) {
+          //console.log("benne van a live tömbben ezért újra belerakjuk",e.request.url);
+          cache.put(e.request, clone);
+          return response;
+        }
+
+        if (cacheFiles.includes(e.request.url.replace(e.request.referrer, '/'))) {
+          cache.put(e.request, clone);
+          return response;
+        }
+
+        var file = e.request.url.match(/[^\\/]+$/g); //cacheljük ha van betöltjük
+
+        if (file !== null && cache_if_loaded.includes(file[0])) {
+          cache.put(e.request, clone);
+          return response;
+        } //exclude lista
+
+
+        if (file === null || cache_exclude.includes(file[0])) {
+          //console.log("cache exclude", file);
+          return response;
+        }
+
+        var file_extension = e.request.url.match(/\.[0-9a-z]+$/g); //nincs benne a file a megengedett tipusokban.
+        //       //console.log(file_extension);
+
+        if (file_extension === null || !cacheable_filetypes.includes(file_extension[0])) {
+          // //console.log("nem rakjuk bele" ,e.request.url)
+          return response;
+        }
+
+        cache.put(e.request, clone);
+      });
+      return response;
+    })["catch"](function (e) {
+      return response;
+    }); // If the request is NOT in the cache, fetch and cache
+  }) // end caches.match(e.request)
+  ); // end e.respondWith
+});
 
 /***/ }),
 
@@ -37661,8 +37793,8 @@ function getData(num) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\xampp\htdocs\pizza-prices\resources\assets\js\site.js */"./resources/assets/js/site.js");
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\pizza-prices\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\js\site.js */"./resources/assets/js/site.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\sass\app.scss */"./resources/assets/sass/app.scss");
 
 
 /***/ })

@@ -424,7 +424,7 @@ class ProcessRawController extends Controller
         foreach ($pizzaAliases as $pizzalias) {
             $p_ids = json_decode($pizzalias->recept);
             if($pizzalias->recept == '[]' || $pizzalias->recept == null){
-                LogManager::shared()->addLog("PizzaAlias fura recepttel".$pizzalias->name );
+                LogManager::shared()->addLog("PizzaAlias fura recepttel ".$pizzalias->name );
             }else{
                 foreach ($p_ids as $id) {
                     if (!in_array($id, $ids)) {

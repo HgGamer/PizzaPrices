@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -54715,14 +54715,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!******************************************!*\
   !*** multi ./resources/assets/js/app.ts ***!
   \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\xampp\htdocs\pizza-prices\resources\assets\js\app.ts */"./resources/assets/js/app.ts");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\pizza-prices\resources\assets\js\app.ts */"./resources/assets/js/app.ts");
 
 
 /***/ })
