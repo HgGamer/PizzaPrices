@@ -48,7 +48,7 @@ PizzaPrices - Kapcsolatok
                         </p>
                         <h3>Milyen adatok kerülnek kezelésre?</h3>
                         <p>
-                        A Google Analytics által gyüjtött statisztikai adatok, ezekről további információk <a href="https://policies.google.com/privacy?hl=hu"> Itt </a> Érhetőek el
+                        A Google Analytics által gyüjtött statisztikai adatok, ezekről további információk <a href="https://policies.google.com/privacy?hl=hu"> itt </a> érhetőek el.
                         </p>
                         <h3>
                         Milyen célból történik az adatok kezelése?
