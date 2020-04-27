@@ -19,8 +19,12 @@ class PizzaPickerController extends Controller
             $category->materials;
 
         }
+        //Alap materialok id-ét külön is átdobni
+        $baseMaterialIds = [];
+        foreach ($categories[0]['materials'] as $baseMaterial) {
+            $baseMaterialIds[] = $baseMaterial['id'];
+        }
 
-
-        return view('pizzabuilder.index')->withCategories($categories);
+        return view('pizzabuilder.index')->withCategories($categories)->withBaseMaterialIds($baseMaterialIds);
     }
 }

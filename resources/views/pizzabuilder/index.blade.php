@@ -181,9 +181,14 @@ PizzaPrices - Pizza Picker
 
         //Kiválaszt egy Materialt
         function setMaterial(materialId, materialName) {
-            $("#material-"+materialId).toggleClass('kivanvalasztva');
 
             if(materials.includes(materialId)){
+                if (baseMaterialPicked && (materialId == pickedBaseMaterialId)) {
+                    pickedBaseMaterialId = -1;
+                    baseMaterialPicked = false;
+                }
+
+                $("#material-"+materialId).removeClass('kivanvalasztva');
 
                 const index = materials.indexOf(materialId);
                 if (index > -1) {
@@ -194,6 +199,12 @@ PizzaPrices - Pizza Picker
                 li.remove();
 
             }else {
+                if (isBaseMaterialAlreadyPicked(materialId)) {
+                    return
+                }
+
+                $("#material-"+materialId).addClass('kivanvalasztva');
+
                 materials.push(materialId);
 
                 var ul = document.getElementById("feltetList");
@@ -221,6 +232,9 @@ PizzaPrices - Pizza Picker
 
             });
             document.getElementById("feltet-counter").innerHTML = 0;
+
+            pickedBaseMaterialId = -1;
+            baseMaterialPicked = false;
 
             materials = []
 
@@ -288,6 +302,23 @@ PizzaPrices - Pizza Picker
 
             console.log(items.length + ' pizza added')
 
+        }
+
+        baseMaterialPicked = false;
+        pickedBaseMaterialId = -1;
+        baseMaterials = @JSON($baseMaterialIds);
+        function isBaseMaterialAlreadyPicked(materialId){
+
+            if(baseMaterials.includes(materialId) && baseMaterialPicked){
+                console.log("Alrdy picked")
+                return true;
+            }else{
+                console.log("Not yet picked")
+                baseMaterialPicked = true;
+                pickedBaseMaterialId = materialId
+            }
+
+            return false;
         }
 
 
