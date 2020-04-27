@@ -19,7 +19,7 @@ PizzaPrices - Kapcsolatok
         <h1 class="nincshteg">Kapcsolatok</h1>
         <nav>
             <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-                <a class="nav-item nav-link active" id="nav-impressum-tab" data-toggle="tab" href="#nav-impressum" role="tab" aria-controls="nav-impressum" aria-selected="true">Impresszum</a>
+                <!-- <a class="nav-item nav-link active" id="nav-impressum-tab" data-toggle="tab" href="#nav-impressum" role="tab" aria-controls="nav-impressum" aria-selected="true">Impresszum</a>-->
                 <a class="nav-item nav-link" id="nav-adatv-tab" data-toggle="tab" href="#nav-adatv" role="tab" aria-controls="nav-adatv" aria-selected="false">Adatvédelmi Nyilatkozat</a>
                 <a class="nav-item nav-link" id="nav-kapcs-tab" data-toggle="tab" href="#nav-kapcs" role="tab" aria-controls="nav-kapcs" aria-selected="false">Kapcsolat</a>
             </div>
@@ -27,32 +27,14 @@ PizzaPrices - Kapcsolatok
 
 
         <section>
+
             <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                <!--
                 <div class="tab-pane  show active" id="nav-impressum" role="tabpanel" aria-labelledby="nav-impressum-tab">
                     <div class="text-center">
-                        <h2>A honlap üzemeltetőjének adatait:</h2>
-                        <p>
-                        Honlap: <br>
-                        Üzemeltető neve : <br>
-                        Üzemeltető székhelye: <br>
-                        </p>
-                        <br>
-                        <h3>Az üzemeltető elérhetőségeit:(hétfőtől péntekig 9:00-18:00)</h3>
-                        <p>
-                        Címhelye<br>
-                        Telefonszám: <br>
-                        Email: <br>
-                        Felelős személy: <br>
-                        </p>
-                        <h3>A weboldal tárhely szolgáltató adatait:</h3>
-                        <p>
-                        A szolgáltató megnevezése:<br>
-                        A szolgáltató levelezési címe: <br>
-                        A szolgáltató e-mail címe: <br>
-                        A szolgáltató telefonszáma: <br>
-                        </p>
                     </div>
                 </div>
+                -->
 
                 <div class="tab-pane" id="nav-adatv" role="tabpanel" aria-labelledby="nav-adatv-tab">
                     <div class="szoveg">
@@ -66,8 +48,7 @@ PizzaPrices - Kapcsolatok
                         </p>
                         <h3>Milyen adatok kerülnek kezelésre?</h3>
                         <p>
-                        Hogy elfogadta-e a felhasználó a cookie policy-t.
-                        TODO
+                        A Google Analytics által gyüjtött statisztikai adatok, ezekről további információk <a href="https://policies.google.com/privacy?hl=hu"> Itt </a> Érhetőek el
                         </p>
                         <h3>
                         Milyen célból történik az adatok kezelése?
@@ -95,7 +76,10 @@ PizzaPrices - Kapcsolatok
 
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
-
+                            A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. <br>
+                            Ha az oldalon megjelenített pizzériák közül valamelyik nem járül hozzá az adatai felhasználásához, akkor ezen az email-en ezt kérheti. (pizzaprices1[at]gmail.com)
+                            <br>  Az ilyen kérelmeknek legfeljebb 14 után eleget teszünk.<br>
+                            Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.
                         </div>
                     </div>
 
