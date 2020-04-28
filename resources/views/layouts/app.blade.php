@@ -111,49 +111,20 @@
 
 @endif
 
-<script>
 
-var btn = $('#fel');
-
-btn.on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({scrollTop:0}, '300');
-});
-
-$(window).scroll(function() {
-    if ($(window).scrollTop() > 300) {
-        btn.addClass('show');
-    } else {
-        btn.removeClass('show');
-    }
-});
-
-saveFeedback = function(){
-    document.getElementById("feedback-button").disabled = true;
-    text = document.getElementById("feedbackTextArea").value;
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-    var recaptchaData = document.getElementById('recaptcha').value;
-    $.ajax({
-        url: '/feedback',
-        type: 'POST',
-        data: {_token: CSRF_TOKEN, body: text, recaptcha: recaptchaData},
-        dataType: 'JSON',
-        success: function (data) {
-            document.getElementById("feedback-modal-body").innerHTML = "<h3>Köszönjük a visszajelzésed!</h3>";
-            document.getElementById("feedback-button").style.display = "none";
-        }
-    });
-}
-
-</script>
 <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render={{env('G_RECAPTCHA_SITE_KEY')}}" async defer></script>
 <script>
     recaptchaCallback = function(){
-        grecaptcha.execute('{{env('G_RECAPTCHA_SITE_KEY')}}', {action: 'feedback'}).then(function(token) {
-           if (token) {
-             document.getElementById('recaptcha').value = token;
-           }
-        });
+        try{
+            grecaptcha.execute('{{env('G_RECAPTCHA_SITE_KEY')}}', {action: 'feedback'}).then(function(token) {
+            if (token) {
+                document.getElementById('recaptcha').value = token;
+            }
+            });
+        }catch(e){
+
+        }
+
 
     }
 

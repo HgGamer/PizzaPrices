@@ -1,0 +1,9 @@
+{
+    "short_name": "PizzaPrices",
+    "name": "PizzaPrices",
+    "description": "Are you looking for a pizza?",
+    "start_url": "/home",
+    "display": "standalone",
+    "scope": "/"
+
+  }

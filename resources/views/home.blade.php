@@ -120,8 +120,8 @@ PizzaPrices - Főoldal
             </div>
         </div>
 
-        <ul id="feed-wrap" class="pizzafeed">
-        <ul class="row feed-list pizzafeed" id="feed-list">
+        <div id="feed-wrap" class="pizzafeed">
+        <div class="row feed-list pizzafeed" id="feed-list">
             @php
             $i=0;
             $isYellow = true;
@@ -164,8 +164,8 @@ PizzaPrices - Főoldal
                 }
             @endphp
             @endforeach
-        </ul>
-        </ul>
+            </div>
+        </div>
         <h3 id="feed-loader" class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
 
     </div>
