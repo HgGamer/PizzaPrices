@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Pizza;
 use App\Helper\LogManager;
 use App\PizzaCategory;
+use App\StoreData;
 
 class PizzasController extends Controller
 {
@@ -130,6 +131,19 @@ class PizzasController extends Controller
         $pizza->save();
 
         return response()->json(['msg' => 'Pizza Category 3 updated!']);
+    }
+
+    function deleteStoreData($id){
+
+        if ($id == -1) {
+            StoreData::truncate();
+        }else{
+            StoreData::where('websiteid',$id)->delete();
+        }
+
+        return redirect()->route('websites.index')
+                        ->with('success','StoreDatas deleted successfully');
+
     }
 
 

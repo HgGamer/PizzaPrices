@@ -11,7 +11,13 @@
             </div>
             @endif
 
-            <a href="{{ route('websites.create') }}" class="btn btn-warning float-right">Add new</a>
+
+                <a href="{{ route('websites.create') }}" class="btn btn-warning float-right">Add new</a>
+                <form action="{{ url('/dashboard/storedatas/delete/-1') }}" method="POST">
+                    {{ csrf_field() }}
+                    {{method_field('DELETE')}}
+                    <button onclick="return confirm('Are you sure you want to delete the pizzas for all restaurant?');" type="submit" class="btn btn-danger">Delete ALL StoreData</button>
+                </form>
 
             @if(count($websites) > 0)
 
@@ -38,6 +44,12 @@
                                     {{method_field('DELETE')}}
                                     <button onclick="return confirm('Are you sure you want to delete this item?');" type="submit" class="btn btn-danger">Delete</button>
                                 </form>
+                                <form action="{{ url('/dashboard/storedatas/delete/'. $website->id) }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{method_field('DELETE')}}
+                                    <button onclick="return confirm('Are you sure you want to delete the pizzas for {{ $website->title }}?');" type="submit" class="btn btn-danger">Delete StoreData</button>
+                                </form>
+
                             </td>
                         </tr>
                     @endforeach
