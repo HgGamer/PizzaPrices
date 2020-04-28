@@ -131,7 +131,10 @@ PizzaPrices - Főoldal
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
                         <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center">
-                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
+                            <picture>
+                                <source class="mx-auto d-block feed-tile-img" srcset="{{asset('img/pizzapop.webp')}}" type="image/webp" alt="pizza">
+                                <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
+                            </picture>
                         </div>
                         <div class="ft-recipe__content ">
                             <header class="content__header">
