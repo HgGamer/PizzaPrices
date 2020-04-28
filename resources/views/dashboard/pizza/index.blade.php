@@ -11,8 +11,6 @@
             </div>
             @endif
 
-            <a href="{{ route('pizzas.create') }}" class="btn btn-warning float-right">Add new</a>
-
             @if(count($pizzas) > 0)
 
                 <table class="table table-bordered">
