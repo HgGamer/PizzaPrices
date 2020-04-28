@@ -77,8 +77,8 @@ PizzaPrices - Kapcsolatok
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12">
                             A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. <br>
-                            Ha az oldalon megjelenített pizzériák közül valamelyik nem járül hozzá az adatai felhasználásához, akkor ezen az email-en ezt kérheti. (pizzaprices1[at]gmail.com)
-                            <br>  Az ilyen kérelmeknek legfeljebb 14 után eleget teszünk.<br>
+                            Ha az oldalon megjelenített pizzériák közül valamelyik nem járul hozzá az adatai felhasználásához, akkor ezen az email-en az adataik törlését kérheti. (pizzaprices1[at]gmail.com)
+                            <br>  Az ilyen kérelmeknek legfeljebb 14 nap után eleget teszünk.<br>
                             Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.
                         </div>
                     </div>

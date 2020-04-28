@@ -37,10 +37,10 @@
                     <a href="/home" class="restaurant szeged">
                         <span>Szeged</span>
                     </a>
-                    <a href="" class="restaurant bp">
+                    <a class="restaurant bp">
                         <span>Budapest HAMAROSAN</span>
                     </a>
-                    <a href="" class="restaurant debrecen">
+                    <a class="restaurant debrecen">
                         <span>Debrecen HAMAROSAN</span>
                     </a>
                 </div>

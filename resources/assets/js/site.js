@@ -1,5 +1,7 @@
 require('./bootstrap.js');
 
+console.log = function(){}
+
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
@@ -232,37 +234,6 @@ function getData(){
 
 /******  INFINITE SCROLL END ******/
 
-var btn = $('#fel');
-
-btn.on('click', function(e) {
-    e.preventDefault();
-    $('html, body').animate({scrollTop:0}, '300');
-});
-
-$(window).scroll(function() {
-    if ($(window).scrollTop() > 300) {
-        btn.addClass('show');
-    } else {
-        btn.removeClass('show');
-    }
-});
-
-saveFeedback = function(){
-    document.getElementById("feedback-button").disabled = true;
-    text = document.getElementById("feedbackTextArea").value;
-    var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
-    var recaptchaData = document.getElementById('recaptcha').value;
-    $.ajax({
-        url: '/feedback',
-        type: 'POST',
-        data: {_token: CSRF_TOKEN, body: text, recaptcha: recaptchaData},
-        dataType: 'JSON',
-        success: function (data) {
-            document.getElementById("feedback-modal-body").innerHTML = "<h3>Köszönjük a visszajelzésed!</h3>";
-            document.getElementById("feedback-button").style.display = "none";
-        }
-    });
-}
 
 
 
