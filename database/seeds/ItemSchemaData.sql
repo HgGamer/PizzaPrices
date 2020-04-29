@@ -7,7 +7,7 @@ REPLACE INTO `item_schema` (`id`, `title`, `pizza_size`, `is_full_url`, `css_exp
 (10, 'hobiart item schema', '30', 0, 'title[.art-postheader]||price[.field-name-commerce-price .field-items .field-item]||content[.field-item p]||source_link[a[href]]', 'false',  NOW(), NOW()),
 (11, 'Lesdegesz item schema', '32', 0, 'title[.product_info h3 a]||price[.product_price .product_multiprice div:nth-child(4)]||content[.product_info .product_s_desc]||source_link[a.product_flypage[href]]', 'false', NOW(), NOW()),
 (12, 'Lucky pizza item schema', '0', 1, 'title[h3 a]||price[.price-table a.price-small span.price]||content[p.product-desc ]||source_link[h3 a[href]]||size[.price-table a.price-small span]', 'false', NOW(), NOW()),
-(16, 'Pizza Monster item schema', '32', 1, 'title[h4 a]||price[.woocommerce-Price-amount]||content[p]||source_link[h4 a[href]]', 'false', NOW(), NOW()),
+(16, 'Pizza Monster item schema', '32', 1, 'title[h3]||price[.pizzaBoxFooter span span]||content[.pizzaOptions]', 'false', NOW(), NOW()),
 (17, 'Pizzatorony item schema', '30', 1, 'title[h1.product_name]||price[h1.product_price span]||content[p]', 'false', NOW(), NOW()),
 (18, 'Rustica item schema', '32', 1, 'title[.description h3]||price[span.price]||content[.description .topping]', 'false', NOW(), NOW()),
 (19, 'Turbo pizza item schema', '32', 1, 'title[.caption h4]||price[.price p]||content[.caption p]||source_link[.caption h4 a[href]]', 'false', NOW(), NOW()),

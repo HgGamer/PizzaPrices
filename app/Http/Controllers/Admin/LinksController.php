@@ -181,6 +181,8 @@ class LinksController extends Controller
 
         if($link->website_id == 27){
             $this->sliceTrojaPizzaSizes();
+        }else if ($link->website_id == 15) {
+            $this->correctPizzaMonsterData();
         }
 
         return response()->json(['status' => 1, 'msg' => 'Scraping done']);
@@ -209,6 +211,8 @@ class LinksController extends Controller
 
         if($link->website_id == 27){
             $this->sliceTrojaPizzaSizes();
+        }else if ($link->website_id == 15) {
+            $this->correctPizzaMonsterData();
         }
 
         if($scraper->status == 1) {
@@ -248,7 +252,16 @@ class LinksController extends Controller
                 }
              }
         }
-        return strrev($reverseResult);//implode("",$titleArray);
+        return strrev($reverseResult);
+    }
+
+    private function correctPizzaMonsterData(){
+        $pizzas = RawPizza::where('website_id', 15)->get();
+
+        foreach ($pizzas as $pizza) {
+            $pizza->content = "Paradicsomos alap, " . $pizza->content;
+            $pizza->save();
+        }
     }
 
 
