@@ -28,6 +28,7 @@
             <li><a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!">Debrecen</a></li>
         </div>
     </div>
+    <button type="button" onclick="toggleInformationDiv()" class="btn btn-info infobutton">!</button>
 
     <div class="container">
         <div class="row">
@@ -47,8 +48,14 @@
             </div>
         </div>
     </div>
+
     <div class="fixed-bottom">
-        <div class="card" style="width: 80%;left:10%">
+        <div class="card" id="alsokartya">
+            <div style="padding-right: 5px">
+                <button onclick="toggleInformationDiv()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
             <div class="card-body">
             <p class="card-text">A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.</p>
             </div>
@@ -61,6 +68,16 @@
     $(function () {
         $('[data-toggle="tooltip"]').tooltip()
     })
+</script>
+<script>
+    function toggleInformationDiv() {
+        var x = document.getElementById("alsokartya");
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    }
 </script>
 </body>
 </html>

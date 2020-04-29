@@ -1436,13 +1436,20 @@ nav > div a.nav-item.nav-link:focus
     text-align: center;
     width: 100%;
 }
-
-
-
 .rounded-circle {
     border-radius: 50% !important;
     width: 30px !important;
     height: 30px !important;
+}
+.infobutton{
+    display: none !important;
+    font-size: 25px !important;
+    font-weight: bold !important;
+    color: white !important;
+}
+#alsokartya{
+    width: 80%;
+    left:10%;
 }
 @media (min-width: 1921px){
     .bannerr_area{
@@ -1629,6 +1636,14 @@ nav > div a.nav-item.nav-link:focus
         height: 50px;
         width: 50px;
     }
+    #alsokartya{
+        display: none;
+    }
+    .infobutton{
+        display: block !important;
+    }
+
+
 
 }
 @media (min-width: 767px) {
