@@ -24,11 +24,13 @@
 
     @if  (env('APP_DEBUG') == false)
         <script>
-             let isProd = true
+             let isProd = true;
+             let rmsw = false;
         </script>
     @else
     <script>
-        let isProd = false
+        let isProd = false;
+        let rmsw = false;
    </script>
     @endif
     <script src="{{ asset('js/site.js') }}" ></script>
@@ -112,8 +114,8 @@
 
 @endif
 
-<script> 
-    
+<script>
+
 var btn = $('#fel');
 
 btn.on('click', function(e) {

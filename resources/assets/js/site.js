@@ -20,6 +20,9 @@ window.onload = function(){
                  console.log("Service Worker Failed to Register", err);
             })
     }
+    if(rmsw){
+        removeSW();
+    }
 }
 
 
@@ -237,4 +240,15 @@ function getData(){
 
 
 
+function removeSW(){
+    navigator.serviceWorker.getRegistrations().then(
 
+        function(registrations) {
+
+            for(let registration of registrations) {
+                registration.unregister();
+
+            }
+
+    });
+}
