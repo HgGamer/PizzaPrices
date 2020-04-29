@@ -8,7 +8,7 @@ REPLACE INTO `links` (`id`, `url`, `main_filter_selector`, `website_id`, `catego
 (9, 'http://www.hobiart.hu/kategoriak/pizzak', '.view-content .views-row', 9, 3, 10, NOW(), NOW()),
 (10, 'https://www.lesdegesz.hu/home/kategoria/2/pizzak', '#product_list .browse_item .browse_lesdegesz table tr', 10, 3, 11, NOW(), NOW()),
 (11, 'https://luckypizzeria.hu/pizza', '#main .container .row:nth-child(2) .col-lg-3 .product', 11, 3, 12, NOW(), NOW()),
-(21, 'https://new.pizzamonster.hu/pizzak/', '#content .wf-container div article .woocom-project', 15, 3, 16, NOW(), NOW()),
+(21, 'https://new.pizzamonster.hu/pizzak/', '.content .woocommerce .container .row .pizzakBox', 15, 3, 16, NOW(), NOW()),
 (22, 'https://www.pizzatoronyszeged.hu/webshop/Pizza_30_cm', '.container section .col-md-6 .product_box', 16, 3, 17, NOW(), NOW()),
 (23, 'https://rusticapizza.hu/etlap', '#category_2 .food-container .food', 17, 3, 18, NOW(), NOW()),
 (24, 'https://rusticapizza.hu/etlap', '#category_43 .food-container .food', 17, 3, 18, NOW(), NOW()),
