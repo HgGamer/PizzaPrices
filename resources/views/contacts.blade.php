@@ -73,13 +73,17 @@ PizzaPrices - Kapcsolatok
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 text-center align-items-center kapcsolatok">
                             <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="logo">
-
+                            <h3>Pizza Prices</h3>
                         </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. <br>
-                            Ha az oldalon megjelenített pizzériák közül valamelyik nem járul hozzá az adatai felhasználásához, akkor ezen az email-en az adataik törlését kérheti. (pizzaprices1[at]gmail.com)
-                            <br>  Az ilyen kérelmeknek legfeljebb 14 nap után eleget teszünk.<br>
-                            Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.
+                        <div class="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
+                            <div class="align-self-center">
+                                <p>
+                                A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. <br>
+                                Ha az oldalon megjelenített pizzériák közül valamelyik nem járul hozzá az adatai felhasználásához, akkor ezen az email-en az adataik törlését kérheti. (pizzaprices1[at]gmail.com)
+                                <br>  Az ilyen kérelmeknek legfeljebb 14 nap után eleget teszünk.<br>
+                                Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.
+                                </p>
+                            </div>
                         </div>
                     </div>
 

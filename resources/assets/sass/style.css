@@ -1211,7 +1211,7 @@ nav > div a.nav-item.nav-link:focus
      transform: translateY(-3px);
 
  }
- .kapcsolatok h1{
+ .kapcsolatok h3{
      font-family: panpizza;
      font-size: 5rem;
      color: #FFA600;
