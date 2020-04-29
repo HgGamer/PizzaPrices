@@ -114,7 +114,7 @@ class ProcessRawController extends Controller
             $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
             $storedata->pizzaAliasId = $alias->id;
             $storedata->price =  intval($data->price);
-            $storedata->pizzasize = $data->size;
+            $storedata->pizzasize = preg_replace('/[^0-9]/', '', $data->size);
             $storedata->url = RawPizza::all()->where('id',$data['id'])->first()->source_link;
             $storedata->save();
             LogManager::shared()->addLog("Új pizza storehoz adva: ".$alias->name);
@@ -420,7 +420,7 @@ class ProcessRawController extends Controller
             array_push($ids,$material->id);
         }
         $pizzaAliases = PizzaAlias::all();
-        
+
         foreach ($pizzaAliases as $pizzalias) {
             $p_ids = json_decode($pizzalias->recept);
             if($pizzalias->recept == '[]' || $pizzalias->recept == null){
@@ -433,7 +433,7 @@ class ProcessRawController extends Controller
                     }
                 }
             }
-            
+
         }
     }
 
