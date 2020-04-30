@@ -1,31 +1,37 @@
 // Set a name for the current cache
-var cacheName = 'v0.0.4';
+var cacheVersion = "0.0.1"; //site.js ben is írd át
 // Default files to always cache
 var cacheFiles = [
     '/',
 ]
 //Cacheable folder
 var cache_if_loaded = [
-    'app.js'
+
 ]
 
 var tryLive = [
-    '/API/','/api/'
 ]
 
 var cacheable_filetypes = [
     '.woff2', '.jpg', '.png', '.css', '.json', '.webp'
 ]
 var cache_exclude = [
-    'sw.js',
+    'sw.js','site.js','app.js'
 ]
+self.addEventListener('sync', function(event) {
+    console.log('[SYNC]'+event.tag);
+    if(event.tag != cacheVersion){
+        self.registration.unregister();
+    }
+  });
 
 self.addEventListener('install', function (e) {
+
     //console.log('%c [ServiceWorker] Installed',' color: #bada55');
     // e.waitUntil Delays the event until the Promise is resolved
     e.waitUntil(
         // Open the cache
-        caches.open(cacheName).then(function (cache) {
+        caches.open(cacheVersion).then(function (cache) {
 
             // Add all the default files to the cache
             //console.log('[ServiceWorker] Caching cacheFiles');
@@ -36,16 +42,16 @@ self.addEventListener('install', function (e) {
 
 
 self.addEventListener('activate', function (e) {
-    //console.log('[ServiceWorker] Activated');
+    console.log('[ServiceWorker] Activated');
 
     e.waitUntil(
 
-        // Get all the cache keys (cacheName)
+        // Get all the cache keys (cacheVersion)
         caches.keys().then(function (cacheNames) {
             return Promise.all(cacheNames.map(function (thisCacheName) {
 
                 // If a cached item is saved under a previous cacheName
-                if (thisCacheName !== cacheName) {
+                if (thisCacheName !== cacheVersion) {
 
                     // Delete that cached file
                     //       //console.log('[ServiceWorker] Removing Cached Files from Cache - ', thisCacheName);
@@ -59,7 +65,7 @@ self.addEventListener('activate', function (e) {
 
 
 self.addEventListener('fetch', function (e) {
-    // //console.log('[ServiceWorker] Fetch', e.request.url);
+    console.log('[ServiceWorker] Fetch', e.request.url);
 
     // e.respondWidth Responds to the fetch event
     e.respondWith(
@@ -106,7 +112,7 @@ self.addEventListener('fetch', function (e) {
                     //console.log("SKIPCACHE22" , skipcache);
 
                     let clone = response.clone()
-                    caches.open(cacheName).then(function (cache) {
+                    caches.open(cacheVersion).then(function (cache) {
                         if (skipcache) {
                             //console.log("benne van a live tömbben ezért újra belerakjuk",e.request.url);
                             cache.put(e.request, clone);
@@ -119,17 +125,19 @@ self.addEventListener('fetch', function (e) {
 
                         let file = (e.request.url).match(/[^\\/]+$/g);
 
+                        //exclude lista
+                        if (file === null || cache_exclude.includes(file[0])) {
+                            console.log("cache exclude", file);
+                            return response;
+                        }
+
                         //cacheljük ha van betöltjük
                         if (file !== null && cache_if_loaded.includes(file[0])) {
 
                             cache.put(e.request, clone);
                             return response;
                         }
-                        //exclude lista
-                        if (file === null || cache_exclude.includes(file[0])) {
-                            //console.log("cache exclude", file);
-                            return response;
-                        }
+
 
                         let file_extension = (e.request.url).match(/\.[0-9a-z]+$/g)
 

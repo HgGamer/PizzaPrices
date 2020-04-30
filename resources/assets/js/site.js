@@ -1,5 +1,7 @@
 require('./bootstrap.js');
 
+var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
+
 console.log = function(){}
 
 $(function () {
@@ -8,10 +10,11 @@ $(function () {
 
 window.onload = function(){
    // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
+
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
-            .register('./sw.js', {
-                scope: './'
+            .register('./sw.js?version='+Date.now() , {
+                scope: './',
             })
             .then(function (registration) {
                 console.log("Service Worker Registered");
@@ -20,10 +23,14 @@ window.onload = function(){
                  console.log("Service Worker Failed to Register", err);
             })
     }
+    navigator.serviceWorker.ready.then(function(swRegistration) {
+        return swRegistration.sync.register(latestCacheVersion);
+      });
     if(rmsw){
         removeSW();
     }
 }
+
 
 
 function setCookie(cname, cvalue, exdays) {
@@ -241,6 +248,7 @@ function getData(){
 
 
 function removeSW(){
+    console.log("removeing sw");
     navigator.serviceWorker.getRegistrations().then(
 
         function(registrations) {
