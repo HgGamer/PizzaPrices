@@ -58,6 +58,20 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    @if($material->gen_img != "")
+                        <img src="{{ url('img/generated_feltetek/' . $material->gen_img) }}" width="150" />
+                    @endif
+                        <div class="form-group">
+
+                            <strong>Generated Image:</strong>
+
+                            <input type="file" name="gen_img" class="form-control-file" />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
                     <button type="submit" class="btn btn-primary" id="btn-save">Update</button>
