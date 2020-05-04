@@ -47,6 +47,11 @@ class MaterialController extends Controller
             $material->img = $this->uploadFile('img', public_path('img/feltetek/'), $request)["filename"];
        }
 
+       if($request->file('gen_img') != null) {
+
+        $material->gen_img = $this->uploadFile('gen_img', public_path('img/generated_feltetek/'), $request)["filename"];
+        }
+
         $material->save();
 
         return redirect()->route('materials.index');
@@ -69,6 +74,10 @@ class MaterialController extends Controller
 
         if($request->file('img') != null) {
             $material->img = $this->uploadFile('img', public_path('img/feltetek/'), $request)["filename"];
+        }
+
+        if($request->file('gen_img') != null) {
+            $material->gen_img = $this->uploadFile('gen_img', public_path('img/generated_feltetek/'), $request)["filename"];
         }
 
         $material->save();

@@ -53,6 +53,17 @@
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                        <div class="form-group">
+
+                            <strong>Generated Img:</strong>
+
+                            <input type="file" name="gen_img" class="form-control-file" />
+                        </div>
+                    </div>
+                </div>
+
                 <div class="col-xs-12 col-sm-12 col-md-12 text-center">
 
                     <button type="submit" class="btn btn-primary" id="btn-save">Create</button>
