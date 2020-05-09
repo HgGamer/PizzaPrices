@@ -227,4 +227,48 @@ class PizzasController extends Controller
         //return $pizzas;
     }
 
+    public function pizzasById($id){
+
+   $pizza = Pizza::where('id', $id)->first();
+
+        $receptekString = $pizza->recept;
+
+        $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
+
+        $receptekString = explode(",",$receptekString); //tömbé konvertálás
+
+        $materialObjects = array();
+
+        foreach ($receptekString as $receptString) {
+            $material = Material::find($receptString);
+            if($material != null){
+                $materialObjects[] =  $material;
+            }else{
+                $errorMSG =  "User::PizzasController, Show Material(id: " . $receptString . ")->Material is NULL";
+                LogManager::shared()->addLog($errorMSG);
+                continue;
+            }
+        }
+
+        $pizza->recept = $this->orderMaterialObjects($materialObjects);
+
+        $storeDatas = StoreData::where('pizzaid', $id)->orderBy('price', 'asc')->get();
+
+        foreach ($storeDatas as $storeData) {
+
+            if (!$storeData->website){
+                $errorMSG =  "User::PizzasController, Show StoreData(id: " . $storeData->id . ")->website is NULL";
+                LogManager::shared()->addLog($errorMSG);
+            }
+
+            if (!$storeData->pizzaAlias){
+                $errorMSG =  "User::PizzasController, Show StoreData(id: " . $storeData->id . ")->pizzaAlias is NULL";
+                LogManager::shared()->addLog($errorMSG);
+            }
+
+        }
+
+        return response($storeDatas, 200);
+    }
+
 }
