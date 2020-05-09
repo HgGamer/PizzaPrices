@@ -31,7 +31,10 @@ Route::post('/feedback', 'HomeController@storeFeedback');
 
 Route::prefix('api')->group(function () {
     Route::get('/infinite_pizzas', 'PizzasController@infinitePizzas');
+    Route::get('/infinite_pizzas100', 'PizzasController@infinite100Pizzas');
     Route::post('/pizzasByMaterials', 'PizzasController@pizzasByMaterials');
+    Route::get('/pizza_categories', 'PizzaCategoryController@getAllCategories');
+    Route::get('/pizzas_by_category_id/{id}', 'PizzasController@pizzasByCategoryId');
 });
 
 

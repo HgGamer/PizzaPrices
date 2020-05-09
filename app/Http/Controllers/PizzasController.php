@@ -8,6 +8,7 @@ use App\Traits\PizzaQueryTrait;
 use App\Pizza;
 use App\StoreData;
 use App\Helper\LogManager;
+use App\PizzaCategory;
 use App\Material;
 use DB;
 
@@ -145,6 +146,85 @@ class PizzasController extends Controller
         }
         //Csak a neveket adja vissza tömbként
         return $finalMaterialsArray;
+    }
+
+    public function infinite100Pizzas(){
+
+
+        $storeDatas = StoreData::all()->random(100);
+
+        $pizzas = collect();
+        foreach ($storeDatas as $storeData) {
+
+            if ($storeData->pizzaAlias == null){
+                $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->pizzaAlias is NULL";
+                LogManager::shared()->addLog($errorMSG);
+                continue;
+            }
+
+            $receptekString = $storeData->pizzaAlias->recept;
+
+            $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
+
+            $receptekString = explode(",",$receptekString); //tömbé konvertálás
+
+            $materialObjects = array();
+
+            foreach ($receptekString as $receptString) {
+                $material= Material::find($receptString);
+                if($material != null){
+                    $materialObjects[] =  $material;
+                }else{
+                    $errorMSG =  "PizzaQueryTrait, getInfinitPizzas Material(id: " . $receptString . ")->Material is NULL";
+                    LogManager::shared()->addLog($errorMSG);
+                    continue;
+                }
+            }
+
+            $storeData->pizzaAlias->recept = $this->orderMaterialObjects($materialObjects);
+
+            if (!$storeData->website){
+                $errorMSG =  "PizzaQueryTrait, getInfinitPizzas StoreData(id: " . $storeData->id . ")->website is NULL";
+                LogManager::shared()->addLog($errorMSG);
+            }
+
+            $pizzas[] = $storeData;
+        }
+
+       return $pizzas;
+    }
+
+    public function  pizzasByCategoryId($id){
+        $pizzas = Pizza::where('category_id', $id)
+                    ->orWhere('category_id2', $id )
+                    ->orWhere('category_id3', $id )
+                    ->get();
+
+        foreach ($pizzas as $pizza) {
+            $receptekString = $pizza->recept;
+
+            $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
+
+            $receptekString = explode(",",$receptekString); //tömbé konvertálás
+
+            $materialObjects = array();
+
+            foreach ($receptekString as $receptString) {
+                $material = Material::find($receptString);
+                if($material != null){
+                    $materialObjects[] =  $material;
+                }else{
+                    $errorMSG =  "User::PizzaCategoryController, pizzasForCategory, Material(id: " . $receptString . ")->Material is NULL";
+                    LogManager::shared()->addLog($errorMSG);
+                    continue;
+                }
+            }
+
+            $pizza->recept = $this->orderMaterialObjects($materialObjects);
+        }
+
+        return response($pizzas, 200);
+        //return $pizzas;
     }
 
 }

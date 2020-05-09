@@ -70,4 +70,11 @@ function pizzasForCategory($slug){
         return $finalMaterialsArray;
     }
 
+    public function getAllCategories(){
+        $pizzaCategories = PizzaCategory::all();
+
+        return response($pizzaCategories, 200);
+
+    }
+
 }
