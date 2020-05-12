@@ -26,6 +26,7 @@ Route::get('/pizzapicker', 'PizzaPickerController@index');
 
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
+Route::get('/error', 'HomeController@errorindex');
 
 Route::post('/feedback', 'HomeController@storeFeedback');
 
@@ -100,6 +101,7 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::patch('/pizzas/set-pizza-category3', 'Admin\PizzasController@setPizzaCategory3');
     Route::resource('/pizzas', 'Admin\PizzasController');
     Route::delete('/storedatas/delete/{id}', 'Admin\PizzasController@deleteStoreData');
+
 
 });
 
