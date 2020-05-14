@@ -18,7 +18,10 @@
 <body>
 <div class="bg-img">
     <div class="kezdologo">
-        <img class="mx-auto d-block" src="{{ asset('img/2.webp') }}"  alt="logo">
+        <picture>
+            <source srcset="{{ asset('img/2.webp') }}" type="image/wepb">
+            <img class="mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="logo"/>
+        </picture>
         <h1 class="mx-auto d-block">Pizza Prices</h1>
     </div>
     <div class="kezdumenu align-items-center">
@@ -33,7 +36,10 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center d-flex map align-items-center">
-                <img class="mx-auto d-block" src="{{ asset('img/mo.webp') }}">
+                <picture>
+                    <source srcset="{{ asset('img/mo.png') }}" type="image/png">
+                    <img class="mx-auto d-block" src="{{ asset('img/mo.webp') }}" alt="magyarország" />
+                </picture>
                 <div class="city-select">
                     <a href="/home" class="restaurant szeged">
                         <span>Szeged</span>

@@ -26,7 +26,10 @@ body.home{
 .logincard{
     margin-top: 200px;
 }
-.map img{
+.map picture{
+    width: 100%;
+}
+.map picture img{
     width: 100%;
 }
 .city-select .restaurant {
