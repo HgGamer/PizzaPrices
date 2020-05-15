@@ -16,7 +16,11 @@
 </head>
 
 <body>
-<div class="bg-img">
+<div class="bg-img position-relative overflow-hidden">
+    <picture>
+        <source srcset="{{ asset('img/pizza3.webp') }}" type="image/wepb">
+        <img class="object-fit_contain position-absolute" src="{{ asset('img/pizza3.jpg') }}" alt="background">
+    </picture>
     <div class="kezdologo">
         <picture>
             <source srcset="{{ asset('img/2.webp') }}" type="image/wepb">

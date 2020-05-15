@@ -13,9 +13,8 @@ body.home{
     color: #000;
 }
 .bg-img{
-    background: url("/img/pizza3.webp") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
+
+
 }
 .map{
     height: 100vh;
@@ -1730,6 +1729,7 @@ nav > div a.nav-item.nav-link:focus
         height: max-content;
     }
     .kezdologo{
+        position: relative;
         display: block;
         padding-top: 50px;
 
