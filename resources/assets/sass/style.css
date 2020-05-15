@@ -1448,7 +1448,10 @@ nav > div a.nav-item.nav-link:focus
     font-size: 25px !important;
     font-weight: bold !important;
     color: white !important;
+    z-index: 4000 !important;
+    position: relative !important;
 }
+
 #alsokartya{
     width: 80%;
     left:10%;
