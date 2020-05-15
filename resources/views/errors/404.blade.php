@@ -25,7 +25,7 @@
         </div>
         <h2>Oops! Az oldal nem található!</h2>
         <p>Elnézést az oldal amit keres nem létezik vagy törölték vagy megváltozott a neve!</p>
-        <a href="#">Vissza a Főoldalra</a>
+        <a href="/home">Vissza a Főoldalra</a>
     </div>
 </div>
 
