@@ -15,7 +15,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+@if  (env('APP_DEBUG') == false)
     <title>@yield('title')</title>
+@else
+<title>DEBUG:: @yield('title')</title>
+@endif
     <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.webp') }}"/>
 
     <!-- Styles -->
