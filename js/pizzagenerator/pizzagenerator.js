@@ -5,7 +5,7 @@ const fs = require('fs')
 
 
 let recept = (JSON.parse(process.argv[2].split("'").join("\"")));
-const out = fs.createWriteStream('../../public/img/generated_feltetek/'+JSON.stringify(recept.sort())+'.png');
+
 async function drawCanvas(){
     recept.forEach(element => {
         loadImage('../../public/img/generated_assets/'+element+'.png').then((image) => {
@@ -15,6 +15,7 @@ async function drawCanvas(){
 }
 async function run(){
     await drawCanvas();
+    const out = fs.createWriteStream('../../public/img/generated_feltetek/'+JSON.stringify(recept.sort())+'.png');
     let stream = canvas.createPNGStream();
     stream.pipe(out);
     out.on('finish', () =>  console.log('The PNG file was created.'));
