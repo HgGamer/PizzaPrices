@@ -23,7 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
 
     @if  (env('APP_DEBUG') == false)
-        <script>
+        <script> 
              let isProd = true;
              let rmsw = false;
         </script>

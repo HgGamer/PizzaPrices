@@ -7,6 +7,6 @@
         "experimentalDecorators": true,
     },
     "include": [
-        "resources/assets/js/**/*"
+        "resources/assets/js/**/*", "resources/assets/sw.js"
     ]
 }

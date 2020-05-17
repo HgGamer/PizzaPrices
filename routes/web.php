@@ -51,9 +51,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::get( '/api/process/getAllNewMaterial','ProcessRawController@getAllNewMaterial');
     Route::post('/api/process/newAdditionalMaterial','ProcessRawController@newAdditionalMaterial');
     Route::get( '/api/process/deleteBadAliases','ProcessRawController@deleteBadAliases');
-    Route::get('/generate', function (){
-        dd(shell_exec('cd ../js/pizzagenerator && node pizzagenerator.js "' .escapeshellarg('[1,2,3]') . '"'));
-    });
+    Route::get( '/api/process/generateImages','GenerationController@generateImages');
+
 
     Route::get('/process',function(Request $request){
         $sites = Website::all();
