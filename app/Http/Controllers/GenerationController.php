@@ -19,16 +19,16 @@ class GenerationController extends Controller
     }
 
     private function generateImage($materialIds){
-        shell_exec('cd ../js/pizzagenerator && node pizzagenerator.js "' .escapeshellarg($materialIds) . '"');
+	shell_exec('cd ../js/pizzagenerator && node pizzagenerator.js "' .escapeshellarg($materialIds) . '"');
     }
 
     public function generateImages(){
         //gether all material ids with images
         $materialIds = Material::all()->whereNotNull('gen_img')->pluck('id')->toArray();
         //gether all pizzas
+	$generated = 0;
         $pizzaAliases = PizzaAlias::all();
         foreach ($pizzaAliases as $pizzaAlias) {
-
             $receptekString = explode(",",substr(substr_replace($pizzaAlias->recept, '', 0, 1), 0, -1)); // első utolsó karakter levágása
             //check if we have every image for pizza
             if(count($receptekString) != 0 && count(array_intersect($receptekString, $materialIds)) == count($receptekString)){
@@ -40,9 +40,11 @@ class GenerationController extends Controller
                     }
                 }
                 //generate image
+		$generated++;
                 $this->generateImage(json_encode($this->orderMaterialObjects($materialObjects)));
             }
         }
+	echo $generated;
     }
     private function orderMaterialObjects($materialObjects){
         $c = collect($materialObjects);

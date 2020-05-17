@@ -134,14 +134,12 @@ class MaterialController extends Controller
         try {
 
             $image = $request->file($name);
-
             $fileName = $id . '.' . $image->getClientOriginalExtension();
-
             $image->move($destination, $fileName);
 
             return ["state" => 1, "filename" => $fileName];
         } catch (\Exception $ex) {
-
+		dd($ex);
             return ["state" => 0, "filename" => ""];
 
         }
