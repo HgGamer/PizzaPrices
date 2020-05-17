@@ -15,7 +15,11 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
+@if  (env('APP_DEBUG') == false)
     <title>@yield('title')</title>
+@else
+<title>DEBUG:: @yield('title')</title>
+@endif
     <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.webp') }}"/>
 
     <!-- Styles -->
@@ -44,10 +48,16 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top static-top">
     <div class="container">
         <a class="navbar-brand navbar-brandd" href="/home">
-            <img src="{{ asset('img/2.webp') }}"  alt="logo">
+            <picture>
+                <source  srcset="{{ asset('img/2.webp') }}" type="image/webp" alt="logo">
+                <img  src="{{ asset('img/2.png') }}" alt="pizza"/>
+            </picture>
         </a>
         <a class="navbar-brand kicsimeretlogo" href="/home">
-            <img src="{{ asset('img/2.webp') }}"  alt="logo">
+            <picture>
+                <source  srcset="{{ asset('img/2.webp') }}" type="image/webp" alt="logo">
+                <img  src="{{ asset('img/2.png') }}" alt="pizza"/>
+            </picture>
         </a>
         <button class="navbar-toggler navbar-togglerr" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

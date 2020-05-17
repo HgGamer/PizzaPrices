@@ -26,12 +26,17 @@ Route::get('/pizzapicker', 'PizzaPickerController@index');
 
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
+Route::get('/error', 'HomeController@errorindex');
 
 Route::post('/feedback', 'HomeController@storeFeedback');
 
 Route::prefix('api')->group(function () {
     Route::get('/infinite_pizzas', 'PizzasController@infinitePizzas');
+    Route::get('/infinite_pizzas100', 'PizzasController@infinite100Pizzas');
     Route::post('/pizzasByMaterials', 'PizzasController@pizzasByMaterials');
+    Route::get('/pizza_categories', 'PizzaCategoryController@getAllCategories');
+    Route::get('/pizzas_by_category_id/{id}', 'PizzasController@pizzasByCategoryId');
+    Route::get('/pizzas_by_id/{id}', 'PizzasController@pizzasById');
 });
 
 
@@ -95,6 +100,7 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::patch('/pizzas/set-pizza-category3', 'Admin\PizzasController@setPizzaCategory3');
     Route::resource('/pizzas', 'Admin\PizzasController');
     Route::delete('/storedatas/delete/{id}', 'Admin\PizzasController@deleteStoreData');
+
 
 });
 

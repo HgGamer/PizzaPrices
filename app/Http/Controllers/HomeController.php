@@ -18,6 +18,10 @@ class HomeController extends Controller
     {
         //$this->middleware('auth');
     }
+    public  function errorindex(){
+
+        return view('error');
+    }
 
     public function index()
     {
@@ -88,6 +92,5 @@ class HomeController extends Controller
             return response()->json($response);
 
     }
-
 
 }

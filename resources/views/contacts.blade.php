@@ -72,7 +72,10 @@ PizzaPrices - Kapcsolatok
                 <div class="tab-pane" id="nav-kapcs" role="tabpanel" aria-labelledby="nav-kapcs-tab">
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-12 text-center align-items-center kapcsolatok">
-                            <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="logo">
+                            <picture>
+                                <source srcset="{{ asset('img/2.wepb') }}" type="image/wepb">
+                                <img class="img-fluid mx-auto d-block" src="{{ asset('img/2.png') }}"  alt="logo">
+                            </picture>
                             <h3>Pizza Prices</h3>
                         </div>
                         <div class="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
