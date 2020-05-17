@@ -170,7 +170,7 @@ function addNextItems(items){
         item.innerHTML = `
        <div class="ft-recipe">
             <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
-                <object data="${URL}/img/generated_feltetek/${items[i]['pizza_alias']['receptArray']}.png" type="image/png">
+                <object data="${URL}/img/generated_feltetek/${items[i]['pizza_alias']['receptArray']}.png" type="image/png" style="width:275px">
                     <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
                 </object>
 
