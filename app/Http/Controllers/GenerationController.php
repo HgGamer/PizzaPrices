@@ -32,9 +32,7 @@ class GenerationController extends Controller
 	    $generated = 0;
         $pizzaAliases = PizzaAlias::all();
         foreach ($pizzaAliases as $pizzaAlias) {
-            if($generated>5){
-                return;
-            }
+
             $receptekString = explode(",",substr(substr_replace($pizzaAlias->recept, '', 0, 1), 0, -1)); // első utolsó karakter levágása
             //check if we have every image for pizza
 
