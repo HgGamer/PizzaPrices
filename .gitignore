@@ -3,6 +3,8 @@
 /public/css/*
 /public/js/*
 /public/storage
+/public/img/generated_assets/*
+/public/img/generated_feltetek/*
 /storage/*.key
 /vendor
 .env
