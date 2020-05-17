@@ -29,7 +29,7 @@
                             <td>{{ $material->id }}</td>
                             <td>{{ $material->name }}</td>
                             <td><img width="150" src="{{ url('img/feltetek/' . $material->img) }}" /></td>
-                            <td><img width="150" src="{{ url('img/generated_feltetek/' . $material->gen_img) }}" /></td>
+                            <td><img width="150" src="{{ url('img/generated_assets/' . $material->gen_img) }}" /></td>
                             <td>
                                 <select class="materials_category" data-id="{{ $material->id }}" data-original-category="{{{ isset($material['category_id']) ? $material['category_id'] : 0 }}}">
                                     <option value="0" selected>NO CATEGORY YET</option>

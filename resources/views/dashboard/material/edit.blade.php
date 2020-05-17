@@ -61,7 +61,7 @@
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12">
                     @if($material->gen_img != "")
-                        <img src="{{ url('img/generated_feltetek/' . $material->gen_img) }}" width="150" />
+                        <img src="{{ url('img/generated_assets/' . $material->gen_img) }}" width="150" />
                     @endif
                         <div class="form-group">
 

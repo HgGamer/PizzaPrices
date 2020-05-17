@@ -49,7 +49,7 @@ class MaterialController extends Controller
 
        if($request->file('gen_img') != null) {
 
-        $material->gen_img = $this->uploadFile('gen_img', public_path('img/generated_feltetek/'), $request)["filename"];
+         $material->gen_img = $this->uploadGeneratedFile('gen_img', public_path('img/generated_assets/'), $request,$material->id)["filename"];
         }
 
         $material->save();
@@ -77,7 +77,7 @@ class MaterialController extends Controller
         }
 
         if($request->file('gen_img') != null) {
-            $material->gen_img = $this->uploadFile('gen_img', public_path('img/generated_feltetek/'), $request)["filename"];
+            $material->gen_img = $this->uploadGeneratedFile('gen_img', public_path('img/generated_assets/'), $request,$id)["filename"];
         }
 
         $material->save();
@@ -130,5 +130,20 @@ class MaterialController extends Controller
 
         return response()->json(['msg' => 'Material Category updated!']);
     }
+    public function uploadGeneratedFile($name, $destination, $request = null,$id){
+        try {
 
+            $image = $request->file($name);
+
+            $fileName = $id . '.' . $image->getClientOriginalExtension();
+
+            $image->move($destination, $fileName);
+
+            return ["state" => 1, "filename" => $fileName];
+        } catch (\Exception $ex) {
+
+            return ["state" => 0, "filename" => ""];
+
+        }
+    }
 }

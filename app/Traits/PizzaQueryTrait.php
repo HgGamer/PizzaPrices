@@ -53,7 +53,7 @@ trait PizzaQueryTrait {
        return $pizzas;
     }
 
-    private function orderMaterialObjects($materialObjects){
+    public function orderMaterialObjects($materialObjects){
         $c = collect($materialObjects);
 
         $materialObjects = $c->sortBy('category_id')->values();
