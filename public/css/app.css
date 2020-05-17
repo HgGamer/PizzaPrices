@@ -13,9 +13,8 @@ body.home{
     color: #000;
 }
 .bg-img{
-    background: url("/img/pizza3.webp") no-repeat center center fixed;
-    background-size: cover;
-    height: 100vh;
+
+
 }
 .map{
     height: 100vh;
@@ -26,7 +25,10 @@ body.home{
 .logincard{
     margin-top: 200px;
 }
-.map img{
+.map picture{
+    width: 100%;
+}
+.map picture img{
     width: 100%;
 }
 .city-select .restaurant {
@@ -1370,10 +1372,27 @@ nav > div a.nav-item.nav-link:focus
     font-size: 25px !important;
     font-weight: bold !important;
     color: white !important;
+    z-index: 4000 !important;
+    position: relative !important;
 }
+
 #alsokartya{
     width: 80%;
     left:10%;
+}
+
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 {
+        height: 115px;
+    }
+    .notfound .notfound-404 h1 {
+        font-size: 86px;
+    }
+    .notfound .notfound-404 h1>span {
+        width: 86px;
+        height: 86px;
+    }
 }
 @media (min-width: 1921px){
     .bannerr_area{
@@ -1639,6 +1658,7 @@ nav > div a.nav-item.nav-link:focus
         height: max-content;
     }
     .kezdologo{
+        position: relative;
         display: block;
         padding-top: 50px;
 
@@ -1889,6 +1909,97 @@ nav > div a.nav-item.nav-link:focus
     text-transform: capitalize;
 }
 
+@font-face {
+    src: url("/fonts/panpizza.ttf");
+    font-family: panpizza;
+}
+body{
+    background-color: #FFEFD3 !important;
+}
+#error {
+    position: relative;
+    height: 100vh;
+}
+
+#error .error {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.error {
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.error .error-404 {
+    height: 190px;
+}
+
+.error .error-404 h1 {
+    font-family: panpizza;
+    font-size: 180px;
+    font-weight: 700;
+    margin: 0px;
+    color: #232323;
+}
+
+.error .error-404 h1>span {
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    background-image: url('/img/pizzapop.webp');
+    background-size: cover;
+    transform: scale(1.4);
+    z-index: -1;
+}
+
+.error h2 {
+    font-family: panpizza;
+    font-size: 45px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    color: #232323;
+}
+
+.error p {
+    font-family: "Roboto", sans-serif;
+    color: grey;
+    font-weight: 300;
+}
+
+.error a {
+    font-family: "Roboto", sans-serif;
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: 700;
+    background-color: #FF8000;
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    transition: 0.2s all;
+}
+
+.error a:hover {
+    opacity: 0.8;
+}
+
+@media only screen and (max-width: 767px) {
+    .error .error-404 {
+        height: 115px;
+    }
+    .error .error-404 h1 {
+        font-size: 86px;
+    }
+    .error .error-404 h1>span {
+        width: 86px;
+        height: 86px;
+    }
+}
 @charset "UTF-8";
 
 /*!

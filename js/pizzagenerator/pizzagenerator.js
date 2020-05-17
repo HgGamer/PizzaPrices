@@ -2,8 +2,11 @@ const { createCanvas, loadImage } = require('canvas');
 const canvas = createCanvas(800, 800)
 const ctx = canvas.getContext('2d')
 const fs = require('fs')
-const out = fs.createWriteStream('../../public/img/generated_feltetek/'+process.argv[2]+'.png');
+
+
+
 let recept =JSON.parse(process.argv[2]);
+const out = fs.createWriteStream('../../public/img/generated_feltetek/'+JSON.stringify(JSON.parse(process.argv[2]).sort())+'.png');
 async function drawCanvas(){
     recept.forEach(element => {
         loadImage('../../public/img/generated_assets/'+element+'.png').then((image) => {

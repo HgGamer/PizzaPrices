@@ -2,7 +2,7 @@ require('./bootstrap.js');
 
 var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
 
-console.log = function(){}
+//console.log = function(){}
 
 $(function () {
     $('[data-toggle="tooltip"]').tooltip()
@@ -167,11 +167,13 @@ function addNextItems(items){
         item.setAttribute('class', 'col-lg-6 col-md-12 mb-5 feed-tile')
         specificId = 'feed-tile-' + (((loadCount-1) *  paginatedBy) + i)
         item.setAttribute('id', specificId)
-
         item.innerHTML = `
        <div class="ft-recipe">
             <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
-                <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+                <object data="${URL}/img/generated_feltetek/${items[i]['pizza_alias']['receptArray']}.png" type="image/png">
+                    <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+                </object>
+
             </div>
             <div class="ft-recipe__content ">
                 <header class="content__header">

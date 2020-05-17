@@ -39,7 +39,7 @@ trait PizzaQueryTrait {
                     continue;
                 }
             }
-
+            $storeData->pizzaAlias->receptArray = $storeData->pizzaAlias->recept;
             $storeData->pizzaAlias->recept = $this->orderMaterialObjects($materialObjects);
 
             if (!$storeData->website){
@@ -53,7 +53,7 @@ trait PizzaQueryTrait {
        return $pizzas;
     }
 
-    public function orderMaterialObjects($materialObjects){
+    private function orderMaterialObjects($materialObjects){
         $c = collect($materialObjects);
 
         $materialObjects = $c->sortBy('category_id')->values();
