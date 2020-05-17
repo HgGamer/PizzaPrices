@@ -22,7 +22,7 @@ class GenerationController extends Controller
 
     public function generateImages(){
         $materialIds = [];
-
+        //Material::all()->where()
         //gether all material ids with images
         //gether all pizzas
         //check if we have every image for pizza
