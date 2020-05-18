@@ -107,6 +107,10 @@ body.home{
     text-decoration: none!important;
     border-radius: 25px;
 }
+.popularpizza a picture img {
+    width: 100%;
+    height: -webkit-fill-available;
+}
 
 /*Banner area */
 
@@ -206,6 +210,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     width: 100%;
+
 }
 .pizzacardname h3{
     font-family: panpizza;
@@ -223,10 +228,14 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     background-size: cover;
 }
 .front{
-    background-image: url("/img/poppizza.webp");
+
     background-size: cover;
     transform: perspective(600px) rotateY(0deg);
     border: #FFA600 solid 10px;
+}
+.front picture{
+    z-index: -100;
+    position: absolute;
 }
 .back{
     background: #FFA600 ;

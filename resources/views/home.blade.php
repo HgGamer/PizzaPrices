@@ -13,19 +13,39 @@ PizzaPrices - Főoldal
         <h1 class="nincshteg">Pizza  Prices főoldal</h1>
         <div class="row mb-5">
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href="/kategoriak/hawaii" style="background-image: url('{{ asset('/img/glry/hawaii.webp')}}');"></a>
+                <a href="/kategoriak/hawaii" >
+                    <picture>
+                        <source srcset="{{ asset('img/glry/hawaii.webp') }}" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry/hawaii.jpg') }}" alt="background">
+                    </picture>
+                </a>
                 <h3>Hawaii Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza ">
-                <a href="/kategoriak/songoku" style="background-image: url('{{ asset('/img/glry/kukoricas.webp')}}');"></a>
+                <a href="/kategoriak/songoku" >
+                    <picture>
+                        <source srcset="{{ asset('img/glry/kukoricas.webp') }}" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry/kukoricas.jpg') }}" alt="background">
+                    </picture>
+                </a>
                 <h3>Son-Go-Ku Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href="/kategoriak/bolognai" style="background-image: url('{{ asset('/img/glry/bolognai.webp')}}');"></a>
+                <a href="/kategoriak/bolognai" >
+                    <picture>
+                        <source srcset="{{ asset('img/glry/bolognai.webp') }}" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry/bolognai.jpg') }}" alt="background">
+                    </picture>
+                </a>
                 <h3>Bolognai Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
-                <a href="/kategoriak/husimado" style="background-image: url('{{ asset('/img/glry/husimado.webp')}}');"></a>
+                <a href="/kategoriak/husimado" >
+                    <picture>
+                        <source srcset="{{ asset('img/glry/husimado.webp') }}" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry/husimado.jpg') }}" alt="background">
+                    </picture>
+                </a>
                 <h3>Húsimádó Pizzák</h3>
             </div>
         </div>
@@ -46,6 +66,10 @@ PizzaPrices - Főoldal
                 </div>
                 <div class="card carda middle">
                     <div class="front d-flex">
+                        <picture>
+                            <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                        </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
                                 Húsimádó Pizza
@@ -83,6 +107,10 @@ PizzaPrices - Főoldal
                 </div>
                 <div class="card carda middle">
                     <div class="front d-flex">
+                        <picture>
+                            <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                        </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
                                 Húsimádó Pizza
