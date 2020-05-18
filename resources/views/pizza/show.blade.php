@@ -106,39 +106,17 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                     <div class="row mx-auto my-auto">
                         <div id="recipeCarousel" class="carousel slide w-100" data-ride="carousel">
                             <div class="carousel-inner w-100" role="listbox">
-                                <div class="carousel-item active">
-                                    <div class="col-md-4">
-                                        <div class="card ft-recipe-kicsii">
-                                            <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
-                                        <div class="card-body ft-recipe__contento">
-                                            <header class="content__header">
-                                                <div class="row-wrapper text-center">
-                                                    <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
-                                                    <div class="user-rating"></div>
-                                                </div>
-                                                <ul class="recipe-details">
-                                                    <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                    <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                                </ul>
-                                            </header>
-                                            <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                            <h4>Feltétek:</h4>
-                                            <p class="description">
-                                                asd asd asd asd asd
-                                            </p>
-                                            <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
+
+                                @php $i = 0  @endphp
+                                @foreach ($similarPizzas as $similarPizza)
+                                <div class="carousel-item {{ $i == 0 ? "active" : ""}}">
                                     <div class="col-md-4">
                                         <div class="card ft-recipe-kicsii">
                                             <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
-                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
+                                                        <h3 class="recipe-title feed-tile-name">{{$similarPizza->name}} - {{ $i }}</h3>
                                                         <div class="user-rating"></div>
                                                     </div>
                                                     <ul class="recipe-details">
@@ -156,106 +134,10 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                         </div>
                                     </div>
                                 </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card ft-recipe-kicsii">
-                                            <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
-                                            <div class="card-body ft-recipe__contento">
-                                                <header class="content__header">
-                                                    <div class="row-wrapper text-center">
-                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
-                                                        <div class="user-rating"></div>
-                                                    </div>
-                                                    <ul class="recipe-details">
-                                                        <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                        <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                                    </ul>
-                                                </header>
-                                                <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                                <h4>Feltétek:</h4>
-                                                <p class="description">
-                                                    asd asd asd asd asd
-                                                </p>
-                                                <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card ft-recipe-kicsii">
-                                            <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
-                                            <div class="card-body ft-recipe__contento">
-                                                <header class="content__header">
-                                                    <div class="row-wrapper text-center">
-                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
-                                                        <div class="user-rating"></div>
-                                                    </div>
-                                                    <ul class="recipe-details">
-                                                        <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                        <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                                    </ul>
-                                                </header>
-                                                <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                                <h4>Feltétek:</h4>
-                                                <p class="description">
-                                                    asd asd asd asd asd
-                                                </p>
-                                                <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card ft-recipe-kicsii">
-                                            <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
-                                            <div class="card-body ft-recipe__contento">
-                                                <header class="content__header">
-                                                    <div class="row-wrapper text-center">
-                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
-                                                        <div class="user-rating"></div>
-                                                    </div>
-                                                    <ul class="recipe-details">
-                                                        <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                        <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                                    </ul>
-                                                </header>
-                                                <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                                <h4>Feltétek:</h4>
-                                                <p class="description">
-                                                    asd asd asd asd asd
-                                                </p>
-                                                <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                    <div class="col-md-4">
-                                        <div class="card ft-recipe-kicsii">
-                                            <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
-                                            <div class="card-body ft-recipe__contento">
-                                                <header class="content__header">
-                                                    <div class="row-wrapper text-center">
-                                                        <h3 class="recipe-title feed-tile-name">XYZ Pizza</h3>
-                                                        <div class="user-rating"></div>
-                                                    </div>
-                                                    <ul class="recipe-details">
-                                                        <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                        <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                                    </ul>
-                                                </header>
-                                                <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                                <h4>Feltétek:</h4>
-                                                <p class="description">
-                                                    asd asd asd asd asd
-                                                </p>
-                                                <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @php $i++; @endphp
+                                @endforeach
+
+
                             </div>
                             <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
                                 <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
@@ -281,13 +163,12 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
 <script>
 
-
     $('#recipeCarousel').carousel({
         interval: 10000
     })
 
     $('.carousel .carousel-item').each(function(){
-        var minPerSlide = 3;
+        var minPerSlide = 1;
         var next = $(this).next();
         if (!next.length) {
             next = $(this).siblings(':first');

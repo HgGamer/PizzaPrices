@@ -90,22 +90,7 @@ class PizzasController extends Controller
 
         $receptekString = $pizza->recept;
 
-        $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
-
-        $receptekString = explode(",",$receptekString); //tömbé konvertálás
-
-        $materialObjects = array();
-
-        foreach ($receptekString as $receptString) {
-            $material = Material::find($receptString);
-            if($material != null){
-                $materialObjects[] =  $material;
-            }else{
-                $errorMSG =  "User::PizzasController, Show Material(id: " . $receptString . ")->Material is NULL";
-                LogManager::shared()->addLog($errorMSG);
-                continue;
-            }
-        }
+        $materialObjects = $this->getMaterialObjects($receptekString);
 
         $pizza->recept = $this->orderMaterialObjects($materialObjects);
 
@@ -122,15 +107,52 @@ class PizzasController extends Controller
                 $errorMSG =  "User::PizzasController, Show StoreData(id: " . $storeData->id . ")->pizzaAlias is NULL";
                 LogManager::shared()->addLog($errorMSG);
             }
-
         }
 
+        $similarPizzas = Pizza::Where("category_id", $pizza->category_id)
+                                            ->orWhere("category_id", $pizza->category_id)
+                                            ->  orWhere("category_id", $pizza->category_id)
+                                            ->get()
+                                            ->random(9);
+
+        $similarPizzasResult = [];
+
+        foreach ($similarPizzas as $similarPizza) {
+            $receptekString = $similarPizza->recept;
+            $materialObjects = $this->getMaterialObjects($receptekString);
+            $similarPizza->recept = $this->orderMaterialObjects($materialObjects);
+            $similarPizza->storeDatas;
+            $similarPizzasResult[] = $similarPizza;
+        }
+
+        //return $similarPizzasResult;
+        //return $pizza;
         //return $storeDatas;
 
-        return view('pizza.show')->withDatas($storeDatas)->withPizza($pizza);
+        return view('pizza.show')->withDatas($storeDatas)->withPizza($pizza)->withSimilarPizzas($similarPizzasResult);
     }
 
+    private function getMaterialObjects($pizzaRecept){
+        $receptekString = $pizzaRecept;
 
+        $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
+
+        $receptekString = explode(",",$receptekString); //tömbé konvertálás
+
+        $materialObjects = array();
+
+        foreach ($receptekString as $receptString) {
+            $material = Material::find($receptString);
+            if($material != null){
+                $materialObjects[] =  $material;
+            }else{
+                $errorMSG =  "User::PizzasController, Show Material(id: " . $receptString . ")->Material is NULL";
+                LogManager::shared()->addLog($errorMSG);
+                continue;
+            }
+        }
+        return $materialObjects;
+    }
 
     private function orderMaterialObjects($materialObjects){
         $c = collect($materialObjects);
