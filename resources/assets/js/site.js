@@ -1,4 +1,5 @@
 require('./bootstrap.js');
+require('./modernizr.js')
 
 var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
 
