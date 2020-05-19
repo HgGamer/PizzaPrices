@@ -61,22 +61,8 @@ class PizzasController extends Controller
         foreach ($pizzas as $pizza) {
             $receptekString = $pizza->recept;
 
-            $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása
+            $materialObjects = $this->getMaterialObjects($receptekString);
 
-            $receptekString = explode(",",$receptekString); //tömbé konvertálás
-
-            $materialObjects = array();
-
-            foreach ($receptekString as $receptString) {
-                $material = Material::find($receptString);
-                if($material != null){
-                    $materialObjects[] =  $material;
-                }else{
-                    $errorMSG =  "User::PizzasController, Show Material(id: " . $receptString . ")->Material is NULL";
-                    LogManager::shared()->addLog($errorMSG);
-                    continue;
-                }
-            }
             $pizza->recept = $this->orderMaterialObjects($materialObjects);
         }
 
@@ -109,11 +95,24 @@ class PizzasController extends Controller
             }
         }
 
-        $similarPizzas = Pizza::Where("category_id", $pizza->category_id)
-                                            ->orWhere("category_id", $pizza->category_id)
-                                            ->  orWhere("category_id", $pizza->category_id)
-                                            ->get()
-                                            ->random(9);
+        $similarPizzasCount = Pizza::Where("category_id", $pizza->category_id)
+        ->orWhere("category_id", $pizza->category_id)
+        ->  orWhere("category_id", $pizza->category_id)
+        ->count();
+
+        if($similarPizzasCount <9){
+            $similarPizzas = Pizza::Where("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
+            ->  orWhere("category_id", $pizza->category_id)
+            ->get()
+            ->random($similarPizzasCount);
+        }else{
+            $similarPizzas = Pizza::Where("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
+            ->  orWhere("category_id", $pizza->category_id)
+            ->get()
+            ->random(9);
+        }
 
         $similarPizzasResult = [];
 
