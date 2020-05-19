@@ -54,7 +54,6 @@ class GenerationController extends Controller
 
                 //generate image
 
-
                 $this->generateImage(json_encode($this->orderMaterialObjects($materialObjects)));
             }
 
@@ -64,7 +63,11 @@ class GenerationController extends Controller
     }
     private function orderMaterialObjects($materialObjects){
         $c = collect($materialObjects);
-
+        foreach ($c as $materialObject) {
+            if ($materialObject->category_id == 2) {
+                $materialObject->category_id = 1000;
+            }
+        }
         $materialObjects = $c->sortBy('category_id')->values();
 
         $finalMaterialsArray = [];
