@@ -10,7 +10,7 @@ $(function () {
 
 window.onload = function(){
    // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
-
+/*
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker
             .register('./sw.js?version='+Date.now() , {
@@ -26,9 +26,9 @@ window.onload = function(){
     navigator.serviceWorker.ready.then(function(swRegistration) {
         return swRegistration.sync.register(latestCacheVersion);
       });
-    if(rmsw){
+    if(rmsw){*/
         removeSW();
-    }
+    /*}*/
 }
 
 
@@ -169,8 +169,9 @@ function addNextItems(items){
         item.setAttribute('id', specificId)
         item.innerHTML = `
        <div class="ft-recipe">
-            <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
-                <object data="${URL}/img/generated_feltetek/${items[i]['pizza_alias']['receptArray']}.png" type="image/png" style="width:275px">
+            <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center justify-content-center">
+
+                <object data="${URL}/img/generated_feltetek/${items[i]['pizza_alias']['receptArray']}.png" type="image/png" style="">
                     <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
                 </object>
 
@@ -200,7 +201,7 @@ function addNextItems(items){
 
                    &#32;
                 </p>
-                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="#">Részletek</a></footer>
+                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['url'] != "") ? items[i]['url'] : items[i]['website']['url'] }">Részletek</a></footer>
             </div>
         </div>
         `;

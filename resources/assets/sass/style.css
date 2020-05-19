@@ -1,4 +1,4 @@
-@font-face {
+﻿@font-face {
     src: url("/fonts/panpizza.ttf");
     font-family: panpizza;
 }
@@ -107,6 +107,10 @@ body.home{
     text-decoration: none!important;
     border-radius: 25px;
 }
+.popularpizza a picture img {
+    width: 100%;
+    height: -webkit-fill-available;
+}
 
 /*Banner area */
 
@@ -206,6 +210,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     width: 100%;
+
 }
 .pizzacardname h3{
     font-family: panpizza;
@@ -223,10 +228,14 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     background-size: cover;
 }
 .front{
-    background-image: url("/img/poppizza.webp");
+
     background-size: cover;
     transform: perspective(600px) rotateY(0deg);
     border: #FFA600 solid 10px;
+}
+.front picture{
+    z-index: -100;
+    position: absolute;
 }
 .back{
     background: #FFA600 ;
@@ -376,9 +385,14 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     justify-content: center;
     text-decoration: none!important;
     border-radius: 25px;
+    overflow: hidden;
+}
+.image-gallery a picture img{
+    height: -webkit-fill-available;
 }
 .kategoraibox{
-    position: relative;
+    position: absolute;
+    z-index: 400;
     width: 100%;
     height: 100%;
     background-color: rgb(163, 51, 39, 0.8);
@@ -460,6 +474,18 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     position: relative;
     -webkit-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
+}
+.ft-recipe .ft-recipe__thumb object{
+    width: 55%;
+}
+.ft-recipe .ft-recipe__thumb object img{
+    width: 107.5% !important;
+}
+.ft-recipe .ft-recipe__thumbm object{
+    width: 55%;
+}
+.ft-recipe .ft-recipe__thumbm object img{
+    width: 107.5% !important;
 }
 .ft-recipe .ft-recipe__thumb {
     position: relative;
@@ -1069,8 +1095,14 @@ nav > div a.nav-item.nav-link:focus
 .szoveg{
     padding: 30px;
 }
-.bg{
+.webp .bg{
     background: url("/img/bg.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.no-webp .bg{
+    background: url("/img/bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
@@ -1859,6 +1891,9 @@ nav > div a.nav-item.nav-link:focus
     }
     .feltetek li {
         font-size: 1.5rem;
+    }
+    .bannerr_area{
+        height: 480px;
     }
 }
 @media screen and (max-width: 375px){
