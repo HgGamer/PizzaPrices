@@ -7,19 +7,31 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
         <div class="container-fluid">
             <div class="row">
                 <div class="szelet">
-                    <img class=" img-fluid" src="{{ asset('img/szelet.webp') }}" alt="pizzaszelet"/>
+                    <picture>
+                        <source srcset="{{ asset('img/szelet.webp') }}" type="image/webp">
+                        <img class=" img-fluid" src="{{ asset('img/szelet.png') }}" alt="pizzaszelet"/>
+                    </picture>
                 </div>
 
                 <div class="paradicsom">
-                    <img class=" img-fluid" src="{{ asset('img/paradicsom.webp') }}" alt="paradicsom"/>
+                    <picture>
+                        <source srcset="{{ asset('img/paradicsom.webp') }}" type="image/webp">
+                        <img class=" img-fluid" src="{{ asset('img/paradicsom.png') }}" alt="paradicsom"/>
+                    </picture>
                 </div>
 
                 <div class="salata">
-                    <img class=" img-fluid" src="{{ asset('img/salata.webp') }}" alt="saláta"/>
+                    <picture>
+                        <source srcset="{{ asset('img/salata.webp') }}" type="image/webp">
+                        <img class=" img-fluid" src="{{ asset('img/salata.png') }}" alt="saláta"/>
+                    </picture>
                 </div>
 
                 <div class="salami">
-                    <img class=" img-fluid" src="{{ asset('img/salami.webp') }}" alt="salami"/>
+                    <picture>
+                        <source srcset="{{ asset('img/salami.webp') }}" type="image/webp">
+                        <img class=" img-fluid" src="{{ asset('img/salami.png') }}" alt="salami"/>
+                    </picture>
                 </div>
 
                 <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
@@ -28,7 +40,10 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                             <h1 class="text-center">{{$pizza->name}}</h1>
                         </div>
                         <div class="col-lg-12 justify-content-center d-flex align-items-center pizzakep">
-                            <img class=" img-fluid mx-auto d-block" src="{{ asset('img/pizzapop.webp') }}" alt="pizza"/>
+                            <picture>
+                                <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
+                                <img class=" img-fluid mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
+                            </picture>
                         </div>
                     </div>
                 </div>
@@ -115,7 +130,10 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                 <div class="carousel-item {{ $i == 0 ? "active" : ""}}">
                                     <div class="col-md-4">
                                         <div class="card ft-recipe-kicsii">
-                                            <img class="card-img-top hatter" src="{{ asset('img/pizzapop.webp') }}" alt="Card image cap">
+                                            <picture>
+                                                <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
+                                                <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
+                                            </picture>
                                             <div class="card-body ft-recipe__contento">
                                                 <header class="content__header">
                                                     <div class="row-wrapper text-center">
