@@ -21,8 +21,8 @@ PizzaPrices - Kategóriák
             <div class="col-lg-4 col-md-6 col-sm-12 image-gallery">
                 <a href="/kategoriak/{{ $category->link }}">
                     <picture>
-                        <source srcset="{{ asset('/img/glry')}}/{{$category->url}}" type="image/png">
-                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/{{$category->url}}" alt="kategoriak" />
+                        <source srcset="{{ asset('/img/glry')}}/{{$category->url}}.webp" type="image/png">
+                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/{{$category->url}}.jpg" alt="kategoriak" />
                     </picture>
                     <div class="kategoraibox align-self-end d-flex text-center">
                         <h3 class="align-self-end">
