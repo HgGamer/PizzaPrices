@@ -168,7 +168,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
     })
 
     $('.carousel .carousel-item').each(function(){
-        var minPerSlide = 1;
+        var minPerSlide = 3;
         var next = $(this).next();
         if (!next.length) {
             next = $(this).siblings(':first');
