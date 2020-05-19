@@ -35,7 +35,10 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
                 <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
                     <div class="justify-content-center d-flex align-items-center tabla">
-                        <img class="img-fluid" src="{{ asset('img/tablaa.webp') }}" alt="táble">
+                        <picture>
+                            <source srcset="{{ asset('img/tablaa.webp') }}" type="image/webp">
+                            <img class="img-fluid" src="{{ asset('img/tablaa.png') }}" alt="tábla" />
+                        </picture>
                         <ul class="feltetek position-absolute">
                             @foreach ($pizza['recept'] as $recept)
                              <li>{{ $recept }}</li>
