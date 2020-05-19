@@ -1095,8 +1095,14 @@ nav > div a.nav-item.nav-link:focus
 .szoveg{
     padding: 30px;
 }
-.bg{
+.webp .bg{
     background: url("/img/bg.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+.no-webp .bg{
+    background: url("/img/bg.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     overflow: hidden;
