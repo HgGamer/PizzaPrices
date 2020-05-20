@@ -49,7 +49,7 @@ class GenerationController extends Controller
 
                 //generate image
 
-                generatePizzaImages::dispatch(json_encode($this->orderMaterialObjects($materialObjects)));
+                generatePizzaImages::dispatch(json_encode($this->orderMaterialObjects($materialObjects)))->onQueue('generatePizzaImages');
             }
 
         }
