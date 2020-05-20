@@ -45,7 +45,7 @@ class MaterialController extends Controller
        if($request->file('img') != null) {
 
             $material->img = $this->uploadFile('img', public_path('img/feltetek/'), $request)["filename"];
-       }
+       }    
 
        if($request->file('gen_img') != null) {
 
