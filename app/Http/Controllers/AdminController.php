@@ -12,7 +12,8 @@ use App\Log;
 use App\RawPizza;
 use App\Feedback;
 use App\Helper\LogManager;
-use Ramsey\Collection\Queue;
+
+
 class AdminController extends Controller
 {
 
@@ -46,7 +47,7 @@ class AdminController extends Controller
        $pizzasCount = StoreData::all()->count();
        $rawPizzasCount = RawPizza::all()->count();
        $feedBacks= Feedback::latest('created_at')->take(5)->get();
-       $queueCount = Queue::size('generatePizzaImages');
+       $queueCount = \Queue::size('generatePizzaImages');
         return view('dashboard.dashboard')
                     ->withVisitorsAndPageViews7($visitorsAndPageViews7[0])
                     ->withVisitorsAndPageViews30($visitorsAndPageViews30[0])
