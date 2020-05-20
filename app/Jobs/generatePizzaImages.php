@@ -30,6 +30,6 @@ class generatePizzaImages implements ShouldQueue
      */
     public function handle()
     {
-        shell_exec('cd ../js/pizzagenerator && node pizzagenerator.js ' .escapeshellarg($this->materialIds) . '');
+        shell_exec('cd ./js/pizzagenerator && node pizzagenerator.js ' .escapeshellarg($this->materialIds) . '');
     }
 }
