@@ -48,11 +48,11 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                     </div>
                 </div>
 
-                <div class="col-lg-6 col-md-12 justify-content-center d-flex align-items-center">
+                <div class="col-lg-6 col-md-12">
                     <div class="justify-content-center d-flex align-items-center tabla">
                         <picture>
                             <source srcset="{{ asset('img/tablaa.webp') }}" type="image/webp">
-                            <img class="img-fluid" src="{{ asset('img/tablaa.png') }}" alt="tábla" />
+                            <img class="img-fluid mx-auto d-block" src="{{ asset('img/tablaa.png') }}" alt="tábla" />
                         </picture>
                         <ul class="feltetek position-absolute">
                             @foreach ($pizza['recept'] as $recept)

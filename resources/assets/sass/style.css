@@ -12,9 +12,17 @@ body.home{
 .text-black{
     color: #000;
 }
-.bg-img{
-
-
+.webp .bg-img{
+    background-image: url("/img/pizza3.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.no-webp .bg-img{
+    background-image: url("/img/pizza3.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 .map{
     height: 100vh;
@@ -114,7 +122,7 @@ body.home{
 
 /*Banner area */
 
-.bannerr_area{
+.webp .bannerr_area{
     background: url("/img/pizza2.webp");
     background-repeat: no-repeat;
     background-position: center;
@@ -123,7 +131,26 @@ body.home{
     padding-bottom: 70px;
     height: 680px;
 }
-.banner_area{
+.no-webp .bannerr_area{
+    background: url("/img/pizza2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    padding-bottom: 70px;
+    height: 680px;
+}
+.webp .banner_area{
+    background: url("/img/pizza2.webp");
+    background-position: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 70px;
+    height: 350px;
+}
+.no-webp .banner_area{
+    background: url("/img/pizza2.jpg");
     background-position: center;
     text-align: center;
     position: relative;
@@ -1503,7 +1530,16 @@ nav > div a.nav-item.nav-link:focus
     }
 }
 @media (min-width: 1921px){
-    .bannerr_area{
+    .webp .bannerr_area{
+        background: url("/img/nagypizza.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        position: relative;
+        padding-bottom: 70px;
+        height: 680px;
+    }
+    .no-webp .bannerr_area{
         background: url("/img/nagypizza.jpg");
         background-repeat: no-repeat;
         background-position: center;
@@ -1512,7 +1548,16 @@ nav > div a.nav-item.nav-link:focus
         padding-bottom: 70px;
         height: 680px;
     }
-    .banner_area{
+    .webp .banner_area{
+        background: url("/img/nagypizza.webp");
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        position: relative;
+        padding-bottom: 70px;
+        height: 680px;
+    }
+    .no-webp .banner_area{
         background: url("/img/nagypizza.jpg");
         background-repeat: no-repeat;
         background-position: center;
@@ -1521,11 +1566,29 @@ nav > div a.nav-item.nav-link:focus
         padding-bottom: 70px;
         height: 680px;
     }
-    .bg {
-        background: url(/img/bg1.webp);
+    .webp .bg {
+        background: url("/img/bg1.webp");
         background-repeat: no-repeat;
         background-attachment: fixed;
         overflow: hidden;
+    }
+    .no-webp .bg {
+        background: url("/img/bg1.jpg");
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
+    }
+    .webp .bg-img{
+        background-image: url("/img/pizza3nagy.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+    .no-webp .bg-img{
+        background-image: url("/img/pizza3nagy.jpg");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
     }
 }
 
