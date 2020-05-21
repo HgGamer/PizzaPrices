@@ -9,6 +9,7 @@ use App\Log;
 use App\Material;
 use App\PizzaAlias;
 use App\Traits\PizzaQueryTrait;
+use App\Jobs\generatePizzaImages;
 
 class GenerationController extends Controller
 {
@@ -18,13 +19,10 @@ class GenerationController extends Controller
        $this->middleware('auth');
     }
 
-    private function generateImage($materialIds){
-        //shell_exec
-        echo('cd ../js/pizzagenerator && node pizzagenerator.js ' .escapeshellarg($materialIds) . '');
-        shell_exec('cd ../js/pizzagenerator && node pizzagenerator.js ' .escapeshellarg($materialIds) . '');
-    }
-
     public function generateImages(){
+        if(\Queue::size('generatePizzaImages')>1){
+            return;
+        };
         //gether all material ids with images
         $materialIds = Material::all()->whereNotNull('gen_img')->pluck('id')->toArray();
         //gether all pizzas
@@ -54,7 +52,7 @@ class GenerationController extends Controller
 
                 //generate image
 
-                $this->generateImage(json_encode($this->orderMaterialObjects($materialObjects)));
+                generatePizzaImages::dispatch(json_encode($this->orderMaterialObjects($materialObjects)))->onQueue('generatePizzaImages');
             }
 
         }

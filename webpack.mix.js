@@ -1,4 +1,5 @@
 let mix = require('laravel-mix');
+require('laravel-mix-modernizr');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,7 +13,7 @@ let mix = require('laravel-mix');
  */
 
 mix.ts('resources/assets/js/app.ts', 'public/js')
-    .js('resources/assets/js/site.js','public/js')
+    .js('resources/assets/js/site.js','public/js').modernizr()
     .copy('resources/assets/js/sw.js','public/')
    .sass('resources/assets/sass/app.scss', 'public/css');
 

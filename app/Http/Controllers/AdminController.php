@@ -13,6 +13,7 @@ use App\RawPizza;
 use App\Feedback;
 use App\Helper\LogManager;
 
+
 class AdminController extends Controller
 {
 
@@ -46,14 +47,15 @@ class AdminController extends Controller
        $pizzasCount = StoreData::all()->count();
        $rawPizzasCount = RawPizza::all()->count();
        $feedBacks= Feedback::latest('created_at')->take(5)->get();
-
+       $queueCount = \Queue::size('generatePizzaImages');
         return view('dashboard.dashboard')
                     ->withVisitorsAndPageViews7($visitorsAndPageViews7[0])
                     ->withVisitorsAndPageViews30($visitorsAndPageViews30[0])
                     ->withLogsCount($logsCount)
                     ->withPizzasCount($pizzasCount)
                     ->withRawPizzasCount($rawPizzasCount)
-                    ->withFeedbacks($feedBacks);
+                    ->withFeedbacks($feedBacks)
+                    ->withQueueCount($queueCount);
     }
 
     public function customGoogleQuery(){
