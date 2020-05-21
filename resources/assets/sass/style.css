@@ -19,7 +19,7 @@ body.home{
     background-size: cover;
 }
 .no-webp .bg-img{
-    background-image: url("/img/pizza3.webp");
+    background-image: url("/img/pizza3.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
