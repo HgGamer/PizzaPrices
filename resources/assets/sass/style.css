@@ -1958,6 +1958,24 @@ nav > div a.nav-item.nav-link:focus
     .bannerr_area{
         height: 480px;
     }
+    .webp .banner_area{
+        background: url("/img/picipizza.webp");
+        background-position: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 70px;
+        height: 350px;
+    }
+    .no-webp .banner_area{
+        background: url("/img/picipizza.jpg");
+        background-position: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+        padding-bottom: 70px;
+        height: 350px;
+    }
 }
 @media screen and (max-width: 375px){
     .carda{
