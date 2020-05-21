@@ -20,6 +20,9 @@ class GenerationController extends Controller
     }
 
     public function generateImages(){
+        if(\Queue::size('generatePizzaImages')>1){
+            return;
+        };
         //gether all material ids with images
         $materialIds = Material::all()->whereNotNull('gen_img')->pluck('id')->toArray();
         //gether all pizzas
