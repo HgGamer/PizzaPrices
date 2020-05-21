@@ -182,7 +182,7 @@ PizzaPrices - Főoldal
                                     {{ $recept }}@if ($key != count($pizza['pizzaAlias']['recept'])-1), @endif
                                 @endforeach
                             </p>
-                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="/pizza/{{ $pizza->pizzaid }}">Részletek</a></footer>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}" target="_blank">Részletek</a></footer>
                         </div>
                     </div>
                 </div>
