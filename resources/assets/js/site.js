@@ -8,6 +8,10 @@ $(function () {
     $('[data-toggle="tooltip"]').tooltip()
 })
 
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
+
 window.onload = function(){
    // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
 /*
