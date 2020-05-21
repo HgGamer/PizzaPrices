@@ -209,21 +209,6 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
 
 </script>
-<script src="{{ asset('js/modernizr.js') }}" ></script>
-<script>
-    Modernizr.on('webp', function (result) {
-    // `result == Modernizr.webp`
-    console.log(result);  // either `true` or `false`
-    if (result) {
-    // Has WebP support
-    }
-    else {
-    // No WebP support
-    }
-    });
-</script>
-
-
 
 @endsection
 
