@@ -27,6 +27,8 @@ function pizzasForCategory($slug){
                 ->get();
 
     foreach ($pizzas as $pizza) {
+        $pizza->recept_array = $pizza->recept;
+
         $receptekString = $pizza->recept;
 
         $receptekString = substr(substr_replace($receptekString, '', 0, 1), 0, -1); // első utolsó karakter levágása

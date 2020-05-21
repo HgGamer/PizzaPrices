@@ -70,7 +70,7 @@
   </table>
 
   <table style="width:100%;text-align:center;">
-    <h3>Price changed Pizzas: </h3>
+    <h3>Price changes: </h3>
     <tr>
       <th style="width: 10%;">Id</th>
       <th style="width: 30%;">Title</th>
