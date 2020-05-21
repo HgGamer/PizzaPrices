@@ -105,9 +105,8 @@ class Scraper
 
                 });
 
-                //Log::debug($data);
+               //Log::debug($data);
                 $this->save($data);
-
                 $this->results = $data;
             }
         } catch (\Exception $ex) {

@@ -63,7 +63,7 @@
             </div>
             <div class="col-6 text-center">
                 <div class="font-weight-bold text-danger text-uppercase mb-1">Errors</div>
-                <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
+                <div class="h5 mb-0 font-weight-bold text-gray-800">TODO</div>
               </div>
           </div>
           <hr>

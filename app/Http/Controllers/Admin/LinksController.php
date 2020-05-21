@@ -13,7 +13,8 @@ use App\Website;
 use App\RawPizza;
 use App\RawPizzaHistory;
 use Mail;
-use DB;
+use GuzzleHttp\Client as GuzzleClient;
+use App\Helper\LogManager;
 
 use function PHPUnit\Framework\isNull;
 
@@ -184,11 +185,21 @@ class LinksController extends Controller
             $scraper->handle($link);
         }
 
+        /* Statikus nem scrapelhető dolgok */
+        $this->banyaiPizzaFeltetLoad();
+        $this->forzaitaliaPizzaLoad();
+        $this-> happyhotPizzaLoad();
+        $this->pizzafaloPizzaLoad();
+        $this->fortePizzaLoad();
+
+        /* Scrapelés utáni de még feldolgozás előtti korrekciok */
         if($link->website_id == 27){
             $this->sliceTrojaPizzaSizes();
         }else if ($link->website_id == 15) {
             $this->correctPizzaMonsterData();
         }
+
+        $this->generateScrapeReport();
 
         return response()->json(['status' => 1, 'msg' => 'Scraping done']);
 
@@ -214,6 +225,7 @@ class LinksController extends Controller
 
         $scraper->handle($link);
 
+        /* Scrapelés utáni de még feldolgozás előtti korrekciok */
         if($link->website_id == 27){
             $this->sliceTrojaPizzaSizes();
         }else if ($link->website_id == 15) {
@@ -266,7 +278,7 @@ class LinksController extends Controller
         ->cc("chudi.richard@gmail.com", $to_name)
         ->cc("sipos22@msn.com", $to_name)
         ->subject("Scrape Report");
-        $message->from("pizzaprice11bot@gmail.com",'Jarvis');
+        $message->from("pizzapricesbot@gmail.com",'Pizza Prices Jarvis');
         });
     }
 
@@ -274,6 +286,7 @@ class LinksController extends Controller
             $newWebsitesData = Website::all();
             foreach ($newWebsitesData as $newWebsiteData) {
                  $newWebsiteData['oldPizzasCount'] = RawPizzaHistory::where('website_id', $newWebsiteData->id)->count();
+                 $newWebsiteData->raw_data_number = RawPizza::where('website_id', $newWebsiteData->id)->count();
                  if ($newWebsiteData->raw_data_number - $newWebsiteData->oldPizzasCount > 0) {
                     $newWebsiteData['pieceDiferrence'] = "More pizza";
                  }elseif ($newWebsiteData->raw_data_number - $newWebsiteData->oldPizzasCount < 0) {
@@ -312,7 +325,8 @@ class LinksController extends Controller
             $this->sendEmail($newWebsitesData, $newPizzas, $priceChangedPizzas);
 
             //Lementi a pizzérákhoz a RawPizzak szamat
-            foreach ($websites as $website) {
+            $websitesData = Website::all();
+            foreach ($websitesData as $website) {
                 $website->raw_data_number =  RawPizza::where('website_id', $website->id)->count();
                 $website->save();
             }
@@ -334,7 +348,10 @@ class LinksController extends Controller
         //de ezt akár átlehet huzni valami pre processbe ha létezik
         $lamacunPizza = RawPizza::where('website_id', 27)
                         ->where('title', "Lamacun")->first();
-        $lamacunPizza->delete();
+
+        if ($lamacunPizza != null) {
+            $lamacunPizza->delete();
+        }
 
         return $pizzas;
     }
@@ -364,5 +381,68 @@ class LinksController extends Controller
         }
     }
 
+    public function banyaiPizzaFeltetLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'BanyaiCukraszdaFeltetUpdater']);
+    }
+
+    public function forzaitaliaPizzaLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'ForzaitaliaPizzaLoader']);
+}
+
+    public function happyhotPizzaLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'HappyHotPizzaLoader']);
+
+    }
+
+    public function pizzafaloPizzaLoad(){
+
+        \Artisan::call('db:seed',['--class' => 'PizzaFaloPizzaLoader']);
+    }
+
+    public function fortePizzaLoad(){
+        try {
+            $client = new GuzzleClient();
+            $request = $client->get('https://ted.pizzaforte.hu/product/pizzak/32-cm?lang=hu');
+            $response = $request->getBody();
+        } catch (\Exception $e) {
+            LogManager::shared()->addLog("Forte Pizzák lekérés error: " . $e);
+            return redirect()->route('links.index')
+                ->with('success','Pizza Forte pizzas failed.');
+        }
+
+        $jsonData = json_decode($response);
+
+        foreach ($jsonData as $pizzaData) {
+            $rawPizza = new RawPizza;
+
+            $rawPizza->title = $pizzaData->name;
+
+            $rawPizza->size = $pizzaData->size;
+
+            $rawPizza->price = $pizzaData->price;
+
+            $i = 0;
+            $feltetek = "";
+            foreach ($pizzaData->ingredients as $material) {
+                $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
+                $i++;
+            }
+
+            $rawPizza->content = $feltetek;
+
+            $rawPizza->image = "";
+
+            $rawPizza->source_link = "";
+
+            $rawPizza->category_id = 3;
+
+            $rawPizza->website_id = 28;
+
+            $rawPizza->save();
+        }
+    }
 
 }

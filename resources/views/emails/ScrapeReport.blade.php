@@ -3,13 +3,22 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <style>
             .red {
-                background-color: red;
+                background-color: #d9534f!important;
             }
             .blue{
-                background-color: lightskyblue;
+                background-color: #5bc0de;
             }
             .green{
-                background-color: greenyellow;
+                background-color: #5cb85c;
+            }
+            table {
+                border-collapse: collapse;
+            }
+
+            /* And this to your table's `td` elements. */
+            table td {
+                padding: 0;
+                margin: 0;
             }
         </style>
 
@@ -21,7 +30,7 @@
 
 
 <table style="width:100%;text-align:center;">
-    <h4>Pizzas by website: </h4>
+    <h3>Pizzas by website: </h3>
     <tr>
       <th style="width: 10%;">Id</th>
       <th  style="width: 30%;">Restaurant</th>
@@ -30,18 +39,18 @@
       <th style="width: 30%;">Change</th>
     </tr>
     @foreach ($newWebsitesData as $newWebsiteData)
-        <tr class="{{ $newWebsiteData->raw_data_number == 0 ? "red" : "" }}">
+        <tr class="{{ $newWebsiteData->pieceDiferrence == "More pizza" ||  $newWebsiteData->pieceDiferrence == "Less pizza"? "blue" : ""}} {{ $newWebsiteData->raw_data_number == 0 ? "red" : "" }}">
             <td style="width: 10%;">{{$newWebsiteData->id}}</td>
             <td style="width: 30%;">{{$newWebsiteData->title}}</td>
             <td style="width: 15%;">{{$newWebsiteData->raw_data_number}}</td>
             <td style="width: 15%;">{{$newWebsiteData->oldPizzasCount}}</td>
-            <td style="width: 30%;" class="{{ $newWebsiteData->pieceDiferrence == "More pizza" ||  $newWebsiteData->pieceDiferrence == "Less pizza"? "blue" : ""}}">{{ $newWebsiteData->pieceDiferrence }} <span style="font-size: 21px; font-weight: bold;">{{ $newWebsiteData->pieceDiferrence == "More pizza" ? "↑" : ""}}{{ $newWebsiteData->pieceDiferrence == "Less Pizza" ? "↓" : ""}}</span></td>
+            <td style="width: 30%;">{{ $newWebsiteData->pieceDiferrence }} <span style="font-size: 21px; font-weight: bold;">{{ $newWebsiteData->pieceDiferrence == "More pizza" ? "↑" : ""}}{{ $newWebsiteData->pieceDiferrence == "Less Pizza" ? "↓" : ""}}</span></td>
         </tr>
     @endforeach
   </table>
 
   <table style="width:100%;text-align:center;">
-    <h4>New pizzas: </h4>
+    <h3>New pizzas: </h3>
     <tr>
       <th style="width: 10%;">Id</th>
       <th style="width: 30%;">Title</th>
@@ -61,7 +70,7 @@
   </table>
 
   <table style="width:100%;text-align:center;">
-    <h4>Price changed Pizzas: </h4>
+    <h3>Price changed Pizzas: </h3>
     <tr>
       <th style="width: 10%;">Id</th>
       <th style="width: 30%;">Title</th>

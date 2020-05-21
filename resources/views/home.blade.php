@@ -161,7 +161,7 @@ PizzaPrices - Főoldal
                     <div class="ft-recipe">
                         <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center justify-content-center">
                             <object data="{{ url('/') }}/img/generated_feltetek/{{$pizza['pizzaAlias']['receptArray']}}.png" type="image/png" style="">
-                                <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+                                <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                             </object>
                         </div>
                         <div class="ft-recipe__content ">
