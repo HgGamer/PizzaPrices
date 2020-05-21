@@ -5,9 +5,8 @@ const fs = require('fs')
 
 let recept = (JSON.parse(process.argv[2].split("'").join("\"")));
 const out = fs.createWriteStream('../../public/img/generated_feltetek/'+JSON.stringify(JSON.parse(JSON.stringify(recept)).sort())+'.png');
-recept.unshift(319)
 async function drawCanvas(){
-    loadImage('../../public/img/generated_assets/'+318+'.png').then((image) => {
+    loadImage('../../public/img/generated_assets_defaults/default_base.png').then((image) => {
         ctx.drawImage(image, 0, 0, 800, 800);
     });
     recept.forEach(element => {

@@ -99,11 +99,11 @@
             <div class="col-12 col-xl-5">
                 <div class="card  shadow h-100 ">
                     <div class="card-header text-center">
-                        <H3 class="font-weight-bold">Sumething</H3>
+                        <H3 class="font-weight-bold">Warnings</H3>
                     </div>
                     <div class="card-body">
                       <div class="row align-items-center">
-
+                                40 pizzas has missing images.
                         </div>
                     </div>
                   </div>
