@@ -40,10 +40,9 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                             <h1 class="text-center">{{$pizza->name}}</h1>
                         </div>
                         <div class="col-lg-12 justify-content-center d-flex align-items-center pizzakep">
-                            <picture>
-                                <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                <img class=" img-fluid mx-auto d-block" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                            </picture>
+                            <object data="{{ url('/') }}/img/generated_feltetek/{{$pizza['recept_array']}}.png" type="image/png" style="">
+                                <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
+                            </object>
                         </div>
                     </div>
                 </div>

@@ -74,6 +74,8 @@ class PizzasController extends Controller
     public function show($id){
         $pizza = Pizza::where('id', $id)->first();
 
+        $pizza->recept_array = $pizza->recept;
+
         $receptekString = $pizza->recept;
 
         $materialObjects = $this->getMaterialObjects($receptekString);
@@ -125,8 +127,8 @@ class PizzasController extends Controller
         }
 
         //return $similarPizzasResult;
-        //return $pizza;
         //return $storeDatas;
+        //return $pizza;
 
         return view('pizza.show')->withDatas($storeDatas)->withPizza($pizza)->withSimilarPizzas($similarPizzasResult);
     }
