@@ -140,8 +140,16 @@ body.home{
     padding-bottom: 70px;
     height: 680px;
 }
-
-.banner_area{
+.webp .banner_area{
+    background: url("/img/pizza2.webp");
+    background-position: center;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding-bottom: 70px;
+    height: 350px;
+}
+.no-webp .banner_area{
     background: url("/img/pizza2.jpg");
     background-position: center;
     text-align: center;
