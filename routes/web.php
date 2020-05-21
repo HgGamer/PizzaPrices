@@ -28,7 +28,8 @@ Route::get('/pizzapicker', 'PizzaPickerController@index');
 
 Route::get('/pizza-details/{id}', 'HomeController@getPizzaDetails');
 Route::get('/category/{id}', 'HomeController@getCategory');
-Route::get('/error', 'HomeController@errorindex');
+Route::get('/tesztu', 'Admin\LinksController@sendEmail');
+Route::get('/report', 'Admin\LinksController@generateScrapeReport');
 
 Route::post('/feedback', 'HomeController@storeFeedback');
 

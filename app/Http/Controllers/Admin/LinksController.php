@@ -3,14 +3,19 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use Goutte\Client;
+use Illuminate\Http\Request;
 use App\Category;
 use App\ItemSchema;
 use App\Lib\Scraper;
 use App\Link;
 use App\Website;
-use Illuminate\Http\Request;
-use Goutte\Client;
 use App\RawPizza;
+use App\RawPizzaHistory;
+use Mail;
+use DB;
+
+use function PHPUnit\Framework\isNull;
 
 class LinksController extends Controller
 {
@@ -220,6 +225,101 @@ class LinksController extends Controller
         } else {
             return response()->json(['status' => 2, 'msg' => $scraper->status]);
         }
+    }
+
+    public function loadRawDataHistoryTable(){
+        RawPizzaHistory::truncate();
+        $rawPizzas = RawPizza::all();
+
+        foreach ($rawPizzas as $rawPizza) {
+            $rawPizzaHistory = New RawPizzaHistory();
+            $rawPizzaHistory->id = $rawPizza->id;
+            $rawPizzaHistory->title = $rawPizza->title;
+            $rawPizzaHistory->size = $rawPizza->size;
+            $rawPizzaHistory->price = $rawPizza->price;
+            $rawPizzaHistory->content = $rawPizza->content;
+            $rawPizzaHistory->image = $rawPizza->image;
+            $rawPizzaHistory->source_link = $rawPizza->source_link;
+            $rawPizzaHistory->category_id = $rawPizza->category_id;
+            $rawPizzaHistory->website_id = $rawPizza->website_id;
+            $rawPizzaHistory->created_at = $rawPizza->created_at;
+            $rawPizzaHistory->updated_at = $rawPizza->updated_at;
+            $rawPizzaHistory->save();
+        }
+
+        return 1;
+    }
+
+    public function sendEmail($newWebsitesData, $newPizzas, $priceChangedPizzas){
+        $userName = "";
+        $userName = auth()->user()->name;
+
+        if (!isNull($userName) || !isset($userName)){
+            $userName = "Pizza Prices Bot";
+        }
+
+        $to_name = "All admin";
+        $to_email = "korsos.tibor9b@gmail.com";
+        $data = array('name'=>$userName, 'newWebsitesData' => $newWebsitesData, 'newPizzas'=> $newPizzas, 'priceChangedPizzas' => $priceChangedPizzas);
+        Mail::send('emails.ScrapeReport', $data, function($message) use ($to_name, $to_email) {
+        $message->to($to_email, $to_name)
+        ->cc("chudi.richard@gmail.com", $to_name)
+        ->cc("sipos22@msn.com", $to_name)
+        ->subject("Scrape Report");
+        $message->from("pizzaprice11bot@gmail.com",'Jarvis');
+        });
+    }
+
+    public function generateScrapeReport(){
+            $newWebsitesData = Website::all();
+            foreach ($newWebsitesData as $newWebsiteData) {
+                 $newWebsiteData['oldPizzasCount'] = RawPizzaHistory::where('website_id', $newWebsiteData->id)->count();
+                 if ($newWebsiteData->raw_data_number - $newWebsiteData->oldPizzasCount > 0) {
+                    $newWebsiteData['pieceDiferrence'] = "More pizza";
+                 }elseif ($newWebsiteData->raw_data_number - $newWebsiteData->oldPizzasCount < 0) {
+                    $newWebsiteData['pieceDiferrence'] = "Less Pizza";
+                 }else{
+                    $newWebsiteData['pieceDiferrence'] = "No change";
+                 }
+
+            }
+
+           $rawPizzas = RawPizza::all();
+
+           $newPizzas = [];
+            $priceChangedPizzas = [];
+
+            $i = 0;
+            foreach ($rawPizzas as $rawPizza) {
+                $rawPizzaHistory =  RawPizzaHistory::where("website_id", $rawPizza->website_id)->where('title',$rawPizza->title)->where('size',$rawPizza->size)->first();
+                $website = Website::find($rawPizza->website_id);
+
+                if (isset($rawPizzaHistory)){
+                    if($rawPizzaHistory->price != $rawPizza->price){
+                        $priceChangedPizzas[$i] = $rawPizza;
+                        $priceChangedPizzas[$i]["websiteName"] = $website->title;
+                        $priceChangedPizzas[$i]["newPrice"] = $rawPizza->price;
+                        $priceChangedPizzas[$i]["oldPrice"] = $rawPizzaHistory->price;
+                        $priceChangedPizzas[$i]["priceDiferrence"] = $rawPizza->price - $rawPizzaHistory->price;
+                    }
+                }else{
+                    $rawPizza["websiteName"] = $website->title;
+                    $newPizzas[] = $rawPizza;
+                }
+                $i++;
+            }
+
+            $this->sendEmail($newWebsitesData, $newPizzas, $priceChangedPizzas);
+
+            //Lementi a pizzérákhoz a RawPizzak szamat
+            foreach ($websites as $website) {
+                $website->raw_data_number =  RawPizza::where('website_id', $website->id)->count();
+                $website->save();
+            }
+
+           $this->loadRawDataHistoryTable();
+
+            return "Siker";
     }
 
     public function sliceTrojaPizzaSizes(){
