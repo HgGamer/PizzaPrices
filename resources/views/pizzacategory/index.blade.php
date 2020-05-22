@@ -44,7 +44,7 @@ PizzaPrices - {{$categoryName}}
                     <div class="col-lg-3 col-md-6 col-sm-12 mt-5 mb-3">
 
                         <div class="ft-recipe-kicsi">
-                            <div class="ft-recipe__thumb text-center d-flex  align-items-center">
+                            <div class="ft-recipe__thumb text-center d-flex  align-items-center justify-content-center">
                                 <object data="{{ url('/') }}/img/generated_feltetek/{{$pizza['recept_array']}}.png" type="image/png" style="">
                                     <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                                 </object>
