@@ -2293,3 +2293,8 @@ body{
         height: 86px;
     }
 }
+
+.home-cards-pizza-title{
+    text-decoration: underline;
+    cursor: pointer;
+}
