@@ -95,6 +95,7 @@ PizzaPrices - Pizza Picker
 
         <div class="d-flex justify-content-center">
             <div class="col-4">
+                <!-- Copyright (c) 2020 by Patrick Stillhart (https://codepen.io/arcs/pen/pbPkPL) -->
                 <canvas id="picker-loader" style="display: none"></canvas>
             </div>
         </div>

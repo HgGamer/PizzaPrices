@@ -203,8 +203,10 @@ PizzaPrices - Főoldal
             @endforeach
             </div>
         </div>
+
         <div class="d-flex justify-content-center">
             <div class="col-4">
+                <!-- Copyright (c) 2020 by Patrick Stillhart (https://codepen.io/arcs/pen/pbPkPL) -->
                 <canvas id="feed-loader"></canvas>
             </div>
         </div>
