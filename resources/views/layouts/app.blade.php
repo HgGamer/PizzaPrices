@@ -15,12 +15,12 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-@if  (env('APP_DEBUG') == false)
-    <title>@yield('title')</title>
-@else
-<title>DEBUG:: @yield('title')</title>
-@endif
-    <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.webp') }}"/>
+    @if  (env('APP_DEBUG') == false)
+        <title>@yield('title')</title>
+    @else
+    <title>DEBUG:: @yield('title')</title>
+    @endif
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-96.png') }}"/>
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">

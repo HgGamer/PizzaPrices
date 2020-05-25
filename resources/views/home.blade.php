@@ -69,7 +69,7 @@ PizzaPrices - Főoldal
                     <div class="front d-flex">
                         <picture>
                             <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas..jpg') }}" alt="background">
+                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas..jpg') }}" alt="A hét pizzája kép">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
@@ -113,7 +113,7 @@ PizzaPrices - Főoldal
                     <div class="front d-flex">
                         <picture>
                             <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="A hónap pizzája">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
@@ -203,7 +203,13 @@ PizzaPrices - Főoldal
             @endforeach
             </div>
         </div>
-        <h3 id="feed-loader" class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
+        <div class="d-flex justify-content-center">
+            <div class="col-4">
+                <canvas id="feed-loader"></canvas>
+            </div>
+        </div>
+
+
 
     </div>
     <script>
@@ -216,8 +222,13 @@ PizzaPrices - Főoldal
         });
 
 
+        let pizza = new Pizza('feed-loader')
 
+        ;(function update() {
+        requestAnimationFrame(update)
+        pizza.update()
 
+        }())
 
     </script>
 @endsection
