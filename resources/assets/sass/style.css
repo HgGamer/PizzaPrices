@@ -1156,6 +1156,40 @@ nav > div a.nav-item.nav-link:focus
     font-size: 3.2rem;
     font-family: kreta;
 }
+.feltetekhet{
+    margin-top: 15px;
+    list-style-type: none;
+    padding-left: 0;
+}
+.feltetekhet li{
+    font-size: 2.7rem;
+    font-family: kreta;
+    color: white;
+}
+.feltetekkilenc{
+    margin-top: 70px;
+    list-style-type: none;
+    padding-left: 0;
+}
+.feltetekkilenc li{
+    font-size: 2.5rem;
+    font-family: kreta;
+    color: white;
+}
+.feltetekkilencplusz{
+    margin-top: 75px;
+    list-style-type: none;
+    padding-left: 0;
+}
+.feltetekkilencplusz li{
+    font-size: 2.3rem;
+    font-family: kreta;
+    color: white;
+}
+
+
+
+
 .pizzakep{
     position: relative;
 }
@@ -1964,6 +1998,24 @@ nav > div a.nav-item.nav-link:focus
     .feltetek li {
         font-size: 1.5rem;
     }
+    .feltetekhet{
+        margin-top: 30px;
+    }
+    .feltetekhet li{
+        font-size: 1.7rem;
+    }
+    .feltetekkilenc{
+        margin-top: 55px;
+    }
+    .feltetekkilenc li{
+        font-size: 1.3rem;
+    }
+    .feltetekkilencplusz{
+        margin-top: 55px;
+    }
+    .feltetekkilencplusz li{
+        font-size: 1.3rem;
+    }
     .bannerr_area{
         height: 480px;
     }
@@ -2045,6 +2097,24 @@ nav > div a.nav-item.nav-link:focus
     .feltetek li {
         font-size: 1.5rem;
     }
+    .feltetekhet {
+        margin-top: 40px;
+    }
+    .feltetekhet li{
+        font-size: 1.6rem;
+    }
+    .feltetekkilenc {
+        margin-top: 40px;
+    }
+    .feltetekkilenc li{
+        font-size: 1.4rem;
+    }
+    .feltetekkilencplusz{
+        margin-top: 45px;
+    }
+    .feltetekkilencplusz li{
+        font-size: 1.1rem;
+    }
     nav > div a.nav-item.nav-link, nav > div a.nav-item.nav-link.active {
         min-width: 300px;
     }
@@ -2102,6 +2172,25 @@ nav > div a.nav-item.nav-link:focus
     }
     .feltetek li {
         font-size: 1.1rem;
+    }
+    .feltetekhet{
+        margin-top: 15px;
+    }
+    .feltetekhet li{
+        font-size: 1.2rem;
+    }
+    .feltetekkilenc{
+        margin-top: 33px;
+    }
+    .feltetekkilenc li{
+        font-size: 1.0rem;
+    }
+    .feltetekkilencplusz{
+        margin-top: 35px;
+    }
+
+    .feltetekkilencplusz li{
+        font-size: 0.9rem;
     }
 }
 .text-capitalize{
@@ -2203,4 +2292,9 @@ body{
         width: 86px;
         height: 86px;
     }
+}
+
+.home-cards-pizza-title{
+    text-decoration: underline;
+    cursor: pointer;
 }

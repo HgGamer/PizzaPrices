@@ -53,11 +53,31 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                             <source srcset="{{ asset('img/tablaa.webp') }}" type="image/webp">
                             <img class="img-fluid mx-auto d-block" src="{{ asset('img/tablaa.png') }}" alt="tábla" />
                         </picture>
-                        <ul class="feltetek position-absolute">
+
+                        @php
+                            $feltetszam = count($pizza['recept']);
+                            $feltet = null;
+
+                            switch (true) {
+                                case $feltetszam < 7:
+                                    $feltet = 'feltetek';
+                                    break;
+                                case $feltetszam < 8:
+                                    $feltet = 'feltetekhet';
+                                    break;
+                                case $feltetszam < 11:
+                                    $feltet = 'feltetekkilenc';
+                                    break;
+                                case $feltetszam > 10:
+                                    $feltet = 'feltetekkilencplusz';
+                                    break;
+                            }
+                        @endphp
+
+                        <ul class="{{$feltet}} position-absolute">
                             @foreach ($pizza['recept'] as $recept)
                              <li>{{ $recept }}</li>
                             @endforeach
-
                         </ul>
                     </div>
                 </div>

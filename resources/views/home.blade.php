@@ -68,25 +68,28 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                            <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas..jpg') }}" alt="background">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
-                                Húsimádó Pizza
+                                <Span class="text-capitalize">{{ $weekPizza['pizza']['name'] }}</Span> Pizza
                             </h3>
                         </div>
                     </div>
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3>Húsimádó Pizza</h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($weekPizza['url'] != "") ? $weekPizza['url'] : $weekPizza['website']['url'] }}" target="_blank">{{ $weekPizza['pizza']['name'] }} Pizza</a></h3>
                                 <br><br>
-                                <span>Kerekerdő Pizzéria</span>
-                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
+                                <span>{{ $weekPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
-                                    <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
+                                    <p>
+                                        @foreach ($weekPizza['recept'] as $key => $recept)
+                                            {{ $recept }}@if ($key != count($weekPizza['recept'])-1), @endif
+                                        @endforeach
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -114,20 +117,23 @@ PizzaPrices - Főoldal
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
-                                Húsimádó Pizza
+                                <Span class="text-capitalize">{{ $monthPizza['pizza']['name'] }}</Span> Pizza
                             </h3>
                         </div>
                     </div>
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3>Húsimádó Pizza</h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($monthPizza['url'] != "") ? $monthPizza['url'] : $monthPizza['website']['url'] }}" target="_blank">{{ $monthPizza['pizza']['name'] }} Pizza </a></h3>
                                 <br><br>
-                                <span>Kerekerdő Pizzéria</span>
-                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
+                                <span>{{ $monthPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
-                                    <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
+                                    <p>
+                                        @foreach ($monthPizza['recept'] as $key => $recept)
+                                        {{ $recept }}@if ($key != count($monthPizza['recept'])-1), @endif
+                                        @endforeach
+                                    </p>
                                 </div>
                             </div>
                         </div>
