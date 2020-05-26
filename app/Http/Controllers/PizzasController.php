@@ -11,6 +11,8 @@ use App\Helper\LogManager;
 use App\PizzaCategory;
 use App\Material;
 use DB;
+use  App\PizzaAlias;
+use  App\MaterialAlias;
 
 class PizzasController extends Controller
 {
@@ -293,5 +295,41 @@ class PizzasController extends Controller
 
         return response($storeDatas, 200);
     }
+
+   public function pizzaSearch(Request $request){
+
+       $searchpizza = $request['q'];
+       $pizzas = Pizza::all();
+       $shortest = -1;
+
+       foreach ($pizzas as $pizza) {
+           $lev = levenshtein($searchpizza, $pizza['name']);
+
+           if ($lev == 0) {
+               $closest = $pizza;
+               $shortest = 0;
+               break;
+           }
+           if ($lev <= $shortest || $shortest < 0) {
+               $closest  = $pizza;
+               $shortest = $lev;
+           }
+       }
+
+       foreach ($closest->storeDatas as $data){
+           $data->website;
+       }
+
+       $receptekString = $closest->recept;
+
+       $materialObjects = $this->getMaterialObjects($receptekString);
+
+       $closest->recept = $this->orderMaterialObjects($materialObjects);
+
+
+
+
+       return response($closest, 200);
+   }
 
 }
