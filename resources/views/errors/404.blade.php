@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>PizzaPrices</title>
-    <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.webp') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-96.png') }}"/>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

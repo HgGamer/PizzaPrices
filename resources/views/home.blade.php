@@ -68,25 +68,28 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                            <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas..jpg') }}" alt="A hét pizzája kép">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
-                                Húsimádó Pizza
+                                <Span class="text-capitalize">{{ $weekPizza['pizza']['name'] }}</Span> Pizza
                             </h3>
                         </div>
                     </div>
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3>Húsimádó Pizza</h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($weekPizza['url'] != "") ? $weekPizza['url'] : $weekPizza['website']['url'] }}" target="_blank">{{ $weekPizza['pizza']['name'] }} Pizza</a></h3>
                                 <br><br>
-                                <span>Kerekerdő Pizzéria</span>
-                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
+                                <span>{{ $weekPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
-                                    <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
+                                    <p>
+                                        @foreach ($weekPizza['recept'] as $key => $recept)
+                                            {{ $recept }}@if ($key != count($weekPizza['recept'])-1), @endif
+                                        @endforeach
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -110,24 +113,27 @@ PizzaPrices - Főoldal
                     <div class="front d-flex">
                         <picture>
                             <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="A hónap pizzája">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
-                                Húsimádó Pizza
+                                <Span class="text-capitalize">{{ $monthPizza['pizza']['name'] }}</Span> Pizza
                             </h3>
                         </div>
                     </div>
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3>Húsimádó Pizza</h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($monthPizza['url'] != "") ? $monthPizza['url'] : $monthPizza['website']['url'] }}" target="_blank">{{ $monthPizza['pizza']['name'] }} Pizza </a></h3>
                                 <br><br>
-                                <span>Kerekerdő Pizzéria</span>
-                                <h3 style="text-decoration: underline"><a href="">kerekerdopizzeria.hu</a></h3>
+                                <span>{{ $monthPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
                                     <h4>Hozzávalók:</h4>
-                                    <p>paradicsomos alap, sajt, húshegyek, kukorica</p>
+                                    <p>
+                                        @foreach ($monthPizza['recept'] as $key => $recept)
+                                        {{ $recept }}@if ($key != count($monthPizza['recept'])-1), @endif
+                                        @endforeach
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -197,7 +203,15 @@ PizzaPrices - Főoldal
             @endforeach
             </div>
         </div>
-        <h3 id="feed-loader" class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
+
+        <div class="d-flex justify-content-center">
+            <div class="col-4">
+                <!-- Copyright (c) 2020 by Patrick Stillhart (https://codepen.io/arcs/pen/pbPkPL) -->
+                <canvas id="feed-loader"></canvas>
+            </div>
+        </div>
+
+
 
     </div>
     <script>
@@ -210,8 +224,13 @@ PizzaPrices - Főoldal
         });
 
 
+        let pizza = new Pizza('feed-loader')
 
+        ;(function update() {
+        requestAnimationFrame(update)
+        pizza.update()
 
+        }())
 
     </script>
 @endsection

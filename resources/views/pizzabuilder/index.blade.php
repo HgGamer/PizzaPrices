@@ -63,7 +63,7 @@ PizzaPrices - Pizza Picker
                 </nav>
                 <div class="ft-recipe-picker pickerjobb">
                     <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
+                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
                     </div>
                     <div class="ft-recipe__contento">
                         <header class="content__header">
@@ -92,10 +92,13 @@ PizzaPrices - Pizza Picker
 
     <div class="container">
 
-        <div id="picker-loader" class="col-12" style="display: none">
-            <h3 class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
-        </div>
 
+        <div class="d-flex justify-content-center">
+            <div class="col-4">
+                <!-- Copyright (c) 2020 by Patrick Stillhart (https://codepen.io/arcs/pen/pbPkPL) -->
+                <canvas id="picker-loader" style="display: none"></canvas>
+            </div>
+        </div>
         <div class="row justify-content-between nopizza" id="resultContainer">
 
 
@@ -321,7 +324,13 @@ PizzaPrices - Pizza Picker
             return false;
         }
 
+        let pizza = new Pizza('picker-loader')
 
+        ;(function update() {
+        requestAnimationFrame(update)
+        pizza.update()
+
+        }())
 
     </script>
 
