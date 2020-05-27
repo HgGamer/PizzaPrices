@@ -326,10 +326,12 @@ class PizzasController extends Controller
 
        $closest->recept = $this->orderMaterialObjects($materialObjects);
 
+       $closestArray = [];
+       
+       $closestArray[] = $closest;
+        
 
-
-
-       return response($closest, 200);
+       return response($closestArray, 200);
    }
 
 }

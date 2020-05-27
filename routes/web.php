@@ -40,7 +40,7 @@ Route::prefix('api')->group(function () {
     Route::get('/pizza_categories', 'PizzaCategoryController@getAllCategories');
     Route::get('/pizzas_by_category_id/{id}', 'PizzasController@pizzasByCategoryId');
     Route::get('/pizzas_by_id/{id}', 'PizzasController@pizzasById');
-    Route::post('/pizzasearch', 'PizzasController@pizzaSearch');
+    Route::get('/pizzasearch', 'PizzasController@pizzaSearch');
 });
 
 
