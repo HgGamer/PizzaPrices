@@ -1559,7 +1559,21 @@ nav > div a.nav-item.nav-link:focus
     left:10%;
 }
 
+@media (min-width: 2400px){
+    .szeged {
+        left: 56%;
+        top: 59%;
+    }
+    .bp {
+        left: 41%;
+        top: 41%;
+    }
+    .debrecen{
+        left: 77%;
+        top: 41%;
+    }
 
+}
 @media only screen and (max-width: 767px) {
     .notfound .notfound-404 {
         height: 115px;
