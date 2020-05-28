@@ -18,7 +18,9 @@
 
     function logEvt(e) {console.log( e + 'penisz')}
     var obj = document.getElementById('obj');
+    obj.onerror = () => {   console.log('fasffasfzfaszfaszfaszfsa')};
 
+    obj.addEventListener(   'error',   console.log('gecifasz'));
 
 
 
