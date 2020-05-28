@@ -99,21 +99,32 @@ class PizzasController extends Controller
             }
         }
 
-        $similarPizzasCount = Pizza::Where("category_id", $pizza->category_id)
+        $similarPizzasCount =  DB::table('store_data')
+        ->join('pizza_pizzas', 'store_data.pizzaid', '=', 'pizza_pizzas.id')
+        ->select('*')
+        ->Where("category_id", $pizza->category_id)
         ->orWhere("category_id", $pizza->category_id)
-        ->  orWhere("category_id", $pizza->category_id)
+        ->orWhere("category_id", $pizza->category_id)
         ->count();
 
         if($similarPizzasCount <9){
-            $similarPizzas = Pizza::Where("category_id", $pizza->category_id)
+            $similarPizzas = DB::table('store_data')
+            ->join('pizza_pizzas', 'store_data.pizzaid', '=', 'pizza_pizzas.id')
+            ->join('website', 'store_data.websiteid', '=', 'website.id')
+            ->select('*', 'store_data.url as pizzaurl')
+            ->Where("category_id", $pizza->category_id)
             ->orWhere("category_id", $pizza->category_id)
-            ->  orWhere("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
             ->get()
             ->random($similarPizzasCount);
         }else{
-            $similarPizzas = Pizza::Where("category_id", $pizza->category_id)
+            $similarPizzas = DB::table('store_data')
+            ->join('pizza_pizzas', 'store_data.pizzaid', '=', 'pizza_pizzas.id')
+            ->join('website', 'store_data.websiteid', '=', 'website.id')
+            ->select('*', 'store_data.url as pizzaurl')
+            ->Where("category_id", $pizza->category_id)
             ->orWhere("category_id", $pizza->category_id)
-            ->  orWhere("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
             ->get()
             ->random(9);
         }
@@ -121,14 +132,14 @@ class PizzasController extends Controller
         $similarPizzasResult = [];
 
         foreach ($similarPizzas as $similarPizza) {
+            $similarPizza->recept_array = $similarPizza->recept;
             $receptekString = $similarPizza->recept;
             $materialObjects = $this->getMaterialObjects($receptekString);
             $similarPizza->recept = $this->orderMaterialObjects($materialObjects);
-            $similarPizza->storeDatas;
             $similarPizzasResult[] = $similarPizza;
         }
 
-        //return $similarPizzasResult;
+        return $similarPizzasResult;
         //return $storeDatas;
         //return $pizza;
 
@@ -327,9 +338,9 @@ class PizzasController extends Controller
        $closest->recept = $this->orderMaterialObjects($materialObjects);
 
        $closestArray = [];
-       
+
        $closestArray[] = $closest;
-        
+
 
        return response($closestArray, 200);
    }
