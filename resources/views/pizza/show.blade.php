@@ -136,7 +136,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                     </div>
                 </div>
 
-                text-transform: capitalize;
+
 
                 <div class="container text-center my-3">
                     <div class="row mx-auto my-auto">
@@ -147,10 +147,12 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                 @foreach ($similarPizzas as $similarPizza)
                                     <div class="carousel-item {{ $i == 0 ? "active" : ""}}">
                                         <div class="col-md-4">
-                                            <div class="card ft-recipe-kicsii justify-content-center">
-                                                <object data="{{ url('/') }}/img/generated_feltetek/{{$similarPizza->recept_array}}.png" type="image/png" style="">
-                                                    <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
-                                                </object>
+                                            <div class="card ft-recipe-kicsii">
+                                                <div class="ft-recipe__thumb text-center d-flex  align-items-center justify-content-center">
+                                                    <object data="{{ url('/') }}/img/generated_feltetek/{{$similarPizza->recept_array}}.png" type="image/png" style="">
+                                                        <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
+                                                    </object>
+                                                </div>
                                                 <div class="card-body ft-recipe__contento">
                                                     <header class="content__header">
                                                         <div class="row-wrapper text-center">
@@ -162,14 +164,14 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                                             <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">{{$similarPizza->price}}</span></li>
                                                         </ul>
                                                     </header>
-                                                    <h4 class="text-center font-weight-bold"><a href="">{{$similarPizza->title}}</a></h4>
+                                                    <h4 class="text-center font-weight-bold"><a target="_blank" href="{{$similarPizza->url}}">{{$similarPizza->title}}</a></h4>
                                                     <h4>Feltétek:</h4>
                                                     <p class="description">
                                                         @foreach($similarPizza->recept as $key => $feltet)
                                                             {{ $feltet }}@if ($key != count($similarPizza->recept)-1), @endif
                                                         @endforeach
                                                     </p>
-                                                    <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
+                                                    <footer class="content__footer align-self-end "><a target="_blank" href="{{ ($similarPizza->pizzaurl != "") ? $similarPizza->pizzaurl : $similarPizza->url }}">Részletek</a></footer>
                                                 </div>
                                             </div>
                                         </div>
