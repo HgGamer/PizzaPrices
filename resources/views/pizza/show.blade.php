@@ -136,6 +136,8 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                     </div>
                 </div>
 
+                text-transform: capitalize;
+
                 <div class="container text-center my-3">
                     <div class="row mx-auto my-auto">
                         <div id="recipeCarousel" class="carousel w-100 " data-ride="carousel">
@@ -146,25 +148,26 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                     <div class="carousel-item {{ $i == 0 ? "active" : ""}}">
                                         <div class="col-md-4">
                                             <div class="card ft-recipe-kicsii">
-                                                <picture>
-                                                    <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                                    <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                                </picture>
+                                                <object data="{{ url('/') }}/img/generated_feltetek/{{$similarPizza['recept_array']}}.png" type="image/png" style="">
+                                                    <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
+                                                </object>
                                                 <div class="card-body ft-recipe__contento">
                                                     <header class="content__header">
                                                         <div class="row-wrapper text-center">
-                                                            <h3 class="recipe-title feed-tile-name">{{$similarPizza->name}} - {{ $i }}</h3>
+                                                            <h3 class="recipe-title feed-tile-name">{{$similarPizza->name}}</h3>
                                                             <div class="user-rating"></div>
                                                         </div>
                                                         <ul class="recipe-details">
-                                                            <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                            <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
+                                                            <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">{{$similarPizza->pizzasize}}</span></li>
+                                                            <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">{{$similarPizza->price}}</span></li>
                                                         </ul>
                                                     </header>
                                                     <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
                                                     <h4>Feltétek:</h4>
                                                     <p class="description">
-                                                        asd asd asd asd asd
+                                                        @foreach($similarPizza['recept'] as $key => $feltet)
+                                                            {{ $feltet }}@if ($key != count($similarPizza['recept'])-1), @endif
+                                                        @endforeach
                                                     </p>
                                                     <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
                                                 </div>
