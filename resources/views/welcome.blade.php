@@ -64,7 +64,7 @@
                 </button>
             </div>
             <div class="card-body">
-            <p class="card-text">A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.</p>
+            <p class="card-text">A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kínálatát.</p>
             </div>
         </div>
     </div>
