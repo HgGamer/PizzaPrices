@@ -139,7 +139,7 @@ class PizzasController extends Controller
             $similarPizzasResult[] = $similarPizza;
         }
 
-        return $similarPizzasResult;
+        //return $similarPizzasResult;
         //return $storeDatas;
         //return $pizza;
 
