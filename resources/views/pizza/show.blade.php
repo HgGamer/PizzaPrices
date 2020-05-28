@@ -3,13 +3,6 @@
 PizzaPrices - {{ ucfirst ($pizza->name) }}
 @endsection
 @section('content')
-    <head>
-        <style>
-
-
-
-        </style>
-    </head>
     <div class="bg">
         <div class="container-fluid">
             <div class="row">
@@ -108,31 +101,28 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
 
                 <div class="ElScrolllolloo">
-
-
-                <ul class="responsive-table">
-                    <li class="table-header">
-                        <div class="col col-3">Pizza Neve</div>
-                        <div class="col col-3">Pizzéria Neve</div>
-                        <div class="col col-1">Méret</div>
-                        <div class="col col-2">Ár</div>
-                        <div class="col col-3">Ugrás a Pizzériához</div>
-                    </li>
-                    @foreach ($datas as $data)
-                    <li class="table-row" data-id="{{ $data['id'] }}">
-                        <div class="col col-3 text-capitalize" data-label="Pizza Neve">{{$data['pizzaAlias']['name']}}</div>
-                        <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
-                        <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
-                        <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>
-                        <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" target="_blank">Ugrás a Pizzériához</a></footer></div>
-                    </li>
-                    @endforeach
-                </ul>
+                    <ul class="responsive-table">
+                        <li class="table-header">
+                            <div class="col col-3">Pizza Neve</div>
+                            <div class="col col-3">Pizzéria Neve</div>
+                            <div class="col col-1">Méret</div>
+                            <div class="col col-2">Ár</div>
+                            <div class="col col-3">Ugrás a Pizzériához</div>
+                        </li>
+                        @foreach ($datas as $data)
+                        <li class="table-row" data-id="{{ $data['id'] }}">
+                            <div class="col col-3 text-capitalize" data-label="Pizza Neve">{{$data['pizzaAlias']['name']}}</div>
+                            <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
+                            <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
+                            <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>
+                            <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" target="_blank">Ugrás a Pizzériához</a></footer></div>
+                        </li>
+                        @endforeach
+                    </ul>
                 </div>
-
             </section>
 
-            <section class="datatable">
+            <section class="datatable mb-5">
                 <div class="pizzacim text-center mt-5 mb-3">
                     <h2>
                         Hasonló Pizzák
@@ -146,273 +136,87 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                     </div>
                 </div>
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
+                <div class="container text-center my-3">
+                    <div class="row mx-auto my-auto">
+                        <div id="recipeCarousel" class="carousel w-100 " data-ride="carousel">
+                            <div class="carousel-inner w-100" role="listbox">
+
+                                @php $i = 0  @endphp
+                                @foreach ($similarPizzas as $similarPizza)
+                                    <div class="carousel-item {{ $i == 0 ? "active" : ""}}">
+                                        <div class="col-md-4">
+                                            <div class="card ft-recipe-kicsii">
+                                                <picture>
+                                                    <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
+                                                    <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
+                                                </picture>
+                                                <div class="card-body ft-recipe__contento">
+                                                    <header class="content__header">
+                                                        <div class="row-wrapper text-center">
+                                                            <h3 class="recipe-title feed-tile-name">{{$similarPizza->name}} - {{ $i }}</h3>
+                                                            <div class="user-rating"></div>
+                                                        </div>
+                                                        <ul class="recipe-details">
+                                                            <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
+                                                            <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
+                                                        </ul>
+                                                    </header>
+                                                    <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
+                                                    <h4>Feltétek:</h4>
+                                                    <p class="description">
+                                                        asd asd asd asd asd
+                                                    </p>
+                                                    <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
+                                                </div>
                                             </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
+                                        </div>
                                     </div>
-                                </div>
+                                    @php $i++; @endphp
+                                @endforeach
+
+
                             </div>
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="card ft-recipe-kicsii">
-                                    <picture>
-                                        <source srcset="{{ asset('img/pizzapop.webp') }}" type="image/webp">
-                                        <img class="card-img-top hatter" src="{{ asset('img/pizzapop.png') }}" alt="pizza"/>
-                                    </picture>
-                                    <div class="card-body ft-recipe__contento">
-                                        <header class="content__header">
-                                            <div class="row-wrapper text-center">
-                                                <h3 class="recipe-title feed-tile-name"></h3>
-                                                <div class="user-rating"></div>
-                                            </div>
-                                            <ul class="recipe-details">
-                                                <li class="recipe-details-item time" data-toggle="tooltip" data-placement="top" title="Cm"><i class="fas fa-ruler-horizontal"></i></i><span class="value">28</span></li>
-                                                <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">1000</span></li>
-                                            </ul>
-                                        </header>
-                                        <h4 class="text-center font-weight-bold"><a href="">Kerekerdő Pizzéria</a></h4>
-                                        <h4>Feltétek:</h4>
-                                        <p class="description">
-                                            asd asd asd asd asd
-                                        </p>
-                                        <footer class="content__footer align-self-end "><a href="/pizza">Részletek</a></footer>
-                                    </div>
-                                </div>
-                            </div>
+                            <a class="carousel-control-prev w-auto" href="#recipeCarousel" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next w-auto" href="#recipeCarousel" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon bg-dark border border-dark rounded-circle" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
                         </div>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
                 </div>
 
 
-
-
             </section>
-
-
+        </div>
 
 
     </div>
 
 
 <script>
+    $('#recipeCarousel').carousel({
+    });
 
-    $('.carousel').carousel();
+    $('.carousel .carousel-item').each(function(){
+        var minPerSlide = 3;
+        var next = $(this).next();
+        if (!next.length) {
+            next = $(this).siblings(':first');
+        }
+        next.children(':first-child').clone().appendTo($(this));
+
+        for (var i=0;i<minPerSlide;i++) {
+            next=next.next();
+            if (!next.length) {
+                next = $(this).siblings(':first');
+            }
+
+            next.children(':first-child').clone().appendTo($(this));
+        }
+    });
 
 
 </script>
