@@ -1925,6 +1925,12 @@ nav > div a.nav-item.nav-link:focus
     .pizzanev {
         padding-top: 120px;
     }
+    .ft-recipe-kicsii .ft-recipe__thumb object{
+        width: 55% !important;
+    }
+    .ft-recipe-kicsii .ft-recipe__thumb object img{
+        width: 105% !important;
+    }
 
 }
 @media (max-width: 767px) {

@@ -203,6 +203,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
 <script>
     $('#recipeCarousel').carousel({
+        interval: 10000
     });
 
     $('.carousel .carousel-item').each(function(){
