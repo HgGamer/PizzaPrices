@@ -51,10 +51,10 @@
     Header append Vary User-Agent
   </IfModule>
 
-<FilesMatch "\.(jpg|webp|gif|jpeg)$">
+<FilesMatch "\.(jpg|webp|gif|jpeg$">
 Header set Cache-Control "public, max-age=2592000"
 </FilesMatch>
-<FilesMatch "\.(png)$">
+<FilesMatch "\.(png|js|css))$">
 Header set Cache-Control "public, max-age=86400"
 </FilesMatch>
 # END Expire headers
