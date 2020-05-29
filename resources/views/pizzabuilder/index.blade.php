@@ -102,7 +102,7 @@ PizzaPrices - Pizza Picker
                 <canvas id="picker-loader" style="display: none"></canvas>
             </div>
         </div>
-        <div class="row justify-content-between nopizza" id="resultContainer">
+        <div class="row justify-content-around nopizza" id="resultContainer">
 
 
         </div>
@@ -205,9 +205,15 @@ PizzaPrices - Pizza Picker
                 li.remove();
 
             }else {
-                if (isBaseMaterialAlreadyPicked(materialId)) {
-                    return
+                isBaseMaterialAlreadyPicked(materialId);
+
+                 if (materials.length > 9) {
+                    document.getElementById('error-tag').innerHTML = 'Legfeljebb 10 feltét kiválasztása lehetséges';
+                    document.getElementById('error-tag').style.display = 'inline';
+                    return;
                 }
+
+                document.getElementById('error-tag').style.display = 'none';
 
                 $("#material-"+materialId).addClass('kivanvalasztva');
 
@@ -251,7 +257,7 @@ PizzaPrices - Pizza Picker
             var resultContainer = document.querySelector("#resultContainer")
 
             var pizzaList = document.createElement("div");
-            pizzaList.setAttribute('class', 'row justify-content-between')
+            pizzaList.setAttribute('class', 'row justify-content-around')
 
             var isYellow = true;
             for (let i = 0; i < items.length; i++) {
@@ -317,16 +323,29 @@ PizzaPrices - Pizza Picker
         baseMaterials = @JSON($baseMaterialIds);
         function isBaseMaterialAlreadyPicked(materialId){
 
-            if(baseMaterials.includes(materialId) && baseMaterialPicked){
-                console.log("Alrdy picked")
-                return true;
-            }else{
-                console.log("Not yet picked")
-                baseMaterialPicked = true;
-                pickedBaseMaterialId = materialId
+            if(baseMaterials.includes(materialId)){
+
+                if(baseMaterialPicked){
+                    $("#material-" + pickedBaseMaterialId).toggleClass('kivanvalasztva');
+                    var li = document.getElementById('active-material-' + pickedBaseMaterialId);
+                    li.remove();
+
+                    const index = materials.indexOf(pickedBaseMaterialId);
+                    if (index > -1) {
+                        materials.splice(index, 1);
+                    }
+
+                    pickedBaseMaterialId = materialId
+
+                    console.log("Alrdy picked")
+                }else{
+                    console.log("Not yet picked")
+                    baseMaterialPicked = true;
+                    pickedBaseMaterialId = materialId
+                }
+
             }
 
-            return false;
         }
 
         let pizza = new Pizza('picker-loader')
