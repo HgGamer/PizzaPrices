@@ -2138,14 +2138,12 @@ nav > div a.nav-item.nav-link:focus
         background: url(/img/bg.webp);
         background-repeat: no-repeat;
         background-attachment: fixed;
-        overflow: hidden;
         height: 100vh;
     }
     .no-webp .bg {
         background: url(/img/bg.webp);
         background-repeat: no-repeat;
         background-attachment: fixed;
-        overflow: hidden;
         height: 100vh;
     }
 }
