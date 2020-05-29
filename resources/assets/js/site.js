@@ -205,7 +205,7 @@ function addNextItems(items){
 
                    &#32;
                 </p>
-                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['url'] != "") ? items[i]['url'] : items[i]['website']['url'] }" target="_blank">Részletek</a></footer>
+                <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['url'] != "") ? items[i]['url'] : items[i]['website']['url'] }" target="_blank" rel="noopener">Részletek</a></footer>
             </div>
         </div>
         `;
