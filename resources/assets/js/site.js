@@ -408,7 +408,7 @@ let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform 
 let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
 if (isIOS || isSafari){
-
+    console.log("iOS supp if")
     var objectsArray = document.getElementsByClassName('generated-image');
         if(objectsArray.length > 0){
             Array.prototype.forEach.call(objectsArray, function(el) {
@@ -417,4 +417,6 @@ if (isIOS || isSafari){
         });
     }
 
+}else{
+    console.log("Nem ios")
 }
