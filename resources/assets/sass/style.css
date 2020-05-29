@@ -1919,6 +1919,9 @@ nav > div a.nav-item.nav-link:focus
         background-attachment: fixed;
         height: 100vh;
     }
+
+}
+@media screen and (max-width: 768px) and (min-width: 768px) {
     .ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title {
         font-weight: 300;
         font-family: panpizza;
@@ -1937,8 +1940,6 @@ nav > div a.nav-item.nav-link:focus
     .ft-recipe-kicsii .ft-recipe__contento .description {
         min-height: 120px;
     }
-
-
 }
 @media (min-width: 767px) {
 
