@@ -44,6 +44,9 @@
     AddOutputFilterByType DEFLATE text/javascript
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/xml
+
+  </IfModule>
+  <IfModule mod_expires.c>
     ExpiresByType image/gif       86400
     ExpiresByType image/png       86400
     ExpiresByType image/jpg       86400
