@@ -12,7 +12,7 @@ PizzaPrices - Pizza Picker
         </ol>
     </section>
 
-    <div class="container-fluid">
+    <div class="container-fluid pickercontainer">
         <h1 class="nincshteg">Pizza Picker</h1>
 
             <div class="row">
