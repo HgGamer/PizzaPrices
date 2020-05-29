@@ -262,8 +262,10 @@ PizzaPrices - Pizza Picker
 
                 item.innerHTML = `
                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+                    <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex justify-content-center align-items-center">
+                        <object data="${items[i]['generatedURL'] }" type="image/png" style="">
+                            <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+                        </object>
                     </div>
                     <div class="ft-recipe__content ">
                         <header class="content__header">
@@ -275,7 +277,7 @@ PizzaPrices - Pizza Picker
                                 <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
                             </ul>
                         </header>
-                        <h4 class="text-center font-weight-bold"> <a href="${ items[i]['websiteUrl'] }"> ${items[i]['title']} </a> </h4>
+                        <h4 class="text-center font-weight-bold"> <a href="${ items[i]['websiteUrl'] }" target="_blank"> ${items[i]['title']} </a> </h4>
                         <h4>Feltétek:</h4>
                         <p class="description">
                          ${items[i]['recept'].map(function (feltet, i, arr) {
@@ -290,7 +292,7 @@ PizzaPrices - Pizza Picker
 
                            &#32;
                         </p>
-                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }">Részletek</a></footer>
+                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }" target="_blank">Részletek</a></footer>
                     </div>
                 </div>
                 `;
