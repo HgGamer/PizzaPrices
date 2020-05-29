@@ -80,7 +80,7 @@ PizzaPrices - Főoldal
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($weekPizza['url'] != "") ? $weekPizza['url'] : $weekPizza['website']['url'] }}" target="_blank">{{ $weekPizza['pizza']['name'] }} Pizza</a></h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($weekPizza['url'] != "") ? $weekPizza['url'] : $weekPizza['website']['url'] }}" rel="noopener" target="_blank">{{ $weekPizza['pizza']['name'] }} Pizza</a></h3>
                                 <br><br>
                                 <span>{{ $weekPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
@@ -124,7 +124,7 @@ PizzaPrices - Főoldal
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($monthPizza['url'] != "") ? $monthPizza['url'] : $monthPizza['website']['url'] }}" target="_blank">{{ $monthPizza['pizza']['name'] }} Pizza </a></h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($monthPizza['url'] != "") ? $monthPizza['url'] : $monthPizza['website']['url'] }}" rel="noopener" target="_blank">{{ $monthPizza['pizza']['name'] }} Pizza </a></h3>
                                 <br><br>
                                 <span>{{ $monthPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
@@ -187,7 +187,7 @@ PizzaPrices - Főoldal
                                     {{ $recept }}@if ($key != count($pizza['pizzaAlias']['recept'])-1), @endif
                                 @endforeach
                             </p>
-                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}" target="_blank">Részletek</a></footer>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}" rel="noopener" target="_blank">Részletek</a></footer>
                         </div>
                     </div>
                 </div>

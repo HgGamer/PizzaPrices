@@ -121,7 +121,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                             <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
                             <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
                             <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>
-                            <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" target="_blank">Ugrás a Pizzériához</a></footer></div>
+                            <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></div>
                         </li>
                         @endforeach
                     </ul>
@@ -178,14 +178,14 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                                             <li class="recipe-details-item ingredients" data-toggle="tooltip" data-placement="top" title="HUF"><i class="fas fa-coins"></i><span class="value">{{$similarPizza->price}}</span></li>
                                                         </ul>
                                                     </header>
-                                                    <h4 class="text-center font-weight-bold"><a target="_blank" href="{{$similarPizza->url}}">{{$similarPizza->title}}</a></h4>
+                                                    <h4 class="text-center font-weight-bold"><a rel="noopener" target="_blank" href="{{$similarPizza->url}}">{{$similarPizza->title}}</a></h4>
                                                     <h4>Feltétek:</h4>
                                                     <p class="description">
                                                         @foreach($similarPizza->recept as $key => $feltet)
                                                             {{ $feltet }}@if ($key != count($similarPizza->recept)-1), @endif
                                                         @endforeach
                                                     </p>
-                                                    <footer class="content__footer align-self-end "><a target="_blank" href="{{ ($similarPizza->pizzaurl != "") ? $similarPizza->pizzaurl : $similarPizza->url }}">Részletek</a></footer>
+                                                    <footer class="content__footer align-self-end "><a rel="noopener" target="_blank" href="{{ ($similarPizza->pizzaurl != "") ? $similarPizza->pizzaurl : $similarPizza->url }}">Részletek</a></footer>
                                                 </div>
                                             </div>
                                         </div>
