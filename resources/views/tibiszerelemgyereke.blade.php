@@ -22,8 +22,10 @@
     //
 
     let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+    let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 
-    if (isIOS){
+
+    if (isIOS || isSafari){
         console.log("IOS PASZTMEK")
         obj.addEventListener(   'error',   loadFallBack());
     }else{
