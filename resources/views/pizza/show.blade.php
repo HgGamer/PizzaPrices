@@ -167,8 +167,10 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                                 </div>
                                                 <div class="card-body ft-recipe__contento">
                                                     <header class="content__header">
-                                                        <div class="row-wrapper text-center">
-                                                            <h3 class="recipe-title feed-tile-name">{{$similarPizza->name}}</h3>
+                                                        <div class="row-wrapper text-center d-flex">
+                                                            <div class="justify-content-center recipejustify" style="width: 100%">
+                                                                <h3 class="recipe-title feed-tile-name"><span>{{$similarPizza->name}}</span></h3>
+                                                            </div>
                                                             <div class="user-rating"></div>
                                                         </div>
                                                         <ul class="recipe-details">
