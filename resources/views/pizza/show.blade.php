@@ -3,7 +3,7 @@
 PizzaPrices - {{ ucfirst ($pizza->name) }}
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg" id="background">
         <div class="container-fluid">
             <div class="row">
                 <div class="szelet">
@@ -238,6 +238,15 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
         }
     });
 
+    let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream;
+
+    if (isIOS){
+        $(document).scroll(function() {
+            $('#background').css('background-position', '0px ' + $(document).scrollTop() + 'px');
+        });
+    }else{
+        console.log("Nem ios")
+    }
 
 </script>
 
