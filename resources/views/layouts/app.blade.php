@@ -3,7 +3,7 @@
 <head>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161580640-1"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161580640-1" rel=preconnect></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
@@ -12,11 +12,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta name="revisit-after" content="1 days">
+    <meta name="description" content="Böngéssze és hasonlítsa össze helyi pizzériák több száz ajánlatát.">
+    <meta name="keywords" content="pizza, keresés, kereső, pizzaprices, ár, összehasonlítás">
+    <meta name="robots" content="index,follow">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if  (env('APP_DEBUG') == false)
         <title>@yield('title')</title>
+        <script>console.error = ()=>{}</script>
     @else
     <title>DEBUG:: @yield('title')</title>
     @endif
