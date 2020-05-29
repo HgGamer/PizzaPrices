@@ -985,7 +985,6 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     font-weight: 300;
     font-family: panpizza;
     font-size: 40px;
-    min-height: 100px;
 }
 .ft-recipe-kicsii .ft-recipe__contento .content__header .recipe-details {
     display: -webkit-box;
@@ -1919,7 +1918,15 @@ nav > div a.nav-item.nav-link:focus
         background-attachment: fixed;
         height: 100vh;
     }
-
+    .ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title {
+        font-weight: 300;
+        font-family: panpizza;
+        font-size: 40px;
+        min-height: 100px;
+    }
+    .ft-recipe-kicsii .ft-recipe__contento .description {
+        min-height: 120px;
+    }
 
 
 }
@@ -1949,9 +1956,11 @@ nav > div a.nav-item.nav-link:focus
     }
     .wep .city-select .restaurant {
         background: none;
+        display: none;
     }
     .no-webp .city-select .restaurant {
         background: none;
+        display: none;
     }
     .map img{
         display: none !important;
@@ -2187,21 +2196,13 @@ nav > div a.nav-item.nav-link:focus
     .webp .bg {
         background: url("/img/telobg.webp");
         background-repeat:no-repeat;
-        -webkit-background-size:cover;
-        -moz-background-size:cover;
-        -o-background-size:cover;
-        background-size:cover;
-        background-position:center;
+        background-attachment: fixed;
 
     }
     .no-webp .bg {
         background: url("/img/telobg.png");
         background-repeat:no-repeat;
-        -webkit-background-size:cover;
-        -moz-background-size:cover;
-        -o-background-size:cover;
-        background-size:cover;
-        background-position:center;
+        background-attachment: fixed;
     }
 }
 @media screen and (max-width: 375px){
