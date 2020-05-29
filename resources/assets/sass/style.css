@@ -1381,8 +1381,12 @@ nav > div a.nav-item.nav-link:focus
     opacity: 0.5;
     cursor: pointer;
 }
+.alap a picture img{
+    height: -webkit-fill-available;
+    width: 100%;
+}
 .alapname{
-    position: relative;
+    position: absolute;
     background-color: rgba(0, 0, 0, 0.3);
     color: white;
     width: 100%;
