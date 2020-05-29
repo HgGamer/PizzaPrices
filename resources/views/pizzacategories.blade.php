@@ -14,7 +14,7 @@ PizzaPrices - Kategóriák
     <div class="container">
         <h1 class="nincshteg">Pizza  Kategóriák</h1>
         <div class="kategorialeiras text-center">
-            <h3>Ha a kategóriák között nem találod kedvenc pizzáidat akkor csekkold a <span><a style="color: #FFA600" href="">Pizza Pickert</a></span> és állítsd össze te!</h3>
+            <h3>Ha a kategóriák között nem találod kedvenc pizzáidat akkor csekkold a <span><a style="color: #FFA600" href="/pizzapicker">Pizza Pickert</a></span> és állítsd össze te!</h3>
         </div>
         <div class="row">
             @foreach($categories as $category)
