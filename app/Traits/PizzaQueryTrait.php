@@ -40,6 +40,14 @@ trait PizzaQueryTrait {
                 }
             }
             $storeData->pizzaAlias->receptArray = $storeData->pizzaAlias->recept;
+
+            if(is_file(public_path('/img/generated_feltetek/' . $storeData->pizzaAlias->recept. '.png'))){
+                $url = url('/') . '/img/generated_feltetek/' . $storeData->pizzaAlias->recept . '.png';
+             }else{
+                  $url = url('/') . "/img/pizzapop.png";
+            }
+
+            $storeData->pizzaAlias->generatedURL = $url;
             $storeData->pizzaAlias->recept = $this->orderMaterialObjects($materialObjects);
 
             if (!$storeData->website){

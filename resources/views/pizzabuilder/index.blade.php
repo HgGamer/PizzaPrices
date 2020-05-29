@@ -35,10 +35,13 @@ PizzaPrices - Pizza Picker
                                 <div class="tab-pane  show {{ ($j == 0) ? "active" : "" }} mr-3 ml-3 pickerbal" id="nav-{{$j}}" role="tabpanel" aria-labelledby="nav-{{$j}}-tab">
                                     <div class="row">
                                         @foreach($category['materials'] as $material)
-                                            <div class="col-lg-2 alap d-flex mb-3 " onclick="setMaterial({{$material->id}},'{{$material->name}}')" id="material-{{$material->id}}">
-                                                <a  style="background-image: url('{{ asset('/img/feltetek')}}/{{$material->img}}');">
+                                            <div class="{{$category['name'] =='Pizza Alapok' ? 'feltetalap' : 'alap'}} col-lg-2 col-md-4 col-6  d-flex mb-3 " onclick="setMaterial({{$material->id}},'{{$material->name}}')" id="material-{{$material->id}}">
+                                                <a>
+                                                    <picture>
+                                                        <source srcset="{{ asset('/img/feltetek/thumbnails')}}/{{$material->img}}.webp" type="image/webp">
+                                                        <img class="object-fit_cover" src="{{ asset('/img/feltetek/thumbnails')}}/{{$material->img}}.jpg" alt="kategoriak" />
+                                                    </picture>
                                                     <div class="alapname text-center align-self-end p-1">
-
                                                         <h3>
                                                             {{ $material ? $material->name : ""}}
                                                         </h3>

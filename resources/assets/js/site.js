@@ -1,6 +1,6 @@
 require('./bootstrap.js');
 
-var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
+//var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
 
 //console.log = function(){}
 
@@ -31,7 +31,7 @@ window.onload = function(){
         return swRegistration.sync.register(latestCacheVersion);
       });
     if(rmsw){*/
-        removeSW();
+       // removeSW();
     /*}*/
 }
 
@@ -175,7 +175,7 @@ function addNextItems(items){
        <div class="ft-recipe">
             <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center justify-content-center">
 
-                <object data="${URL}/img/generated_feltetek/${items[i]['pizza_alias']['receptArray']}.png" type="image/png" style="">
+                <object data="${items[i]['pizza_alias']['generatedURL'] }" type="image/png" style="">
                     <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
                 </object>
 
@@ -396,3 +396,5 @@ function cheese(ctx, rad, multi, ii, sliceSize, sliceDegree) {
   ctx.lineWidth = map(d, 0, 100, 20, 2)
   ctx.stroke()
 }
+
+

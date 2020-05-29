@@ -161,6 +161,7 @@ saveFeedback = function(){
         }
     });
 }
+
 </script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render={{env('G_RECAPTCHA_SITE_KEY')}}" async defer></script>

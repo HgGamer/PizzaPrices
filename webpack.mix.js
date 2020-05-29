@@ -13,7 +13,6 @@ let mix = require('laravel-mix');
 
 mix.ts('resources/assets/js/app.ts', 'public/js')
     .js('resources/assets/js/site.js','public/js')
-    .copy('resources/assets/js/sw.js','public/')
    .sass('resources/assets/sass/app.scss', 'public/css');
 
    //.copy('resources/assets/js/notify.min.js', 'public/js/notify.min.js');
