@@ -400,7 +400,7 @@ function cheese(ctx, rad, multi, ii, sliceSize, sliceDegree) {
 
 // iOS load Fallback image on generated images
 function loadFallBackImage(element){
-
+console.log("event omit")
     element.setAttribute('data', 'https://i.ytimg.com/vi/upEnR4VztOQ/hqdefault.jpg');
 }
 
@@ -410,10 +410,10 @@ let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 if (isIOS || isSafari){
     console.log("iOS supp if")
     var objectsArray = document.getElementsByClassName('generated-image');
-    console.log(objectsArray)
+
     if(objectsArray.length > 0){
         Array.prototype.forEach.call(objectsArray, function(el) {
-
+            console.log("Event lisener add")
             el.addEventListener(   'error',   loadFallBackImage(el));
     });
     }
