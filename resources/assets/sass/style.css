@@ -2046,6 +2046,17 @@ nav > div a.nav-item.nav-link:focus
     .ft-recipe-kicsii .ft-recipe__thumb object img{
         width: 105% !important;
     }
+    .webp .bg {
+        background: url("/img/tablet.webp");
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+
+    }
+    .no-webp .bg {
+        background: url("/img/tablet.png");
+        background-repeat:no-repeat;
+        background-attachment: fixed;
+    }
 
 }
 @media (max-width: 767px) {
