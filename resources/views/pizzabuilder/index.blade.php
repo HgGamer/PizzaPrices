@@ -262,7 +262,7 @@ PizzaPrices - Pizza Picker
 
                 item.innerHTML = `
                <div class="ft-recipe">
-                    <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex justify-content-center">
+                    <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex justify-content-center align-items-center">
                         <object data="${items[i]['generatedURL'] }" type="image/png" style="">
                             <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
                         </object>
