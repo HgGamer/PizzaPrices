@@ -7,7 +7,10 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <meta name="revisit-after" content="1 days">
+    <meta name="description" content="Böngéssze és hasonlítsa össze helyi pizzériák több száz ajánlatát.">
+    <meta name="keywords" content="pizza, keresés, kereső, pizzaprices, ár, összehasonlítás">
+    <meta name="robots" content="index,follow">
     <title>PizzaPrices</title>
     <link rel="icon" type="image/png" href="{{ asset('img/favicon-96.png') }}"/>
 
