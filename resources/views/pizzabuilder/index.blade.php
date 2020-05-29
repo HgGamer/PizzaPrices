@@ -36,7 +36,7 @@ PizzaPrices - Pizza Picker
                                     <div class="row">
                                         @foreach($category['materials'] as $material)
                                             <div class="col-lg-2 alap d-flex mb-3 " onclick="setMaterial({{$material->id}},'{{$material->name}}')" id="material-{{$material->id}}">
-                                                <a  style="background-image: url('{{ asset('/img/feltetek')}}/{{$material->img}}');">
+                                                <a  style="background-image: url('{{ asset('/img/feltetek/thumbnails')}}/{{$material->img}}');">
                                                     <div class="alapname text-center align-self-end p-1">
 
                                                         <h3>
