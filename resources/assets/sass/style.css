@@ -2302,12 +2302,14 @@ nav > div a.nav-item.nav-link:focus
     .webp .bg {
         background: url("/img/telobg.webp");
         background-attachment: scroll;
+        background-repeat: no-repeat;
 
 
     }
     .no-webp .bg {
         background: url("/img/telobg.png");
         background-attachment: scroll;
+        background-repeat: no-repeat;
     }
 }
 @media screen and (max-width: 375px){
