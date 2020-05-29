@@ -2424,28 +2424,19 @@ body{
     color: #232323;
 }
 
-.webp .error .error-404 h1>span {
+.error .error-404 h1 span {
     display: inline-block;
     width: 120px;
-    height: 120px;
-    background-image: url('/img/pizzapop_old.webp');
-    background-size: cover;
-    -webkit-transform: scale(1.4);
-    -ms-transform: scale(1.4);
-    transform: scale(1.4);
-    z-index: -1;
-}
-.no-webp .error .error-404 h1>span {
-    display: inline-block;
-    width: 120px;
-    height: 120px;
     background-image: url('/img/pizzapop_old.png');
+    height: 120px;
     background-size: cover;
     -webkit-transform: scale(1.4);
     -ms-transform: scale(1.4);
     transform: scale(1.4);
     z-index: -1;
 }
+
+
 
 .error h2 {
     font-family: panpizza;
