@@ -40,7 +40,13 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                             <h1 class="text-center">{{$pizza->name}}</h1>
                         </div>
                         <div class="col-lg-12 justify-content-center d-flex align-items-center pizzakep">
-                            <object class="generated-image" data="{{ url('/') }}/img/generated_feltetek/{{$pizza['recept_array']}}.png" type="image/png" style="">
+                            @php if(is_file(public_path('/img/generated_feltetek/' . $pizza['recept_array'] . '.png'))){
+                                    $url = url('/') . '/img/generated_feltetek/' . $pizza['recept_array'] . '.png';
+                                 }else{
+                                      $url = url('/') . "/img/pizzapop.png";
+                                }
+                            @endphp
+                            <object class="generated-image" data="{{ $url }}" type="image/png" style="">
                                 <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                             </object>
                         </div>
