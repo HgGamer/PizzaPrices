@@ -39,8 +39,20 @@ body.home{
 .map picture img{
     width: 100%;
 }
-.city-select .restaurant {
+.webp .city-select .restaurant {
     background-image: url("/img/pizzapoi.webp");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 77px;
+    height: 84px;
+    display: block;
+    position: absolute;
+    -webkit-transition: 250ms;
+    transition: 250ms;
+}
+.no-webp .city-select .restaurant {
+    background-image: url("/img/pizzapoi.png");
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: top center;
@@ -1822,6 +1834,20 @@ nav > div a.nav-item.nav-link:focus
     .infobutton{
         display: block !important;
     }
+    .webp .bg-img{
+        background-image: url("/img/pizza3.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100vh;
+    }
+    .no-webp .bg-img{
+        background-image: url("/img/pizza3.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        height: 100vh;
+    }
 
 
 
@@ -2065,6 +2091,18 @@ nav > div a.nav-item.nav-link:focus
         z-index: 1;
         padding-bottom: 70px;
         height: 350px;
+    }
+    .webp .bg-img{
+        background-image: url("/img/pizza3.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+    }
+    .no-webp .bg-img{
+        background-image: url("/img/pizza3.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
     }
 }
 @media screen and (max-width: 375px){
