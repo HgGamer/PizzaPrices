@@ -2217,15 +2217,13 @@ nav > div a.nav-item.nav-link:focus
     }
     .webp .bg {
         background: url("/img/telobg.webp");
-        background-repeat:no-repeat;
-        background-attachment: fixed;
+        background-size: 100% 100vh;
 
 
     }
     .no-webp .bg {
         background: url("/img/telobg.png");
-        background-repeat:no-repeat;
-        background-attachment: fixed;
+        background-size: 100% 100vh;
     }
 }
 @media screen and (max-width: 375px){
