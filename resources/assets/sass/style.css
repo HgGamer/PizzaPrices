@@ -2300,7 +2300,7 @@ nav > div a.nav-item.nav-link:focus
     .pizzakep img{
         width: 100%!important;
     }
-    .webp .bg {
+    .webp .bg:after {
         content:"";
         position:fixed; /* stretch a fixed position to the whole screen */
         top:0;
@@ -2314,7 +2314,7 @@ nav > div a.nav-item.nav-link:focus
         -o-background-size: cover;
         background-size: cover;
     }
-    .no-webp .bg {
+    .no-webp .bg:after {
         content:"";
         position:fixed; /* stretch a fixed position to the whole screen */
         top:0;
