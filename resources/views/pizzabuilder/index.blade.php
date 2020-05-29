@@ -66,7 +66,10 @@ PizzaPrices - Pizza Picker
                 </nav>
                 <div class="ft-recipe-picker pickerjobb">
                     <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
+                        <picture>
+                            <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
+                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
+                        </picture>
                     </div>
                     <div class="ft-recipe__contento">
                         <header class="content__header">
