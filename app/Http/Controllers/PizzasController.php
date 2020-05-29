@@ -43,7 +43,6 @@ class PizzasController extends Controller
             return response('Legfeljebb 10 feltét kiválasztása lehetséges', 400);
         }
 
-
         $materials = $request->materials;
 
         $query = DB::table('store_data')
@@ -62,6 +61,14 @@ class PizzasController extends Controller
 
         foreach ($pizzas as $pizza) {
             $receptekString = $pizza->recept;
+
+            if(is_file(public_path('/img/generated_feltetek/' . $receptekString. '.png'))){
+                $url = url('/') . '/img/generated_feltetek/' . $receptekString . '.png';
+             }else{
+                  $url = url('/') . "/img/pizzapop.png";
+            }
+
+            $pizza->generatedURL = $url;
 
             $materialObjects = $this->getMaterialObjects($receptekString);
 
