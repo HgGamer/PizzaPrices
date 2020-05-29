@@ -1,10 +1,10 @@
 ﻿@font-face {
-    src: url("/fonts/panpizza.ttf");
+    src: local("/fonts/panpizza.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
     font-family: panpizza;
     font-display: swap;
 }
 @font-face {
-    src: url("/fonts/chawp.ttf");
+    src: local("/fonts/chawp.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
     font-family: kreta;
     font-display: swap;
 }
