@@ -2136,14 +2136,12 @@ nav > div a.nav-item.nav-link:focus
     }
     .webp .bg {
         background: url("/img/bg.webp");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-repeat: repeat;
 
     }
     .no-webp .bg {
         background: url("/img/telobg.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+        background-repeat: repeat;
     }
 }
 @media screen and (max-width: 375px){
