@@ -1,6 +1,6 @@
 require('./bootstrap.js');
 
-var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
+//var latestCacheVersion = '0.0.1'; //sw.jsben is írd át!!!
 
 //console.log = function(){}
 
@@ -31,7 +31,7 @@ window.onload = function(){
         return swRegistration.sync.register(latestCacheVersion);
       });
     if(rmsw){*/
-        removeSW();
+       // removeSW();
     /*}*/
 }
 
