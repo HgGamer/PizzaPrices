@@ -44,4 +44,9 @@
     AddOutputFilterByType DEFLATE text/javascript
     AddOutputFilterByType DEFLATE text/plain
     AddOutputFilterByType DEFLATE text/xml
+    ExpiresByType image/gif       86400
+    ExpiresByType image/png       86400
+    ExpiresByType image/jpg       86400
+    ExpiresByType image/jpeg      86400
+    ExpiresByType image/webp      86400
   </IfModule>
