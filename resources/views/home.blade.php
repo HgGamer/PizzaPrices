@@ -69,7 +69,7 @@ PizzaPrices - Főoldal
                     <div class="front d-flex">
                         <picture>
                             <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas..jpg') }}" alt="A hét pizzája kép">
+                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas.jpg') }}" alt="A hét pizzája kép">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
