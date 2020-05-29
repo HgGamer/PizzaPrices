@@ -1,10 +1,12 @@
 ﻿@font-face {
     src: url("/fonts/panpizza.ttf");
     font-family: panpizza;
+    font-display: fallback;
 }
 @font-face {
     src: url("/fonts/chawp.ttf");
     font-family: kreta;
+    font-display: fallback;
 }
 body.home{
     background-color: #FFEFD3 !important;
