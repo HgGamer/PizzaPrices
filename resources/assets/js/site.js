@@ -410,11 +410,12 @@ let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 if (isIOS || isSafari){
     console.log("iOS supp if")
     var objectsArray = document.getElementsByClassName('generated-image');
-        if(objectsArray.length > 0){
-            Array.prototype.forEach.call(objectsArray, function(el) {
+    console.log(objectsArray)
+    if(objectsArray.length > 0){
+        Array.prototype.forEach.call(objectsArray, function(el) {
 
-                el.addEventListener(   'error',   loadFallBackImage(el));
-        });
+            el.addEventListener(   'error',   loadFallBackImage(el));
+    });
     }
 
 }else{
