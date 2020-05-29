@@ -40,7 +40,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                             <h1 class="text-center">{{$pizza->name}}</h1>
                         </div>
                         <div class="col-lg-12 justify-content-center d-flex align-items-center pizzakep">
-                            <object data="{{ url('/') }}/img/generated_feltetek/{{$pizza['recept_array']}}.png" type="image/png" style="">
+                            <object class="generated-image" data="{{ url('/') }}/img/generated_feltetek/{{$pizza['recept_array']}}.png" type="image/png" style="">
                                 <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                             </object>
                         </div>
@@ -149,7 +149,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                         <div class="col-md-4">
                                             <div class="card ft-recipe-kicsii">
                                                 <div class="ft-recipe__thumb text-center d-flex  align-items-center justify-content-center">
-                                                    <object data="{{ url('/') }}/img/generated_feltetek/{{$similarPizza->recept_array}}.png" type="image/png" style="">
+                                                    <object class="generated-image" data="{{ url('/') }}/img/generated_feltetek/{{$similarPizza->recept_array}}.png" type="image/png" style="">
                                                         <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                                                     </object>
                                                 </div>

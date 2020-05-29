@@ -396,3 +396,25 @@ function cheese(ctx, rad, multi, ii, sliceSize, sliceDegree) {
   ctx.lineWidth = map(d, 0, 100, 20, 2)
   ctx.stroke()
 }
+
+
+// iOS load Fallback image on generated images
+function loadFallBackImage(element){
+
+    element.setAttribute('data', 'https://i.ytimg.com/vi/upEnR4VztOQ/hqdefault.jpg');
+}
+
+let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+if (isIOS || isSafari){
+
+    var objectsArray = document.getElementsByClassName('generated-image');
+        if(objectsArray.length > 0){
+            Array.prototype.forEach.call(objectsArray, function(el) {
+
+                el.addEventListener(   'error',   loadFallBackImage(el));
+        });
+    }
+
+}
