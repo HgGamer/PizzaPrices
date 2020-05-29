@@ -17,4 +17,12 @@ class Pizza extends Model
         return $this->belongsTo('App\PizzaCategory', 'category_id', 'id');
     }
 
+    public function pizzaCategory2(){
+        return $this->belongsTo('App\PizzaCategory', 'category_id2', 'id');
+    }
+
+    public function pizzaCategory3(){
+        return $this->belongsTo('App\PizzaCategory', 'category_id3', 'id');
+    }
+
 }
