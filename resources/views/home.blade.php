@@ -69,7 +69,7 @@ PizzaPrices - Főoldal
                     <div class="front d-flex">
                         <picture>
                             <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas..jpg') }}" alt="background">
+                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas.jpg') }}" alt="A hét pizzája kép">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
@@ -113,7 +113,7 @@ PizzaPrices - Főoldal
                     <div class="front d-flex">
                         <picture>
                             <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="background">
+                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="A hónap pizzája">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
@@ -166,7 +166,7 @@ PizzaPrices - Főoldal
                  <div class="col-lg-6 col-md-12 mb-5 feed-tile" id="feed-tile-{{$i}}">
                     <div class="ft-recipe">
                         <div class="ft-recipe__thumb{{ ($isYellow) ? "m" : ""}} text-center d-flex  align-items-center justify-content-center">
-                                <object data="{{ url('/') }}/img/generated_feltetek/{{$pizza['pizzaAlias']['receptArray']}}.png" type="image/png" style="">
+                                <object id="obj" data="{{ url('/') }}/img/generated_feltetek/{{$pizza['pizzaAlias']['receptArray']}}.png" type="image/png" style="">
                                     <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                                 </object>
                         </div>
@@ -203,7 +203,15 @@ PizzaPrices - Főoldal
             @endforeach
             </div>
         </div>
-        <h3 id="feed-loader" class="text-center" style="font-size: 100px;"><i class="spinner-border"></i></h3>
+
+        <div class="d-flex justify-content-center">
+            <div class="col-4">
+                <!-- Copyright (c) 2020 by Patrick Stillhart (https://codepen.io/arcs/pen/pbPkPL) -->
+                <canvas id="feed-loader"></canvas>
+            </div>
+        </div>
+
+
 
     </div>
     <script>
@@ -216,7 +224,16 @@ PizzaPrices - Főoldal
         });
 
 
+        let pizza = new Pizza('feed-loader')
 
+        ;(function update() {
+        requestAnimationFrame(update)
+        pizza.update()
+
+        }());
+
+        var obj = $('#obj');
+        obj.onload = e => console.log('loaded');
 
 
     </script>

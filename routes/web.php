@@ -22,6 +22,7 @@ Route::get('/kategoriak', 'HomeController@pizzacategories');
 Route::get('/kapcsolatok', 'HomeController@contacts');
 Route::get('/pizza/{id}', 'PizzasController@show');
 Route::get('/pizzapicker', 'PizzaPickerController@index');
+Route::get('/test', 'HomeController@gecisfasz');
 
 
 
@@ -40,6 +41,7 @@ Route::prefix('api')->group(function () {
     Route::get('/pizza_categories', 'PizzaCategoryController@getAllCategories');
     Route::get('/pizzas_by_category_id/{id}', 'PizzasController@pizzasByCategoryId');
     Route::get('/pizzas_by_id/{id}', 'PizzasController@pizzasById');
+    Route::get('/pizzasearch', 'PizzasController@pizzaSearch');
 });
 
 

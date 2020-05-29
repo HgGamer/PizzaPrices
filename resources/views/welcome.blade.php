@@ -9,7 +9,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>PizzaPrices</title>
-    <link rel="icon" type="image/png" href="{{ asset('img/pizzapop.webp') }}"/>
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon-96.png') }}"/>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -64,7 +64,7 @@
                 </button>
             </div>
             <div class="card-body">
-            <p class="card-text">A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kinálatát.</p>
+            <p class="card-text">A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kínálatát.</p>
             </div>
         </div>
     </div>

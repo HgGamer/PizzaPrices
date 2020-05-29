@@ -158,4 +158,10 @@ class HomeController extends Controller
         return $finalMaterialsArray;
     }
 
+    public function gecisfasz(){
+
+
+        return view('tibiszerelemgyereke');
+    }
+
 }
