@@ -411,8 +411,10 @@ if (isIOS || isSafari){
     console.log("iOS supp if")
     var objectsArray = document.getElementsByClassName('generated-image');
 
+    console.log("objectsArray: " + objectsArray.length)
+
     if(objectsArray.length > 0){
-        console.log("objectsArray: " + objectsArray.length)
+
         Array.prototype.forEach.call(objectsArray, function(el) {
             console.log("Event lisener add")
             el.addEventListener(   'error',   loadFallBackImage(el));
