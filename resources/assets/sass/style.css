@@ -2131,6 +2131,23 @@ nav > div a.nav-item.nav-link:focus
         background-size: cover;
         background-attachment: fixed;
     }
+    .pizzakep img{
+        width: 100%!important;
+    }
+    .webp .bg {
+        background: url(/img/bg.webp);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
+        height: 100vh;
+    }
+    .no-webp .bg {
+        background: url(/img/bg.webp);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow: hidden;
+        height: 100vh;
+    }
 }
 @media screen and (max-width: 375px){
     .carda{
