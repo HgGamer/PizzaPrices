@@ -9,9 +9,6 @@
 </object>
 
 
-
-
-
 <script>
 
 
@@ -22,8 +19,16 @@
         document.getElementById("obj").setAttribute('data', 'https://i.ytimg.com/vi/upEnR4VztOQ/hqdefault.jpg');
     }
 
-    obj.addEventListener(   'error',   loadFallBack());
+    //
 
+    let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+
+    if (isIOS){
+        console.log("IOS PASZTMEK")
+        obj.addEventListener(   'error',   loadFallBack());
+    }else{
+        console.log("sad windows noises")
+    }
 
 </script>
 @endsection
