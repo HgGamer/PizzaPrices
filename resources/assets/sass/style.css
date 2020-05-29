@@ -1,12 +1,11 @@
 ﻿@font-face {
-    src: local("/fonts/panpizza.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+    src: url("/fonts/panpizza.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
     font-family: panpizza;
     font-display: swap;
 }
 @font-face {
-    src: local("/fonts/chawp.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+    src: url("/fonts/chawp.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
     font-family: kreta;
-    font-display: swap;
 }
 body.home{
     background-color: #FFEFD3 !important;
@@ -2218,13 +2217,13 @@ nav > div a.nav-item.nav-link:focus
     .webp .bg {
         background: url("/img/telobg.webp");
         background-repeat:no-repeat;
-        background-attachment: scroll;
+        position: fixed;
 
     }
     .no-webp .bg {
         background: url("/img/telobg.png");
         background-repeat:no-repeat;
-        background-attachment: scroll;
+        position: fixed;
     }
 }
 @media screen and (max-width: 375px){
