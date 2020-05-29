@@ -34,6 +34,16 @@ class PizzasController extends Controller
                 //LogManager::shared()->addLog($errorMSG);
             }
 
+            if ($pizza->pizzaCategory2 == null){
+                $errorMSG =  "PizzasController, index() pizza(id: " . $pizza->id . ")->category is NULL";
+                //LogManager::shared()->addLog($errorMSG);
+            }
+
+            if ($pizza->pizzaCategory3 == null){
+                $errorMSG =  "PizzasController, index() pizza(id: " . $pizza->id . ")->category is NULL";
+                //LogManager::shared()->addLog($errorMSG);
+            }
+
             $pizzas[] = $pizza;
         }
 
