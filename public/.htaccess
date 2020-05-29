@@ -54,7 +54,7 @@
 <FilesMatch "\.(jpg|webp|gif|jpeg)$">
 Header set Cache-Control "public, max-age=108720"
 </FilesMatch>
-<FilesMatch "\.(jpg|png|webp|gif)$">
+<FilesMatch "\.(png)$">
 Header set Cache-Control "public, max-age=86400"
 </FilesMatch>
 # END Expire headers
