@@ -2135,13 +2135,13 @@ nav > div a.nav-item.nav-link:focus
         width: 100%!important;
     }
     .webp .bg {
-        background: url(/img/bg.webp);
+        background: url("/img/bg.webp");
         background-repeat: no-repeat;
         background-attachment: fixed;
         height: 100vh;
     }
     .no-webp .bg {
-        background: url(/img/bg.jpg);
+        background: url("/img/bg.jpg");
         background-repeat: no-repeat;
         background-attachment: fixed;
         height: 100vh;
