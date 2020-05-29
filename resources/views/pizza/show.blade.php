@@ -242,7 +242,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
     if (isIOS){
         $(document).scroll(function() {
-            $('#background').css('background-position', '10px ' + $(document).scrollTop() + 'px');
+            $('#background').css('background-position', '0px ' + $(document).scrollTop() + 'px');
         });
     }else{
         console.log("Nem ios")
