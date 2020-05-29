@@ -2137,14 +2137,20 @@ nav > div a.nav-item.nav-link:focus
     .webp .bg {
         background: url("/img/telobg.webp");
         background-repeat:no-repeat;
-        background-size:contain;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
         background-position:center;
 
     }
     .no-webp .bg {
         background: url("/img/telobg.png");
         background-repeat:no-repeat;
-        background-size:contain;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
         background-position:center;
     }
 }
