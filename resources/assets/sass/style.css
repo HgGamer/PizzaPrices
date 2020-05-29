@@ -23,6 +23,7 @@ body:after{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+   
 }
 .text-black{
     color: #000;
@@ -2313,16 +2314,7 @@ nav > div a.nav-item.nav-link:focus
     .pizzakep img{
         width: 100%!important;
     }
-    .webp .bg {
-        background: url("/img/telobg.webp");
 
-
-
-    }
-    .no-webp .bg {
-        background: url("/img/telobg.png");
-
-    }
 }
 @media screen and (max-width: 375px){
     .carda{
