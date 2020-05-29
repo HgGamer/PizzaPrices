@@ -157,6 +157,35 @@ saveFeedback = function(){
         }
     });
 }
+
+
+// iOS load Fallback image on generated images
+function loadFallBackImage(element){
+console.log("event omit")
+    element.setAttribute('data', 'https://i.ytimg.com/vi/upEnR4VztOQ/hqdefault.jpg');
+}
+
+let isIOS = (/iPad|iPhone|iPod/.test(navigator.platform) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) && !window.MSStream
+let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+
+if (isIOS || isSafari){
+    console.log("iOS supp if")
+    var objectsArray = document.getElementsByClassName('generated-image');
+
+    console.log("objectsArray: " + objectsArray.length)
+
+    if(objectsArray.length > 0){
+
+        Array.prototype.forEach.call(objectsArray, function(el) {
+            console.log("Event lisener add")
+            el.addEventListener(   'error',   loadFallBackImage(el));
+    });
+    }
+
+}else{
+    console.log("Nem ios")
+}
+
 </script>
 
 <script src="https://www.google.com/recaptcha/api.js?onload=recaptchaCallback&render={{env('G_RECAPTCHA_SITE_KEY')}}" async defer></script>
