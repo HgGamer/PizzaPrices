@@ -52,7 +52,7 @@
   </IfModule>
 
 <FilesMatch "\.(jpg|webp|gif|jpeg)$">
-Header set Cache-Control "public, max-age=108720"
+Header set Cache-Control "public, max-age="2592000"
 </FilesMatch>
 <FilesMatch "\.(png)$">
 Header set Cache-Control "public, max-age=86400"
