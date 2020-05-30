@@ -32,8 +32,8 @@ class HomeController extends Controller
 
         $pizzas = $this->getInfinitPizzas();
 
-        $pizzaOfTheMonthId = 608;
-        $pizzaOfTheWeakId = 441;
+        $pizzaOfTheMonthId = 111;
+        $pizzaOfTheWeakId = 243;
 
         $monthPizza = StoreData::find($pizzaOfTheMonthId);
         $weekPizza = StoreData::find($pizzaOfTheWeakId);
