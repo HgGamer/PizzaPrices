@@ -16,8 +16,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/hawaii" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/hawaii.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/hawaii.jpg') }}" alt="background">
+                        <source srcset="{{ asset('/img/glry')}}/hawaii.webp" type="image/webp">
+                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/hawaii.jpg" alt="kategoriak" />
                     </picture>
                 </a>
                 <h3>Hawaii Pizzák</h3>
@@ -25,8 +25,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza ">
                 <a href="/kategoriak/songoku" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/kukoricas.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/kukoricas.jpg') }}" alt="background">
+                        <source srcset="{{ asset('img/glry') }}/kukoricas.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/kukoricas.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Son-Go-Ku Pizzák</h3>
@@ -34,8 +34,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/bolognai" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/bolognai.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/bolognai.jpg') }}" alt="background">
+                        <source srcset="{{ asset('img/glry') }}/bolognai.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/bolognai.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Bolognai Pizzák</h3>
@@ -43,8 +43,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/husimado" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/husimado.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/husimado.jpg') }}" alt="background">
+                        <source srcset="{{ asset('img/glry') }}/husimado.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/husimado.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Húsimádó Pizzák</h3>
@@ -68,8 +68,8 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas.jpg') }}" alt="A hét pizzája kép">
+                            <source srcset="{{ asset('img/glry') }}/tonhalas.webp" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('img/glry') }}/tonhalas.jpg" alt="A hét pizzája kép">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
@@ -80,7 +80,7 @@ PizzaPrices - Főoldal
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($weekPizza['url'] != "") ? $weekPizza['url'] : $weekPizza['website']['url'] }}" target="_blank">{{ $weekPizza['pizza']['name'] }} Pizza</a></h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($weekPizza['url'] != "") ? $weekPizza['url'] : $weekPizza['website']['url'] }}" rel="noopener" target="_blank">{{ $weekPizza['pizza']['name'] }} Pizza</a></h3>
                                 <br><br>
                                 <span>{{ $weekPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
@@ -112,8 +112,8 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="A hónap pizzája">
+                            <source srcset="{{ asset('img') }}/poppizza.webp" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('img') }}/poppizza.jpg" alt="A hónap pizzája">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
@@ -124,7 +124,7 @@ PizzaPrices - Főoldal
                     <div class="back">
                         <div class="back-content">
                             <div class="cardinfo">
-                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($monthPizza['url'] != "") ? $monthPizza['url'] : $monthPizza['website']['url'] }}" target="_blank">{{ $monthPizza['pizza']['name'] }} Pizza </a></h3>
+                                <h3 class="home-cards-pizza-title"><a class="text-white" href="{{ ($monthPizza['url'] != "") ? $monthPizza['url'] : $monthPizza['website']['url'] }}" rel="noopener" target="_blank">{{ $monthPizza['pizza']['name'] }} Pizza </a></h3>
                                 <br><br>
                                 <span>{{ $monthPizza['website']['title'] }}</span>
                                 <div class="cardinfohozzavalo">
@@ -180,14 +180,14 @@ PizzaPrices - Főoldal
                                     <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">{{$pizza['pizzasize']}}</span><span class="title">Méret(cm)</span></li>
                                 </ul>
                             </header>
-                        <h4 class="text-center font-weight-bold"> <a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}">{{ $pizza['website']['title']  }}</a> </h4>
+                        <h4 class="text-center font-weight-bold"> <a rel="noopener" target="_blank" href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}">{{ $pizza['website']['title']  }}</a> </h4>
                             <h4>Feltétek:</h4>
                             <p class="description">
                                 @foreach ($pizza['pizzaAlias']['recept'] as $key => $recept)
                                     {{ $recept }}@if ($key != count($pizza['pizzaAlias']['recept'])-1), @endif
                                 @endforeach
                             </p>
-                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}" target="_blank">Részletek</a></footer>
+                            <footer class="content__footer{{ ($isYellow) ? "m" : ""}} align-self-end "><a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}" rel="noopener" target="_blank">Részletek</a></footer>
                         </div>
                     </div>
                 </div>

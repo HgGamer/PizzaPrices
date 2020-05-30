@@ -12,7 +12,7 @@ PizzaPrices - Pizza Picker
         </ol>
     </section>
 
-    <div class="container-fluid">
+    <div class="container-fluid pickercontainer">
         <h1 class="nincshteg">Pizza Picker</h1>
 
             <div class="row">
@@ -66,7 +66,10 @@ PizzaPrices - Pizza Picker
                 </nav>
                 <div class="ft-recipe-picker pickerjobb">
                     <div class="ft-recipe__thumb text-center d-flex  align-items-center">
-                        <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
+                        <picture>
+                            <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
+                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
+                        </picture>
                     </div>
                     <div class="ft-recipe__contento">
                         <header class="content__header">
@@ -102,7 +105,7 @@ PizzaPrices - Pizza Picker
                 <canvas id="picker-loader" style="display: none"></canvas>
             </div>
         </div>
-        <div class="row justify-content-between nopizza" id="resultContainer">
+        <div class="row justify-content-around nopizza" id="resultContainer">
 
 
         </div>
@@ -205,9 +208,15 @@ PizzaPrices - Pizza Picker
                 li.remove();
 
             }else {
-                if (isBaseMaterialAlreadyPicked(materialId)) {
-                    return
+                isBaseMaterialAlreadyPicked(materialId);
+
+                 if (materials.length > 9) {
+                    document.getElementById('error-tag').innerHTML = 'Legfeljebb 10 feltét kiválasztása lehetséges';
+                    document.getElementById('error-tag').style.display = 'inline';
+                    return;
                 }
+
+                document.getElementById('error-tag').style.display = 'none';
 
                 $("#material-"+materialId).addClass('kivanvalasztva');
 
@@ -251,7 +260,7 @@ PizzaPrices - Pizza Picker
             var resultContainer = document.querySelector("#resultContainer")
 
             var pizzaList = document.createElement("div");
-            pizzaList.setAttribute('class', 'row justify-content-between')
+            pizzaList.setAttribute('class', 'row justify-content-around')
 
             var isYellow = true;
             for (let i = 0; i < items.length; i++) {
@@ -277,7 +286,7 @@ PizzaPrices - Pizza Picker
                                 <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
                             </ul>
                         </header>
-                        <h4 class="text-center font-weight-bold"> <a href="${ items[i]['websiteUrl'] }" target="_blank"> ${items[i]['title']} </a> </h4>
+                        <h4 class="text-center font-weight-bold"> <a href="${ items[i]['websiteUrl'] }" rel="noopener" target="_blank"> ${items[i]['title']} </a> </h4>
                         <h4>Feltétek:</h4>
                         <p class="description">
                          ${items[i]['recept'].map(function (feltet, i, arr) {
@@ -292,7 +301,7 @@ PizzaPrices - Pizza Picker
 
                            &#32;
                         </p>
-                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }" target="_blank">Részletek</a></footer>
+                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }" rel="noopener" target="_blank">Részletek</a></footer>
                     </div>
                 </div>
                 `;
@@ -317,16 +326,29 @@ PizzaPrices - Pizza Picker
         baseMaterials = @JSON($baseMaterialIds);
         function isBaseMaterialAlreadyPicked(materialId){
 
-            if(baseMaterials.includes(materialId) && baseMaterialPicked){
-                console.log("Alrdy picked")
-                return true;
-            }else{
-                console.log("Not yet picked")
-                baseMaterialPicked = true;
-                pickedBaseMaterialId = materialId
+            if(baseMaterials.includes(materialId)){
+
+                if(baseMaterialPicked){
+                    $("#material-" + pickedBaseMaterialId).toggleClass('kivanvalasztva');
+                    var li = document.getElementById('active-material-' + pickedBaseMaterialId);
+                    li.remove();
+
+                    const index = materials.indexOf(pickedBaseMaterialId);
+                    if (index > -1) {
+                        materials.splice(index, 1);
+                    }
+
+                    pickedBaseMaterialId = materialId
+
+                    console.log("Alrdy picked")
+                }else{
+                    console.log("Not yet picked")
+                    baseMaterialPicked = true;
+                    pickedBaseMaterialId = materialId
+                }
+
             }
 
-            return false;
         }
 
         let pizza = new Pizza('picker-loader')

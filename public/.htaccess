@@ -52,9 +52,12 @@
   </IfModule>
 
 <FilesMatch "\.(jpg|webp|gif|jpeg)$">
-Header set Cache-Control "public, max-age=2592000"
+Header set Cache-Control "public, max-age=15552000‬"
 </FilesMatch>
-<FilesMatch "\.(png|js|css)$">
+<FilesMatch "\.(png)$">
 Header set Cache-Control "public, max-age=86400"
+</FilesMatch>
+<FilesMatch "\.(js|css)$">
+Header set Cache-Control "public, max-age=604800"
 </FilesMatch>
 # END Expire headers

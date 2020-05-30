@@ -11,11 +11,11 @@
 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="revisit-after" content="1 days">
     <meta name="description" content="Böngéssze és hasonlítsa össze helyi pizzériák több száz ajánlatát.">
     <meta name="keywords" content="pizza, keresés, kereső, pizzaprices, ár, összehasonlítás">
     <meta name="robots" content="index,follow">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -26,7 +26,6 @@
     <title>DEBUG:: @yield('title')</title>
     @endif
     <link rel="icon" type="image/png" href="{{ asset('img/favicon-96.png') }}"/>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
