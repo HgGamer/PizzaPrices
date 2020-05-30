@@ -2319,12 +2319,14 @@ nav > div a.nav-item.nav-link:focus
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
+        height: 100%;
     }
     .no-webp .bg-img{
         background-image: url("/img/pizza3.jpg");
         background-repeat: no-repeat;
         background-size: cover;
         background-attachment: fixed;
+        height: 100%;
     }
     .pizzakep img{
         width: 100%!important;
