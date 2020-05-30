@@ -46,7 +46,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                       $url = url('/') . "/img/pizzapop.png";
                                 }
                             @endphp
-                            <object class="generated-image" data="{{ $url }}" type="image/png" style="">
+                            <object class="generated-image" data="{{ $url }}" type="image/png" alt="Generalt pizza kép">
                                 <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                             </object>
                         </div>
@@ -161,7 +161,7 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                                                           $url = url('/') . "/img/pizzapop.png";
                                                     }
                                                     @endphp
-                                                    <object class="generated-image" data="{{$url}}" type="image/png" style="">
+                                                    <object class="generated-image" data="{{$url}}" type="image/png" alt="Generalt pizza kép">
                                                         <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
                                                     </object>
                                                 </div>
