@@ -34,8 +34,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/bolognai" >
                     <picture>
-                        <source srcset="{{ asset('img/glry') }}/bolognai.webp" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/bolognai.jpg" alt="background">
+                        <source srcset="{{ asset('/img/glry') }}/bolognai.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('/img/glry') }}/bolognai.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Bolognai Pizzák</h3>
@@ -43,8 +43,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/husimado" >
                     <picture>
-                        <source srcset="{{ asset('img/glry') }}/husimado.webp" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/husimado.jpg" alt="background">
+                        <source srcset="{{ asset('/img/glry') }}/husimado.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('/img/glry') }}/husimado.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Húsimádó Pizzák</h3>
@@ -68,8 +68,8 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('img/glry/tonhalas.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/glry/tonhalas.jpg') }}" alt="A hét pizzája kép">
+                            <source srcset="{{ asset('/img/glry/tonhalas.webp') }}" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('/img/glry/tonhalas.jpg') }}" alt="A hét pizzája kép">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-2">
                             <h3>
@@ -112,8 +112,8 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('img/poppizza.webp') }}" type="image/wepb">
-                            <img class="object-fit_contain" src="{{ asset('img/poppizza.jpg') }}" alt="A hónap pizzája">
+                            <source srcset="{{ asset('/img/poppizza.webp') }}" type="image/wepb">
+                            <img class="object-fit_contain" src="{{ asset('/img/poppizza.jpg') }}" alt="A hónap pizzája">
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
