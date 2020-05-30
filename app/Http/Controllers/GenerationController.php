@@ -18,8 +18,11 @@ class GenerationController extends Controller
     {
        $this->middleware('auth');
     }
+    public function generateImagesFast($fast=true){
+        $this->generateImages(true);
+    }
 
-    public function generateImages(){
+    public function generateImages($fast=false){
         if(\Queue::size('generatePizzaImages')>1){
             return;
         };
@@ -31,15 +34,18 @@ class GenerationController extends Controller
         $pizzaAliases = PizzaAlias::all();
         foreach ($pizzaAliases as $pizzaAlias) {
 
+
             $receptekString = explode(",",substr(substr_replace($pizzaAlias->recept, '', 0, 1), 0, -1)); // első utolsó karakter levágása
             //check if we have every image for pizza
 
             if(count($receptekString) != 0 && count(array_intersect($receptekString, $materialIds)) == count($receptekString)){
                 //order ids by category
+
+                if($fast && file_exists('img/generated_feltetek/' .$pizzaAlias->recept .'.png')){
+                    continue;
+                }
+
                 $generated++;
-
-
-
                 $materialObjects = [];
                 foreach ($receptekString as $receptString) {
 
@@ -56,7 +62,6 @@ class GenerationController extends Controller
             }
 
         }
-
 	    echo $generated;
     }
     private function orderMaterialObjects($materialObjects){

@@ -91,6 +91,7 @@ class ProcessRawController extends Controller
             $storedata->websiteid = $websiteid;
             $storedata->additonal = $this->receptToString($additional);
             if($alias == null){
+                //TODO: dear future me, please check for duplicates and skipp AND MAKE SURE IF YOU INSERT INTO PIZZA PIZZAS THE RECIPE IS IN ORDER + fix the ones where it isn t
                 $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
             }else{
                 $data = RawPizza::all()->where('id',$rawid)->first();
