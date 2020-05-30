@@ -16,8 +16,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/hawaii" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/hawaii.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/hawaii.jpg') }}" alt="background">
+                        <source srcset="{{ asset('/img/glry')}}/hawaii.webp" type="image/webp">
+                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/hawaii.jpg" alt="kategoriak" />
                     </picture>
                 </a>
                 <h3>Hawaii Pizzák</h3>
