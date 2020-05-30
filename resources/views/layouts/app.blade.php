@@ -21,7 +21,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     @if  (env('APP_DEBUG') == false)
         <title>@yield('title')</title>
-        <script>console.error = ()=>{}</script>
+        <script>console.log = ()=>{}</script>
     @else
     <title>DEBUG:: @yield('title')</title>
     @endif
