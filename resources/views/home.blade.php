@@ -112,8 +112,8 @@ PizzaPrices - Főoldal
                 <div class="card carda middle">
                     <div class="front d-flex">
                         <picture>
-                            <source srcset="{{ asset('/img/glry')}}/poppizza.webp" type="image/webp">
-                            <img class="object-fit_cover" src="{{ asset('/img/glry')}}/poppizza.jpg" alt="kategoriak" />
+                            <source srcset="{{ asset('/img')}}/poppizza.webp" type="image/webp">
+                            <img class="object-fit_cover" src="{{ asset('/img')}}/poppizza.jpg" alt="kategoriak" />
                         </picture>
                         <div class="pizzacardname text-center align-self-end p-1">
                             <h3>
