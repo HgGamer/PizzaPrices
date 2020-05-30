@@ -138,6 +138,7 @@ btn.on('click', function(e) {
     $('html, body').animate({scrollTop:0}, '300');
 });
 
+/*
 $(window).scroll(function() {
     if ($(window).scrollTop() > 300) {
         btn.addClass('show');
@@ -145,7 +146,7 @@ $(window).scroll(function() {
         btn.removeClass('show');
     }
 });
-
+*/
 saveFeedback = function(){
     document.getElementById("feedback-button").disabled = true;
     text = document.getElementById("feedbackTextArea").value;

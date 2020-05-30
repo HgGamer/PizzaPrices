@@ -13,6 +13,8 @@ window.onbeforeunload = function () {
   }
 
 window.onload = function(){
+  addScrollListener();
+
    // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
 /*
     if ('serviceWorker' in navigator) {
@@ -406,6 +408,32 @@ function cheese(ctx, rad, multi, ii, sliceSize, sliceDegree) {
 
   ctx.lineWidth = map(d, 0, 100, 20, 2)
   ctx.stroke()
+}
+
+var lastScrollTop = 0;
+
+function addScrollListener(){
+
+  let upButton = document.getElementById("fel")
+
+  if (upButton == null) {
+    return
+  }
+
+  window.addEventListener("scroll", function(){
+   var st = window.pageYOffset || document.documentElement.scrollTop; 
+    if (st > lastScrollTop){
+        if(upButton.classList.contains("show")){
+          upButton.classList.remove("show");
+        }
+    } else {
+        if(!upButton.classList.contains("show")){
+          upButton.classList.add("show");
+        }
+    }
+   lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
+
 }
 
 
