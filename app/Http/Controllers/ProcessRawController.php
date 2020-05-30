@@ -63,6 +63,7 @@ class ProcessRawController extends Controller
 
             if($old!=$pizza->recept){
                 $pizza->recept = $old;
+                $pizza->save();
                 LogManager::shared()->addLog('nem rendezett pizza'.$pizza->id);
             }
         }
@@ -76,6 +77,7 @@ class ProcessRawController extends Controller
 
             if($old!=$pizza->recept){
                 $pizza->recept = $old;
+                $pizza->save();
                 LogManager::shared()->addLog('nem rendezett pizza_alias'.$pizza->id);
             }
         }
