@@ -102,7 +102,7 @@
             </div>
             <div class="modal-body" id="feedback-modal-body">
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">A visszajelzés teljesen névtelen, semmilyen módon nem tudjuk visszakövetni az küldőt.</label>
+                    <label for="exampleFormControlTextarea1">A visszajelzés teljesen névtelen, semmilyen módon nem tudjuk visszakövetni a küldőt.</label>
                     <textarea class="form-control" id="feedbackTextArea" rows="4"></textarea>
                     <input type="hidden" name="recaptcha" id="recaptcha">
                 </div>
