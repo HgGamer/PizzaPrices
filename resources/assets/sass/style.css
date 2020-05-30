@@ -1714,6 +1714,10 @@ nav > div a.nav-item.nav-link:focus
     cursor: pointer;
 }
 
+#cookie-footer{
+    z-index: 10000;
+}
+
 @media (min-width: 2400px){
     .szeged {
         left: 56%;
@@ -2513,6 +2517,7 @@ nav > div a.nav-item.nav-link:focus
         font-size: 0.9rem;
     }
 }
+
 
 
 
