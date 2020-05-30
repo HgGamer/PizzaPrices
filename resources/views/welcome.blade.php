@@ -73,7 +73,6 @@
     </div>
 </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
 <script src="{{ asset('js/site.js') }}"></script>
 <script>
     $(function () {
