@@ -43,8 +43,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/husimado" >
                     <picture>
-                        <source srcset="{{ asset('/img/glry') }}/husimado.webp" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('/img/glry') }}/husimado.jpg" alt="background" />
+                        <source srcset="{{ asset('/img/glry')}}/husimado.webp" type="image/webp">
+                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/husimado.jpg" alt="kategoriak" />
                     </picture>
                 </a>
                 <h3>Húsimádó Pizzák</h3>
