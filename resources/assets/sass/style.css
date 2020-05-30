@@ -6,6 +6,7 @@
 @font-face {
     src: url("/fonts/chawp.ttf"), url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
     font-family: kreta;
+    font-display: swap;
 }
 body.home{
     background-color: #FFEFD3 !important;
