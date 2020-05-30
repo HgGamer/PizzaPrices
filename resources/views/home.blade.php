@@ -25,8 +25,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza ">
                 <a href="/kategoriak/songoku" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/kukoricas.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/kukoricas.jpg') }}" alt="background">
+                        <source srcset="{{ asset('img/glry') }}/kukoricas.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/kukoricas.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Son-Go-Ku Pizzák</h3>
@@ -34,8 +34,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/bolognai" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/bolognai.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/bolognai.jpg') }}" alt="background">
+                        <source srcset="{{ asset('img/glry') }}/bolognai.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/bolognai.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Bolognai Pizzák</h3>
@@ -43,8 +43,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/husimado" >
                     <picture>
-                        <source srcset="{{ asset('img/glry/husimado.webp') }}" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry/husimado.jpg') }}" alt="background">
+                        <source srcset="{{ asset('img/glry') }}/husimado.webp" type="image/wepb">
+                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/husimado.jpg" alt="background">
                     </picture>
                 </a>
                 <h3>Húsimádó Pizzák</h3>
