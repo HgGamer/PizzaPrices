@@ -52,6 +52,37 @@ class ProcessRawController extends Controller
         return $newmaterials;
     }
 
+    public function checkRecepts(){
+        $pizzas = Pizza::all();
+        foreach ($pizzas as $pizza) {
+
+            $old = explode(",",substr(substr_replace($pizza->recept, '', 0, 1), 0, -1));
+            $old = array_unique($old);
+            sort($old);
+            $old = ('['.implode(",",$old).']');
+
+            if($old!=$pizza->recept){
+                $pizza->recept = $old;
+                LogManager::shared()->addLog('nem rendezett pizza'.$pizza->id);
+            }
+        }
+        $pizzas = PizzaAlias::all();
+        foreach ($pizzas as $pizza) {
+
+            $old = explode(",",substr(substr_replace($pizza->recept, '', 0, 1), 0, -1));
+            $old = array_unique($old);
+            sort($old);
+            $old = ('['.implode(",",$old).']');
+
+            if($old!=$pizza->recept){
+                $pizza->recept = $old;
+                LogManager::shared()->addLog('nem rendezett pizza_alias'.$pizza->id);
+            }
+        }
+
+    }
+
+
     private function processContent($sitedata,$websiteid){
         //az össes pizza materialjait nézi ismeri e
         foreach($sitedata as $datarow){
@@ -69,6 +100,7 @@ class ProcessRawController extends Controller
             $content = ($this->sliceContent($websiteid,$datarow['content']));
 
             $recept = $this->processContentRow($content);
+
             $additional = $this->processContentRow($content,true);
             $processedPizza = $this->processPizza($datarow,$recept,$additional);
             if($processedPizza==-1){
@@ -91,17 +123,22 @@ class ProcessRawController extends Controller
             $storedata->websiteid = $websiteid;
             $storedata->additonal = $this->receptToString($additional);
             if($alias == null){
-                //TODO: dear future me, please check for duplicates and skipp AND MAKE SURE IF YOU INSERT INTO PIZZA PIZZAS THE RECIPE IS IN ORDER + fix the ones where it isn t
                 $alias = PizzaAlias::all()->where('name',$this->escapePizzaName($data->title))->first();
             }else{
                 $data = RawPizza::all()->where('id',$rawid)->first();
             }
 
+
+            if(in_array(1, explode(",",substr(substr_replace($alias->recept, '', 0, 1), 0, -1)))){
+                return;
+            }
             $pizzaid =$alias->pizzaid;
 
             if($pizzaid == 1){
                 return;
             }
+
+
             //benne van e a dbben ez a pizza?
             if(StoreData::all()->where('websiteid',$websiteid)->where('pizzaid',$pizzaid)->where('pizzasize',$data->size)->count()!=0){
                 //már a dbben van a pizza
@@ -111,6 +148,7 @@ class ProcessRawController extends Controller
                 }
                 return;
             }
+
 
             $storedata->pizzaid = Pizza::all()->where('id',$pizzaid)->first()->id;
             $storedata->pizzaAliasId = $alias->id;
@@ -134,7 +172,10 @@ class ProcessRawController extends Controller
             LogManager::shared()->addLog("Recept is not an array");
             return;
         }
+
+        $recept = array_unique($recept);
         sort($recept);
+
         return (json_encode($recept));
     }
 
