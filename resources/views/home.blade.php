@@ -25,8 +25,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza ">
                 <a href="/kategoriak/songoku" >
                     <picture>
-                        <source srcset="{{ asset('img/glry') }}/kukoricas.webp" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('img/glry') }}/kukoricas.jpg" alt="background">
+                        <source srcset="{{ asset('/img/glry')}}/kukoricas.webp" type="image/webp">
+                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/kukoricas.jpg" alt="kategoriak" />
                     </picture>
                 </a>
                 <h3>Son-Go-Ku Pizzák</h3>
