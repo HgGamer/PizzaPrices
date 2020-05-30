@@ -51,8 +51,8 @@ PizzaPrices - {{$categoryName}}
                                       $url = url('/') . "/img/pizzapop.png";
                                 }
                                 @endphp
-                                <object data="{{ $url}}" type="image/png" style="">
-                                    <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt=""/>
+                                <object data="{{ $url}}" type="image/png" alt="Generalt pizza kép">
+                                    <img class="mx-auto d-block feed-tile-img" src="{{ url('/') }}/img/pizzapop.png" alt="Generalt pizza kép"/>
                                 </object>
                             </div>
                             <div class="ft-recipe__contento">
