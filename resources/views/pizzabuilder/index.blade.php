@@ -105,7 +105,7 @@ PizzaPrices - Pizza Picker
                 <canvas id="picker-loader" style="display: none"></canvas>
             </div>
         </div>
-        <div class="row justify-content-around nopizza" id="resultContainer">
+        <div class="justify-content-around nopizza" id="resultContainer">
 
 
         </div>
