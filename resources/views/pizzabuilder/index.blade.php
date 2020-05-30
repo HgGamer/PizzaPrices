@@ -3,7 +3,7 @@
 PizzaPrices - Pizza Picker
 @endsection
 @section('content')
-
+<div class="pickercontainer">
     <section class="banner_area" data-stellar-background-ratio="0.5">
         <h2>Pizza Picker</h2>
         <ol class="breadcrumb justify-content-center">
@@ -12,7 +12,7 @@ PizzaPrices - Pizza Picker
         </ol>
     </section>
 
-    <div class="container-fluid pickercontainer">
+    <div class="container-fluid">
         <h1 class="nincshteg">Pizza Picker</h1>
 
             <div class="row">
@@ -360,5 +360,5 @@ PizzaPrices - Pizza Picker
         }())
 
     </script>
-
+</div>
 @endsection
