@@ -62,6 +62,8 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/api/process/newAdditionalMaterial','ProcessRawController@newAdditionalMaterial');
     Route::get( '/api/process/deleteBadAliases','ProcessRawController@deleteBadAliases');
     Route::get( '/api/process/generateImages','GenerationController@generateImages');
+    Route::get( '/api/process/generateImagesFast','GenerationController@generateImagesFast');
+    Route::get( '/api/process/checkRecepts','ProcessRawController@checkRecepts');
 
 
     Route::get('/process',function(Request $request){

@@ -5,6 +5,7 @@
 /public/storage
 /public/img/generated_assets/*
 /public/img/generated_feltetek/*
+/public/img/generated_feltetek_big/*
 /storage/*.key
 /vendor
 .env

@@ -176,7 +176,7 @@ function addNextItems(items){
             <div class="ft-recipe__thumb${ (isYellow) ? "m" : ""} text-center d-flex  align-items-center justify-content-center">
 
                 <object data="${items[i]['pizza_alias']['generatedURL'] }" type="image/png" alt="Generalt pizza kép">
-                    <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt=""/>
+                    <img class="mx-auto d-block feed-tile-img" src="${URL}/img/pizzapop.png" alt="Generalt pizza kép"/>
                 </object>
 
             </div>
