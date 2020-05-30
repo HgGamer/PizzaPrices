@@ -427,10 +427,17 @@ function addScrollListener(){
           upButton.classList.remove("show");
         }
     } else {
-        if(!upButton.classList.contains("show")){
+        if(!upButton.classList.contains("show") && $(window).scrollTop() > 300){
           upButton.classList.add("show");
         }
     }
+
+    if ($(window).scrollTop() < 300) {
+      if(upButton.classList.contains("show")){
+          upButton.classList.remove("show");
+        }
+    }
+
    lastScrollTop = st <= 0 ? 0 : st;
   }, false);
 
