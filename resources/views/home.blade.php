@@ -34,8 +34,8 @@ PizzaPrices - Főoldal
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/bolognai" >
                     <picture>
-                        <source srcset="{{ asset('/img/glry') }}/bolognai.webp" type="image/wepb">
-                        <img class="object-fit_contain" src="{{ asset('/img/glry') }}/bolognai.jpg" alt="background">
+                        <source srcset="{{ asset('/img/glry')}}/bolognai.webp" type="image/webp">
+                        <img class="object-fit_cover" src="{{ asset('/img/glry')}}/bolognai.jpg" alt="kategoriak" />
                     </picture>
                 </a>
                 <h3>Bolognai Pizzák</h3>
