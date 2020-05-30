@@ -120,6 +120,11 @@ PizzaPrices - Pizza Picker
             if (!isValid()) {
                 return;
             }
+            console.log("SCROLLOLJ")
+            window.scrollBy({
+                top: 100,
+                behavior: 'smooth'
+            });
             document.getElementById("search-button").disabled = true;
             document.getElementById('picker-loader').style.display = 'inline';
             console.log('Keresett material tomb: ' +  materials)

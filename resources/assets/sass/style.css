@@ -1629,6 +1629,7 @@ nav > div a.nav-item.nav-link:focus
 }
 .pickercontainer{
     min-height: 1500px;
+    padding-bottom: 100px;
 }
 .text-capitalize{
     text-transform: capitalize;
