@@ -180,7 +180,7 @@ PizzaPrices - Főoldal
                                     <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">{{$pizza['pizzasize']}}</span><span class="title">Méret(cm)</span></li>
                                 </ul>
                             </header>
-                        <h4 class="text-center font-weight-bold"> <a href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}">{{ $pizza['website']['title']  }}</a> </h4>
+                        <h4 class="text-center font-weight-bold"> <a rel="noopener" target="_blank" href="{{ ($pizza['url'] != "") ? $pizza['url'] : $pizza['website']['url'] }}">{{ $pizza['website']['title']  }}</a> </h4>
                             <h4>Feltétek:</h4>
                             <p class="description">
                                 @foreach ($pizza['pizzaAlias']['recept'] as $key => $recept)
