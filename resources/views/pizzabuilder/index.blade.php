@@ -15,8 +15,8 @@ PizzaPrices - Pizza Picker
     <div class="container-fluid">
         <h1 class="nincshteg">Pizza Picker</h1>
 
-            <div class="row">
-                <div class="col-lg-9 col-md-12 col-sm-12">
+            <div class="row justify-content-lg-around">
+                <div class="col-xl-9 col-lg-12 col-md-12 col-sm-12">
                 <nav>
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                         @php $j=0 @endphp
@@ -58,14 +58,14 @@ PizzaPrices - Pizza Picker
                 </section>
             </div>
 
-            <div class="col-lg-3 col-md-12 col-sm-12">
+            <div class="col-xl-3 col-lg-6 col-md-12 col-sm-12">
                 <nav class="jobbpicker">
                     <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link" id="" data-toggle="tab"  role="tab" aria-controls="" aria-selected="true">Keresett Pizza</a>
                     </div>
                 </nav>
                 <div class="ft-recipe-picker pickerjobb">
-                    <div class="ft-recipe__thumb text-center d-flex  align-items-center">
+                    <div class="ft-recipe__thumb text-center d-flex justify-content-center">
                         <picture>
                             <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
                             <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
@@ -74,7 +74,7 @@ PizzaPrices - Pizza Picker
                     <div class="ft-recipe__contento">
                         <header class="content__header">
                             <div class="row-wrapper text-center justify-content-between">
-                                <h2 class="recipe-title feed-tile-name"> Keresett Feltétek <span class="h3">(min. 1)</span>   </h2>
+                                <h2 class="recipe-title feed-tile-name"> Keresett Feltétek <span class="h3">(min.&nbsp;1)</span>   </h2>
                                 <h2 class="recipe-title feed-tile-name"> <span id="feltet-counter">0</span>/10 </h2>
 
                             </div>
@@ -231,9 +231,8 @@ PizzaPrices - Pizza Picker
                 var li = document.createElement("li");
 
                 specificId = 'active-material-' + materialId;
-                li.setAttribute('id', specificId)
-
-                li.appendChild(document.createTextNode(materialName));
+                li.setAttribute('id', specificId);
+                li.innerHTML = "<span>" + materialName + "</span>" + "<i class='far fa-times-circle picker-delete-button' onclick='setMaterial(" + materialId + ", &apos;" + materialName + "&apos; )'></i>";
                 ul.appendChild(li);
 
             }
@@ -242,7 +241,7 @@ PizzaPrices - Pizza Picker
 
         }
 
-        //Kiválasztott materialok törlése, ez aíz ürités gomb methodusa
+        //Kiválasztott materialok törlése, ez az ürités gomb methodusa
         function unsetMaterials() {
 
             materials.forEach(materialId => {

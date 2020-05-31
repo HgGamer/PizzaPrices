@@ -1718,6 +1718,18 @@ nav > div a.nav-item.nav-link:focus
     z-index: 10000;
 }
 
+.picker-delete-button{
+    font-weight: 100;
+    font-size: 25px;
+    margin-left: 5px;
+    color: #a33327;
+    white-space: nowrap;
+}
+
+.picker-delete-button:hover{
+    cursor: pointer;
+}
+
 @media (min-width: 2400px){
     .szeged {
         left: 56%;
