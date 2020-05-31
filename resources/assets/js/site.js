@@ -67,7 +67,13 @@ function getCookie(cname) {
     var accepted = getCookie("accepted_cookies");
     if (accepted != "") {
         //él a cookie
-        document.getElementById('cookie-footer').style.display = 'none';
+
+        let cookieFooter = document.getElementById('cookie-footer')
+
+        if(cookieFooter != null){
+            cookieFooter.style.display = 'none';
+        }
+
         gtag('js', new Date());
         gtag('config', 'UA-161580640-1');
         setFloatingButtonMargins();
@@ -90,7 +96,7 @@ setCookiePolicyCookie = function(){
     gtag('js', new Date());
     gtag('config', 'UA-161580640-1');
     setFloatingButtonMargins();
-    
+
 }
 
 function setFloatingButtonMargins(){
@@ -109,7 +115,7 @@ function setFloatingButtonMargins(){
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
-    if (isProd) {
+    if (isProd && !isWelcomePage) {
         checkCookie();
     }
 });
@@ -421,7 +427,7 @@ function addScrollListener(){
   }
 
   window.addEventListener("scroll", function(){
-   var st = window.pageYOffset || document.documentElement.scrollTop; 
+   var st = window.pageYOffset || document.documentElement.scrollTop;
     if (st > lastScrollTop){
         if(upButton.classList.contains("show")){
           upButton.classList.remove("show");

@@ -16,6 +16,19 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @if  (env('APP_DEBUG') == false)
+    <script>
+         let isProd = true;
+         let isWelcomePage = true;
+    </script>
+    @else
+    <script>
+        let isProd = false;
+        let isWelcomePage = true;
+    </script>
+    @endif
+
 </head>
 
 <body>
