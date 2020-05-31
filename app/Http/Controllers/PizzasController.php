@@ -8,11 +8,10 @@ use App\Traits\PizzaQueryTrait;
 use App\Pizza;
 use App\StoreData;
 use App\Helper\LogManager;
-use App\PizzaCategory;
 use App\Material;
 use DB;
-use  App\PizzaAlias;
-use  App\MaterialAlias;
+use Spatie\Async\Pool;
+
 
 class PizzasController extends Controller
 {
@@ -44,6 +43,25 @@ class PizzasController extends Controller
         }
 
         $materials = $request->materials;
+
+        $pool = Pool::create();
+
+        foreach ($materials as $material) {
+            $pool->add(function () use ($material) {
+                $materialObj = Material::find($material);
+                if ($materialObj != null) {
+                    $materialObj->search_times = $materialObj->search_times + 1;
+                    $materialObj->save();
+                }
+
+            })->then(function ($output) {
+                // Handle success
+            })->catch(function (Throwable $exception) {
+                // Handle exception
+            });
+        }
+
+        $pool->wait();
 
         $query = DB::table('store_data')
             ->join('pizza_pizzaalias', 'store_data.pizzaAliasId', '=', 'pizza_pizzaalias.id')

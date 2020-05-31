@@ -17,6 +17,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^2.0",
         "phpunit/phpunit": "^9",
+        "spatie/async": "^1.4",
         "spatie/laravel-analytics": "^3.9",
         "weidner/goutte": "^1.4"
     },
