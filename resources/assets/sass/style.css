@@ -1751,6 +1751,8 @@ nav > div a.nav-item.nav-link.active{
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     margin-left: -66px;
+    -webkit-transition: all 200ms ease;
+    transition: all 200ms ease;
 }
 
 .icon-bar a {
