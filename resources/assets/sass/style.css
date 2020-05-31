@@ -486,8 +486,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     position: fixed;
     bottom: 30px;
     right: 25px;
-    transition: background-color .3s,
-    opacity .5s, visibility .5s;
+    transition: background-color .3s, opacity .5s, visibility .5s;
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
@@ -1742,6 +1741,84 @@ nav > div a.nav-item.nav-link.active{
 }
 
 
+/* Social media bar */
+
+.icon-bar {
+    position: fixed;
+    z-index: 10000;
+    top: 40%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin-left: -66px;
+}
+
+.icon-bar a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+}
+
+.icon-bar .social-buttons{
+    border-radius: 10px;
+    overflow: hidden;
+
+}
+
+.icon-bar .social-toggle-button{
+    background-color: #FFA600;
+    border: #a33327 solid 3px;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 0px 15px 15px 0px;
+    transition: background-color .3s, opacity .5s, visibility .5s;
+
+}
+
+.icon-bar .social-toggle-button i {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+
+.icon-bar .social-toggle-button:hover{
+    cursor: pointer;
+}
+
+.icon-bar a:hover {
+    color: #000;
+    font-weight: 200;
+}
+
+.facebook {
+    background: #3B5998;
+    color: white;
+}
+
+.instagram {
+    background: #f09433;
+    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+    color: white;
+}
+
+.feedback{
+    background: #FFA600;
+    color: white;
+}
+
+
+/*  MEDIA QUERIES */
 
 
 @media (min-width: 2400px){
