@@ -1430,7 +1430,7 @@ nav > div a.nav-item.nav-link:focus
 }
 .kivanvalasztva a{
     opacity: 1;
-    border: #FFA600 solid 2px;
+    border: #a33327 solid 3px;
 }
 .felteteklista li{
     font-family: panpizza;
