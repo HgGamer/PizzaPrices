@@ -1183,6 +1183,9 @@ nav > div a.nav-item.nav-link.active{
     border-radius:0;
     transition:background 0.20s linear;
 }
+.jobbpicker .nav-item.nav-link.active:after{
+    border: 15px;
+}
 
 .szoveg{
     padding: 30px;
