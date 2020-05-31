@@ -491,6 +491,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     opacity: 0;
     visibility: hidden;
     z-index: 1000;
+    border: #a33327 solid 3px;
 }
 @media screen and (max-width: 425px) {
     #fel{
@@ -649,7 +650,7 @@ header .navbar-nav .nav-link:focus, header .navbar-nav .nav-link:hover {
     overflow-y: hidden;
 }
 .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item .value {
-    color: #FFA600;
+    color: black;
     margin-left: .35em;
     vertical-align: bottom;
     font-size: 24px;
@@ -1169,6 +1170,12 @@ nav > div a.nav-item.nav-link:focus
     color:#fff;
     border-radius:0;
     transition:background 0.20s linear;
+}
+nav > div a.nav-item.nav-link.active{
+    background: #FFA600;
+}
+.jobbpicker .nav-item.nav-link.active{
+    background:#a33327;
 }
 .szoveg{
     padding: 30px;
@@ -1729,6 +1736,13 @@ nav > div a.nav-item.nav-link:focus
 .picker-delete-button:hover{
     cursor: pointer;
 }
+.carousel-inner .carousel-item-right,
+.carousel-inner .carousel-item-left{
+    transform: translateX(0);
+}
+
+
+
 
 @media (min-width: 2400px){
     .szeged {
@@ -1744,18 +1758,6 @@ nav > div a.nav-item.nav-link:focus
         top: 41%;
     }
 
-}
-@media only screen and (max-width: 767px) {
-    .error .error-404 {
-        height: 115px;
-    }
-    .error .error-404 h1 {
-        font-size: 86px;
-    }
-    .error .error-404 h1>span {
-        width: 86px;
-        height: 86px;
-    }
 }
 @media (min-width: 1921px){
     .webp .bannerr_area{
@@ -2008,7 +2010,47 @@ nav > div a.nav-item.nav-link:focus
         margin: 0;
     }
 }
+@media screen and (max-width: 768px) and (min-width: 768px) {
+    .ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title {
+        font-weight: 300;
+        font-family: panpizza;
+        font-size: 40px;
+        min-height: 100px;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 100px;
+        margin: 0;
+    }
+    .ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title span{
+        display: inline-block;
+        line-height: normal;
+        vertical-align: middle;
+    }
+    .ft-recipe-kicsii .ft-recipe__contento .description {
+        min-height: 120px;
+    }
+}
 @media (max-width: 768px) {
+    .carousel-inner .carousel-item > div {
+
+    }
+    .carousel-inner .carousel-item > div:first-child {
+        display: block;
+    }
+    .wep .city-select .restaurant {
+        background: none;
+        display: none;
+    }
+    .no-webp .city-select .restaurant {
+        background: none;
+        display: none;
+    }
+    .map img{
+        display: none !important;
+    }
+    .city-select .restaurant span{
+        display: none !important;
+    }
     .feedbackBTN span{
         display: none;
     }
@@ -2036,66 +2078,13 @@ nav > div a.nav-item.nav-link:focus
         background-attachment: fixed;
         height: 100vh;
     }
-
-}
-@media screen and (max-width: 768px) and (min-width: 768px) {
-    .ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title {
-        font-weight: 300;
-        font-family: panpizza;
-        font-size: 40px;
-        min-height: 100px;
-        text-align: center;
-        vertical-align: middle;
-        line-height: 100px;
-        margin: 0;
-    }
-    .ft-recipe-kicsii .ft-recipe__contento .content__header .row-wrapper .recipe-title span{
-        display: inline-block;
-        line-height: normal;
-        vertical-align: middle;
-    }
-    .ft-recipe-kicsii .ft-recipe__contento .description {
-        min-height: 120px;
-    }
-}
-@media (min-width: 767px) {
-
-    .carousel-inner .carousel-item-right.active,
-    .carousel-inner .carousel-item-next {
-        transform: translateX(33.333%);
-    }
-
-    .carousel-inner .carousel-item-left.active,
-    .carousel-inner .carousel-item-prev {
-        transform: translateX(-33.333%);
-    }
-}
-
-.carousel-inner .carousel-item-right,
-.carousel-inner .carousel-item-left{
-    transform: translateX(0);
-}
-@media (max-width: 768px) {
-    .carousel-inner .carousel-item > div {
-
-    }
-    .carousel-inner .carousel-item > div:first-child {
-        display: block;
-    }
-    .wep .city-select .restaurant {
-        background: none;
+    .webp .city-select .restaurant{
         display: none;
     }
-    .no-webp .city-select .restaurant {
-        background: none;
+    .no-webp .city-select .restaurant{
         display: none;
     }
-    .map img{
-        display: none !important;
-    }
-    .city-select .restaurant span{
-        display: none !important;
-    }
+
 
     .menudiv li{
         font-family: panpizza;
@@ -2107,11 +2096,19 @@ nav > div a.nav-item.nav-link:focus
         margin-bottom: 10px;
     }
 
-    .menudiv li:nth-child(2) {
+    .menudiv a li:nth-child(2) {
         background: #a33327;
     }
-    .menudiv li a{
+    .menudiv .masodikvaros{
+        background: #a33327;
+    }
+    .menudiv a{
         color: white;
+        text-decoration: none;
+    }
+    .menudiv a:not([href]) {
+        color: white;
+        text-decoration: none;
     }
     .menudiv{
         width: 100%;
@@ -2192,7 +2189,29 @@ nav > div a.nav-item.nav-link:focus
     }
 
 }
+@media (min-width: 767px) {
+
+    .carousel-inner .carousel-item-right.active,
+    .carousel-inner .carousel-item-next {
+        transform: translateX(33.333%);
+    }
+
+    .carousel-inner .carousel-item-left.active,
+    .carousel-inner .carousel-item-prev {
+        transform: translateX(-33.333%);
+    }
+}
 @media (max-width: 767px) {
+    .error .error-404 {
+        height: 115px;
+    }
+    .error .error-404 h1 {
+        font-size: 86px;
+    }
+    .error .error-404 h1>span {
+        width: 86px;
+        height: 86px;
+    }
     .Elfluido{
         max-width: 100%!important;
     }
@@ -2209,6 +2228,7 @@ nav > div a.nav-item.nav-link:focus
         width: 105% !important;
     }
 }
+
 @media (max-width: 700px) {
     .feltetek{
         margin-top: 30px;

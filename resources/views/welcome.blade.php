@@ -43,9 +43,9 @@
     </div>
     <div class="kezdumenu align-items-center">
         <div class="menudiv mx-auto d-block ">
-            <li><a href="/home">Szeged</a></li>
-            <li><a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!">Budapest</a></li>
-            <li><a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!">Debrecen</a></li>
+            <a href="/home"><li>Szeged</li></a>
+            <a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!"><li class="masodikvaros">Budapest</li></a>
+            <a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!"><li>Debrecen</li></a>
         </div>
     </div>
     <button type="button" onclick="toggleInformationDiv()" class="btn btn-info infobutton">!</button>

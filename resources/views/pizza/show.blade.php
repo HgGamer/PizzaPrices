@@ -109,19 +109,19 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                 <div class="ElScrolllolloo">
                     <ul class="responsive-table">
                         <li class="table-header">
-                            <div class="col col-3">Pizza Neve</div>
-                            <div class="col col-3">Pizzéria Neve</div>
-                            <div class="col col-1">Méret</div>
-                            <div class="col col-2">Ár</div>
-                            <div class="col col-3">Ugrás a Pizzériához</div>
+                            <div class=" col-3">Pizza Neve</div>
+                            <div class=" col-3">Pizzéria Neve</div>
+                            <div class=" col-1">Méret</div>
+                            <div class=" col-2">Ár</div>
+                            <div class=" col-3">Ugrás a Pizzériához</div>
                         </li>
                         @foreach ($datas as $data)
                         <li class="table-row" data-id="{{ $data['id'] }}">
-                            <div class="col col-3 text-capitalize" data-label="Pizza Neve">{{$data['pizzaAlias']['name']}}</div>
-                            <div class="col col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
-                            <div class="col col-1" data-label="Méret">{{ $data->pizzasize }}</div>
-                            <div class="col col-2" data-label="Ár">{{$data->price}} Ft</div>
-                            <div class="col col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></div>
+                            <div class=" col-3 text-capitalize" data-label="Pizza Neve">{{$data['pizzaAlias']['name']}}</div>
+                            <div class=" col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
+                            <div class=" col-1" data-label="Méret">{{ $data->pizzasize }}</div>
+                            <div class=" col-2" data-label="Ár">{{$data->price}} Ft</div>
+                            <div class=" col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></div>
                         </li>
                         @endforeach
                     </ul>
@@ -247,6 +247,8 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
     }else{
         console.log("Nem ios")
     }
+
+
 
 </script>
 
