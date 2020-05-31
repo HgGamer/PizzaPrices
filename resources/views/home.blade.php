@@ -23,13 +23,13 @@ PizzaPrices - Főoldal
                 <h3>Hawaii Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza ">
-                <a href="/kategoriak/songoku" >
+                <a href="/kategoriak/kukoricas" >
                     <picture>
                         <source srcset="{{ asset('/img/glry')}}/kukoricas.webp" type="image/webp">
                         <img class="object-fit_cover" src="{{ asset('/img/glry')}}/kukoricas.jpg" alt="kategoriak" />
                     </picture>
                 </a>
-                <h3>Son-Go-Ku Pizzák</h3>
+                <h3>Kukoricás Pizzák</h3>
             </div>
             <div class="col-lg-3 col-md-6 popularpizza">
                 <a href="/kategoriak/bolognai" >
