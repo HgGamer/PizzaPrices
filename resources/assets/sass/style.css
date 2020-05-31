@@ -1177,6 +1177,14 @@ nav > div a.nav-item.nav-link.active{
 .jobbpicker .nav-item.nav-link.active{
     background:#a33327;
 }
+.jobbpicker .nav-item.nav-link:hover {
+    border: none;
+    background:#a33327;
+    color:#fff;
+    border-radius:0;
+    transition:background 0.20s linear;
+}
+
 .szoveg{
     padding: 30px;
 }
@@ -2115,6 +2123,14 @@ nav > div a.nav-item.nav-link.active{
         position: relative;
         z-index: 400;
         display: block;
+    }
+    .menudiv a:active{
+        color: black;
+        text-decoration: none;
+    }
+    .menudiv a:visited{
+        color: white;
+        text-decoration: none;
     }
     .kezdumenu{
         display: flex !important;
