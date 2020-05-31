@@ -13,7 +13,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="revisit-after" content="1 days">
     <meta name="description" content="Böngéssze és hasonlítsa össze helyi pizzériák több száz ajánlatát.">
-    <meta name="keywords" content="pizza, keresés, kereső, pizzaprices, ár, összehasonlítás">
+    <meta name="keywords" content="pizza, keresés, kereső, pizzaprices, ár, összehasonlítás, price">
     <meta name="robots" content="index,follow">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=0" />
 
@@ -116,6 +116,18 @@
         </div>
     </div>
 </div>
+
+
+<div id="social-icon-bar" class="d-flex icon-bar">
+    <div class="social-buttons">
+        <a href="https://www.facebook.com/PizzaPrices-103277054748469/" rel="noopener" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/pizzaprices/" rel="noopener" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+        <a data-toggle="modal" href="#myModal" class="feedback"><i class="fas fa-comments"></i></a>
+    </div>
+    <div class="d-flex align-items-center">
+        <span id="social-toggle-button-id" class="social-toggle-button"><i class="fas fa-chevron-right"></i></span>
+    </div>
+  </div>
 
 @if (env('APP_DEBUG') == false)
 

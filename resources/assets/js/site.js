@@ -14,6 +14,7 @@ window.onbeforeunload = function () {
 
 window.onload = function(){
   addScrollListener();
+  addSocialBarListener();
 
    // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
 /*
@@ -100,18 +101,10 @@ setCookiePolicyCookie = function(){
 }
 
 function setFloatingButtonMargins(){
-    console.log("lefut")
     let upButton = document.getElementById('fel');
     if (upButton !=null) {
       upButton.style.marginBottom = '40px';
     }
-
-    let mailButton = document.getElementsByClassName('feedbackform')[0];
-
-    if(mailButton != null){
-      mailButton.style.marginBottom = '40px';
-    }
-
 }
 
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -446,6 +439,35 @@ function addScrollListener(){
 
    lastScrollTop = st <= 0 ? 0 : st;
   }, false);
+
+}
+
+isSocialIconBarVisible = false;
+
+function addSocialBarListener(){
+    let socialIconBar = document.getElementById("social-icon-bar");
+    let socialIconToggler = document.getElementById("social-toggle-button-id");
+
+    if (socialIconBar == null) {
+        return
+    }
+
+    socialIconToggler.addEventListener("click", function(){
+
+        if(isSocialIconBarVisible){
+            socialIconBar.style.marginLeft = "-66px";
+            socialIconToggler.innerHTML = "<i class='fas fa-chevron-right'></i>";
+            isSocialIconBarVisible = false;
+        }else{
+            socialIconBar.style.marginLeft = "0px";
+            socialIconToggler.innerHTML = "<i class='fas fa-chevron-left'></i>";
+            isSocialIconBarVisible = true
+        }
+
+    });
+
+
+
 
 }
 
