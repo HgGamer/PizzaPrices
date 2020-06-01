@@ -106,8 +106,8 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                 </div>
 
 
-                <div class="table-responsive">
-                    <table class="table table-borderless" id="items">
+                <div class="table-responsive" id="aszam">
+                    <table class="table tablesajat table-borderless" id="items">
                         <thead>
                         <tr class="tableheader justify-content-center">
                             <th scope="col">Pizza Neve</th>
@@ -118,13 +118,15 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                         </tr>
                         </thead>
                         <tbody>
+                        @php $i = 1; @endphp
                         @foreach ($datas as $data)
                         <tr class="tablerow item" data-id="{{$data['id']}}">
                             <th>{{$data['pizzaAlias']['name']}}</th>
                             <td>{{$data['website']['title']}}</td>
                             <td>{{ $data->pizzasize }} Cm</td>
                             <td class="price">{{$data->price}} Ft</td>
-                            <td><footer class="content__footer align-self-end "><a id="changeMe" href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></td>
+
+                            <td><footer class="content__footer align-self-end "><a class="changeMe" href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></td>
                         </tr>
                             @endforeach
                         </tbody>
@@ -275,9 +277,17 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
         else sorted = true;
     }
 
-    if (navigator.userAgent.match(/Mobile/)) {
-        document.getElementById('changeMe').innerHTML = 'kecske';
+    var nodesArray = document.getElementsByClassName("changeMe");
+
+    window.onload =function meretcheck() {
+        if(window.innerWidth <= 425){
+
+            for (i=0; i< nodesArray.length; i++){
+                nodesArray[i].innerHTML ='<i class="fas fa-angle-right"></i>';
+            }
+        }
     }
+
 </script>
 
 
