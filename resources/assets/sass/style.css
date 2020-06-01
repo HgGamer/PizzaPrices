@@ -1757,7 +1757,7 @@ nav > div a.nav-item.nav-link.active{
 .icon-bar {
     position: fixed;
     z-index: 10000;
-    top: 40%;
+    top: 50%;
     -webkit-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
