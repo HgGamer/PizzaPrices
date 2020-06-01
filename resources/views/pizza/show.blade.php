@@ -106,60 +106,33 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
                 </div>
 
 
-
-
-                <div class="ElScrolllolloo">
-                    <ul class="responsive-table">
-                        <li class="table-header">
-                            <div class=" col-3">Pizza Neve</div>
-                            <div class=" col-3">Pizzéria Neve</div>
-                            <div class=" col-1">Méret</div>
-                            <div class=" col-2">Ár</div>
-                            <div class=" col-3">Ugrás a Pizzériához</div>
-                        </li>
-                        @foreach ($datas as $data)
-                        <li class="table-row" data-id="{{ $data['id'] }}">
-                            <div class=" col-3 text-capitalize" data-label="Pizza Neve">{{$data['pizzaAlias']['name']}}</div>
-                            <div class=" col-3" data-label="Pizzéria Neve">{{$data['website']['title']}}</div>
-                            <div class=" col-1" data-label="Méret">{{ $data->pizzasize }}</div>
-                            <div class=" col-2" data-label="Ár">{{$data->price}} Ft</div>
-                            <div class=" col-3" ><footer class="content__footer align-self-end "><a href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></div>
-                        </li>
-                        @endforeach
-                    </ul>
-                </div>
-
                 <div class="table-responsive">
-                    <table class="table table-borderless">
+                    <table class="table table-borderless" id="items">
                         <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                        <tr class="tableheader justify-content-center">
+                            <th scope="col">Pizza Neve</th>
+                            <th scope="col">Pizzéria Neve</th>
+                            <th scope="col">Méret</th>
+                            <th scope="col" onclick="sortByPrice()">Ár <i class="fas fa-sort"></i></th>
+                            <th scope="col">Ugrás A Pizzériához</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                        @foreach ($datas as $data)
+                        <tr class="tablerow item" data-id="{{$data['id']}}">
+                            <th>{{$data['pizzaAlias']['name']}}</th>
+                            <td>{{$data['website']['title']}}</td>
+                            <td>{{ $data->pizzasize }} Cm</td>
+                            <td class="price">{{$data->price}} Ft</td>
+                            <td><footer class="content__footer align-self-end "><a id="changeMe" href="{{ ($data['url'] != "") ? $data['url'] : $data['website']['url'] }}" rel="noopener" target="_blank">Ugrás a Pizzériához</a></footer></td>
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td colspan="2">Larry the Bird</td>
-                            <td>@twitter</td>
-                        </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
+
+
+
 
 
             </section>
@@ -284,9 +257,32 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
         console.log("Nem ios")
     }
 
+    var sorted = false;
 
+    function sortByPrice() {
+        $('#items').append(
+            $('#items').find('tr.item').sort(function (a, b) {
+                var td_a = $($(a).find('td.price')[0]);
+                var td_b = $($(b).find('td.price')[0]);
+                if(sorted){
+                    return td_b.html().replace(/\D/g, '') - td_a.html().replace(/\D/g, '');
+                }else{
+                    return td_a.html().replace(/\D/g, '') - td_b.html().replace(/\D/g, '');
+                }
+            })
+        );
+        if(sorted) sorted = false;
+        else sorted = true;
+    }
 
+    if (navigator.userAgent.match(/Mobile/)) {
+        document.getElementById('changeMe').innerHTML = 'kecske';
+    }
 </script>
+
+
+
+
 
 @endsection
 
