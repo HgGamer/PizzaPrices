@@ -1850,6 +1850,7 @@ nav > div a.nav-item.nav-link.active{
 
 
 
+
 /*  MEDIA QUERIES */
 
 
@@ -2303,6 +2304,13 @@ nav > div a.nav-item.nav-link.active{
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+    }
+    .mobilnopadding{
+        padding-right: 0!important;
+        padding-left: 0!important;
+    }
+    nav > div a.nav-item.nav-link.active:after{
+        border: none;
     }
 
 }
