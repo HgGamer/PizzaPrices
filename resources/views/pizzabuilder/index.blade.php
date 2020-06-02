@@ -4,6 +4,9 @@ PizzaPrices - Pizza Picker
 @endsection
 @section('content')
 <div class="pickercontainer">
+    <script>
+        var pizzapickerdata = @json($categories);
+    </script>
     <section class="banner_area" data-stellar-background-ratio="0.5">
         <h2>Pizza Picker</h2>
         <ol class="breadcrumb justify-content-center">
@@ -66,10 +69,7 @@ PizzaPrices - Pizza Picker
                 </nav>
                 <div class="ft-recipe-picker pickerjobb">
                     <div class="ft-recipe__thumb text-center d-flex justify-content-center">
-                        <picture>
-                            <source srcset="{{ asset('img/pizzapop_old.webp') }}" type="image/webp">
-                            <img class="mx-auto d-block feed-tile-img" src="{{ asset('img/pizzapop_old.png') }}" alt="pizza"/>
-                        </picture>
+                        <canvas id="pizzacanvas" width='1000px' height='1000px' style="width: 256px; height: 256px;"></canvas>
                     </div>
                     <div class="ft-recipe__contento">
                         <header class="content__header">
@@ -120,7 +120,6 @@ PizzaPrices - Pizza Picker
             if (!isValid()) {
                 return;
             }
-            console.log("SCROLLOLJ")
             window.scrollBy({
                 top: 100,
                 behavior: 'smooth'
@@ -212,6 +211,8 @@ PizzaPrices - Pizza Picker
                 var li = $('#active-material-' + materialId);
                 li.remove();
 
+                removeFromCanvas(materialId);
+
             }else {
                 isBaseMaterialAlreadyPicked(materialId);
 
@@ -234,7 +235,7 @@ PizzaPrices - Pizza Picker
                 li.setAttribute('id', specificId);
                 li.innerHTML = "<span>" + materialName + "</span>" + "<i class='far fa-times-circle picker-delete-button' onclick='setMaterial(" + materialId + ", &apos;" + materialName + "&apos; )'></i>";
                 ul.appendChild(li);
-
+                addToCanvas(materialId);
             }
 
             document.getElementById("feltet-counter").innerHTML = materials.length;
@@ -255,8 +256,9 @@ PizzaPrices - Pizza Picker
             pickedBaseMaterialId = -1;
             baseMaterialPicked = false;
 
-            materials = []
-
+            materials = [];
+            canvasdata.selected = [];
+            renderCanvas();
         }
 
 
@@ -321,7 +323,7 @@ PizzaPrices - Pizza Picker
 
             resultContainer.appendChild(pizzaList)
 
-            console.log(items.length + ' pizza added')
+            //console.log(items.length + ' pizza added')
 
         }
 
@@ -336,7 +338,7 @@ PizzaPrices - Pizza Picker
                     $("#material-" + pickedBaseMaterialId).toggleClass('kivanvalasztva');
                     var li = document.getElementById('active-material-' + pickedBaseMaterialId);
                     li.remove();
-
+                    removeFromCanvas(pickedBaseMaterialId)
                     const index = materials.indexOf(pickedBaseMaterialId);
                     if (index > -1) {
                         materials.splice(index, 1);
@@ -354,9 +356,59 @@ PizzaPrices - Pizza Picker
             }
 
         }
+        let canvasdata = {};
+        function initCanvas(){
+            var ctx = document.getElementById("pizzacanvas").getContext('2d');
+            pizzapickerdata[7] = pizzapickerdata[1];
+            pizzapickerdata[1] = {};
+            canvasdata.selected = [];
+        }
+
+        function addToCanvas(id){
+            //console.log("addToCanvas",id)
+            canvasdata.selected.push(id);
+            renderCanvas();
+        }
+
+        function removeFromCanvas(id){
+           // console.log("remove from canvas",id)
+            const index = canvasdata.selected.indexOf(id);
+            if (index > -1) {
+                canvasdata.selected.splice(index, 1);
+            }
+            renderCanvas();
+        }
+
+        function renderCanvas(dontrunagain){
+
+            let canvas = document.getElementById("pizzacanvas");
+            let ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < pizzapickerdata.length; i++) {
+                if(typeof pizzapickerdata[i].materials != 'undefined'){
+                    for (let j = 0; j < pizzapickerdata[i].materials.length; j++) {
+                        //console.log(pizzapickerdata[i][j])
+                        if(canvasdata.selected.includes(pizzapickerdata[i].materials[j].id)){
+
+                            var img = new Image();
+                            img.onload = function() {
+                                let canvas = document.getElementById("pizzacanvas");
+                                let ctx = canvas.getContext('2d');
+                                ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+                                if(!dontrunagain){
+                                    renderCanvas(true);
+                                }
+                            };
+                            img.src = "/img/generated_assets/" + pizzapickerdata[i].materials[j].id + ".png";
+                        }
+                    }
+                }
+
+            }
+        }
 
         let pizza = new Pizza('picker-loader')
-
+        initCanvas();
         ;(function update() {
         requestAnimationFrame(update)
         pizza.update()
