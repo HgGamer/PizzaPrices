@@ -37,21 +37,21 @@ PizzaPrices - Kapcsolatok
                     <div class="szoveg">
                         <h2>Cookie(Süti):</h2>
                         <p>
-                        A www.pizzaprices.hu weboldal cookie-kat (sütiket) használ. A cookie-k olyan adatok, amiket a honlap az Ön böngészőjének küld el azzal a céllal, hogy elmentse bizonyos beállításait, megkönnyítse a honlap használatát, és közreműködik abban, hogy néhány statisztikai információt gyűjtsön a látogatóról. Ezek önmagukban nem használhatók fel a látogató azonosítására. A sütik segítségével pontosabban feltudjuk mérni a honlap használatát pl.: a felhasználó melyik oldalakat látogatja a leggyakrabban, vagy hol kap hiba üzenetet. Az így kapott adatokat a felhasználói élmény javítására használjuk fel.
+                        A www.pizzaprices.hu weboldal cookie-kat (sütiket) használ. A cookie-k olyan adatok, amiket a honlap az Ön böngészőjének küld el azzal a céllal, hogy elmentse bizonyos beállításait, megkönnyítse a honlap használatát, és közreműködik abban, hogy néhány statisztikai információt gyűjtsön a látogatóról. Ezek önmagukban nem használhatók fel a látogató azonosítására. A sütik segítségével pontosabban fel tudjuk mérni a honlap használatát pl.: a felhasználó melyik oldalakat látogatja a leggyakrabban, vagy hol kap hibaüzenetet. Az így kapott adatokat a felhasználói élmény javítására használjuk fel.
                         A honlap a Google Analytics-et használja az adatok gyűjtésére.
-                        Az adatokat a Google dolgozza fel és az kész statisztikákat bocsájt a honlap készítői számára. <br>
+                        Az adatokat a Google dolgozza fel és az kész statisztikákat bocsát a honlap készítői számára. <br>
                         <a href="https://policies.google.com/privacy?hl=hu"> Google adatvédelmi irányelvek</a> <br>
                         <a href="https://policies.google.com/terms?hl=hu"> Szolgáltatási feltételek</a>
                         </p>
                         <h3>Milyen adatok kerülnek kezelésre?</h3>
                         <p>
-                        A Google Analytics által gyüjtött statisztikai adatok, ezekről további információk <a href="https://policies.google.com/privacy?hl=hu"> itt </a> érhetőek el.
+                        A Google Analytics által gyűjtött statisztikai adatok, ezekről további információk <a href="https://policies.google.com/privacy?hl=hu"> itt </a> érhetőek el.
                         </p>
                         <h3>
                         Milyen célból történik az adatok kezelése?
                         </h3>
                         <p>
-                        Az sütikből kapott adatok célja a honlap látogatása során a szolgáltatások működésének ellenőrzése és statisztikák alapján a honlap felhasználói élményének javítása.
+                        Az sütikből kapott adatok célja, a honlap látogatása során a szolgáltatások működésének ellenőrzése, és statisztikák alapján a honlap felhasználói élményének javítása.
                         </p>
                         <h3>Mi a jogalapja a személyes adatai kezelésének?</h3>
                         <p>Az adatkezelés jogalapja az Ön önkéntes hozzájárulása. A Cookie sávban való elfogadom gombbal való elfogadás.</p>
@@ -79,9 +79,9 @@ PizzaPrices - Kapcsolatok
                             <div class="align-self-center">
                                 <p>
                                 A pizza adataiban a valóságtól való eltéresekért az oldal készítői nem vállalnak felelősséget. A képek csak illusztrációk. <br>
-                                Ha az oldalon megjelenített pizzériák közül valamelyik nem járul hozzá az adatai felhasználásához, akkor ezen az email címen az adatainak törlését kérheti. (pizzaprices1[at]gmail.com)
-                                <br>  Az ilyen kérelmeknek legfeljebb 14 nap után eleget teszünk.<br>
-                                Az oldal nem szállít pizzát csak összehasonlítja különböző pizzériák kínálatát.
+                                Ha az oldalon megjelenített pizzériák közül valamelyik nem járul hozzá az adatai felhasználásához, akkor ezen az email címen az adatainak törlését kérheti. (pizzaprices1(at)gmail.com)
+                                <br>  Az ilyen kérelmeknek 14 napon belül eleget teszünk.<br>
+                                Az oldal nem szállít pizzát, csak összehasonlítja különböző pizzériák kínálatát.
                                 </p>
                             </div>
                         </div>
