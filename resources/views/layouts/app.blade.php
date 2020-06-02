@@ -135,7 +135,7 @@
 <div id="cookie-footer" class="footer">
     <div class="container">
         <p class="h6 p-2">
-            Sütiket alkalmazunk, hogy megértsük, hogyan használod az oldalt és javítsuk a felhasználói élményt. <span class=".d-block .d-md-none d-lg-none d-xl-none"> Az oldal a Google és a reCAPTCHA által védett.</span> <br class=".d-block .d-md-none">
+            Sütiket alkalmazunk, hogy megértsük, hogyan használod az oldalt, és javítsuk a felhasználói élményt. <span class=".d-block .d-md-none d-lg-none d-xl-none"> Az oldal a Google és a reCAPTCHA által védett.</span> <br class=".d-block .d-md-none">
             <a  class="btn btn-success btn-sm"  onclick="setCookiePolicyCookie()">Elfogadás</a>
             <a href="/kapcsolatok#adatvedelmi"  class="btn btn-primary btn-sm">Részletek</a>
         </p>
