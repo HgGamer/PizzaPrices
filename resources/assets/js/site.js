@@ -13,8 +13,12 @@ window.onbeforeunload = function () {
   }
 
 window.onload = function(){
-  addScrollListener();
-  addSocialBarListener();
+    if (typeof addWindowsOnLoad === "function") {
+        addWindowsOnLoad()
+    }
+
+    addScrollListener();
+    addSocialBarListener();
 
    // console.log('%c ', 'font-size:500px; background:url('+window.location.protocol+"//" +window.location.hostname +'/img/2.webp) no-repeat;');
 /*
