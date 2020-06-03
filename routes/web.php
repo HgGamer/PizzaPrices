@@ -84,6 +84,11 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::get('/links/scrapeAll', 'Admin\LinksController@scrapeAll');
     Route::resource('/links', 'Admin\LinksController');
     Route::resource('/item-schema', 'Admin\ItemSchemaController');
+    Route::patch('/data_protection_links/set-item-schema', 'Admin\DataProtectionLinksController@setItemSchema');
+    Route::put('/data_protection_links/{id}/readit', 'Admin\DataProtectionLinksController@readIt');
+    Route::get('/data_protection_links/scrapeAll', 'Admin\DataProtectionLinksController@scrapeAll');
+    Route::resource('/data_protection_links', 'Admin\DataProtectionLinksController');
+    Route::resource('/data_protection_links/{id}/edit', 'Admin\DataProtectionLinksController@edit');
     Route::resource('/links/{id}/edit', 'Admin\LinksController@edit');
     Route::delete('/logs/delete_all', 'Admin\LogsController@deleteAll');
     Route::resource('/logs', 'Admin\LogsController');
