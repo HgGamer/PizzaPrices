@@ -43,7 +43,7 @@
     </div>
     <div class="kezdumenu align-items-center">
         <div class="menudiv mx-auto d-block ">
-            <a href="/home"><li>Szeged</li></a>
+            <a href="/home" class="nav-link nav-linkk"><li>Szeged</li></a>
             <a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!"><li class="masodikvaros">Budapest</li></a>
             <a disabled="" data-toggle="tooltip" data-placement="top" title="Hamarosan!"><li>Debrecen</li></a>
         </div>
