@@ -1843,12 +1843,8 @@ nav > div a.nav-item.nav-link.active{
 }
 
 .nav-linkebb:focus, .nav-linkebb:hover {
-    color: #FFA600 !important;
+    color: #000 !important;
 }
-
-
-
-
 
 
 
