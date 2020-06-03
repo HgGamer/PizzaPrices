@@ -146,15 +146,12 @@ class DataProtectionLinksController extends Controller
 
         foreach($links as $link){
             if(empty($link->main_filter_selector) && (empty($link->item_schema_id) || $link->item_schema_id == 0)) {
+
                 break;
             }
             $scraper = new DataProtectionScraper(new Client());
             $result = $scraper->handle($link);
-            /*
-            Log::debug($result);
 
-            return response()->json(['status' => 1, 'msg' => 'Scraping done']);
-            */
             $model = DataProtectionData::where('url', $link['url'])
                 ->where('website_id', $link['website_id'])
                 ->first();
