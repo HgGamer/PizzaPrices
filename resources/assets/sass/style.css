@@ -2176,7 +2176,6 @@ nav > div a.nav-item.nav-link.active{
         background-image: url("/img/pizza3.webp");
         background-repeat: no-repeat;
         background-size: cover;
-        background-attachment: fixed;
         height: 100vh;
     }
     .no-webp .bg-img{
