@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class APIkey
+class ApiKey
 {
     /**
      * Handle an incoming request.

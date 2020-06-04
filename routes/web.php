@@ -44,7 +44,7 @@ Route::prefix('api')->group(function () {
     Route::get('/pizzasearch', 'PizzasController@pizzaSearch');
 });
 
-Route::group(['middleware' => 'APIkey','prefix' => 'api'], function() {
+Route::group(['middleware' => 'api_key','prefix' => 'api'], function() {
 
     Route::get('/api_test', 'Api\iOSController@test');
     Route::get('/pizzas/infinite', 'Api\iOSController@infinitePizzas');
