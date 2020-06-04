@@ -1929,22 +1929,7 @@ nav > div a.nav-item.nav-link.active{
         background-size: cover;
     }
     .alap{
-        max-width: 14%!important;
-    }
-    .alap a{
-        max-width: 213px;
-        height: 7rem;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none!important;
-        border-radius: 25px;
-        opacity: 0.5;
-        cursor: pointer;
+         max-width: 200px!important;
     }
 }
 
