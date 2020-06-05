@@ -384,6 +384,13 @@ PizzaPrices - Pizza Picker
             let canvas = document.getElementById("pizzacanvas");
             let ctx = canvas.getContext('2d');
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            var img = new Image();
+            img.onload = function() {
+                let canvas = document.getElementById("pizzacanvas");
+                let ctx = canvas.getContext('2d');
+                ctx.drawImage(this, 0, 0, canvas.width, canvas.height);
+            };
+            img.src = "/img/plate.png";
             for (let i = 0; i < pizzapickerdata.length; i++) {
                 if(typeof pizzapickerdata[i].materials != 'undefined'){
                     for (let j = 0; j < pizzapickerdata[i].materials.length; j++) {
