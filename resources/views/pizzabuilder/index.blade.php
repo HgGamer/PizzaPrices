@@ -362,6 +362,7 @@ PizzaPrices - Pizza Picker
             pizzapickerdata[7] = pizzapickerdata[1];
             pizzapickerdata[1] = {};
             canvasdata.selected = [];
+            renderCanvas();
         }
 
         function addToCanvas(id){
