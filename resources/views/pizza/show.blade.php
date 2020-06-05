@@ -279,13 +279,17 @@ PizzaPrices - {{ ucfirst ($pizza->name) }}
 
     var nodesArray = document.getElementsByClassName("changeMe");
 
-    window.onload =function meretcheck() {
+    function meretCheck() {
         if(window.innerWidth <= 425){
 
             for (i=0; i< nodesArray.length; i++){
                 nodesArray[i].innerHTML ='<i class="fas fa-angle-right"></i>';
             }
         }
+    }
+
+    function addWindowsOnLoad(){
+        meretCheck();
     }
 
 </script>

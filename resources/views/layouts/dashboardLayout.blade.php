@@ -53,6 +53,7 @@
           <a class="dropdown-item" href="{{ url('dashboard/websites') }}">Websites</a>
           <a class="dropdown-item" href="{{ url('dashboard/categories') }}">Categories</a>
           <a class="dropdown-item" href="{{ url('dashboard/logs') }}">Logs</a>
+          <a class="dropdown-item" href="{{ url('dashboard/data_protection_links') }}">Data Protection Links</a>
           <a class="dropdown-item" href="{{ url('dashboard/materials') }}">Materials</a>
           <a class="dropdown-item" href="{{ url('dashboard/feedbacks') }}">Feedbacks</a>
           <a class="dropdown-item" href="{{ url('dashboard/fusion') }}">Fusion</a>

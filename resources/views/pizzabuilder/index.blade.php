@@ -15,7 +15,7 @@ PizzaPrices - Pizza Picker
         </ol>
     </section>
 
-    <div class="container-fluid">
+    <div class="container-fluid mobilnopadding">
         <h1 class="nincshteg">Pizza Picker</h1>
 
             <div class="row justify-content-lg-around">

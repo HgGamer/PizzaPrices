@@ -103,7 +103,15 @@
                     </div>
                     <div class="card-body">
                       <div class="row align-items-center">
-                                40 pizzas has missing images.
+                        <ul>
+                          <li>
+                            40 pizzas has missing images.
+                          </li>
+                          <li>
+                            {{ $notUpToDateDataPolicyCount}} sites have not up to date data policy!
+                          </li>
+                        </ul>
+                                
                         </div>
                     </div>
                   </div>

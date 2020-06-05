@@ -12,6 +12,7 @@ use App\Log;
 use App\RawPizza;
 use App\Feedback;
 use App\Helper\LogManager;
+use App\DataProtectionLink;
 
 
 class AdminController extends Controller
@@ -48,6 +49,7 @@ class AdminController extends Controller
        $rawPizzasCount = RawPizza::all()->count();
        $feedBacks= Feedback::latest('created_at')->take(5)->get();
        $queueCount = \Queue::size('generatePizzaImages');
+       $notUpToDateDataPolicyCount = DataProtectionLink::where('upToDate', 0)->count();
         return view('dashboard.dashboard')
                     ->withVisitorsAndPageViews7($visitorsAndPageViews7[0])
                     ->withVisitorsAndPageViews30($visitorsAndPageViews30[0])
@@ -55,7 +57,8 @@ class AdminController extends Controller
                     ->withPizzasCount($pizzasCount)
                     ->withRawPizzasCount($rawPizzasCount)
                     ->withFeedbacks($feedBacks)
-                    ->withQueueCount($queueCount);
+                    ->withQueueCount($queueCount)
+                    ->withNotUpToDateDataPolicyCount($notUpToDateDataPolicyCount);
     }
 
     public function customGoogleQuery(){
