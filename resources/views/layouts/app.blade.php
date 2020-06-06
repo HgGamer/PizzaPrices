@@ -26,6 +26,7 @@
     <title>DEBUG:: @yield('title')</title>
     @endif
     <link rel="icon" type="image/png" href="{{ asset('img/favicon-96.png') }}"/>
+    <link rel="shortcut icon" href="{{ asset('img/favicon-96.png') }}">
 
     <!-- Styles-->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" >
