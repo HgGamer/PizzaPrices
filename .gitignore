@@ -6,6 +6,7 @@
 /public/img/generated_assets/*
 /public/img/generated_feltetek/*
 /public/img/generated_feltetek_big/*
+/public/sitemap.xml
 /storage/*.key
 /vendor
 .env
