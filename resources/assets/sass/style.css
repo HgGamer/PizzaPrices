@@ -2308,6 +2308,7 @@ nav > div a.nav-item.nav-link.active{
     .mobilnopadding{
         padding-right: 0!important;
         padding-left: 0!important;
+        overflow: hidden;
     }
     nav > div a.nav-item.nav-link.active:after{
         border: none;
