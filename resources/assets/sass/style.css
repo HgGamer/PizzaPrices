@@ -1853,6 +1853,41 @@ nav > div a.nav-item.nav-link.active{
 .pizzafiltercard .divider-custom{
     margin: 0;
 }
+.pizzafilercardkulso .checkbox label{
+    min-width: 260px;
+}
+
+.pizzafilercardkulso .card-body{
+    min-height: 300px;
+}
+.pizzafilercardkulso .cardscroll{
+    overflow-x: hidden;
+    overflow-y: visible;
+    /* added width so it would work in the snippet */
+    height: 300px;
+}
+.filterbutton .content__footer a {
+    display: inline-block;
+    background: #FFA600;
+    text-decoration: none;
+    padding: .25em 0.5em;
+    width: 65%;
+    text-align: center;
+    border-radius: 5px;
+    color: black;
+    font-weight: 500;
+    letter-spacing: .2px;
+    font-size: 27px;
+    -webkit-transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+    transition: box-shadow 250ms ease, -webkit-transform 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    transition: transform 250ms ease, box-shadow 250ms ease, -webkit-transform 250ms ease;
+}
+.filterbutton .content__footer a:hover {
+    -webkit-transform: translateY(-3px);
+    transform: translateY(-3px);
+
+}
 
 
 
@@ -1860,6 +1895,172 @@ nav > div a.nav-item.nav-link.active{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+@import "https://use.fontawesome.com/releases/v5.1.0/css/all.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+.radio-fontawesome .radio label,
+.checkbox-fontawesome .checkbox label,
+.radio-glyphicon .radio label,
+.checkbox-glyphicon .checkbox label {
+    position: relative;
+    padding-left: 1em;
+}
+.radio-fontawesome .radio input[type=radio],
+.radio-fontawesome .radio input[type=checkbox],
+.checkbox-fontawesome .checkbox input[type=radio],
+.checkbox-fontawesome .checkbox input[type=checkbox],
+.radio-glyphicon .radio input[type=radio],
+.radio-glyphicon .radio input[type=checkbox],
+.checkbox-glyphicon .checkbox input[type=radio],
+.checkbox-glyphicon .checkbox input[type=checkbox] {
+    position: absolute;
+    margin-left: -100em;
+    margin-right: 100em;
+    font-size: 1em;
+}
+.radio-fontawesome .radio input[type=radio]:before,
+.radio-fontawesome .radio input[type=checkbox]:before,
+.checkbox-fontawesome .checkbox input[type=radio]:before,
+.checkbox-fontawesome .checkbox input[type=checkbox]:before,
+.radio-glyphicon .radio input[type=radio]:before,
+.radio-glyphicon .radio input[type=checkbox]:before,
+.checkbox-glyphicon .checkbox input[type=radio]:before,
+.checkbox-glyphicon .checkbox input[type=checkbox]:before {
+    position: relative;
+    position: absolute;
+    left: 99em;
+}
+.radio-fontawesome .radio .radio.disabled input[type=radio]:before,
+.radio-fontawesome .radio .checkbox.disabled input[type=checkbox]:before,
+.checkbox-fontawesome .checkbox .radio.disabled input[type=radio]:before,
+.checkbox-fontawesome .checkbox .checkbox.disabled input[type=checkbox]:before,
+.radio-glyphicon .radio .radio.disabled input[type=radio]:before,
+.radio-glyphicon .radio .checkbox.disabled input[type=checkbox]:before,
+.checkbox-glyphicon .checkbox .radio.disabled input[type=radio]:before,
+.checkbox-glyphicon .checkbox .checkbox.disabled input[type=checkbox]:before {
+    cursor: not-allowed;
+}
+
+/* Colors ---------------------- */
+.radio.disabled input[type=radio]:before,
+.checkbox.disabled input[type=checkbox]:before {
+    color: #d9534f;
+}
+
+.radio-success input[type=radio]:checked,
+.checkbox-success input[type=checkbox]:checked {
+    color: #5cb85c;
+}
+
+.radio-fontawesome input[type=radio]:before,
+.radio-fontawesome input[type=checkbox]:before,
+.checkbox-fontawesome input[type=radio]:before,
+.checkbox-fontawesome input[type=checkbox]:before {
+    font-family: 'FontAwesome';
+}
+
+.radio-fontawesome .radio.disabled input[type=radio]:before,
+.radio-fontawesome input[type=radio]:before {
+    content: "\f10c";
+}
+.radio-fontawesome input[type=radio]:checked:before {
+    content: "\f111";
+}
+
+.checkbox-fontawesome .checkbox.disabled input[type=checkbox]:before,
+.checkbox-fontawesome input[type=checkbox]:before {
+    content: "\f096";
+}
+.checkbox-fontawesome input[type=checkbox]:checked:before {
+    content: "\f046";
+}
+
+/* Bouncy effect ------------------- */
+input[type=radio]:checked:before,
+input[type=checkbox]:checked:before {
+    -webkit-animation: bouncy 0.6s ease;
+    animation: bouncy 0.6s ease;
+}
+
+@-webkit-keyframes bouncy {
+    from {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    30% {
+        -webkit-transform: scale(1.25, 0.75);
+        transform: scale(1.25, 0.75);
+    }
+    40% {
+        -webkit-transform: scale(0.75, 1.25);
+        transform: scale(0.75, 1.25);
+    }
+    50% {
+        -webkit-transform: scale(1.15, 0.85);
+        transform: scale(1.15, 0.85);
+    }
+    65% {
+        -webkit-transform: scale(0.95, 1.05);
+        transform: scale(0.95, 1.05);
+    }
+    75% {
+        -webkit-transform: scale(1.05, 0.95);
+        transform: scale(1.05, 0.95);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+
+@keyframes bouncy {
+    from {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+    30% {
+        -webkit-transform: scale(1.25, 0.75);
+        transform: scale(1.25, 0.75);
+    }
+    40% {
+        -webkit-transform: scale(0.75, 1.25);
+        transform: scale(0.75, 1.25);
+    }
+    50% {
+        -webkit-transform: scale(1.15, 0.85);
+        transform: scale(1.15, 0.85);
+    }
+    65% {
+        -webkit-transform: scale(0.95, 1.05);
+        transform: scale(0.95, 1.05);
+    }
+    75% {
+        -webkit-transform: scale(1.05, 0.95);
+        transform: scale(1.05, 0.95);
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+    }
+}
+/* Demo ----------------------------- */
+.radio,
+.checkbox {
+    font-size: 2.5em;
+}
 
 
 

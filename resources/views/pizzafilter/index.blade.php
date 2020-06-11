@@ -27,13 +27,24 @@
                            <div class="divider-custom-linee"></div>
                        </div>
                    </div>
-                   <div class="card-body">
-
+                   <div class="card-body checkbox-fontawesome checkbox-success row justify-content-center align-items-center text-center">
+                       <div class="col-12 checkbox">
+                           <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>26Cm</label>
+                       </div>
+                       <div class="col-12 checkbox">
+                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>28Cm</label>
+                       </div>
+                       <div class="col-12 checkbox">
+                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>30Cm</label>
+                       </div>
+                       <div class="col-12 checkbox">
+                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>32Cm</label>
+                       </div>
                    </div>
                </div>
            </div>
            <div class="col-4">
-               <div class="card">
+               <div class="card pizzafilercardkulso">
                    <div class="card-header pizzafiltercard">
                        <h2>
                            Pizza Ár
@@ -46,13 +57,21 @@
                            <div class="divider-custom-linee"></div>
                        </div>
                    </div>
-                   <div class="card-body">
-
+                   <div class="card-body checkbox-fontawesome checkbox-success row justify-content-center align-items-center">
+                       <div class="checkbox">
+                           <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>1500Ft alatt</label>
+                       </div>
+                       <div class="checkbox">
+                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>1500-2000Ft</label>
+                       </div>
+                       <div class="checkbox disabled">
+                           <label for="checkbox-fa3"><input id="checkbox-fa3" type="checkbox"/>2000Ft felett</label>
+                       </div>
                    </div>
                </div>
            </div>
            <div class="col-4">
-               <div class="card">
+               <div class="card pizzafilercardkulso">
                    <div class="card-header pizzafiltercard">
                        <h2>
                            Pizzériák
@@ -65,14 +84,47 @@
                            <div class="divider-custom-linee"></div>
                        </div>
                    </div>
-                   <div class="card-body">
-
+                   <div class="cardscroll">
+                       <div class="card-body checkbox-fontawesome  checkbox-success row justify-content-center align-items-center">
+                           <div class="checkbox">
+                               <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>Checkbox 1</label>
+                           </div>
+                           <div class="checkbox">
+                               <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>Checkbox 2</label>
+                           </div>
+                           <div class="checkbox disabled">
+                               <label for="checkbox-fa3"><input id="checkbox-fa3" type="checkbox"/>Checkbox 3</label>
+                           </div>
+                           <div class="checkbox">
+                               <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>Checkbox 1</label>
+                           </div>
+                           <div class="checkbox">
+                               <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>Checkbox 2</label>
+                           </div>
+                           <div class="checkbox disabled">
+                               <label for="checkbox-fa3"><input id="checkbox-fa3" type="checkbox"/>Checkbox 3</label>
+                           </div>
+                           <div class="checkbox">
+                               <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>Checkbox 1</label>
+                           </div>
+                           <div class="checkbox">
+                               <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>Checkbox 2</label>
+                           </div>
+                           <div class="checkbox disabled">
+                               <label for="checkbox-fa3"><input id="checkbox-fa3" type="checkbox"/>Checkbox 3</label>
+                           </div>
+                       </div>
                    </div>
                </div>
            </div>
-
        </div>
+        <div class="row justify-content-center align-items-center text-center mt-3">
+            <div class="filterbutton col-4">
+                <footer class="content__footer align-self-end "><a href="" rel="noopener" target="_blank">Keresés</a></footer>
+            </div>
+        </div>
     </div>
+
 
 @endsection
 
