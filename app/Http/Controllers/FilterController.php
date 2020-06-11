@@ -10,6 +10,8 @@ class FilterController extends Controller
 
     public function index(){
 
+        return view('pizzafilter.index');
+
     }
 
     public function filter(Request $request){

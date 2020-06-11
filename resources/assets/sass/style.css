@@ -1845,6 +1845,47 @@ nav > div a.nav-item.nav-link.active{
 .nav-linkebb:focus, .nav-linkebb:hover {
     color: #000 !important;
 }
+.pizzafiltercard h2{
+    font-family: panpizza;
+    text-align: center;
+    font-size: 3rem;
+}
+.pizzafiltercard .divider-custom{
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
