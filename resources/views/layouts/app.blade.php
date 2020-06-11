@@ -85,6 +85,9 @@
                     <a class="nav-link nav-linkk" href="/pizzapicker">Pizza Picker</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link nav-linkk" href="/">Pizza Szűrő</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link nav-linkk" href="/kapcsolatok#kapcsolatok">Kapcsolatok</a>
                 </li>
             </ul>
