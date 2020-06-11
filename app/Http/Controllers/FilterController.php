@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\StoreData;
 use Illuminate\Support\Facades\Log;
+use App\Website;
 
 class FilterController extends Controller
 {
@@ -12,7 +13,10 @@ class FilterController extends Controller
 
     public function index(){
 
-        return view('pizzafilter.index');
+        $websites = Website::all();
+
+        //return $websites;
+        return view('pizzafilter.index')->withWebsites($websites);
 
     }
 
