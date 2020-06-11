@@ -22,6 +22,7 @@ Route::get('/kategoriak', 'HomeController@pizzacategories');
 Route::get('/kapcsolatok', 'HomeController@contacts');
 Route::get('/pizza/{id}', 'PizzasController@show');
 Route::get('/pizzapicker', 'PizzaPickerController@index');
+Route::get('/filter/pizzas', 'FilterController@filter');
 Route::get('/test', 'HomeController@gecisfasz');
 
 
@@ -34,6 +35,7 @@ Route::get('/report', 'Admin\LinksController@generateScrapeReport');
 
 Route::post('/feedback', 'HomeController@storeFeedback');
 
+//Ricsi api
 Route::prefix('api')->group(function () {
     Route::get('/infinite_pizzas', 'PizzasController@infinitePizzas');
     Route::get('/infinite_pizzas100', 'PizzasController@infinite100Pizzas');
@@ -44,6 +46,7 @@ Route::prefix('api')->group(function () {
     Route::get('/pizzasearch', 'PizzasController@pizzaSearch');
 });
 
+// Mobil api
 Route::group(['middleware' => 'api_key','prefix' => 'api'], function() {
 
     Route::get('/api_test', 'Api\iOSController@test');
@@ -52,6 +55,7 @@ Route::group(['middleware' => 'api_key','prefix' => 'api'], function() {
     Route::get('/pizzas/{id}', 'Api\iOSController@pizzas');
 });
 
+//Admin
 Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::get('/api/process','ProcessRawController@processRaw');
 
@@ -119,7 +123,6 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::patch('/pizzas/set-pizza-category3', 'Admin\PizzasController@setPizzaCategory3');
     Route::resource('/pizzas', 'Admin\PizzasController');
     Route::delete('/storedatas/delete/{id}', 'Admin\PizzasController@deleteStoreData');
-
 
 });
 
