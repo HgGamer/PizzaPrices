@@ -1856,6 +1856,20 @@ nav > div a.nav-item.nav-link.active{
 .pizzafilercardkulso .checkbox label{
     min-width: 260px;
 }
+.pizzafilercardkulso .card-header{
+    background-color: #FFA600;
+}
+.pizzafilercardkulso{
+    border-radius: 25px;
+}
+
+.pizzafilercardkulso{
+    border-radius: 1.25rem !important;
+}
+.pizzafilercardkulso .card-header{
+    border-top-left-radius: 1.25rem!important;
+    border-top-right-radius: 1.25rem!important;
+}
 
 .pizzafilercardkulso .card-body{
     min-height: 300px;
@@ -1863,7 +1877,6 @@ nav > div a.nav-item.nav-link.active{
 .pizzafilercardkulso .cardscroll{
     overflow-x: hidden;
     overflow-y: visible;
-    /* added width so it would work in the snippet */
     height: 300px;
 }
 .filterbutton .content__footer a {

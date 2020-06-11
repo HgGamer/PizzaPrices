@@ -13,8 +13,8 @@
 
     <div class="container mt-4">
        <div class="row justify-content-between">
-           <div class="col-4">
-               <div class="card">
+           <div class="col-lg-4 col-md-6 col-sm-12">
+               <div class="card pizzafilercardkulso mb-5">
                    <div class="card-header pizzafiltercard">
                        <h2>
                            Pizza Méret
@@ -29,22 +29,22 @@
                    </div>
                    <div class="card-body checkbox-fontawesome checkbox-success row justify-content-center align-items-center text-center">
                        <div class="col-12 checkbox">
-                           <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>26Cm</label>
+                           <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox"/>26Cm</label>
                        </div>
                        <div class="col-12 checkbox">
                            <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>28Cm</label>
                        </div>
                        <div class="col-12 checkbox">
-                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>30Cm</label>
+                           <label for="checkbox-fa3"><input id="checkbox-fa3" type="checkbox"/>30Cm</label>
                        </div>
                        <div class="col-12 checkbox">
-                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>32Cm</label>
+                           <label for="checkbox-fa4"><input id="checkbox-fa4" type="checkbox"/>32Cm</label>
                        </div>
                    </div>
                </div>
            </div>
-           <div class="col-4">
-               <div class="card pizzafilercardkulso">
+           <div class="col-lg-4 col-md-6 col-sm-12">
+               <div class="card pizzafilercardkulso mb-5">
                    <div class="card-header pizzafiltercard">
                        <h2>
                            Pizza Ár
@@ -59,19 +59,19 @@
                    </div>
                    <div class="card-body checkbox-fontawesome checkbox-success row justify-content-center align-items-center">
                        <div class="checkbox">
-                           <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>1500Ft alatt</label>
+                           <label for="checkbox-fa15"><input id="checkbox-fa15" type="checkbox" checked=""/>1500Ft alatt</label>
                        </div>
                        <div class="checkbox">
-                           <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>1500-2000Ft</label>
+                           <label for="checkbox-fa6"><input id="checkbox-fa6" type="checkbox"/>1500-2000Ft</label>
                        </div>
                        <div class="checkbox disabled">
-                           <label for="checkbox-fa3"><input id="checkbox-fa3" type="checkbox"/>2000Ft felett</label>
+                           <label for="checkbox-fa3"><input id="checkbox-fa7" type="checkbox"/>2000Ft felett</label>
                        </div>
                    </div>
                </div>
            </div>
-           <div class="col-4">
-               <div class="card pizzafilercardkulso">
+           <div class="col-lg-4 col-md-6 col-sm-12">
+               <div class="card pizzafilercardkulso mb-5">
                    <div class="card-header pizzafiltercard">
                        <h2>
                            Pizzériák
@@ -86,9 +86,11 @@
                    </div>
                    <div class="cardscroll">
                        <div class="card-body checkbox-fontawesome  checkbox-success row justify-content-center align-items-center">
+                           @foreach()
                            <div class="checkbox">
                                <label for="checkbox-fa1"><input id="checkbox-fa1" type="checkbox" checked=""/>Checkbox 1</label>
                            </div>
+                           @endforeach
                            <div class="checkbox">
                                <label for="checkbox-fa2"><input id="checkbox-fa2" type="checkbox"/>Checkbox 2</label>
                            </div>
@@ -119,7 +121,7 @@
            </div>
        </div>
         <div class="row justify-content-center align-items-center text-center mt-3">
-            <div class="filterbutton col-4">
+            <div class="filterbutton col-lg-4 col-md-6 col-sm-12">
                 <footer class="content__footer align-self-end "><a href="" rel="noopener" target="_blank">Keresés</a></footer>
             </div>
         </div>
