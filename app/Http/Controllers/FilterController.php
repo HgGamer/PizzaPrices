@@ -22,7 +22,7 @@ class FilterController extends Controller
 
     public function filter(Request $request){
 
-        $websites = [3,17];
+        $websites = $request->websites;
 
         if ($request->pizzaSize) {
             $pizzaSize = $request->pizzaSize;
@@ -36,8 +36,6 @@ class FilterController extends Controller
             $pizzaPriceCategory = 0;
         }
 
-
-        //Log::debug(count($websites));
 
         //return "asd";
         $storeDatas = StoreData::query();
