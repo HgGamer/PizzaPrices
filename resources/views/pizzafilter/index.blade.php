@@ -114,7 +114,7 @@
                 <canvas id="picker-loader" style="display: none"></canvas>
             </div>
         </div>
-        <div class="justify-content-around nopizza" id="resultContainer"></div>
+        <div class="justify-content-around nopizza mt-5" id="resultContainer"></div>
     </div>
 
 
@@ -299,7 +299,7 @@
                     <div class="ft-recipe__content ">
                         <header class="content__header">
                             <div class="row-wrapper text-center">
-                                <h3 class="recipe-title feed-tile-name text-center">${items[i]['name']}</h3>
+                                <h3 class="recipe-title feed-tile-name text-center">${items[i]['pizza_alias']['name']}</h3>
                             </div>
                             <ul class="recipe-details">
                                 <li class="recipe-details-item ingredients"><i class="fas fa-coins"></i><span class="value">${ items[i]['price'] }</span><span class="title">Ár(HUF)</span></li>
@@ -309,7 +309,7 @@
                         <h4 class="text-center font-weight-bold"> <a href="${ items[i]['websiteUrl'] }" rel="noopener" target="_blank"> ${items[i]['title']} </a> </h4>
                         <h4>Feltétek:</h4>
                         <p class="description">
-                         ${items[i]['recept'].map(function (feltet, i, arr) {
+                         ${items[i]['pizza_alias']['recept'].map(function (feltet, i, arr) {
                     if (i !=arr.length-1) {
                         return `${feltet}, `
                     } else {
