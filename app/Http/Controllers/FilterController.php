@@ -89,7 +89,15 @@ class FilterController extends Controller
 
             $storeData->pizzaAlias->recept_array = $storeData->pizzaAlias->recept;
 
-            $receptekString =$storeData->pizzaAlias->recept;
+            $receptekString = $storeData->pizzaAlias->recept;
+
+            if(is_file(public_path('/img/generated_feltetek/' . $receptekString. '.png'))){
+                $url = url('/') . '/img/generated_feltetek/' . $receptekString . '.png';
+             }else{
+                  $url = url('/') . "/img/pizzapop.png";
+            }
+
+            $storeData->generatedURL = $url;
 
             $materialObjects = $this->getMaterialObjects($receptekString);
 
