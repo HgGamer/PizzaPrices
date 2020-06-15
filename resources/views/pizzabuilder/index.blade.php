@@ -113,10 +113,12 @@ PizzaPrices - Pizza Picker
     </div>
 
     <script>
-        var materials = [];
-        var URL = "{{ url("/") }}"
+        let materials = [];
+        let URL = "{{ url("/") }}";
+        let isFetching = false;
 
         function startRequestPizzas(){
+
             if (!isValid()) {
                 return;
             }
@@ -124,9 +126,15 @@ PizzaPrices - Pizza Picker
                 top: 100,
                 behavior: 'smooth'
             });
-            document.getElementById("search-button").disabled = true;
+
+            if(isFetching){
+                return;
+            }else {
+                isFetching = true;
+            }
+
             document.getElementById('picker-loader').style.display = 'inline';
-            console.log('Keresett material tomb: ' +  materials)
+            console.log('Keresett material tomb: ' +  materials);
             document.getElementById('resultContainer').innerHTML = '';
             getPizzasByMaterials(materials)
 
@@ -152,8 +160,8 @@ PizzaPrices - Pizza Picker
         }
 
         function endRequestSuccess(response){
-            addResultPizzas(response)
-            document.getElementById("search-button").disabled = false;
+            addResultPizzas(response);
+            isFetching = false;
             document.getElementById('picker-loader').style.display = 'none';
 
         }
@@ -163,9 +171,9 @@ PizzaPrices - Pizza Picker
                         case 400:
                             alert(request.responseText)
                     }
-                    document.getElementById("search-button").disabled = false;
+                    isFetching = false;
                     document.getElementById('picker-loader').style.display = 'none';
-                    console.log(status)
+                    console.log(status);
                     console.log(request.responseText);
         }
 

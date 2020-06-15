@@ -102,7 +102,9 @@
        </div>
         <div class="row justify-content-center align-items-center text-center mt-3">
             <div class="filterbutton col-lg-4 col-md-6 col-sm-12">
-                <footer class="content__footer align-self-end "><a id="search-button" rel="noopener" target="_blank" onclick="startRequest()">Keresés</a></footer>
+                <footer class="content__footer align-self-end ">
+                    <a id="search-button" type="button" onclick="startRequest()">Keresés</a>
+                </footer>
             </div>
         </div>
     </div>
@@ -198,7 +200,22 @@
             @endforeach
         ];
 
+        let isFetching = false;
+
         function startRequest() {
+            if(isFetching){
+                return;
+            }else {
+                isFetching = true;
+            }
+            window.scrollBy({
+                top: 100,
+                behavior: 'smooth'
+            });
+
+            document.getElementById('picker-loader').style.display = 'inline';
+            document.getElementById('resultContainer').innerHTML = '';
+
             let selectedSize = 0;
             let selectedPrice = 0;
             let selectedWebsite = [];
@@ -230,6 +247,7 @@
                 }
             }
 
+
             getPizzasByFillter(selectedSize, selectedPrice, selectedWebsite);
 
         }
@@ -260,7 +278,7 @@
 
         function endRequestSuccess(response){
             addResultPizzas(response)
-            document.getElementById("search-button").disabled = false;
+            isFetching = false;
             document.getElementById('picker-loader').style.display = 'none';
 
         }
@@ -270,7 +288,7 @@
                 case 400:
                     alert(request.responseText)
             }
-            document.getElementById("search-button").disabled = false;
+            isFetching = false;
             document.getElementById('picker-loader').style.display = 'none';
             console.log(status)
             console.log(request.responseText);
@@ -306,7 +324,7 @@
                                 <li class="recipe-details-item time"><i class="fas fa-ruler-horizontal"></i></i><span class="value">${items[i]['pizzasize']}</span><span class="title">Méret(cm)</span></li>
                             </ul>
                         </header>
-                        <h4 class="text-center font-weight-bold"> <a href="${ items[i]['websiteUrl'] }" rel="noopener" target="_blank"> ${items[i]['title']} </a> </h4>
+                        <h4 class="text-center font-weight-bold"> <a href="${ items[i]['website']['url'] }" rel="noopener" target="_blank"> ${items[i]['website']['title']} </a> </h4>
                         <h4>Feltétek:</h4>
                         <p class="description">
                          ${items[i]['pizza_alias']['recept'].map(function (feltet, i, arr) {
@@ -321,7 +339,7 @@
 
                            &#32;
                         </p>
-                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['pizzaUrl'] != "") ? items[i]['pizzaUrl'] : items[i]['websiteUrl'] }" rel="noopener" target="_blank">Részletek</a></footer>
+                        <footer class="content__footer${ (isYellow) ? "m" : ""} align-self-end "><a href="${ (items[i]['url'] != "") ? items[i]['url'] : items[i]['website']['url'] }" rel="noopener" target="_blank">Részletek</a></footer>
                     </div>
                 </div>
                 `;
@@ -340,6 +358,13 @@
             //console.log(items.length + ' pizza added')
 
         }
+
+        let pizza = new Pizza('picker-loader');
+        (function update() {
+            requestAnimationFrame(update)
+            pizza.update()
+
+        }())
 
 
 

@@ -24,7 +24,13 @@ class FilterController extends Controller
 
     public function filter(Request $request){
 
-        $websites = $request->websites;
+
+
+        if ($request->websites){
+            $websites = $request->websites;
+        }else{
+            $websites = [];
+        }
 
         if ($request->pizzaSize) {
             $pizzaSize = $request->pizzaSize;
