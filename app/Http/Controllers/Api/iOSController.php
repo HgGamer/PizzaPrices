@@ -10,6 +10,7 @@ use App\Material;
 use App\Pizza;
 use App\Helper\LogManager;
 use App\StoreData;
+use DB;
 
 class iOSController extends Controller
 {
@@ -72,6 +73,8 @@ class iOSController extends Controller
 
         $pizza = Pizza::where('id', $id)->first();
 
+        $pizza->receptArray = $pizza->recept;
+
         $receptekString = $pizza->recept;
 
         $materialObjects = $this->getMaterialObjects($receptekString);
@@ -94,9 +97,50 @@ class iOSController extends Controller
 
         }
 
+        $similarPizzasCount =  DB::table('store_data')
+        ->join('pizza_pizzas', 'store_data.pizzaid', '=', 'pizza_pizzas.id')
+        ->select('*')
+        ->Where("category_id", $pizza->category_id)
+        ->orWhere("category_id", $pizza->category_id)
+        ->orWhere("category_id", $pizza->category_id)
+        ->count();
+
+        if($similarPizzasCount <9){
+            $similarPizzas = DB::table('store_data')
+            ->join('pizza_pizzas', 'store_data.pizzaid', '=', 'pizza_pizzas.id')
+            ->join('website', 'store_data.websiteid', '=', 'website.id')
+            ->select('*', 'store_data.url as pizzaurl')
+            ->Where("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
+            ->get()
+            ->random($similarPizzasCount);
+        }else{
+            $similarPizzas = DB::table('store_data')
+            ->join('pizza_pizzas', 'store_data.pizzaid', '=', 'pizza_pizzas.id')
+            ->join('website', 'store_data.websiteid', '=', 'website.id')
+            ->select('*', 'store_data.url as pizzaurl')
+            ->Where("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
+            ->orWhere("category_id", $pizza->category_id)
+            ->get()
+            ->random(9);
+        }
+
+        $similarPizzasResult = [];
+
+        foreach ($similarPizzas as $similarPizza) {
+            $similarPizza->recept_array = $similarPizza->recept;
+            $receptekString = $similarPizza->recept;
+            $materialObjects = $this->getMaterialObjects($receptekString);
+            $similarPizza->recept = $this->orderMaterialObjects($materialObjects);
+            $similarPizzasResult[] = $similarPizza;
+        }
+
         return response()->json([
             'pizza' => $pizza,
-            'storeDatas' => $storeDatas
+            'storeDatas' => $storeDatas,
+            'similarPizzas' => $similarPizzasResult
         ]);
     }
 
