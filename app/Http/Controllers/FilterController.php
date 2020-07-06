@@ -24,8 +24,6 @@ class FilterController extends Controller
 
     public function filter(Request $request){
 
-
-
         if ($request->websites){
             $websites = $request->websites;
         }else{
@@ -84,7 +82,7 @@ class FilterController extends Controller
             $storeDatas = $storeDatas->whereIn('websiteid', $websites);
         }
 
-        $storeDatas = $storeDatas->get();
+        $storeDatas = $storeDatas->inRandomOrder()->get();
 
         foreach ($storeDatas as $storeData) {
             if ($storeData->pizzaAlias == null){

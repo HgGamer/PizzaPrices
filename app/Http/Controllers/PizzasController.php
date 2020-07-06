@@ -75,7 +75,7 @@ class PizzasController extends Controller
             $query->where('recept', 'like',  '%' . $material . '%');
         }
 
-        $pizzas = $query->get();
+        $pizzas = $query->inRandomOrder()->get();
 
         foreach ($pizzas as $pizza) {
             $receptekString = $pizza->recept;

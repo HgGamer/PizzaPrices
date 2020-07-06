@@ -144,6 +144,41 @@ class iOSController extends Controller
         ]);
     }
 
+    public function bestPizzas(){
+
+        $pizzaOfTheMonthId = 111;
+        $pizzaOfTheWeakId = 243;
+
+        $monthPizza = StoreData::find($pizzaOfTheMonthId);
+        $weekPizza = StoreData::find($pizzaOfTheWeakId);
+
+        if($monthPizza == null){
+            $monthPizza = StoreData::all()->random();
+        }
+        if($weekPizza == null){
+            $weekPizza = StoreData::all()->random();
+        }
+
+        $monthPizza->pizza;
+        $monthPizza->website;
+
+        $weekPizza->pizza;
+        $weekPizza->website;
+
+        $receptekString = $monthPizza->pizza->recept;
+        $materialObjects = $this->getMaterialObjects($receptekString);
+        $monthPizza->recept = $this->orderMaterialObjects($materialObjects);
+
+        $receptekString = $weekPizza->pizza->recept;
+        $materialObjects = $this->getMaterialObjects($receptekString);
+        $weekPizza->recept = $this->orderMaterialObjects($materialObjects);
+
+        return response()->json([
+            'monthPizza' => $monthPizza,
+            'weekPizza' => $weekPizza
+        ]);
+    }
+
 
 
     //MATERIAL RENDEZÉSEK LEKÉRÉSEK
