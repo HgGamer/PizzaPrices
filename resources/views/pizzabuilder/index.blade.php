@@ -423,12 +423,11 @@ PizzaPrices - Pizza Picker
             }
         }
 
-        let pizza = new Pizza('picker-loader')
+        let pizza = new Pizza('picker-loader');
         initCanvas();
-        ;(function update() {
-        requestAnimationFrame(update)
-        pizza.update()
-
+        (function update() {
+            requestAnimationFrame(update)
+            pizza.update()
         }())
 
     </script>
