@@ -55,6 +55,7 @@ Route::group(['middleware' => 'api_key','prefix' => 'api'], function() {
     Route::get('/category/{id}', 'Api\iOSController@pizzasForCategory');
     Route::get('/pizzas/{id}', 'Api\iOSController@pizzas');
     Route::get('/best/pizzas', 'Api\iOSController@bestPizzas');
+    Route::post('/feedback', 'Api\iOSController@storeFeedback');
 });
 
 //Admin

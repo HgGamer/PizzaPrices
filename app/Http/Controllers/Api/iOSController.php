@@ -10,6 +10,7 @@ use App\Material;
 use App\Pizza;
 use App\Helper\LogManager;
 use App\StoreData;
+use App\Feedback;
 use DB;
 
 class iOSController extends Controller
@@ -179,6 +180,24 @@ class iOSController extends Controller
         ]);
     }
 
+    public function storeFeedback(Request $request){
+            $this->validate($request, [
+                'body' => 'required|max:512'
+            ]);
+
+            $feedback = new Feedback();
+
+            $feedback->body = $request->input('body');
+
+            $feedback->save();
+
+            $response = array(
+                'status' => 'success',
+                'msg' => "Siker",
+            );
+            return response()->json($response);
+
+    }
 
 
     //MATERIAL RENDEZÉSEK LEKÉRÉSEK
