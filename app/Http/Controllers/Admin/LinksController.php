@@ -188,15 +188,18 @@ class LinksController extends Controller
         /* Statikus nem scrapelhető dolgok */
         $this->banyaiPizzaFeltetLoad();
         $this->forzaitaliaPizzaLoad();
-        $this-> happyhotPizzaLoad();
+        $this->happyhotPizzaLoad();
         $this->pizzafaloPizzaLoad();
         $this->fortePizzaLoad();
+        $this->margaretaPizzaLoad();
 
         /* Scrapelés utáni de még feldolgozás előtti korrekciok */
         if($link->website_id == 27){
             $this->sliceTrojaPizzaSizes();
         }else if ($link->website_id == 15) {
             $this->correctPizzaMonsterData();
+        } else if ($link->website_id == 10) {
+            $this->correctTesztahazData();
         }
 
         $this->generateScrapeReport();
@@ -230,6 +233,8 @@ class LinksController extends Controller
             $this->sliceTrojaPizzaSizes();
         }else if ($link->website_id == 15) {
             $this->correctPizzaMonsterData();
+        } else if ($link->website_id == 10) {
+            $this->correctTesztahazData();
         }
 
         if($scraper->status == 1) {
@@ -381,6 +386,15 @@ class LinksController extends Controller
         }
     }
 
+    private function correctTesztahazData() {
+        $pizzas = RawPizza::where('website_id', 10)->get();
+
+        foreach ($pizzas as $pizza) {
+            $pizza->title = substr($pizza->title, 6);
+            $pizza->save();
+        }
+    }
+
     public function banyaiPizzaFeltetLoad(){
 
         \Artisan::call('db:seed',['--class' => 'BanyaiCukraszdaFeltetUpdater']);
@@ -443,6 +457,71 @@ class LinksController extends Controller
 
             $rawPizza->save();
         }
+    }
+
+    public function margaretaPizzaLoad(){
+        try {
+            $client = new GuzzleClient();
+            $request = $client->get('https://api.wixrestaurants.com/v2/organizations/1342300161528252/full');
+            $response = $request->getBody();
+        } catch (\Exception $e) {
+            LogManager::shared()->addLog("Margareta Pizzák lekérés error: " . $e);
+            return "$e";
+            return redirect()->route('links.index')
+                ->with('success','Pizza Margareta pizzas FAILED.');
+        }
+
+        $jsonData = json_decode($response, true, JSON_UNESCAPED_SLASHES);
+
+        $pizzasData = $jsonData['menu']['items'];
+
+
+        foreach ($pizzasData as $pizzaData) {
+            if (!isset($pizzaData['price'])) {
+                continue;
+            }
+            if ($pizzaData['price'] < 100000) {
+                continue;
+            } else if ($pizzaData['price'] > 300000) {
+                continue;
+            }
+
+            if ($this->contains('Predella', $pizzaData['title']['hu_HU']) || $this->contains('Garrone', $pizzaData['title']['hu_HU'])) { 
+                continue;
+            }
+
+            $rawPizza = new RawPizza;
+
+            $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
+
+            $rawPizza->title = $name;
+
+            $rawPizza->size = "32";
+
+            $price = (string)($pizzaData['price'] / 100);
+
+            $rawPizza->price = $price;
+
+            $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
+
+            $feltetek = str_replace(" +",",", $feltetek);
+
+            $rawPizza->content = $feltetek;
+
+            $rawPizza->image = "";
+
+            $rawPizza->source_link = "";
+
+            $rawPizza->category_id = 3;
+
+            $rawPizza->website_id = 21;
+
+            $rawPizza->save();
+        }
+    }
+
+    function contains($substring, $longString) {
+        return strpos($longString, $substring) !== false;
     }
 
 }

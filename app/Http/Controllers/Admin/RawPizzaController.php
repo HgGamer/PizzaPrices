@@ -88,7 +88,7 @@ class RawPizzaController extends Controller
         } catch (\Exception $e) {
             LogManager::shared()->addLog("Forte Pizzák lekérés error: " . $e);
             return redirect()->route('links.index')
-                ->with('success','Pizza Forte pizzas failed.');
+                ->with('success','Pizza Forte pizzas FAILED.');
         }
 
         $jsonData = json_decode($response);
@@ -124,6 +124,76 @@ class RawPizzaController extends Controller
 
         return redirect()->route('links.index')
         ->with('success','Pizza Forte pizzas added.');
+    }
+
+    public function margaretaPizzaLoad(){
+
+        try {
+            $client = new GuzzleClient();
+            $request = $client->get('https://api.wixrestaurants.com/v2/organizations/1342300161528252/full');
+            $response = $request->getBody();
+        } catch (\Exception $e) {
+            LogManager::shared()->addLog("Margareta Pizzák lekérés error: " . $e);
+            return "$e";
+            return redirect()->route('links.index')
+                ->with('success','Pizza Margareta pizzas FAILED.');
+        }
+
+        $jsonData = json_decode($response, true, JSON_UNESCAPED_SLASHES);
+
+        $pizzasData = $jsonData['menu']['items'];
+
+
+        foreach ($pizzasData as $pizzaData) {
+            if (!isset($pizzaData['price'])) {
+                continue;
+            }
+            if ($pizzaData['price'] < 100000) {
+                continue;
+            } else if ($pizzaData['price'] > 300000) {
+                continue;
+            }
+
+            if ($this->contains('Predella', $pizzaData['title']['hu_HU']) || $this->contains('Garrone', $pizzaData['title']['hu_HU'])) { 
+                continue;
+            }
+
+            $rawPizza = new RawPizza;
+
+            $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
+
+            $rawPizza->title = $name;
+
+            $rawPizza->size = "32";
+
+            $price = (string)($pizzaData['price'] / 100);
+
+            $rawPizza->price = $price;
+
+            $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
+
+            $feltetek = str_replace(" +",",", $feltetek);
+
+            $rawPizza->content = $feltetek;
+
+            $rawPizza->image = "";
+
+            $rawPizza->source_link = "";
+
+            $rawPizza->category_id = 3;
+
+            $rawPizza->website_id = 21;
+
+            $rawPizza->save();
+        }
+
+        return redirect()->route('links.index')
+        ->with('success','Pizza Margareta pizzas added.');
+    }
+
+
+    function contains($substring, $longString) {
+        return strpos($longString, $substring) !== false;
     }
 
 }

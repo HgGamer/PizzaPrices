@@ -125,7 +125,7 @@
                                 {{ csrf_field() }}
                                 <button  type="submit" class="btn btn-info">Banyai toppings load</button>
                              </form>
-                    </td>
+                        </td>
                     </tr>
                 </tr>
                 <tr >
@@ -140,7 +140,7 @@
                             {{ csrf_field() }}
                             <button  type="submit" class="btn btn-info">ForzaItalia pizzas load</button>
                          </form>
-                </td>
+                    </td>
                 </tr>
                 <tr >
                     <td>https://www.happyhotpizza.hu/szeged/etlap</td>
@@ -154,7 +154,7 @@
                             {{ csrf_field() }}
                             <button  type="submit" class="btn btn-info">Happyhot pizzas load</button>
                         </form>
-                </td>
+                    </td>
                 </tr>
                 <tr >
                     <td>http://pizzafaloszeged.hu/pizzak/</td>
@@ -172,7 +172,7 @@
                 </tr>
                 <tr >
                     <td>https://pizzaforte.hu/hu/pizza/</td>
-                    <td>A Fore Pizzak feltöltése</td>
+                    <td>A Forte Pizzak feltöltése</td>
                     <td>Pizza Fore#28</td>
                     <td></td>
                     <td></td>
@@ -181,6 +181,20 @@
                         <form action="/dashboard/raw_pizzas/forte_load" method="POST" class="mb-0">
                             {{ csrf_field() }}
                             <button  type="submit" class="btn btn-info">Forte pizzas load</button>
+                        </form>
+                </td>
+                </tr>
+                <tr >
+                    <td>https://www.margaretapizza.hu/</td>
+                    <td>A Margaréta Pizzak feltöltése</td>
+                    <td>Pizza Margareta#21</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <form action="/dashboard/raw_pizzas/margareta_load" method="POST" class="mb-0">
+                            {{ csrf_field() }}
+                            <button  type="submit" class="btn btn-info">Margareta pizzas load</button>
                         </form>
                 </td>
                 </tr>
