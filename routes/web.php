@@ -113,6 +113,7 @@ Route::group(['middleware' => 'is_admin','prefix' => 'dashboard'], function() {
     Route::post('/raw_pizzas/happyhot_load', 'Admin\RawPizzaController@happyhotPizzaLoad');
     Route::post('/raw_pizzas/pizzafalo_load', 'Admin\RawPizzaController@pizzafaloPizzaLoad');
     Route::post('/raw_pizzas/forte_load', 'Admin\RawPizzaController@fortePizzaLoad');
+    Route::post('/raw_pizzas/margareta_load', 'Admin\RawPizzaController@margaretaPizzaLoad');
     Route::get('/materials/by_ids', 'Admin\MaterialController@materialsByIDs');
     Route::patch('/material/set-material-category', 'Admin\MaterialController@setMaterialsCategory');
     Route::resource('/materials', 'Admin\MaterialController');
