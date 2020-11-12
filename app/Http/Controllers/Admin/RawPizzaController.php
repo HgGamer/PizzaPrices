@@ -94,32 +94,67 @@ class RawPizzaController extends Controller
         $jsonData = json_decode($response);
 
         foreach ($jsonData as $pizzaData) {
-            $rawPizza = new RawPizza;
+            $checkExist = RawPizza::where('title', $pizzaData->name)
+                                ->where('website_id', 28)
+                                ->first();
 
-            $rawPizza->title = $pizzaData->name;
 
-            $rawPizza->size = $pizzaData->size;
+            if(isset($checkExist->id)) {
+                $rawPizza = RawPizza::find($checkExist->id);
 
-            $rawPizza->price = $pizzaData->price;
+                $rawPizza->title = $pizzaData->name;
 
-            $i = 0;
-            $feltetek = "";
-            foreach ($pizzaData->ingredients as $material) {
-                $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
-                $i++;
+                $rawPizza->size = $pizzaData->size;
+
+                $rawPizza->price = $pizzaData->price;
+
+                $i = 0;
+                $feltetek = "";
+                foreach ($pizzaData->ingredients as $material) {
+                    $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
+                    $i++;
+                }
+
+                $rawPizza->content = $feltetek;
+
+                $rawPizza->image = "";
+
+                $rawPizza->source_link = "";
+
+                $rawPizza->category_id = 3;
+
+                $rawPizza->website_id = 28;
+
+                $rawPizza->save();
+            } else {
+                $rawPizza = new RawPizza;
+
+                $rawPizza->title = $pizzaData->name;
+
+                $rawPizza->size = $pizzaData->size;
+
+                $rawPizza->price = $pizzaData->price;
+
+                $i = 0;
+                $feltetek = "";
+                foreach ($pizzaData->ingredients as $material) {
+                    $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
+                    $i++;
+                }
+
+                $rawPizza->content = $feltetek;
+
+                $rawPizza->image = "";
+
+                $rawPizza->source_link = "";
+
+                $rawPizza->category_id = 3;
+
+                $rawPizza->website_id = 28;
+
+                $rawPizza->save();
             }
 
-            $rawPizza->content = $feltetek;
-
-            $rawPizza->image = "";
-
-            $rawPizza->source_link = "";
-
-            $rawPizza->category_id = 3;
-
-            $rawPizza->website_id = 28;
-
-            $rawPizza->save();
         }
 
         return redirect()->route('links.index')
@@ -158,33 +193,64 @@ class RawPizzaController extends Controller
                 continue;
             }
 
-            $rawPizza = new RawPizza;
+            if(isset($checkExist->id)) {
+                $rawPizza = RawPizza::find($checkExist->id);
 
-            $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
+                $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
 
-            $rawPizza->title = $name;
+                $rawPizza->title = $name;
 
-            $rawPizza->size = "32";
+                $rawPizza->size = "32";
 
-            $price = (string)($pizzaData['price'] / 100);
+                $price = (string)($pizzaData['price'] / 100);
 
-            $rawPizza->price = $price;
+                $rawPizza->price = $price;
 
-            $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
+                $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
 
-            $feltetek = str_replace(" +",",", $feltetek);
+                $feltetek = str_replace(" +",",", $feltetek);
 
-            $rawPizza->content = $feltetek;
+                $rawPizza->content = $feltetek;
 
-            $rawPizza->image = "";
+                $rawPizza->image = "";
 
-            $rawPizza->source_link = "";
+                $rawPizza->source_link = "";
 
-            $rawPizza->category_id = 3;
+                $rawPizza->category_id = 3;
 
-            $rawPizza->website_id = 21;
+                $rawPizza->website_id = 21;
 
-            $rawPizza->save();
+                $rawPizza->save();
+
+            } else {
+                $rawPizza = new RawPizza;
+
+                $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
+
+                $rawPizza->title = $name;
+
+                $rawPizza->size = "32";
+
+                $price = (string)($pizzaData['price'] / 100);
+
+                $rawPizza->price = $price;
+
+                $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
+
+                $feltetek = str_replace(" +",",", $feltetek);
+
+                $rawPizza->content = $feltetek;
+
+                $rawPizza->image = "";
+
+                $rawPizza->source_link = "";
+
+                $rawPizza->category_id = 3;
+
+                $rawPizza->website_id = 21;
+
+                $rawPizza->save(); 
+            }
         }
 
         return redirect()->route('links.index')

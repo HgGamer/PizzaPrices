@@ -186,10 +186,26 @@ class LinksController extends Controller
         }
 
         /* Statikus nem scrapelhető dolgok */
+
         $this->banyaiPizzaFeltetLoad();
-        $this->forzaitaliaPizzaLoad();
-        $this->happyhotPizzaLoad();
-        $this->pizzafaloPizzaLoad();
+
+        $forzaItaliaCount = RawPizza::where('website_id', 29)->count();
+        if ($forzaItaliaCount < 1) {
+            $this->forzaitaliaPizzaLoad();
+        }
+
+        $faloCount = RawPizza::where('website_id', 30)->count();
+        if ($faloCount < 1) {
+            $this->pizzafaloPizzaLoad();
+        }
+
+        $happyHotCount = RawPizza::where('website_id', 31)->count();
+        if ($happyHotCount < 1) {
+            $this->happyhotPizzaLoad();
+        }
+        
+
+        /* From external apis */
         $this->fortePizzaLoad();
         $this->margaretaPizzaLoad();
 
@@ -280,8 +296,8 @@ class LinksController extends Controller
         $data = array('name'=>$userName, 'newWebsitesData' => $newWebsitesData, 'newPizzas'=> $newPizzas, 'priceChangedPizzas' => $priceChangedPizzas);
         Mail::send('emails.ScrapeReport', $data, function($message) use ($to_name, $to_email) {
         $message->to($to_email, $to_name)
-        ->cc("chudi.richard@gmail.com", $to_name)
-        ->cc("sipos22@msn.com", $to_name)
+        //->cc("chudi.richard@gmail.com", $to_name)
+        //->cc("sipos22@msn.com", $to_name)
         ->subject("Scrape Report");
         $message->from("pizzapricesbot@gmail.com",'Pizza Prices Jarvis');
         });
@@ -302,9 +318,8 @@ class LinksController extends Controller
 
             }
 
-           $rawPizzas = RawPizza::all();
-
-           $newPizzas = [];
+            $rawPizzas = RawPizza::all();
+            $newPizzas = [];
             $priceChangedPizzas = [];
 
             $i = 0;
@@ -429,33 +444,68 @@ class LinksController extends Controller
 
         $jsonData = json_decode($response);
 
+        
         foreach ($jsonData as $pizzaData) {
-            $rawPizza = new RawPizza;
+            $checkExist = RawPizza::where('title', $pizzaData->name)
+                                ->where('website_id', 28)
+                                ->first();
 
-            $rawPizza->title = $pizzaData->name;
+            if(isset($checkExist->id)) {
+                $rawPizza = RawPizza::find($checkExist->id);
 
-            $rawPizza->size = $pizzaData->size;
+                $rawPizza->title = $pizzaData->name;
 
-            $rawPizza->price = $pizzaData->price;
+                $rawPizza->size = $pizzaData->size;
 
-            $i = 0;
-            $feltetek = "";
-            foreach ($pizzaData->ingredients as $material) {
-                $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
-                $i++;
+                $rawPizza->price = $pizzaData->price;
+
+                $i = 0;
+                $feltetek = "";
+                foreach ($pizzaData->ingredients as $material) {
+                    $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
+                    $i++;
+                }
+
+                $rawPizza->content = $feltetek;
+
+                $rawPizza->image = "";
+
+                $rawPizza->source_link = "";
+
+                $rawPizza->category_id = 3;
+
+                $rawPizza->website_id = 28;
+
+                $rawPizza->save();
+            } else {
+                $rawPizza = new RawPizza;
+
+                $rawPizza->title = $pizzaData->name;
+
+                $rawPizza->size = $pizzaData->size;
+
+                $rawPizza->price = $pizzaData->price;
+
+                $i = 0;
+                $feltetek = "";
+                foreach ($pizzaData->ingredients as $material) {
+                    $feltetek = $feltetek . ($i == 0 ? "" : ", ") . $material->name . ($material->type == "sauce" ? " alap" : "");
+                    $i++;
+                }
+
+                $rawPizza->content = $feltetek;
+
+                $rawPizza->image = "";
+
+                $rawPizza->source_link = "";
+
+                $rawPizza->category_id = 3;
+
+                $rawPizza->website_id = 28;
+
+                $rawPizza->save();
             }
 
-            $rawPizza->content = $feltetek;
-
-            $rawPizza->image = "";
-
-            $rawPizza->source_link = "";
-
-            $rawPizza->category_id = 3;
-
-            $rawPizza->website_id = 28;
-
-            $rawPizza->save();
         }
     }
 
@@ -490,33 +540,69 @@ class LinksController extends Controller
                 continue;
             }
 
-            $rawPizza = new RawPizza;
+            $pizzaName  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
 
-            $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
+            $checkExist = RawPizza::where('title', $pizzaName)
+                                ->where('website_id', 21)
+                                ->first();
 
-            $rawPizza->title = $name;
+            if(isset($checkExist->id)) {
+                $rawPizza = RawPizza::find($checkExist->id);
 
-            $rawPizza->size = "32";
+                $rawPizza->title = $pizzaName;
 
-            $price = (string)($pizzaData['price'] / 100);
+                $rawPizza->size = "32";
 
-            $rawPizza->price = $price;
+                $price = (string)($pizzaData['price'] / 100);
 
-            $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
+                $rawPizza->price = $price;
 
-            $feltetek = str_replace(" +",",", $feltetek);
+                $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
 
-            $rawPizza->content = $feltetek;
+                $feltetek = str_replace(" +",",", $feltetek);
 
-            $rawPizza->image = "";
+                $rawPizza->content = $feltetek;
 
-            $rawPizza->source_link = "";
+                $rawPizza->image = "";
 
-            $rawPizza->category_id = 3;
+                $rawPizza->source_link = "";
 
-            $rawPizza->website_id = 21;
+                $rawPizza->category_id = 3;
 
-            $rawPizza->save();
+                $rawPizza->website_id = 21;
+
+                $rawPizza->save();
+
+            } else {
+                $rawPizza = new RawPizza;
+
+                $name  = explode(" | ", $pizzaData['title']['hu_HU'])[0];
+
+                $rawPizza->title = $name;
+
+                $rawPizza->size = "32";
+
+                $price = (string)($pizzaData['price'] / 100);
+
+                $rawPizza->price = $price;
+
+                $feltetek = explode(" | ", $pizzaData['description']['hu_HU'])[0];
+
+                $feltetek = str_replace(" +",",", $feltetek);
+
+                $rawPizza->content = $feltetek;
+
+                $rawPizza->image = "";
+
+                $rawPizza->source_link = "";
+
+                $rawPizza->category_id = 3;
+
+                $rawPizza->website_id = 21;
+
+                $rawPizza->save(); 
+            }
+
         }
     }
 
