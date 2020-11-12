@@ -296,8 +296,8 @@ class LinksController extends Controller
         $data = array('name'=>$userName, 'newWebsitesData' => $newWebsitesData, 'newPizzas'=> $newPizzas, 'priceChangedPizzas' => $priceChangedPizzas);
         Mail::send('emails.ScrapeReport', $data, function($message) use ($to_name, $to_email) {
         $message->to($to_email, $to_name)
-        //->cc("chudi.richard@gmail.com", $to_name)
-        //->cc("sipos22@msn.com", $to_name)
+        ->cc("chudi.richard@gmail.com", $to_name)
+        ->cc("sipos22@msn.com", $to_name)
         ->subject("Scrape Report");
         $message->from("pizzapricesbot@gmail.com",'Pizza Prices Jarvis');
         });
